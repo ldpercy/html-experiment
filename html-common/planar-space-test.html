@@ -18,9 +18,52 @@
 		</nav>
 	</header>
 
-	<link rel="stylesheet" href="../[html-common]/style/testing.css">
+
+
+
 
 	<main>
+		<pre>
+			Testing testing 1 2 3
+		</pre>
+		<style contenteditable="plaintext-only">
+
+			output > details {
+				margin:1px;
+
+				&:first-of-type {
+					border-radius: 1ex 1ex 0ex 0ex;
+				}
+
+				&:last-of-type { border-radius: 0ex 0ex 1ex 1ex; }
+			}
+
+			details.test {
+				padding: 1ex;
+
+			}
+
+			.test.pass {
+				background-color: #0804;
+			}
+
+			.test.fail {
+				background-color: #f004;
+			}
+
+			ol {
+				list-style-type: decimal-leading-zero;
+				counter-reset: foo 0;
+			}
+
+			li { line-height: 2ex;}
+
+			.tickCross {
+				display:inline-block;
+				padding:0ex 1ex;
+			}
+		</style>
+
 
 
 		<details name="test_set">
@@ -28,8 +71,8 @@
 			<script type="module" title="Preconfigured space tests">
 				console.info('preconfigured space setting tests');
 
-				import * as test from '../[html-common]/testing/testing.js';
-				import * as predicate from '../[html-common]/testing/predicate.js';
+				import * as test from './testing.js';
+				import * as predicate from './predicate.js';
 				import * as ps from '../[html-common]/module/PlanarSpace.js'
 
 				let output = '';
@@ -126,8 +169,8 @@
 
 			<script type="module"  title="Custom space tests">
 				console.info('Custom space tests - clockwise (navigation) variants');
-				import * as test from '../[html-common]/testing/testing.js';
-				import * as predicate from '../[html-common]/testing/predicate.js';
+				import * as test from './testing.js';
+				import * as predicate from './predicate.js';
 				import * as ps from '../[html-common]/module/PlanarSpace.js'
 
 				console.groupCollapsed('Setup navigation variant 1 - Polar axis right, clockwise');
@@ -210,8 +253,8 @@
 
 			<script type="module"  title="Custom space tests">
 				console.info('Custom space tests - anticlockwise (maths) variants');
-				import * as test from '../[html-common]/testing/testing.js';
-				import * as predicate from '../[html-common]/testing/predicate.js';
+				import * as test from './testing.js';
+				import * as predicate from './predicate.js';
 				import * as ps from '../[html-common]/module/PlanarSpace.js'
 
 				console.groupCollapsed('Setup maths variant 1 - Polar axis up, anticlockwise');

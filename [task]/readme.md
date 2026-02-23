@@ -15,6 +15,7 @@ When html-common gets into release cadence some tasks will be moved over to ther
 
 Todo
 ----
+* Revisit test grouping/nesting
 * CSS generated content: can any items be made conditional? Also see if there are any implementations for the "six yet-to-be implemented CSS functions including content(), string(), and leader(), and the three `target` functions"
 * "Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content."
 * "This expression is not constructable. Type '....' has no construct signatures.ts(2351)"
@@ -29,13 +30,14 @@ Todo
 * Parent selector - 'has'
 * See if there's a way to collapse the single extra spaces that sometimes get added just from formatting, eg `<h1>	<a ...`
 * Grid layout - see if there's a simple way of making grid items go full-width without knowing the column count
-* 3d transform experiments
-
+* continue 3d transform experiments
+* html details/summary: move the marker to the right
+* Have a look at the current state of CSS list counters - mainly want zero-base for now
 
 
 #### !important - Turn on jsdoc typechecking for inline `<script></script>` tags within html
 
-I found some references to this and some open vscode issues that look related:
+Found some references to this and some open vscode issues that look related:
 
 * https://stackoverflow.com/questions/79769526/is-there-a-way-for-jsdoc-comments-to-be-visible-in-html-files
 * https://github.com/microsoft/vscode/issues/26338

@@ -32,12 +32,23 @@ export function groupTest(desc, predicate, expressionArray) {
 }/ * groupTest */
 
 
-/** @param {boolean} b */
+/**
+ * @param {boolean} b
+ * @returns {string}
+ */
 function passFail(b){
 	return (b) ? 'pass' : 'fail';
 }
 
 
+
+/**
+ * @param {boolean} b
+ * @returns {string}
+ */
+function tickCross(b){
+	return (b) ? '🗹' : '🗷';
+}
 
 
 
@@ -108,7 +119,7 @@ class Test {
 	}
 
 
-
+	/** @returns {void} */
 	toConsole() {
 		this.run();
 		const consoleStyle = `color:${(this.pass) ? 'green' : 'red'};`  ;
@@ -129,15 +140,33 @@ class Test {
 
 	/**
 	 * @param {string} detailsName
+	 * @returns {string}
 	 */
 	toHTML(detailsName) {
+		// name="${detailsName}"
+
+		const testResultOutput = this.result.reduce(
+			(testOutput, currentItem) => {
+				return testOutput + `<li> <span class="tickCross">${tickCross(currentItem.predicate)}</span>  ${currentItem.expression} </li>`;
+			},
+			''
+		);
+		// <code>${JSON.stringify(this.result)}</code>
 		let result = `
-			<details name="${detailsName}" class="test ${passFail(this.pass)}">
-				<summary>${this.desc}</summary>
+			<details  class="test ${passFail(this.pass)}" open>
+				<summary>${tickCross(this.pass)} ${this.desc}</summary>
+				<div>
+					Predicate:
+					<strong>${this.predicate.constructor.name}</strong>
+				</div>
 
-
-
-
+				<ol>
+					${testResultOutput}
+				</ol>
+				<div>
+					Result:
+					<strong>${passFail(this.pass)}</strong>
+				</div>
 			</details>
 		`;
 
