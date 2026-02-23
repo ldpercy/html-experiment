@@ -4,9 +4,24 @@
 <head>
 	<title>popover</title>
 	<meta charset="utf-8">
-	<link rel="icon" href="../[html-common]/favicon/html.svg">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="../favicon.svg">
 	<link rel="stylesheet" href="../[common]/common-style.css">
+	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
+</head>
+<body>
+	<header>
+		<h1><a href="">Popover</a></h1>
+		<nav>
+			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
+			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
+			<a title="To folder" href="./">🖿</a>
+			<a title="Parent folder" href="../">🡅</a>
+		</nav>
+	</header>
+
+
+	<main>
+
 	<style>
 		::backdrop {
 			background-image: linear-gradient(
@@ -20,28 +35,26 @@
 		}
 
 	</style>
-</head>
-<body>
-	<h1>popover</h1>
 
+	<form>
 
 	<input type="text" id="input-popoverId" placeholder="input-popoverId">
 
-	<br>
+		<br>
 
-	<button popovertarget="popover">
-		popover
-	</button>
-	<button popovertarget="popover-auto">
-		popover-auto
-	</button>
-	<button popovertarget="popover-hint">
-		popover-hint
-	</button>
-	<button popovertarget="popover-manual">
-		popover-manual
-	</button>
-
+		<button type="button" popovertarget="popover">
+			popover
+		</button>
+		<button type="button" popovertarget="popover-auto">
+			popover-auto
+		</button>
+		<button type="button" popovertarget="popover-hint">
+			popover-hint
+		</button>
+		<button type="button" popovertarget="popover-manual">
+			popover-manual
+		</button>
+	</form>
 
 
 	<div id="popover" popover>
@@ -85,6 +98,8 @@
 			<button>OK</button>
 		</form>
 	</dialog>
+
+	</main>
 
 
 </body>
