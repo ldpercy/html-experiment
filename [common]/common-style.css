@@ -75,7 +75,7 @@ pre {		/* treat these like markdown */
 
 
 header h1::before {
-	content: url("../favicon.svg");
+	content: url("../favicon.svg") / "HTML experiment icon";
 }
 
 
