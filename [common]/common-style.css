@@ -114,12 +114,6 @@ output#pageLog {
 }
 
 
-details {
-	cursor:pointer;
-}
-summary:hover {
-	text-decoration: underline dotted;
-}
 
 
 

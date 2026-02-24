@@ -146,23 +146,35 @@ class Test {
 		// name="${detailsName}"
 
 		const testResultOutput = this.result.reduce(
-			(testOutput, currentItem) => {
-				return testOutput + `<li> <span class="tickCross">${tickCross(currentItem.predicate)}</span>  ${currentItem.expression} </li>`;
+			(testOutput, currentItem, index) => {
+				const result = testOutput + `
+					<span>${index}</span>
+					<span>${currentItem.expression}</span>
+					<span class="ballotBox">${tickCross(currentItem.predicate)}</span>
+
+				`;
+
+				return result;
 			},
 			''
 		);
 		// <code>${JSON.stringify(this.result)}</code>
 		let result = `
-			<details  class="test ${passFail(this.pass)}" open>
-				<summary>${tickCross(this.pass)} ${this.desc}</summary>
+			<details class="test ${passFail(this.pass)}" open>
+				<summary>
+					<span class="ballotBox" ${tickCross(this.pass)}>
+						${tickCross(this.pass)}
+					</span>
+					${this.desc}
+				</summary>
 				<div>
 					Predicate:
 					<strong>${this.predicate.constructor.name}</strong>
 				</div>
 
-				<ol>
+				<div class="testResult">
 					${testResultOutput}
-				</ol>
+				</div>
 				<div>
 					Result:
 					<strong>${passFail(this.pass)}</strong>

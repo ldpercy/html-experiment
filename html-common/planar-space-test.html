@@ -27,6 +27,10 @@
 			Testing testing 1 2 3
 		</pre>
 		<style contenteditable="plaintext-only">
+			:root {
+				--colour-pass: green;
+				--colour-fail: red;
+			}
 
 			output > details {
 				margin:1px;
@@ -43,25 +47,20 @@
 
 			}
 
-			.test.pass {
-				background-color: #0804;
+			.test {
+
+				&.pass { background-color: hsl(from var(--colour-pass) h s l / 20%); }
+				&.fail { background-color: hsl(from var(--colour-fail) h s l / 20%); }
 			}
 
-			.test.fail {
-				background-color: #f004;
+			.testResult {
+				display:grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				span { text-align:center; }
 			}
 
-			ol {
-				list-style-type: decimal-leading-zero;
-				counter-reset: foo 0;
-			}
+			.ballotBox { line-height: 2ex; }
 
-			li { line-height: 2ex;}
-
-			.tickCross {
-				display:inline-block;
-				padding:0ex 1ex;
-			}
 		</style>
 
 
