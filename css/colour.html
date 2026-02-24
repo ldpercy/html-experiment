@@ -24,11 +24,8 @@
 
 	<main>
 
-
-
-
 		<form onchange="generateSwatches();" class="fullwidth">
-			<h2>Settings</h2>
+			<h3>Settings</h3>
 			<label>
 				Colour chooser
 				<input type="color" id="input-colourChooser" onchange="document.getElementById('input-colourText').value=this.value">
@@ -49,21 +46,62 @@
 		</form>
 
 		<output class="fullwidth">
-			<h2>sRGB</h2>
-			<h3>RGB — red, green, blue</h3>
-			<div class="swatches background-crosshatch" id="swatchesRGB"></div>
-			<h3>HSL — hue, saturation, lightness</h3>
-			<div class="swatches background-crosshatch" id="swatchesHSL"></div>
-			<h3>HWB — hue, whiteness, blackness</h3>
-			<div class="swatches background-crosshatch" id="swatchesHWB"></div>
 
-			<h2>CIELAB</h2>
-			<h3>Lab — lightness, red/green, blue/yellow</h3>
-			<div class="swatches background-crosshatch" id="swatchesLab"></div>
-			<h3>LCH — lightness, chroma, hue</h3>
-			<div class="swatches background-crosshatch" id="swatchesLCH"></div>
+			<details open>
+				<summary><h2>sRGB</h2></summary>
+
+				<h3>rgb — red, green, blue</h3>
+				<div class="swatches background-crosshatch" id="swatchesRGB"></div>
+				<h3>hsl — hue, saturation, lightness</h3>
+				<div class="swatches background-crosshatch" id="swatchesHSL"></div>
+				<h3>hwb — hue, whiteness, blackness</h3>
+				<div class="swatches background-crosshatch" id="swatchesHWB"></div>
+			</details>
+
+			<details open>
+				<summary><h2>CIELAB</h2></summary>
+
+				<h3>lab — lightness, red/green, blue/yellow</h3>
+				<div class="swatches background-crosshatch" id="swatchesLab"></div>
+				<h3>lch — lightness, chroma, hue</h3>
+				<div class="swatches background-crosshatch" id="swatchesLCH"></div>
+			</details>
+
+			<details>
+				<summary><h2>Oklab</h2></summary>
+
+				<h3>oklab — lightness, red/green, blue/yellow</h3>
+				<div class="swatches background-crosshatch" id="swatchesOklab"></div>
+				<h3>oklch — lightness, chroma, hue</h3>
+				<div class="swatches background-crosshatch" id="swatchesOklch"></div>
+			</details>
 
 		</output>
+
+
+		<style contenteditable="plaintext-only"  class="limit-height">
+			summary h2 {
+				display:inline-block;
+				margin:0em;
+
+				width:calc(100% - 2em);
+			}
+			.swatches {
+				font-family:monospace;
+				div {
+					display: flex;
+  					justify-content: space-evenly;
+				}
+				span {
+					display:inline-block;
+					width: 100%;
+					padding:3ex;
+					border-radius:1ex;
+				}
+				/* .channelTitle { width: 15em; } */
+			}
+		</style>
+
 
 		<script class="limit-height">
 			function loadColour() {
@@ -85,38 +123,24 @@
 				const colour = document.getElementById('input-colourText').value;
 				const divisions = document.getElementById('input-divisions').value;
 
-				document.getElementById('swatchesRGB').innerHTML = generateColourSpaceSwatches(colour, colourSpace['RGB'], divisions);
-				document.getElementById('swatchesHSL').innerHTML = generateColourSpaceSwatches(colour, colourSpace['HSL'], divisions);
-				document.getElementById('swatchesHWB').innerHTML = generateColourSpaceSwatches(colour, colourSpace['HWB'], divisions);
-				document.getElementById('swatchesLab').innerHTML = generateColourSpaceSwatches(colour, colourSpace['Lab'], divisions);
-				document.getElementById('swatchesLCH').innerHTML = generateColourSpaceSwatches(colour, colourSpace['LCH'], divisions);
+				document.getElementById('swatchesRGB').innerHTML = generateColourSpaceSwatches(colour, colourSpace['rgb'], divisions);
+				document.getElementById('swatchesHSL').innerHTML = generateColourSpaceSwatches(colour, colourSpace['hsl'], divisions);
+				document.getElementById('swatchesHWB').innerHTML = generateColourSpaceSwatches(colour, colourSpace['hwb'], divisions);
+				document.getElementById('swatchesLab').innerHTML = generateColourSpaceSwatches(colour, colourSpace['lab'], divisions);
+				document.getElementById('swatchesLCH').innerHTML = generateColourSpaceSwatches(colour, colourSpace['lch'], divisions);
 
+				document.getElementById('swatchesOklab').innerHTML = generateColourSpaceSwatches(colour, colourSpace['oklab'], divisions);
+				document.getElementById('swatchesOklch').innerHTML = generateColourSpaceSwatches(colour, colourSpace['oklch'], divisions);
 			}
 		</script>
 
-		<style contenteditable="plaintext-only"  class="limit-height">
 
-			.swatches {
-				font-family:monospace;
-				div {
-					display: flex;
-  					justify-content: space-evenly;
-				}
-				span {
-					display:inline-block;
-					width: 100%;
-					padding:2em;
-					border-radius:1ex;
-				}
-				/* .channelTitle { width: 15em; } */
-			}
-		</style>
 
 		<script class="fullwidth">
 			const colourSpace = {};
 
 
-			colourSpace['RGB'] = {
+			colourSpace['rgb'] = {
 				name: 'rgb',		// red, green blue
 				channel : [
 					{ name: 'r',	type: 'linear',	min : 0,	max : 255 },
@@ -126,7 +150,7 @@
 			};
 
 
-			colourSpace['HSL'] = {
+			colourSpace['hsl'] = {
 				name: 'hsl',		// hue, saturation, lightness
 				channel : [
 					{ name: 'h',	type: 'polar',	min : 0,	max : 360 },
@@ -135,7 +159,7 @@
 				]
 			};
 
-			colourSpace['HWB'] = {
+			colourSpace['hwb'] = {
 				name : 'hwb',		// hue, whiteness, blackness
 				channel : [
 					{ name: 'h',	type: 'polar',	min : 0,	max : 360 },
@@ -144,7 +168,7 @@
 				]
 			};
 
-			colourSpace['Lab'] = {
+			colourSpace['lab'] = {
 				name : 'lab',		// lightness, red/green axis, blue/yellow axis
 				channel : [
 					{ name: 'l',	type: 'linear',	min : 0,	max : 100 },
@@ -153,7 +177,7 @@
 				],
 			};
 
-			colourSpace['LCH'] = {
+			colourSpace['lch'] = {
 				name : 'lch',		// lightness, chroma, hue
 				channel : [
 					{ name: 'l',	type: 'linear',	min : 0,	max : 100 },
@@ -161,6 +185,27 @@
 					{ name: 'h',	type: 'polar',	min : 0,	max : 360 },
 				]
 			};
+
+			colourSpace['oklab'] = {
+				name : 'oklab',		// lightness, red/green axis, blue/yellow axis
+				channel : [
+					{ name: 'l',	type: 'linear',	min : 0,	max : 1 },
+					{ name: 'a',	type: 'linear',	min : -0.4,	max : 0.4 },
+					{ name: 'b',	type: 'linear',	min : -0.4,	max : 0.4 },
+				],
+			};
+
+			colourSpace['oklch'] = {
+				name : 'oklch',		// lightness, chroma, hue
+				channel : [
+					{ name: 'l',	type: 'linear',	min : 0,	max : 1 },
+					{ name: 'c',	type: 'linear',	min : 0,	max : 0.4 },
+					{ name: 'h',	type: 'polar',	min : 0,	max : 360 },
+				]
+			};
+
+
+
 
 
 			/** generateColourSpaceSwatches
@@ -203,7 +248,7 @@
 
 						//
 						let channelResult = `
-							<div title="channel:${channel.name}; step:${step};">
+							<div title="channel:${channel.name}; step:${step.toFixed(3)};">
 								${channelSwatches}
 							</div>
 						`;
