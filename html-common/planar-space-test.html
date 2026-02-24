@@ -49,8 +49,8 @@
 
 			.test {
 
-				&.pass { background-color: hsl(from var(--colour-pass) h s l / 20%); }
-				&.fail { background-color: hsl(from var(--colour-fail) h s l / 20%); }
+				&.pass { background-color: hsl(from var(--colour-pass) h s l / 10%); }
+				&.fail { background-color: hsl(from var(--colour-fail) h s l / 10%); }
 			}
 
 			.testResult {
@@ -59,7 +59,11 @@
 				span { text-align:center; }
 			}
 
-			.ballotBox { line-height: 2ex; }
+			.ballotBox {
+				line-height: 2ex;
+				&.pass { color: var(--colour-pass); }
+				&.fail { color: var(--colour-fail); }
+			}
 
 		</style>
 

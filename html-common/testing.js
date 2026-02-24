@@ -8,30 +8,6 @@ export { Test }
 
 
 
-
-
-
-/* * groupTest
- * @param {string} desc
- * @param {predicateLibrary.Predicate} predicate
- * @param {array} expressionArray
- * /
-export function groupTest(desc, predicate, expressionArray) {
-	//console.debug(arguments);
-
-	const test = new Test(desc, predicate, expressionArray);
-	test.run();
-
-	const consoleStyle = `color:${(test.pass) ? 'green' : 'red'};`  ;
-
-	console.groupCollapsed(`%c [${passFail(test.pass)}] ${desc}`, consoleStyle);
-	console.log('predicate:', test.predicate.constructor.name);
-	console.dir(test.result);
-	console.log(`%c ${passFail(test.pass)}`, consoleStyle);
-	console.groupEnd();
-}/ * groupTest */
-
-
 /**
  * @param {boolean} b
  * @returns {string}
@@ -49,10 +25,6 @@ function passFail(b){
 function tickCross(b){
 	return (b) ? '🗹' : '🗷';
 }
-
-
-
-
 
 
 
@@ -150,7 +122,7 @@ class Test {
 				const result = testOutput + `
 					<span>${index}</span>
 					<span>${currentItem.expression}</span>
-					<span class="ballotBox">${tickCross(currentItem.predicate)}</span>
+					<span class="ballotBox ${passFail(this.pass)}">${tickCross(currentItem.predicate)}</span>
 
 				`;
 
@@ -162,7 +134,7 @@ class Test {
 		let result = `
 			<details class="test ${passFail(this.pass)}" open>
 				<summary>
-					<span class="ballotBox" ${tickCross(this.pass)}>
+					<span class="ballotBox ${passFail(this.pass)}">
 						${tickCross(this.pass)}
 					</span>
 					${this.desc}
