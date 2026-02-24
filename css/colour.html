@@ -47,32 +47,11 @@
 				document.body.style.setProperty('--colour', colour);
 				//document.body.style.setProperty('--colour1', colour);
 
-				const hslSwatches =`
-					<div>${swatchesHSL(colour, 'h', divisions)}</div>
-					<div>${swatchesHSL(colour, 's', divisions)}</div>
-					<div>${swatchesHSL(colour, 'l', divisions)}</div>
-					<div>${swatchesHSL(colour, 'alpha', divisions)}</div>
-				`;
 
-				document.getElementById('swatchesHSL').innerHTML = hslSwatches;
-
-				const hwbSwatches =`
-					<div>${swatchesHWB(colour, 'h', divisions)}</div>
-					<div>${swatchesHWB(colour, 'w', divisions)}</div>
-					<div>${swatchesHWB(colour, 'b', divisions)}</div>
-					<div>${swatchesHWB(colour, 'alpha', divisions)}</div>
-				`;
-
-				document.getElementById('swatchesHWB').innerHTML = hwbSwatches;
-
-				const labSwatches =`
-					<div>${swatchesLab(colour, 'l', divisions)}</div>
-					<div>${swatchesLab(colour, 'a', divisions)}</div>
-					<div>${swatchesLab(colour, 'b', divisions)}</div>
-					<div>${swatchesLab(colour, 'alpha', divisions)}</div>
-				`;
-
-				document.getElementById('swatchesLab').innerHTML = labSwatches;
+				document.getElementById('swatchesHSL').innerHTML = generateColourSpaceSwatches(colour, colourSpace.HSL, divisions);
+				document.getElementById('swatchesHWB').innerHTML = generateColourSpaceSwatches(colour, colourSpace.HWB, divisions);
+				document.getElementById('swatchesLab').innerHTML = generateColourSpaceSwatches(colour, colourSpace.Lab, divisions);;
+				document.getElementById('swatchesLCH').innerHTML = generateColourSpaceSwatches(colour, colourSpace.LCH, divisions);;
 
 			}
 		</script>
@@ -136,18 +115,102 @@
 			<h3>lab</h3>
 			<div class="swatches background-crosshatch" id="swatchesLab"></div>
 
+			<h3>lch</h3>
+			<div class="swatches background-crosshatch" id="swatchesLCH"></div>
+
+
 		</output>
 
 
 
 		<script class="fullwidth">
 
-			const relativeHSL = {
-				'h': { min : 0, max : 360 },
-				's': { min : 0, max : 100 },
-				'l': { min : 0, max : 100 },
-				'alpha': { min : 0, max : 1 }
-			};
+			const colourSpace = {
+				'HSL' : {
+					name: 'hsl',		// hue, saturation, lightness
+					channel : [
+						{ name: 'h',	type: 'polar',	min : 0,	max : 360 },
+						{ name: 's',	type: 'linear',	min : 0,	max : 100 },
+						{ name: 'l',	type: 'linear',	min : 0,	max : 100 },
+					]
+				},
+				'HWB' : {
+					name : 'hwb',		// hue, whiteness, blackness
+					channel : [
+						{ name: 'h',	type: 'polar',	min : 0,	max : 360 },
+						{ name: 'w',	type: 'linear',	min : 0,	max : 100 },
+						{ name: 'b',	type: 'linear',	min : 0,	max : 100 },
+					]
+				},
+				'Lab' : {
+					name : 'lab',		// lightness, red/green axis, blue/yellow axis
+					channel : [
+						{ name: 'l',	type: 'linear',	min : 0,	max : 100 },
+						{ name: 'a',	type: 'linear',	min : -125,	max : 125 },
+						{ name: 'b',	type: 'linear',	min : -125,	max : 125 },
+					],
+				},
+				'LCH' : {
+					name : 'lch',		// lightness, chroma, hue
+					channel : [
+						{ name: 'l',	type: 'linear',	min : 0,	max : 100 },
+						{ name: 'c',	type: 'linear',	min : 0,	max : 150 },
+						{ name: 'h',	type: 'polar',	min : 0,	max : 360 },
+					]
+				},
+			};	// colourSpace
+
+
+
+			/** generateColourSpaceSwatches
+			 * @param {string} colour
+			 * @param {string} colourSpace
+			 * @param {number} divisions
+			 */
+			function generateColourSpaceSwatches(colour, colourSpace, divisions) {
+				let result = '';
+				let step = 0;
+
+				const channelSwatches = colourSpace.channel.map(
+					(channel) => {
+						let step = (channel.max - channel.min) / divisions;
+						let channelSwatches = '';
+
+						for (let i=0; i<=divisions; i++) {
+							let val = channel.min + (i * step);
+							let swatchMap = colourSpace.channel.map(
+								(swatchChannel) => {
+									return	(swatchChannel === channel) ? `${val.toFixed(2)}` : swatchChannel.name;
+								}
+							);
+
+							colourString = `${colourSpace.name}(from ${colour} ${swatchMap.join(' ')})`;
+							channelSwatches += `<span style="background-color: ${colourString};">${colourString}</span>`;
+						}
+
+						//
+						let channelResult = `
+							<div>
+								<span>${channel.name} ${step}</span>
+								${channelSwatches}
+							</div>
+						`;
+						return channelResult;
+					}
+
+				);
+
+				result = channelSwatches.join(' ');
+				return result;
+			}/* generateColourSpaceSwatches */
+
+
+
+
+			//
+			//	old:
+			//
+
 
 			/** swatchesHSL
 			 * @param {string} colour
@@ -155,10 +218,10 @@
 			 * @param {number} divisions
 			 */
 			function swatchesHSL(colour, channel, divisions) {
-				// channel = hue saturation lightness alpha
+
 				let result = '';
 
-				const step = relativeHSL[channel].max / divisions;
+				const step = colourSpace.HSL[channel].max / divisions;
 
 				let val = 0;
 				let h, s, l, alpha;
@@ -180,12 +243,7 @@
 
 
 
-			const relativeHWB = {
-				'h': { min : 0, max : 360 },
-				'w': { min : 0, max : 100 },
-				'b': { min : 0, max : 100 },
-				'alpha': { min : 0, max : 1 }
-			};
+
 
 			/** swatchesHWB
 			 * @param {string} colour
@@ -193,10 +251,10 @@
 			 * @param {number} divisions
 			 */
 			function swatchesHWB(colour, channel, divisions) {
-				// channel = hue whiteness blackness alpha
+
 				let result = '';
 
-				const step = relativeHWB[channel].max / divisions;
+				const step = colourSpace.HWB[channel].max / divisions;
 
 				let val = 0;
 				let h, w, b, alpha;
@@ -214,16 +272,11 @@
 				}
 
 				return result;
-			}/* swatchesHSB */
+			}/* swatchesHWB */
 
 
 
-			const relativeLab = {
-				'l': { min : 0, max : 100 },
-				'a': { min : -125, max : 125 },
-				'b': { min : -125, max : 125 },
-				'alpha': { min : 0, max : 1 }
-			};
+
 
 			/** swatchesLab
 			 * @param {string} colour
@@ -231,17 +284,16 @@
 			 * @param {number} divisions
 			 */
 			function swatchesLab(colour, channel, divisions) {
-				// channel = hue whiteness blackness alpha
 				let result = '';
 
-				const step = (relativeLab[channel].max - relativeLab[channel].min) / divisions;
+				const step = (spaceLab[channel].max - spaceLab[channel].min) / divisions;
 
 				let val = 0;
 				let l, a, b, alpha;
 				let colourString = '';
 
 				for (i=0; i<=divisions; i++) {
-					val = relativeLab[channel].min + (i * step);
+					val = colourSapce.Lab[channel].min + (i * step);
 					l	= (channel === 'l') ? `${val.toFixed(2)}` : 'l';
 					a	= (channel === 'a')	? `${val.toFixed(2)}` : 'a';
 					b	= (channel === 'b')	? `${val.toFixed(2)}` : 'b';
@@ -252,8 +304,7 @@
 				}
 
 				return result;
-			}/* swatchesHSB */
-
+			}/* swatchesLab */
 
 
 
