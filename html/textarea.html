@@ -3,17 +3,36 @@
 <head>
 	<title>textarea</title>
 	<meta charset="utf-8">
-	<!--
 	<link rel="icon" href="../favicon.svg">
 	<link rel="stylesheet" href="../[common]/common-style.css">
-	<link rel="stylesheet" href="form.css">
-	-->
+	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
+
+
+
+</head>
+<body onload="bodyOnload()">
+	<header>
+		<h1><a href="">textarea</a></h1>
+		<nav>
+			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
+			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
+			<a title="To folder" href="./">🖿</a>
+			<a title="Parent folder" href="../">🡅</a>
+		</nav>
+	</header>
+
+	<cite>
+		<a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement">
+			https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement
+		</a>
+	</cite>
+	<main>
+
 
 	<style>
 		.intLink {
 			cursor: pointer;
 			text-decoration: underline;
-			color: blue;
 		}
 	</style>
 
@@ -63,38 +82,26 @@
 
 	</script>
 
-
-
-</head>
-<body onload="bodyOnload()">
-	<header>
-		<h1>textarea</h1>
-		<cite>
-			<a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement">
-				https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement
-			</a>
-		</cite>
-	</header>
-
-
 	<form name="myForm">
-	<p>
-		[
-		<span class="intLink" id="format-strong"><strong>Bold</strong></span> |
-		<span class="intLink" id="format-em"><em>Italic</em></span> |
-		<span class="intLink" id="format-link">URL</span> |
-		<span class="intLink" id="format-code">code</span> ]
-	</p>
+		<p>
 
-	<p>
-		<textarea name="myTextArea" rows="10" cols="120" spellcheck="false">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-			Ut facilisis, arcu vitae adipiscing placerat, nisl lectus accumsan nisi, vitae iaculis sem neque vel lectus.
-			Praesent tristique commodo lorem quis fringilla.
-			Sed ac tellus eros.
-		</textarea>
-	</p>
+			<span class="intLink" id="format-strong"><strong>Bold</strong></span> |
+			<span class="intLink" id="format-em"><em>Italic</em></span> |
+			<span class="intLink" id="format-link">URL</span> |
+			<span class="intLink" id="format-code">code</span>
+		</p>
+
+		<p>
+			<textarea name="myTextArea" rows="10" cols="120" spellcheck="false">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Ut facilisis, arcu vitae adipiscing placerat, nisl lectus accumsan nisi, vitae iaculis sem neque vel lectus.
+				Praesent tristique commodo lorem quis fringilla.
+				Sed ac tellus eros.
+			</textarea>
+		</p>
 	</form>
+
+	</main>
 
 
 </body>

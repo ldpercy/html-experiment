@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>contenteditable</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="../favicon.svg">
+	<link rel="stylesheet" href="../[common]/common-style.css">
+	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
+</head>
+<body>
+	<header>
+		<h1><a href="">contenteditable</a></h1>
+		<nav>
+			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
+			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
+			<a title="To folder" href="./">🖿</a>
+			<a title="Parent folder" href="../">🡅</a>
+		</nav>
+	</header>
+
+	<cite>
+		<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/contenteditable">
+			https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/contenteditable
+		</a>
+	</cite>
+
+	<main>
+
+		<style>
+			blockquote {
+			background: #eeeeee;
+			border-radius: 5px;
+			margin: 16px 0;
+			}
+
+			blockquote p {
+			padding: 15px;
+			}
+
+			cite {
+			margin: 16px 32px;
+			font-weight: bold;
+			}
+
+			blockquote p::before {
+			content: "\201C";
+			}
+
+			blockquote p::after {
+			content: "\201D";
+			}
+
+			[contenteditable] {
+				caret-color: red;
+				border: 1px dotted grey;
+			}
+		</style>
+
+
+
+
+
+		<blockquote contenteditable="true">
+		<p>Edit this content to add your own quote</p>
+		</blockquote>
+
+		<cite contenteditable="true">-- Write your own name here</cite>
+
+
+
+		<h2>Pasting areas</h2>
+		<section class="pasting">
+		<div class="wrapper">
+			<h3>contenteditable="true"</h3>
+			<div contenteditable="true"></div>
+		</div>
+		<div class="wrapper">
+			<h3>contenteditable="plaintext-only"</h3>
+			<div contenteditable="plaintext-only"></div>
+		</div>
+		</section>
+
+	</main>
+
+</body>
+</html>
