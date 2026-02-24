@@ -106,16 +106,16 @@
 		</form>
 
 		<output class="fullwidth">
-			<h3>hsl</h3>
+			<h3>HSL — hue, saturation, lightness</h3>
 			<div class="swatches background-crosshatch" id="swatchesHSL"></div>
 
-			<h3>hwb</h3>
+			<h3>HWB — hue, whiteness, blackness</h3>
 			<div class="swatches background-crosshatch" id="swatchesHWB"></div>
 
-			<h3>lab</h3>
+			<h3>CIE L*a*b* — lightness, red/green, blue/yellow</h3>
 			<div class="swatches background-crosshatch" id="swatchesLab"></div>
 
-			<h3>lch</h3>
+			<h3>LCH — lightness, chroma, hue</h3>
 			<div class="swatches background-crosshatch" id="swatchesLCH"></div>
 
 
@@ -178,9 +178,21 @@
 
 						for (let i=0; i<=divisions; i++) {
 							let val = channel.min + (i * step);
+
 							let swatchMap = colourSpace.channel.map(
 								(swatchChannel) => {
-									return	(swatchChannel === channel) ? `${val.toFixed(2)}` : swatchChannel.name;
+									let channelItem = '';
+									if (swatchChannel !== channel) {
+										channelItem = swatchChannel.name;
+									}
+									else if (channel.type === 'polar') {
+										channelItem	= `calc(${swatchChannel.name} + ${val.toFixed(2)})`;
+									}
+									else {
+										channelItem = `${val.toFixed(2)}`;
+									}
+
+									return channelItem;
 								}
 							);
 
