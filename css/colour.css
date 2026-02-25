@@ -6,7 +6,7 @@
 	--hex-black				: #000000;
 	--hex-dimgrey			: #696969;
 	--hex-grey				: #808080;
-	--hex-darkgrey			: #a9a9a9;		/* Note: CSS 'darkgrey' is lighter than 'grey' for historical reasons */
+	--hex-darkgrey			: #a9a9a9;		/* Warning: CSS 'darkgrey' is lighter than 'grey' for historical reasons */
 	--hex-lightgrey			: #d3d3d3;
 	--hex-whitesmoke		: #f5f5f5;
 	--hex-white				: #ffffff;
@@ -24,6 +24,10 @@
 	--hex-magenta			: #ff00ff;
 	--hex-purple			: #800080;
 
+	--hex-pink				: #ffc0cb;
+	--hex-mediumvioletred	: #c71585;
+	--hex-limegreen			: #32cd32;
+	--hex-forestgreen		: #228b22;
 
 
 	/* rgb
@@ -31,7 +35,7 @@
 	--rgb-black				: rgb(0, 0, 0);
 	--rgb-dimgrey			: rgb(105, 105, 105);
 	--rgb-grey				: rgb(128, 128, 128);
-	--rgb-darkgrey			: rgb(169, 169, 169);
+	--rgb-darkgrey			: rgb(169, 169, 169);		/* Warning: CSS 'darkgrey' is lighter than 'grey' for historical reasons */
 	--rgb-lightgrey			: rgb(212, 212, 212);
 	--rgb-whitesmoke		: rgb(245, 245, 245);
 	--rgb-white				: rgb(255, 255, 255);
@@ -49,6 +53,10 @@
 	--rgb-magenta			: rgb(255, 0, 255);
 	--rgb-purple			: rgb(128, 0, 128);
 
+	--rgb-mediumvioletred	: rgb(199, 21, 133);
+	--rgb-limegreen			: rgb(50, 205, 50);
+	--rgb-forestgreen		: rgb(34, 139, 34);
+
 
 	/* hsl
 	*/
@@ -56,15 +64,23 @@
 	--hsl-dimgrey			: hsl(0, 0%, 41%);
 	--hsl-grey				: hsl(0, 0%, 50%);
 	--hsl-lightgrey			: hsl(0, 0%, 83%);
+	--hsl-whitesmoke		: hsl(0, 0%, 96%);
 	--hsl-white				: hsl(0, 0%, 100%);
 
 	--hsl-red				: hsl(0, 100%, 50%);
+	--hsl-maroon			: hsl(0, 100%, 25%);
 	--hsl-yellow			: hsl(60, 100%, 50%);
 	--hsl-lime				: hsl(120, 100%, 50%);
 	--hsl-green				: hsl(120, 100%, 25%);
 	--hsl-cyan				: hsl(180, 100%, 50%);
 	--hsl-blue				: hsl(240, 100%, 50%);
 	--hsl-magenta			: hsl(300, 100%, 50%);
+
+	--hsl-mediumvioletred	: hsl(322, 81%, 43%);
+	--hsl-limegreen			: hsl(120, 61%, 50%);
+	--hsl-forestgreen		: hsl(120, 61%, 34%);
+
+
 
 
 	/* hwb
@@ -73,9 +89,11 @@
 	--hwb-dimgrey			: hwb(0 41% 59%);
 	--hwb-grey				: hwb(0 50% 50%);
 	--hwb-lightgrey			: hwb(0 83% 17%);
+	--hwb-whitesmoke		: hwb(0 96% 4%);
 	--hwb-white				: hwb(0 100% 0%);
 
 	--hwb-red				: hwb(0 0% 0%);
+	--hwb-maroon			: hwb(0 0% 50%);
 	--hwb-yellow			: hwb(60 0% 0%);
 	--hwb-lime				: hwb(120 0% 0%);
 	--hwb-green				: hwb(120 0% 50%);

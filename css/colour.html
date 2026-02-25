@@ -44,6 +44,12 @@
 				<button type="button" onclick="setColour(randomColourHexWithAlpha());">🎲 random colour + alpha</button>
 			</label>
 
+			<fieldset>
+			<input name="input-rgb-r" type="range" min="0" max="255" orient="vertical">
+			<input name="input-rgb-g" type="range" min="0" max="255" orient="vertical">
+			<input name="input-rgb-b" type="range" min="0" max="255" orient="vertical">
+			</fieldset>
+
 		</form>
 
 		<output class="fullwidth">
@@ -81,6 +87,7 @@
 
 
 		<style contenteditable="plaintext-only"  class="limit-height">
+			fieldset { display:inline-block; }
 			summary h2 {
 				display:inline-block;
 				margin:0em;
