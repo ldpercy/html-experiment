@@ -22,35 +22,41 @@
 		</nav>
 	</header>
 
+	<script defer src="../[common]/colour.js"></script>
+
 	<main>
 
-		<form onchange="generateSwatches();" class="fullwidth">
-			<h3>Settings</h3>
-			<label>
-				Colour chooser
-				<input type="color" id="input-colourChooser" onchange="document.getElementById('input-colourText').value=this.value">
-			</label>
-			<label>
-				Colour text
-				<input type="text" id="input-colourText" onchange="document.getElementById('input-colourChooser').value=this.value">
-			</label>
-			<label>
-				Channel divisions
-				<input type="number" id="input-divisions" min="2" max="12" step="1" value="5">
-			</label>
+		<form onchange="inputChange();">
+			<h3>Source Colour</h3>
 
-			<label>
+			<label>Colour chooser</label>
+			<input type="color" id="input-colourChooser" onchange="document.getElementById('input-colourText').value=this.value">
+
+			<label>Colour text</label>
+			<input type="text" id="input-colourText" onchange="document.getElementById('input-colourChooser').value=this.value">
+
+
+			<label>Random colours</label>
+			<div>
 				<button type="button" onclick="setColour(randomColourHex());">🎲 random colour</button>
 				<button type="button" onclick="setColour(randomColourHexWithAlpha());">🎲 random colour + alpha</button>
-			</label>
-
+			</div>
+		</form>
+		<form onchange="inputChange();">
+			<label>Channels</label>
 			<fieldset>
 			<input name="input-rgb-r" type="range" min="0" max="255" orient="vertical">
 			<input name="input-rgb-g" type="range" min="0" max="255" orient="vertical">
 			<input name="input-rgb-b" type="range" min="0" max="255" orient="vertical">
 			</fieldset>
 
+			<h3>Output</h3>
+
+			<label>Channel divisions</label>
+			<input type="number" id="input-divisions" min="2" max="12" step="1" value="5">
+
 		</form>
+
 
 		<output class="fullwidth">
 
@@ -87,7 +93,16 @@
 
 
 		<style contenteditable="plaintext-only"  class="limit-height">
-			fieldset { display:inline-block; }
+			form {
+				display: grid;
+				grid-template-columns: 1fr 1fr ;
+
+				h3 {
+					grid-column-start: 1;
+					grid-column-end: 3;
+				}
+			}
+			fieldset { display:inline-block; border-radius:1ex;}
 			summary h2 {
 				display:inline-block;
 				margin:0em;
@@ -123,6 +138,12 @@
 			function setColour(colour) {
 				document.getElementById('input-colourText').value = colour;
 				document.getElementById('input-colourChooser').value = colour;
+				generateSwatches();
+			}
+
+
+			function inputChange() {
+
 				generateSwatches();
 			}
 

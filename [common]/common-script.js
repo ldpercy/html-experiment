@@ -54,28 +54,3 @@ function addEventListener(query, eventName, listener) {
 }
 
 
-/** @returns {string} */
-function randomColourRGB() {
-	const r = Math.round((Math.random()*255));
-	const g = Math.round((Math.random()*255));
-	const b = Math.round((Math.random()*255));
-	const a = Math.random();
-	return `rgb(${r} ${g} ${b} / ${a.toFixed(3)})`;
-}
-
-/** @returns {string} */
-function randomColourHex() {
-	const r = Math.round((Math.random()*255)).toString(16).padStart(2,'0');
-	const g = Math.round((Math.random()*255)).toString(16).padStart(2,'0');
-	const b = Math.round((Math.random()*255)).toString(16).padStart(2,'0');
-	return `#${r}${g}${b}`;
-}
-
-/** @returns {string} */
-function randomColourHexWithAlpha() {
-	const r = Math.round((Math.random()*255)).toString(16).padStart(2,'0');
-	const g = Math.round((Math.random()*255)).toString(16).padStart(2,'0');
-	const b = Math.round((Math.random()*255)).toString(16).padStart(2,'0');
-	const a = Math.round((Math.random()*255)).toString(16).padStart(2,'0');
-	return `#${r}${g}${b}${a}`;
-}

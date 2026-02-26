@@ -3,6 +3,22 @@ Colour
 
 
 
+Colour model conversion & channel value extraction
+--------------------------------------------------
+
+I can't (yet) find anything like a queryable colour model in the web apis.
+Eg something where you can create a colour object and read out its channel values in a different colour system.
+
+https://developer.mozilla.org/en-US/docs/Web/API/CSS_Typed_OM_API
+https://developer.mozilla.org/en-US/docs/Web/API/Houdini_APIs
+
+
+Libraries:
+* https://github.com/colorjs/color-space
+
+
+
+
 Polar hues
 ----------
 
@@ -28,14 +44,6 @@ CSS named colours 'grey' and 'darkgrey'
 ```
 
 
-Colour Model
-------------
-
-I can't (yet) find anything like a queryable colour model in the web apis.
-Eg something where you can create a colour object and read out its values in a particular colour system.
-
-https://developer.mozilla.org/en-US/docs/Web/API/CSS_Typed_OM_API
-https://developer.mozilla.org/en-US/docs/Web/API/Houdini_APIs
 
 
 
