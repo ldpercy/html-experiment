@@ -15,6 +15,8 @@ When html-common gets into release cadence some tasks will be moved over to ther
 
 Todo
 ----
+* SVG foreignObject - https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/foreignObject
+* Correct typing for HTMLFormElement.elements / HTMLFormControlsCollection items
 * Revisit test grouping/nesting
 * CSS generated content: can any items be made conditional? Also see if there are any implementations for the "six yet-to-be implemented CSS functions including content(), string(), and leader(), and the three `target` functions"
 * "Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content."
