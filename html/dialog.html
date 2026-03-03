@@ -8,9 +8,9 @@
 	<link rel="stylesheet" href="../[common]/common-style.css">
 	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
 </head>
-<body>
+<body onload="setup()">
 	<header>
-		<h1>dialog</h1>
+		<h1><a href="">dialog</a></h1>
 		<nav>
 			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
 			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
@@ -20,8 +20,8 @@
 	</header>
 
 	<main>
-		<style>
-			::backdrop {
+		<style contenteditable="plaintext-only">
+			#dialog1::backdrop {
 				backdrop-filter: blur(10px);
 				background-image: linear-gradient(
 					45deg,
@@ -32,44 +32,106 @@
 				);
 				opacity: 0.75;
 
+
 			}
 
-			dialog {
+			#dialog2::backdrop {
+				backdrop-filter: blur(2pt) brightness(40%);
+				background-image: url(../favicon.svg);
+				background-size: 50%;
+				background-position: center;
+				/* background-image: repeating-linear-gradient(
+					0deg,
+					dodgerblue 0px,
+					dodgerblue 10px,
+					green 10px,
+					green 20px
+				); */
+				/* background-color: hotpink; */
 				opacity: 0.8;
 
+				/* content: 'id='attr(id); */
+			}
+
+			/* #dialog2::before {
+				display:block;
+				position:absolute;
+				top:0em;
+				left:0em;
+				height:100%;
+				width:100%;
+				background-image: repeating-linear-gradient(
+					0deg,
+					dodgerblue 0px,
+					dodgerblue 10px,
+					green 10px,
+					green 20px
+				);
+				content: 'id='attr(id);
+			} */
+
+
+			dialog {
+				opacity: 0.9;
+			}
+
+			[id]::after {
+				display:inline-block;
+				font-family:monospace;
+				font-size:10px;
+				background-color: var(--element-colour);
+				padding:1ex;
+				border-radius: 1ex;
+				content: 'id='attr(id);
 			}
 
 		</style>
 
+
 		<form>
-			<button type="button" onclick="document.getElementById('dialog1').show()">
+			<button type="button" id="button-dialogShow">
 				dialog show
 			</button>
 
-			<button type="button" onclick="document.getElementById('dialog1').showModal()">
+			<button type="button" id="button-dialogShowModal">
 				dialog showModal
 			</button>
 		</form>
 
 
 
+
+		<script>
+			function setup() {
+				document.getElementById('button-dialogShow').addEventListener(
+					'click',
+					() => { document.getElementById('dialog2').show() }
+
+				);
+
+				document.getElementById('button-dialogShowModal').addEventListener(
+					'click',
+					() => { document.getElementById('dialog2').showModal() }
+				);
+			}
+		</script>
+
 	</main>
 
-	<dialog id="dialog1"> <!-- open -->
-		<p>dialog1: Greetings, one and all!</p>
-		<form method="dialog">
-			<button>OK</button>
-		</form>
-	</dialog>
+		<dialog id="dialog1" closedby="any"> <!-- open -->
+			<p>dialog1: Greetings, one and all!</p>
+			<form method="dialog">
+				<button>OK</button>
+			</form>
+		</dialog>
 
 
-	<dialog id="dialog2">
-		<p>dialog2: Greetings, one and all!</p>
-		<form method="dialog">
-			<button>OK</button>
-		</form>
-	</dialog>
-
+		<dialog id="dialog2" closedby="any">
+			<p>dialog2: Greetings, one and all!</p>
+			<form method="dialog">
+				<button>OK</button>
+			</form>
+		</dialog>
 
 </body>
 </html>
