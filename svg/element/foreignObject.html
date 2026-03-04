@@ -1,0 +1,118 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+	<title>foreignObject</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="../favicon.svg">
+	<link rel="stylesheet" href="../../[common]/common-style.css">
+	<script type="module" src="../../[html-common]/script/colourScheme-selector.js"></script>
+</head>
+<body>
+	<header>
+		<h1><a href="">foreignObject</a></h1>
+		<nav>
+			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
+			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
+			<a title="To folder" href="./">🖿</a>
+			<a title="Parent folder" href="../">🡅</a>
+		</nav>
+	</header>
+
+
+
+	<main>
+
+		<style>
+			svg {
+				background-color: transparent;
+			}
+			p {
+				color: magenta;
+				font-weight: bold;
+				font-size:3em;
+			}
+		</style>
+
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2400 -1200 4800 2400" preserveAspectRatio="xMidYMid meet" class="fullwidth">  <!--  -->
+			<title>foreignObject</title>
+			<use href="../[library]/grid.svg#grid" x="0" y="0"/>
+
+			<style>
+				circle {
+					stroke: cyan;
+					fill: cadetblue;
+				}
+				rect {
+					stroke: red;
+					fill: pink;
+				}
+				text {
+					fill: tan;
+					stroke: tomato;
+					font-size: 32em;
+					text-anchor: middle;
+				}
+
+				foreignObject {		/* doesn't work?? */
+					fill: tan;
+					stroke: tomato;
+					font-size: 3em;
+				}
+
+				div {				/* can do this though */
+					border: 1ex dotted dodgerblue;
+
+				}
+			</style>
+
+			<g>
+				<circle cx="-300" cy="0" r="600" />
+				<rect x="0" y="0" width="600" height="900" />
+				<text x="50" y="50" >
+					foreignObject
+				</text>
+			</g>
+
+			<!-- Common use case: embed HTML text into SVG -->
+			<foreignObject x="200" y="-600" width="900" height="1100"><!-- can't put the namespace here -->
+				<!--
+					In the context of SVG embedded in an HTML document, the XHTML
+					namespace could be omitted, but it is mandatory in the
+					context of an SVG document
+				-->
+				<div xmlns="http://www.w3.org/1999/xhtml">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis mollis
+					mi ut ultricies. Nullam magna ipsum, porta vel dui convallis, rutrum
+					imperdiet eros. Aliquam erat volutpat.
+
+					<hr/>	<!-- have to use xml closed version of tag -->
+
+					<p>this is a paragraph</p> <!-- doesn't need namespace -->
+
+				</div>
+			</foreignObject>
+
+
+			<foreignObject x="1000" y="-1000" width="700" height="800" >
+
+				<nav xmlns="http://www.w3.org/1999/xhtml">
+					<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
+					<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
+					<a title="To folder" href="./">🖿</a>
+					<a title="Parent folder" href="../">🡅</a>
+				</nav>
+
+			</foreignObject>
+
+
+
+		</svg>
+
+	</main>
+
+
+</body>
+</html>
+

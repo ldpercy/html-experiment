@@ -21,6 +21,8 @@ The namespace is required:
 
 			<p>this is a paragraph</p> <!-- doesn't need namespace -->
 
+			<hr/>	<!-- have to use xml closed version of tag -->
+
 		</div>
 	</foreignObject>
 ```
@@ -29,3 +31,25 @@ But doesn't seem to need it on further children - just the root element seems ok
 
 
 
+
+Element limitations?
+--------------------
+No idea if under the xhtml namespace there are limitations on the particular elements you can use.
+Original xhtml from back in the day was a fairly constrained dialect if memory serves.
+Probably more likely that the browsers switch on their current html5 renderers for these elements.
+
+
+Space limitations
+-----------------
+
+Default is to truncate content out of the specified width & height - see if overflow can be allowed.
+
+
+
+
+html > svg > html
+-----------------
+
+Have to try this too...
+Yep works as well.
+Interesting...

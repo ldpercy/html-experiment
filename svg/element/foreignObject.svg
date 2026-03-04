@@ -56,6 +56,9 @@
 
 			<p>this is a paragraph</p> <!-- doesn't need namespace -->
 
+
+			<hr/>	<!-- have to use xml closed version of tag -->
+
 		</div>
 	</foreignObject>
 
