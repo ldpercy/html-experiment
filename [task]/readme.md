@@ -15,6 +15,7 @@ When html-common gets into release cadence some tasks will be moved over to ther
 
 Todo
 ----
+
 * SVG foreignObject - https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/foreignObject
 * Correct typing for HTMLFormElement.elements / HTMLFormControlsCollection items
 * Revisit test grouping/nesting
@@ -48,6 +49,7 @@ Found some references to this and some open vscode issues that look related:
 
 Done
 ----
+* Keyboard: filter out browser/os `crtl` key combos
 * Testing - simple code testing eg equality, exceptions, typeof testing that code excepts - moved to `html-common`
 * Function arguments can be omitted to accept defaults with `undefined`
 * CSS `grey` is darker than `darkgrey` for historical reasons - websearch for the whole story
