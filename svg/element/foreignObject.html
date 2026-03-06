@@ -28,6 +28,33 @@
 			svg {
 				background-color: transparent;
 			}
+
+			circle {
+				stroke: cyan;
+				fill: cadetblue;
+			}
+			rect {
+				stroke: red;
+				fill: pink;
+			}
+			text {
+				fill: tan;
+				stroke: tomato;
+				font-size: 32em;
+				text-anchor: middle;
+			}
+
+			foreignObject {		/* doesn't work?? */
+				fill: tan;
+				stroke: tomato;
+				font-size: 3em;
+				overflow: visible;
+			}
+
+			div {				/* can do this though */
+				border: 1ex dotted dodgerblue;
+			}
+
 			p {
 				color: magenta;
 				font-weight: bold;
@@ -38,34 +65,6 @@
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2400 -1200 4800 2400" preserveAspectRatio="xMidYMid meet" class="fullwidth">  <!--  -->
 			<title>foreignObject</title>
 			<use href="../[library]/grid.svg#grid" x="0" y="0"/>
-
-			<style>
-				circle {
-					stroke: cyan;
-					fill: cadetblue;
-				}
-				rect {
-					stroke: red;
-					fill: pink;
-				}
-				text {
-					fill: tan;
-					stroke: tomato;
-					font-size: 32em;
-					text-anchor: middle;
-				}
-
-				foreignObject {		/* doesn't work?? */
-					fill: tan;
-					stroke: tomato;
-					font-size: 3em;
-				}
-
-				div {				/* can do this though */
-					border: 1ex dotted dodgerblue;
-
-				}
-			</style>
 
 			<g>
 				<circle cx="-300" cy="0" r="600" />
@@ -95,7 +94,7 @@
 			</foreignObject>
 
 
-			<foreignObject x="1000" y="-1000" width="700" height="800" >
+			<foreignObject x="1000" y="-1000" width="500" height="500" >
 
 				<nav xmlns="http://www.w3.org/1999/xhtml">
 					<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>

@@ -39,12 +39,16 @@ Original xhtml from back in the day was a fairly constrained dialect if memory s
 Probably more likely that the browsers switch on their current html5 renderers for these elements.
 
 
-Space limitations
------------------
+Content overflow
+----------------
 
-Default is to truncate content out of the specified width & height - see if overflow can be allowed.
+Default behaviour is to truncate html content that flows out of the element's width & height.
 
+This works for me in ff and chr to allow content overflow:
 
+```css
+	foreignObject { overflow: visible; }
+```
 
 
 html > svg > html

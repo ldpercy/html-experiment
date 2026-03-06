@@ -25,11 +25,16 @@
 			fill: tan;
 			stroke: tomato;
 			font-size: 3em;
+			overflow: visible;
 		}
 
 		div {				/* can do this though */
 			border: 1ex dotted dodgerblue;
-
+		}
+		p {
+				color: magenta;
+				font-weight: bold;
+				font-size:3em;
 		}
 	</style>
 
@@ -63,7 +68,7 @@
 	</foreignObject>
 
 
-	<foreignObject x="1000" y="-1000" width="700" height="800" >
+	<foreignObject x="1000" y="-1000" width="700" height="700" >
 
 		<nav xmlns="http://www.w3.org/1999/xhtml">
 			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
