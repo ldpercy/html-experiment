@@ -9,11 +9,11 @@ class IndexApp extends HTMLApp {
 	appInfo = ["Experiment: keyboard"];
 
 	eventListeners = [
-		{
-			element: document,
-			type: 'keydown',
-			listener: this.documentKeydownListener
-		},
+		// {
+		// 	element: document,
+		// 	type: 'keydown',
+		// 	listener: this.documentKeydownListener
+		// },
 		{
 			query: 'textarea',
 			type: 'keydown',

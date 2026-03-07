@@ -6,6 +6,19 @@ https://developer.mozilla.org/en-US/docs/Web/API/Keyboard_API
 
 
 
+Silent keys
+-----------
+Presumably depends a bit on what the keyboard/os exposes to the browser.
+
+On my laptop:
+	* printscreen
+	* The function modifier key
+	* unmodified F keys, ie media keys
+
+
+
+
+
 Filter out os/browser ctrl key shortcuts
 ----------------------------------------
 
