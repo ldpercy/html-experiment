@@ -20,11 +20,11 @@
 		</nav>
 	</header>
 
-
-
 	<main>
+		<style contenteditable="plaintext-only">
+			style { grid-column-start: span 1; }
+			svg { grid-column-start: span 3; }
 
-		<style>
 			svg {
 				background-color: transparent;
 			}
@@ -54,7 +54,7 @@
 			div {				/* can do this though */
 				border: 1ex dotted dodgerblue;
 			}
-
+			hr { border:3px dashed red; }
 			p {
 				color: magenta;
 				font-weight: bold;
@@ -62,7 +62,7 @@
 			}
 		</style>
 
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2400 -1200 4800 2400" preserveAspectRatio="xMidYMid meet" class="fullwidth">  <!--  -->
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2000 -1200 4000 2400" preserveAspectRatio="xMidYMid meet" >  <!-- class="fullwidth"  -->
 			<title>foreignObject</title>
 			<use href="../[library]/grid.svg#grid" x="0" y="0"/>
 
@@ -81,20 +81,19 @@
 					namespace could be omitted, but it is mandatory in the
 					context of an SVG document
 				-->
-				<div xmlns="http://www.w3.org/1999/xhtml">
+				<div><!-- namespace can be omitted here as the root doc is html -->
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis mollis
 					mi ut ultricies. Nullam magna ipsum, porta vel dui convallis, rutrum
 					imperdiet eros. Aliquam erat volutpat.
 
-					<hr/>	<!-- have to use xml closed version of tag -->
-
-					<p>this is a paragraph</p> <!-- doesn't need namespace -->
+					<hr>	<!-- don't seem to need to close this tag either -->
+					<p>asdf</p>
 
 				</div>
 			</foreignObject>
 
 
-			<foreignObject x="1000" y="-1000" width="500" height="500" >
+			<foreignObject x="-1500" y="-1000" width="500" height="500" >
 
 				<nav xmlns="http://www.w3.org/1999/xhtml">
 					<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>

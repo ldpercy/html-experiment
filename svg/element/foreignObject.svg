@@ -31,6 +31,7 @@
 		div {				/* can do this though */
 			border: 1ex dotted dodgerblue;
 		}
+		hr { border:3px dashed red; }
 		p {
 				color: magenta;
 				font-weight: bold;
@@ -54,17 +55,21 @@
 			namespace could be omitted, but it is mandatory in the
 			context of an SVG document
 		-->
+		<p>this is a paragraph without a namespace, it doesn't get rendered</p>
+
 		<div xmlns="http://www.w3.org/1999/xhtml">
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis mollis
 			mi ut ultricies. Nullam magna ipsum, porta vel dui convallis, rutrum
 			imperdiet eros. Aliquam erat volutpat.
 
-			<p>this is a paragraph</p> <!-- doesn't need namespace -->
-
-
 			<hr/>	<!-- have to use xml closed version of tag -->
 
+			<p>this is a paragraph</p> <!-- doesn't need namespace -->
+
 		</div>
+
+
+
 	</foreignObject>
 
 

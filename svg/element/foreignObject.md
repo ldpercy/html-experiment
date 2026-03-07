@@ -5,9 +5,10 @@ foreignObject
 Namespace requirement
 ---------------------
 
-The namespace is required:
+Namespacing `foreignObject` children is required when in an SVG document:
 
 ```html
+<svg xmlns="http://www.w3.org/2000/svg">
 	<foreignObject x="-900" y="-700" width="700" height="500">
 		<!--
 			In the context of SVG embedded in an HTML document, the XHTML
@@ -19,15 +20,21 @@ The namespace is required:
 			mi ut ultricies. Nullam magna ipsum, porta vel dui convallis, rutrum
 			imperdiet eros. Aliquam erat volutpat.
 
-			<p>this is a paragraph</p> <!-- doesn't need namespace -->
-
 			<hr/>	<!-- have to use xml closed version of tag -->
+
+			<p>this is a paragraph</p> <!-- doesn't need namespace -->
 
 		</div>
 	</foreignObject>
+</svg>
 ```
-
 But doesn't seem to need it on further children - just the root element seems okay.
+
+
+### HTML Documents
+
+When the root document is HTML, the namespace and xml well-formed-ness requirements are relaxed.
+
 
 
 
