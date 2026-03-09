@@ -15,8 +15,7 @@ When html-common gets into release cadence some tasks will be moved over to ther
 
 Todo
 ----
-
-* SVG foreignObject - https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/foreignObject
+* JS identifiers: unicode categories ID_Start & ID_Continue
 * Correct typing for HTMLFormElement.elements / HTMLFormControlsCollection items
 * Revisit test grouping/nesting
 * CSS generated content: can any items be made conditional? Also see if there are any implementations for the "six yet-to-be implemented CSS functions including content(), string(), and leader(), and the three `target` functions"
@@ -35,7 +34,7 @@ Todo
 * Grid layout - see if there's a simple way of making grid items go full-width without knowing the column count
 * continue 3d transform experiments
 * html details/summary: move the marker to the right
-* Have a look at the current state of CSS list counters - mainly want zero-base for now
+
 
 
 #### !important - Turn on jsdoc typechecking for inline `<script></script>` tags within html
@@ -47,9 +46,11 @@ Found some references to this and some open vscode issues that look related:
 * https://github.com/microsoft/vscode/issues/114115
 
 
-Done
-----
+Done (for now)
+--------------
+* SVG foreignObject - https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/foreignObject
 * Keyboard: filter out browser/os `crtl` key combos
+* CSS list counters, zero-based: can be done (though a little quirky); better to use array keys themselves when that's what's needed
 * Testing - simple code testing eg equality, exceptions, typeof testing that code excepts - moved to `html-common`
 * Function arguments can be omitted to accept defaults with `undefined`
 * CSS `grey` is darker than `darkgrey` for historical reasons - websearch for the whole story
