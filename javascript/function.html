@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>JavaScript function</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="../favicon.svg">
+	<link rel="stylesheet" href="../[common]/common-style.css">
+
+	<script defer src="../[common]/common-script.js"></script>
+
+</head>
+<body>
+	<header>
+		<h1><a href="">JavaScript function</a></h1>
+		<nav>
+			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
+			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
+			<a title="To folder" href="./">🖿</a>
+			<a title="Parent folder" href="../">🡅</a>
+		</nav>
+	</header>
+
+
+	<main>
+		<script>
+
+			//
+			// js-function.js
+			//
+
+
+			function myFunc(p) {
+				return p
+			}
+
+			//
+			// function types
+			//
+
+			function fs(p) {
+
+				/* nested functions, no scoping
+				function sfs()   { return this; }	// unreachable from outside, returns Window
+				sfe = function() { return this; }	// globally scoped, returns Window
+				saf = () =>      { return this; }	// globally scoped, returns Window
+				// return sfs();
+				*/
+
+
+				/* sub functions, var scope */
+				var sfe = function() { return this; }	// globally scoped, returns Window
+				var saf = () =>      { return this; }	// globally scoped, returns Window
+
+				return sfe();
+
+				//return this; // returns Window
+			}/* fs */
+
+
+			fe = function(p) {
+				// return this; // returns Window
+			}/* fe */
+
+
+			af = (p) => {
+				//return this; // returns Window
+			}
+
+			/*
+			Each returns 'Window' for 'this' which is unexpected, esp for the arrow fn.
+			*/
+
+
+
+
+			function defaultTest(
+				name = 'default name',
+				description = `default desc: ${name}`
+			){
+
+
+				return `${name}; ${description}`
+
+				/*
+				can a function's argument defaults use other argument defaults?
+				*/
+
+			}
+
+
+
+
+		</script>
+
+	</main>
+
+
+
+</body>
+</html>
