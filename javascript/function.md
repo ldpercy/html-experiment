@@ -10,6 +10,34 @@ But in js function are also objects, and you can attach properties in various wa
 
 
 
+
+
+
+Arguments
+---------
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments
+
+
+> arguments is an array-like object
+
+
+
+### Argument defaults
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters
+
+> Default function parameters allow named parameters to be initialized with default values if no value ***or undefined*** is passed
+
+(emphasis mine)
+
+Wish I'd found this ages ago....
+
+
+
+
+
+
 Function names
 --------------
 
@@ -23,3 +51,4 @@ Function names
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Illegal_character
 
 
+See: [JavaScript identifiers](javascript.md#identifiers)
