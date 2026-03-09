@@ -7,6 +7,7 @@
 	--hex-dimgrey			: #696969;
 	--hex-grey				: #808080;
 	--hex-darkgrey			: #a9a9a9;		/* Warning: CSS 'darkgrey' is lighter than 'grey' for historical reasons */
+	--hex-silver			: #c0c0c0;
 	--hex-lightgrey			: #d3d3d3;
 	--hex-whitesmoke		: #f5f5f5;
 	--hex-white				: #ffffff;
@@ -36,6 +37,7 @@
 	--rgb-dimgrey			: rgb(105, 105, 105);
 	--rgb-grey				: rgb(128, 128, 128);
 	--rgb-darkgrey			: rgb(169, 169, 169);		/* Warning: CSS 'darkgrey' is lighter than 'grey' for historical reasons */
+	--rgb-silver			: rgb(192, 192, 192);
 	--rgb-lightgrey			: rgb(212, 212, 212);
 	--rgb-whitesmoke		: rgb(245, 245, 245);
 	--rgb-white				: rgb(255, 255, 255);
@@ -63,6 +65,7 @@
 	--hsl-black				: hsl(0, 0%, 0%);
 	--hsl-dimgrey			: hsl(0, 0%, 41%);
 	--hsl-grey				: hsl(0, 0%, 50%);
+	--hsl-silver			: hsl(0, 0%, 75%);
 	--hsl-lightgrey			: hsl(0, 0%, 83%);
 	--hsl-whitesmoke		: hsl(0, 0%, 96%);
 	--hsl-white				: hsl(0, 0%, 100%);
@@ -88,6 +91,7 @@
 	--hwb-black				: hwb(0 0% 100%);
 	--hwb-dimgrey			: hwb(0 41% 59%);
 	--hwb-grey				: hwb(0 50% 50%);
+	--hwb-silver			: hwb(0 75% 25%);
 	--hwb-lightgrey			: hwb(0 83% 17%);
 	--hwb-whitesmoke		: hwb(0 96% 4%);
 	--hwb-white				: hwb(0 100% 0%);
@@ -107,6 +111,7 @@
 	--lab-black				: lab(0% 0 0);
 	--lab-dimgrey			: lab(44.41% 0 -0.01);
 	--lab-grey				: lab(53.59% 0 -0.01);
+	--lab-silver			: lab(77.34% 0 -0.01);
 	--lab-lightgrey			: lab(84.91% 0 -0.01);
 	--lab-white				: lab(100% 0.01 -0.01);
 
@@ -138,6 +143,7 @@
 	--lch-black				: lch(0% 0 0);
 	--lch-dimgrey			: lch(44.41% 0.01 296.81);
 	--lch-grey				: lch(53.59% 0.01 296.81);
+	--lch-silver			: lch(77.34% 0.01 296.81);
 	--lch-lightgrey			: lch(84.91% 0.01 296.81);
 	--lch-white				: lch(100% 0.01 296.81);
 
@@ -154,5 +160,18 @@
 	--lch-magenta			: lch(60.32% 115.57 328.23);
 	--lch-purple			: lch(29.78% 69.33 328.23);
 
+
+}
+
+
+.silver {
+
+	--bbb-silver: #bbb;		/* == agagag */
+
+	--bbb-hex: #bbb;
+	--bbb-hsl: hsl(0, 0%, 73%);
+	--bbb-hwb: hwb(0 73% 27%);
+	--bbb-lab: lab(75.51% 0 -0.01);
+	--bbb-lch: lch(75.51% 0.01 296.81);
 
 }
