@@ -88,6 +88,9 @@ class PolygonApp extends HTMLApp {
 		const startColour = document.getElementById('input-startColour').value;
 		document.getElementById('star-group').style.setProperty('--start-colour',startColour);
 
+		const opacity = document.getElementById('input-opacity').value;
+		document.getElementById('star-group').style.setProperty('--opacity', opacity);
+
 
 	}/* updateStyle */
 
