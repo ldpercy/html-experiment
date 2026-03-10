@@ -4,11 +4,6 @@
 	position:absolute;
 	left:0ex;
 
-	h1 { font-size:3ex; }
-	h2 { font-size:2ex; margin-top:2ex; margin-bottom:1ex; }
-
-	h1:nth-child(1), h2:nth-child(1) { margin-top:0em; }
-
 	form  {
 		display: grid;
 		border:1px solid silver;
@@ -17,8 +12,21 @@
 		padding:1ex;
 		margin: 1ex;
 	}
+	label { margin-top: 1ex; }
 
-	label:after { content:':'; }
+	input, option { text-align: center; padding:1pt; }
+
+	h1 { font-size:3ex; }
+	h2 { font-size:2ex; margin-top:2ex; margin-bottom:1ex; }
+
+	h1:nth-child(1), h2:nth-child(1) { margin-top:0em; }
+
+	label:has(h2) { margin-top:2ex; }
+
+
+
+
+	/* label:after { content:':'; } */
 
 	label.noafter:after { content:''; }
 

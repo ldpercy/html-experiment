@@ -10,6 +10,9 @@ class PolygonApp extends HTMLApp {
 	appInfo = ["Polygon by ldpercy"];
 
 
+
+
+
 	eventListeners = [
 		{
 			query: '#form-polygon',
@@ -36,24 +39,37 @@ class PolygonApp extends HTMLApp {
 	documentDOMContentLoaded() {
 		super.documentDOMContentLoaded();
 		this.redraw();
+		this.updateStyle();
 	}/* documentDOMContentLoaded */
 
 
+	/** @type {object}
+	 * Note to self: like this typechecking on elements is totally sidestepped - need to find typesafe ways of doing this
+	 */
+	elementMap = {
+		radius			: 'input-radius',
+		sides			: 'input-sides',
+		pointStep		: 'input-pointStep',
+		startDivision	: 'input-startDivision',
+		copies			: 'input-copies',
+		divisionOffset	: 'input-divisionOffset',
+		separatePaths	: 'input-copyPaths',
+		coordinates		: 'input-coordinates',
+	};
 
 	redraw() {
 		//console.debug('polygonApp.redraw', arguments);
 
-		const radius = document.getElementById('input-radius').value;
-		const sides = document.getElementById('input-sides').value;
-		const pointStep = document.getElementById('input-pointStep').value;
-		const startDivision = document.getElementById('input-startDivision').value;
-
-		const copies = document.getElementById('input-copies').value;
-		const divisionOffset = document.getElementById('input-divisionOffset').value;
-		const separatePaths = document.getElementById('input-copyPaths').value;
-		const coordinates = document.getElementById('input-coordinates').value;
-
-		const starGroup = this.getStarPath(radius, sides, pointStep, startDivision, copies, divisionOffset, separatePaths, coordinates);
+		const starGroup = this.getStarPath(
+			this.element.radius.value,
+			this.element.sides.value,
+			this.element.pointStep.value,
+			this.element.startDivision.value,
+			this.element.copies.value,
+			this.element.divisionOffset.value,
+			this.element.separatePaths.value,
+			this.element.coordinates.value,
+		);
 
 		//console.log(starPath);
 		document.getElementById('star-group').innerHTML = starGroup;
@@ -96,9 +112,18 @@ class PolygonApp extends HTMLApp {
 
 
 
-	/* getStarPath
-	TODO: this all needs to be converted over to planar space & angle objects
-	*/
+	/** getStarPath
+	 * TODO: this all needs to be converted over to planar space & angle objects
+	 *
+	 * @param {number} radius
+	 * @param {number} sides
+	 * @param {number} pointStep
+	 * @param {number} startDivision
+	 * @param {number} copies
+	 * @param {number} divisionOffset
+	 * @param {string} copyPaths
+	 * @param {string} coordinates
+	 */
 	getStarPath(
 			radius,				// radius of points
 			sides, 				// how many sides the polygon has
@@ -109,6 +134,7 @@ class PolygonApp extends HTMLApp {
 			copyPaths,			// combined or separate svg paths
 			coordinates,		// absolute or relative
 		) {
+		console.debug(arguments);
 		let result = '';
 		let path = '';
 		let x = 0, y = 0;
