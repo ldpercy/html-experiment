@@ -90,6 +90,7 @@ class PolygonApp extends HTMLApp {
 
 
 	/* getStarPath
+	TODO: this all needs to be converted over to planar space & angle objects
 	*/
 	getStarPath(
 			radius,				// radius of points
@@ -115,6 +116,7 @@ class PolygonApp extends HTMLApp {
 
 			pointRadians += mainAngle/divisionOffset;
 
+			let degrees = c * (360/copies);
 
 			for (let i=0; i <= sides; i++)
 			{
@@ -140,7 +142,7 @@ class PolygonApp extends HTMLApp {
 			}// for i
 
 			if (copyPaths === 'separate') {
-				result += `<path class="star" d="${path} z"/>`;
+				result += `<path class="star" d="${path} z" style="--degrees:${degrees}"/>`;
 				lastPoint = new Point(0,0);
 				path = '';
 			}
@@ -150,7 +152,7 @@ class PolygonApp extends HTMLApp {
 		}// for c
 
 		if (copyPaths === 'combined') {
-			result = `<path class="star" d="${path} z"/>`;
+			result = `<path class="star" d="${path} z" style="--degrees:0"/>`;
 		}
 
 		return result;
