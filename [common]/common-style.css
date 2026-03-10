@@ -1,4 +1,7 @@
 @import "../[html-common]/style/html-common.css";
+@import "./heading.css";
+@import "./link.css";
+
 
 :root {
 	--project-colour: orangered;
@@ -73,24 +76,6 @@ pre {		/* treat these like markdown */
 	}
 }
 
-
-header h1::before {
-	content: url("../favicon.svg") / "HTML experiment icon";
-}
-
-
-h2 {
-	border-bottom: 1px dotted silver;
-}
-
-
-a {
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
 
 
 

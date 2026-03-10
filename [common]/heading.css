@@ -1,0 +1,15 @@
+header h1 {
+
+	&::before {
+		display: inline-block;
+		content: url("../favicon.svg") / "HTML experiment icon";
+		height:1.2ex;
+		width:1.2ex;
+		margin-right:1rex;
+	}
+}
+
+
+h2 {
+	border-bottom: 1px dotted silver;
+}
