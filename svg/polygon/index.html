@@ -49,7 +49,7 @@
 			</datalist>
 
 			<label for="input-sides">sides</label>
-			<input id="input-sides" type="number" name="sides" title="sides" min="1" value="7"/>
+			<input id="input-sides" type="number" name="sides" title="sides" min="1" value="5"/>
 
 			<label for="input-pointStep">point step</label>
 			<input id="input-pointStep" type="number" name="pointStep" title="pointStep" value="3"/>
@@ -66,14 +66,14 @@
 			<hr/>
 
 			<label for="input-copies">copies</label>
-			<input id="input-copies" type="number" name="copies" title="copies" min="0" value="1" >
+			<input id="input-copies" type="number" name="copies" title="copies" min="0" value="2" >
 			<label for="input-divisionOffset">division offset</label>
-			<input id="input-divisionOffset" type="number" name="divisionOffset" title="divisionOffset" value="1">
+			<input id="input-divisionOffset" type="number" name="divisionOffset" title="divisionOffset" value="2">
 
 			<label for="input-copyPaths">copy paths</label>
 			<select id="input-copyPaths" name="copyPaths" size="2">
-				<option value="combined" selected>combined</option>
-				<option value="separate">separate</option>
+				<option value="combined">combined</option>
+				<option value="separate" selected>separate</option>
 			</select>
 		</form>
 
@@ -91,6 +91,10 @@
 			<label for="input-showMarkers" class="noafter">
 				<input type="checkbox" name="showMarkers" id="input-showMarkers">
 				show markers
+			</label>
+			<label for="input-startColour" class="noafter">
+				<input type="color" name="startColour" id="input-startColour" value="orange">
+				start colour
 			</label>
 		</form>
 	</div>

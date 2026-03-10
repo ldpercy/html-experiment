@@ -85,6 +85,10 @@ class PolygonApp extends HTMLApp {
 			document.getElementById('group-grid').style.display = 'none';
 		}
 
+		const startColour = document.getElementById('input-startColour').value;
+		document.getElementById('star-group').style.setProperty('--start-colour',startColour);
+
+
 	}/* updateStyle */
 
 
