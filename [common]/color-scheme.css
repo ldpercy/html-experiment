@@ -1,0 +1,29 @@
+
+:root {
+	--light-html: #eee;
+	--light-body: #fff;
+	--light-text: #000;
+
+	--dark-html: #000;
+	--dark-body: #111;
+	--dark-text: #fff;
+}
+
+
+html[data-colourscheme=light] {
+	color-scheme: light;
+	--html-background: var(--light-html);
+	body {
+		--body-background: var(--light-body);
+		color: var(--light-text);
+	}
+}
+
+html[data-colourscheme=dark] {
+	color-scheme: dark;
+	--html-background: var(--dark-html);
+	body {
+		--body-background: var(--dark-body);
+		color: var(--dark-text);
+	}
+}

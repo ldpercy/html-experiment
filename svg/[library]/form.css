@@ -2,7 +2,7 @@
 
 	font-family:sans-serif;
 	position:absolute;
-	right:0ex;
+	left:0ex;
 
 	h1 { font-size:3ex; }
 	h2 { font-size:2ex; margin-top:2ex; margin-bottom:1ex; }
@@ -12,7 +12,7 @@
 	form  {
 		display: grid;
 		border:1px solid silver;
-		background-color:#eee9;
+		background-color:#ddd5;
 		border-radius: 1ex;
 		padding:1ex;
 		margin: 1ex;
@@ -23,4 +23,17 @@
 	label.noafter:after { content:''; }
 
 	hr { width:100%;  } /* border:1px dotted silver inset; */
+}
+
+
+nav {
+	position:absolute;
+	right:0ex;
+	border:1px solid silver;
+	background-color:#ddd5;
+	border-radius: 1ex;
+	padding:1ex;
+	margin: 1ex;
+	font-size: 2em;
+	line-height: 1em;
 }
