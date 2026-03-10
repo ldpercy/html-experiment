@@ -15,6 +15,7 @@ When html-common gets into release cadence some tasks will be moved over to ther
 
 Todo
 ----
+* JS modules: a way to export "*" ?
 * JS identifiers: unicode categories ID_Start & ID_Continue
 * Correct typing for HTMLFormElement.elements / HTMLFormControlsCollection items
 * Revisit test grouping/nesting
@@ -23,13 +24,13 @@ Todo
 * "This expression is not constructable. Type '....' has no construct signatures.ts(2351)"
 * Derived subclass as function parameter?
 * JSDoc partial typing - see if there are ways to declare generic types that only specify certain items of a type signature, eg *just* the return type of a function - and be able to mix these partials together a bit like interfaces
-* See if there's a way to type the whole of a function's arguments object, not just individual parameters
-* See if @interface typing can be applied to non-class objects
-* Look for other duck/mixin typing options
-* Find out where the root/base context of jsconfig+checkJs typechecking is
-* CSS colour model/api etc
+	* See if there's a way to type the whole of a function's arguments object, not just individual parameters
+	* See if @interface typing can be applied to non-class objects
+	* Look for other duck/mixin typing options
+	* Find out where the root/base context of jsconfig+checkJs typechecking is
+* CSS: colour model/api etc
 * dynamic/automatic/contextual colours for text
-* Parent selector - 'has'
+* CSS: Parent selector - 'has'
 * See if there's a way to collapse the single extra spaces that sometimes get added just from formatting, eg `<h1>	<a ...`
 * Grid layout - see if there's a simple way of making grid items go full-width without knowing the column count
 * continue 3d transform experiments
