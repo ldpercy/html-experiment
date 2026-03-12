@@ -15,6 +15,7 @@ When html-common gets into release cadence some tasks will be moved over to ther
 
 Todo
 ----
+* Refresher: document.querySelector vs getElementById - they return different types/interfaces i think & the former is easier to cast
 * JS modules: a way to export "*" ?
 * JS identifiers: unicode categories ID_Start & ID_Continue
 * Correct typing for HTMLFormElement.elements / HTMLFormControlsCollection items

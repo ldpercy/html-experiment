@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>favicon</title>
+	<meta charset="utf-8">
+	<link rel="icon" id="link-favicon" href="../[common]/html-experiment.svg">
+	<link rel="stylesheet" href="../[common]/common-style.css">
+	<script defer src="../[common]/common-script.js"></script>
+
+</head>
+<body>
+	<header>
+		<h1><a href="">favicon</a></h1>
+		<nav>
+			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
+			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
+			<a title="To folder" href="./">🖿</a>
+			<a title="Parent folder" href="../">🡅</a>
+		</nav>
+
+	</header>
+
+	<main>
+
+	<form class="fullwidth">
+
+		<h2>favicon data</h2>
+
+		<textarea name="favicon-data" id="input-favicon-data">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="-97 -97 194 194">
+				<style>
+					svg { opacity: 50%;	}
+					polygon {
+						fill:red;
+						fill-rule: evenodd;
+						/* filter: blur(1ex); */
+					}
+				</style>
+				<!-- <rect fill="dimgrey" x="-97" y="-97" width="194" height="194"/> -->
+				<polygon points="-26,-97 26,-97 71,71 26,97 -97,-26 -71,-71 97,-26 97,26 -71,71 -97,26 26,-97 71,-71 26,97 -26,97 -71,-71 -26,-97 97,26 71,71 -97,26 -97,-26 71,-71 97,-26 -26,97 -71,71 "/>
+			</svg>
+		</textarea>
+
+		<button type="button" onclick="updateFavicon()">update favicon</button>
+	</form>
+	<pre>
+		Favicons at certain sizes like 64x64 appear to render more clearly - pretty sure it's the native size most browsers use.
+	</pre>
+
+	<script>
+
+		function updateFavicon(){
+
+			const faviconElement = document.querySelector('#link-favicon');
+			// data url???
+
+			const faviconData =  document.querySelector('#input-favicon-data').value.trim();
+
+			const dataURI = `data:image/svg+xml;utf8,${faviconData}`;
+
+			faviconElement.href = dataURI;
+		}
+
+
+	</script>
+	<style>
+		textarea {height:22em;}
+	</style>
+
+	</main>
+
+</body>
+</html>
