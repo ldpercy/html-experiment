@@ -11,8 +11,7 @@
 	<link rel="stylesheet" href="../../[common]/link.css">
 	<link rel="stylesheet" href="../../[common]/color-scheme.css">
 
-	<script defer src="../[library]/maths.js"></script>
-	<script defer src="../[library]/geometry.js"></script>
+
 	<script type="module" src="../../[html-common]/script/colourScheme-selector.js"></script>
 	<!-- <script defer src="../[library]/HTMLApp.js"></script> -->
 	<!-- <script defer src="./polygonApp.js"></script> -->
@@ -72,6 +71,8 @@
 				<option value="absolute" selected>absolute</option>
 				<option value="relative">relative</option>
 			</select>
+			<label for="input-decimalPlaces">decimal places</label>
+			<input id="input-decimalPlaces" type="number" name="decimalPlaces" title="sides" min="0" value="0" max="9"/>
 		</form>
 
 		<form id="form-style">

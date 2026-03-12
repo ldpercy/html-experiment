@@ -3,13 +3,14 @@
 //
 
 import { HTMLApp } from "../../[html-common]/module/HTMLApp.js";
+import { Maths } from "../[library]/maths.module.js";
+import * as geometry from "../[library]/geometry.module.js";
+
 
 class PolygonApp extends HTMLApp {
 
 
 	appInfo = ["Polygon by ldpercy"];
-
-
 
 
 
@@ -55,7 +56,9 @@ class PolygonApp extends HTMLApp {
 		divisionOffset	: 'input-divisionOffset',
 		separatePaths	: 'input-copyPaths',
 		coordinates		: 'input-coordinates',
+		decimalPlaces	: 'input-decimalPlaces',
 	};
+
 
 	redraw() {
 		//console.debug('polygonApp.redraw', arguments);
@@ -144,7 +147,7 @@ class PolygonApp extends HTMLApp {
 		const startAngle = mainAngle/startDivision;
 
 		let pointRadians = startAngle;
-		let lastPoint = new Point(0,0);
+		let lastPoint = new geometry.Point(0,0);
 		for (let c=0; c < copies; c++) {
 
 			pointRadians += mainAngle/divisionOffset;
@@ -155,28 +158,28 @@ class PolygonApp extends HTMLApp {
 			{
 				pointRadians += mainAngle * pointStep;
 
-				const p = new PolarPoint(pointRadians, radius).toPoint();
+				const p = new geometry.PolarPoint(pointRadians, radius).toPoint();
 
 				if (coordinates === 'relative') {
 
-					x = Math.round(p.x - lastPoint.x);
-					y = Math.round(p.y - lastPoint.y);
+					x = p.x - lastPoint.x;
+					y = p.y - lastPoint.y;
 
-					path  += (i===0) ? `m${x},${y} ` : `l${x},${y} `;
+					path  += (i===0) ? `m${this.round(x)},${this.round(y)} ` : `l${this.round(x)},${this.round(y)} `;
 					lastPoint = p;
 
 				} else {
-					x = Math.round(p.x);
-					y = Math.round(p.y);
+					x = p.x;
+					y = p.y;
 					//console.log(i,Math.round(degrees(pointRadians)),x,y);
 
-					path  += (i===0) ? `M${x},${y} ` : `L${x},${y} `;
+					path  += (i===0) ? `M${this.round(x)},${this.round(y)} ` : `L${this.round(x)},${this.round(y)} `;
 				}
 			}// for i
 
 			if (copyPaths === 'separate') {
 				result += `<path class="star" d="${path} z" style="--degrees:${degrees}"/>`;
-				lastPoint = new Point(0,0);
+				lastPoint = new geometry.Point(0,0);
 				path = '';
 			}
 			else {
@@ -191,9 +194,19 @@ class PolygonApp extends HTMLApp {
 		return result;
 	}/* getStarPath */
 
-
+	/** round
+	 * @param {number} number
+	 * @param {number} decimalPlaces
+	 * @return {string}
+	 */
+	round(number, decimalPlaces = this.element.decimalPlaces.value) {
+		return number.toFixed(decimalPlaces);
+	}
 
 }/* PolygonApp */
+
+
+
 
 
 
