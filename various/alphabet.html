@@ -8,7 +8,7 @@
 	<script defer src="../[common]/common-script.js"></script>
 
 </head>
-<body>
+<body onload="updateOutput()">
 	<header>
 		<h1><a href="">alphabet</a></h1>
 		<nav>
@@ -22,14 +22,65 @@
 
 	<main>
 
-	<form id="output">
+	<form id="output" onchange="updateOutput()">
 
-			asdasd
+			<label>Alphabet:</label>
+			<input type="text" id="input-alphabet" value="abcdefghijklmnopqrstuvwxyz">
 
-
+			<label>Width:</label>
+			<input type="number" id="input-width" value="5">
 
 
 	</form>
+	<output >
+		<h2>Result:</h2>
+		<div id="the-output"></div>
+
+	</output>
+
+	<script>
+
+
+		function updateOutput() {
+
+			const alphabet = document.getElementById('input-alphabet').value.split('');
+			const width = parseInt(document.getElementById('input-width').value);
+
+			let result = '';
+			let index = 0;
+
+			for (let r = 0; r < Math.ceil(alphabet.length / width); r++)
+			{
+				result += '<div>';
+				for (let c = 0; c < width; c++)
+				{
+					index = c + r*width ;
+					result += `<span title="alphabet:${index+1} [${index}] (${r},${c})">${alphabet[index]||''}</span>`;
+				}
+				result += '</div>';
+			}
+
+			document.getElementById('the-output').innerHTML = result;
+		}
+
+
+	</script>
+	<style>
+		input[type=text] { width:90%; }
+		input[type=number] { text-align:center; }
+		#the-output {
+			font-family:monospace;
+			font-size:2em;
+			line-height: 3ex;
+			span {
+				display:inline-block;
+				width:2em;
+			}
+
+		}
+		label {display:block;}
+	</style>
+
 	<pre>
 
 		abc
@@ -71,88 +122,6 @@
 
 	</pre>
 
-	<script>
-
-		function toBase(base, number) {
-			let result = {};
-			let remainder = number;
-			let power = 0;
-			let placeKey = 0;
-			let placeVal = 0;
-			while (remainder > 0) {
-				placeKey = base**power;
-				placeVal = remainder % base;
-				result[placeKey] = placeVal;
-				remainder = (remainder - placeVal)/ base;
-				power++;
-			}
-			return result;
-		}
-
-		function run(){
-			let base = 4;
-
-			//log(toBase(10,123));
-
-			/* for (i=1;i<=12;i++)
-			{
-				log(`${base,i}:`,toBase(base,i));
-			} */
-			document.getElementById('output').innerHTML += getTable(2,31);
-			document.getElementById('output').innerHTML += getTable(3,12);
-
-		}
-
-
-		function baseSize(base, number) {
-			power = 0;
-			while (base**power <= number) { power++; }
-			return power;
-		}
-
-
-		function getTable(base, to) {
-			const size =  baseSize(base,to);
-			let th = '<th></th>';
-			let tr = '';
-			let td = '';
-
-			for (let h = size; h >= 0; h--)
-			{
-				th += `<th>${base**h}</th>`;
-			}
-
-			for (let row=1; row <= to; row++ ) {
-				td = '';
-				let number = toBase(base, row);
-
-				for (let d = size; d >= 0; d--)
-				{
-					td += `<td>${number[base**d]||'0'}</td>`;
-				}
-				tr += `
-					<tr>
-						<th>${row}</th>
-						${td}
-					</tr>`;
-			}
-
-			result = `
-				<h3>Base ${base}; to ${to}</h3>
-				<table>
-				<thead>
-				<tr>${th}</tr>
-				<thead>
-				<tbody>
-					${tr}
-				</tbody>
-				</table>
-			`;
-			return result;
-		}
-
-
-	</script>
 
 
 	</main>
