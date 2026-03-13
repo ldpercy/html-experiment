@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Animation</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="../favicon.svg">
+	<link rel="stylesheet" href="../[common]/common-style.css">
+	<link rel="stylesheet" href="../[common]/transition.css">
+	<link rel="stylesheet" href="../[common]/background.css">
+	<script defer src="../[common]/common-script.js"></script>
+	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
+
+</head>
+<body onload="bodyOnload();">
+	<header>
+		<h1><a href="">Animation</a></h1>
+		<nav>
+			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourScheme="light">🟓</a>
+			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourScheme="dark">🟒</a>
+			<a title="To folder" href="./">🖿</a>
+			<a title="Parent folder" href="../">🡅</a>
+		</nav>
+	</header>
+
+
+
+	<main>
+
+
+
+		<pre>
+			<h2>Output</h2>
+
+			<p class="asdf">
+				sfdjskfj;
+				lksfj;
+			</p>
+
+		</pre>
+
+		<style contenteditable="plaintext-only"  class="limit-height">
+
+			.asdf {
+				animation-duration: 3s;
+				animation-name: slide-in;
+				animation-iteration-count: infinite;
+				animation-direction: alternate;
+			}
+
+
+			@keyframes slide-in {
+				from {
+					translate: 50vw 30vh;
+					scale: 2 2;
+				}
+
+				to {
+					translate: 0 0;
+					scale: 100% 1;
+				}
+			}
+
+
+		</style>
+
+		<form onchange="formOnchange();">
+			<h3>Source Colour</h3>
+
+			<label>Colour chooser</label>
+			<input type="color" id="input-colourChooser" onchange="document.getElementById('input-colourText').value=this.value">
+
+			<label>Colour text</label>
+			<input type="text" id="input-colourText" onchange="document.getElementById('input-colourChooser').value=this.value">
+
+
+			<label>Random colours</label>
+			<div>
+				<button type="button" onclick="setColour(randomColourHex());">🎲 random colour</button>
+				<button type="button" onclick="setColour(randomColourHexWithAlpha());">🎲 random colour + alpha</button>
+			</div>
+		</form>
+
+		<style>
+
+			form {
+				display: grid;
+				grid-template-columns: 1fr 1fr ;
+
+				h3 {
+					grid-column-start: 1;
+					grid-column-end: 3;
+				}
+			}
+			fieldset { display:inline-block; border-radius:1ex;}
+
+
+		</style>
+
+
+		<script class="limit-height">
+
+			function bodyOnload() {
+				console.info('body onload');
+			}
+
+			function formOnchange() {
+				console.info('form onchange');
+			}
+
+		</script>
+
+
+	</main>
+
+</body>
+</html>

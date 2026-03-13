@@ -15,6 +15,7 @@ When html-common gets into release cadence some tasks will be moved over to ther
 
 Todo
 ----
+* CSS: dig into animations a bit
 * File API: save prompt & data - have done stuff like this yonks ago, have another look at
 * Check github pages apps to see if their localStorage is shared - I expect it probably is
 * Return to web-components and Temporal
