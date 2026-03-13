@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Storage</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="../[common]/html-experiment.svg">
+	<link rel="stylesheet" href="../[common]/common-style.css">
+	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
+</head>
+<body>
+	<header>
+		<h1><a href="">Storage</a></h1>
+		<nav>
+			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
+			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
+			<a title="To folder" href="./">🖿</a>
+			<a title="Parent folder" href="../">🡅</a>
+		</nav>
+	</header>
+
+
+
+	<main>
+
+	<pre>
+		Local storage
+		=============
+
+		Works off the domain, so currently currently seeing turtle stuff in here...
+
+
+	</pre>
+	<script>
+
+		console.info('local storage')
+		console.log(localStorage);
+
+	</script>
+
+	<pre>
+		Session storage
+		===============
+	</pre>
+
+	<script>
+		console.info('session storage')
+		console.log(sessionStorage);
+
+	</script>
+
+	</main>
+
+</body>
+</html>

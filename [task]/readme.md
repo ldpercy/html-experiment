@@ -15,6 +15,9 @@ When html-common gets into release cadence some tasks will be moved over to ther
 
 Todo
 ----
+* File API: save prompt & data - have done stuff like this yonks ago, have another look at
+* Check github pages apps to see if their localStorage is shared - I expect it probably is
+* Return to web-components and Temporal
 * Refresher: document.querySelector vs getElementById - they return different types/interfaces i think & the former is easier to cast
 * JS modules: a way to export "*" ?
 * JS identifiers: unicode categories ID_Start & ID_Continue
@@ -33,9 +36,10 @@ Todo
 * dynamic/automatic/contextual colours for text
 * CSS: Parent selector - 'has'
 * See if there's a way to collapse the single extra spaces that sometimes get added just from formatting, eg `<h1>	<a ...`
-* Grid layout - see if there's a simple way of making grid items go full-width without knowing the column count
-* continue 3d transform experiments
-* html details/summary: move the marker to the right
+* CSS grid: is there a simple way to make grid items go full-width without knowing the column count?
+* CSS grid: dynamic grids in general - eg based on custom vars
+* DOM: 3d transform experiments
+* HTML: details/summary move the marker to the right
 
 
 
