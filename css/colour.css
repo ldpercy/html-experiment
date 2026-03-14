@@ -175,3 +175,14 @@
 	--bbb-lch: lch(75.51% 0.01 296.81);
 
 }
+
+
+.green {
+
+	--green-darkgreen:		rgb(0, 100, 0);
+	--green-green:			rgb(0, 128, 0);
+	--green-forestgreen:	rgb(34, 139, 34);
+	--green-limegreen:		rgb(50, 205, 50);
+	--green-lawngreen:		rgb(124, 252, 0);
+	--green-lime:			rgb(0, 255, 0);
+}
