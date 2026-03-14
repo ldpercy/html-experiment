@@ -22,8 +22,6 @@
 		</nav>
 	</header>
 
-
-
 	<main>
 
 
@@ -38,17 +36,30 @@
 
 		</pre>
 
-		<style contenteditable="plaintext-only"  class="limit-height">
+		<style contenteditable="plaintext-only"  >
 
 			.asdf {
-				animation-duration: 3s;
-				animation-name: slide-in;
-				animation-iteration-count: infinite;
+				animation-name: rotate-colour;
+				animation-duration: 5s;
+
+				animation-iteration-count: 10;
 				animation-direction: alternate;
 			}
 
 
-			@keyframes slide-in {
+			@keyframes move-element {
+				from {
+					translate: 0 0;
+					scale: 100% 1;
+				}
+
+				to {
+					translate: 50vw 30vh;
+					scale: 2 2;
+				}
+			}
+
+			@keyframes move-element2 {
 				from {
 					translate: 50vw 30vh;
 					scale: 2 2;
@@ -60,6 +71,13 @@
 				}
 			}
 
+			@keyframes rotate-colour {
+				0%		{	color: hsl(0 100 50);		}
+				25%		{	color: hsl(90 100 50);		}
+				50%		{	color: hsl(180 100 50);	}
+				75%		{	color: hsl(270 100 50);	}
+				100%	{	color: hsl(360 100 50);	}
+			}
 
 		</style>
 
