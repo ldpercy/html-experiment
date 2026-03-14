@@ -9,7 +9,7 @@ import * as geometry from "../[library]/geometry.module.js";
 
 class PolygonApp extends HTMLApp {
 
-
+	appName	= "polygon";
 	appInfo = ["Polygon by ldpercy"];
 
 
@@ -25,6 +25,11 @@ class PolygonApp extends HTMLApp {
 			type: 'change',
 			listener: this.styleChangeListener
 		},
+		{
+			query: '.colourScheme-selector',
+			type: 'click',
+			listener: this.colourSchemeListener
+		},
 	];
 
 
@@ -36,6 +41,10 @@ class PolygonApp extends HTMLApp {
 		this.updateStyle();
 	}
 
+	colourSchemeListener(event) {
+		event.preventDefault();
+		this.setColourScheme(event.target.dataset.colourscheme);
+	}
 
 	documentDOMContentLoaded() {
 		super.documentDOMContentLoaded();
