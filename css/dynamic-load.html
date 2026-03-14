@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>CSS Dynamic Load</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="../favicon.svg">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- external -->
+	<link rel="stylesheet" href="../[common]/common-style.css">
+	<script defer src="../[common]/common-script.js"></script>
+
+
+</head>
+<body>
+	<header>
+		<h1><a href="">CSS Dynamic Load</a></h1>
+		<nav>
+			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
+			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
+			<a title="To folder" href="./">🖿</a>
+			<a title="Parent folder" href="../">🡅</a>
+		</nav>
+	</header>
+
+
+	<!-- reloadable -->
+	<link id="dynamicStylesheet" rel="stylesheet" href="">
+
+
+	<main>
+		<form>
+			<h2>Load page with folder:</h2>
+			<p>
+				<a href="?style=style_foobar">?style=style_foobar</a>
+				<a href="?style=style_abcd">?style=style_abcd</a>
+				<a href="?style=style_efgh">?style=style_efgh</a>
+			</p>
+
+			<h2>Change stylesheet directly:</h2>
+			<p>
+				<button type="button" onclick="switchStylesheet(dynamicStylesheet,'')">none</button>
+				<button type="button" onclick="switchStylesheet(dynamicStylesheet,'./style_abcd.css')">./style_abcd.css</button>
+				<button type="button" onclick="switchStylesheet(dynamicStylesheet,'./style_efgh.css')">./style_abcd.css</button>
+			</p>
+		</form>
+
+		<script>
+			// dynamic-load-css.js
+
+			document.addEventListener('DOMContentLoaded', documentDOMContentLoaded);
+
+
+			/* documentDOMContentLoaded
+			*/
+			function documentDOMContentLoaded() {
+				console.log('document DOMContentLoaded');
+
+				let dynamicStylesheet = document.getElementById('dynamicStylesheet');
+
+				let style = getUrlParameter('style');
+
+				console.log(style);
+
+				let stylesheetUrl = `./${style}.css`
+				console.log(stylesheetUrl);
+				// addNewStylesheet(stylesheetUrl)
+
+				dynamicStylesheet = document.getElementById('dynamicStylesheet');
+				switchStylesheet(dynamicStylesheet,stylesheetUrl)
+			}
+
+
+			/* addNewStylesheet
+			as these appear later in the document they override styles before it
+			*/
+			function addNewStylesheet(url)
+			{
+				let linkElement = document.createElement('link');
+				linkElement.rel = "stylesheet";
+				//linkElement.type = "text/css";
+				linkElement.href = url;
+				document.getElementsByTagName('head')[0].appendChild(linkElement)
+			}
+
+
+			/* switchStylesheet
+			*/
+			function switchStylesheet(linkElement, url) {
+				console.log(`${linkElement.id} ${url}`);
+				if 	(linkElement.nodeName == "LINK" && linkElement.rel == "stylesheet" )
+				{
+					linkElement.href = url;
+				}
+				else
+				{
+					console.log('Element not stylesheet link');
+				}
+			}
+
+
+		</script>
+
+
+
+	</main>
+
+</body>
+</html>
