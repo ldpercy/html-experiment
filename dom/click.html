@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Click</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="../[common]/html-experiment.svg">
+	<link rel="stylesheet" href="../[common]/common-style.css">
+	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
+</head>
+<body>
+	<header>
+		<h1><a href="">Click</a></h1>
+		<nav>
+			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light" data-colourschemespecial="rainbow">🟓</a>
+			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark" data-colourschemespecial="disco">🟒</a>
+			<a title="To folder" href="./">🖿</a>
+			<a title="Parent folder" href="../">🡅</a>
+		</nav>
+	</header>
+
+	<main>
+
+		<script type="module">
+			import { HTMLApp } from "../[html-common]/module/HTMLApp.js";
+
+			class ExampleApp extends HTMLApp {
+				appName = "ExampleApp";
+				appInfo = [`%c
+					Example App 0.0.1 by ldpercy
+					`.replace(/\n\t\t/g,'\n'),
+					'color:light-dark(darkblue, lightblue);'
+				];
+
+				eventListeners = [
+					{
+						element: document,
+						type: 'click',
+						listener: this.documentClickListener
+					},
+					{
+						element: document,
+						type: 'dblclick',
+						listener: this.documentDblClickListener
+					},
+					// {
+					// 	query: '#myForm',
+					// 	type: 'change',
+					// 	listener: this.formChangeListener
+					// },
+					{
+						query: '.colourScheme-selector',
+						type: 'click',
+						listener: this.colourSchemeListener
+					},
+					{
+						query: '.colourScheme-selector',
+						type: 'dblclick',
+						listener: this.colourSchemeSpecialListener
+					},
+				];
+
+				documentClickListener(event) {
+					const domPoint = new DOMPoint(event.clientX, event.clientY);
+					console.info('Click:', domPoint, event);
+				}
+
+				documentDblClickListener(event) {
+					const domPoint = new DOMPoint(event.clientX, event.clientY);
+					console.info('Double click:', domPoint, event);
+				}
+
+
+
+				formChangeListener(event) {
+					console.log('formChangeListener arguments', arguments);				// arguments[0] = change
+				}
+
+				colourSchemeListener(event) {
+					//console.log('colourSchemeListener', event.target.dataset);
+					event.preventDefault();
+					this.setColourScheme(event.target.dataset.colourscheme);
+				}
+
+				colourSchemeSpecialListener(event) {
+					//console.log('colourSchemeListener', event.target.dataset);
+					event.preventDefault();
+					this.setColourScheme(event.target.dataset.colourschemespecial);
+
+				}
+
+			}/* ExampleApp */
+
+			var exampleApp = new ExampleApp();
+		</script>
+
+
+
+		<form id="myForm">
+			<h2>App elements</h2>
+
+			<label>
+				<input type="checkbox">
+				checkbox
+			</label>
+
+			<select size="5">
+				<option>abcd</option>
+				<option>efgh</option>
+				<option>ijkl</option>
+				<option>mnop</option>
+			</select>
+		</form>
+
+		<style contenteditable="plaintext-only">
+			label { display:block; margin:1em; }
+			select { margin:1em; }
+		</style>
+
+	</main>
+
+
+</body>
+</html>

@@ -1,4 +1,5 @@
 @import "../[html-common]/style/html-common.css";
+@import "./color-scheme.css";
 @import "./heading.css";
 @import "./link.css";
 

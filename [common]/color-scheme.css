@@ -10,6 +10,19 @@
 }
 
 
+html {
+	color-scheme: light;
+	--html-background: var(--light-html);
+	background-color: var(--html-background);
+	body {
+		--body-background: var(--light-body);
+		background-color: var(--body-background);
+		color: var(--light-text);
+	}
+}
+
+
+
 html[data-colourscheme=light] {
 	color-scheme: light;
 	--html-background: var(--light-html);
@@ -26,4 +39,47 @@ html[data-colourscheme=dark] {
 		--body-background: var(--dark-body);
 		color: var(--dark-text);
 	}
+}
+
+
+
+
+html[data-colourscheme=rainbow] {
+	color-scheme: light;
+	/* --html-background: var(--light-html); */
+	body {
+		--body-background: var(--light-body);
+		color: var(--light-text);
+	}
+
+	animation-name: rotate-colour;
+	animation-duration: 5s;
+	animation-iteration-count:	infinite;
+	animation-direction: alternate;
+
+}
+
+
+html[data-colourscheme=disco] {
+	color-scheme: dark;
+	/* --html-background: var(--light-html); */
+	body {
+		--body-background: var(--dark-body);
+		color: var(--dark-text);
+	}
+
+	animation-name: rotate-colour;
+	animation-duration: 5s;
+	animation-iteration-count:	infinite;
+	animation-direction: alternate;
+
+}
+
+
+@keyframes rotate-colour {
+	0%		{	background-color: hsl(0 50 50);		}
+	25%		{	background-color: hsl(90 50 50);		}
+	50%		{	background-color: hsl(180 50 50);	}
+	75%		{	background-color: hsl(270 50 50);	}
+	100%	{	background-color: hsl(360 50 50);	}
 }
