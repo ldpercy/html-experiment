@@ -1,12 +1,19 @@
 
 :root {
-	--light-html: #eee;
-	--light-body: #fff;
-	--light-text: #000;
 
-	--dark-html: #000;
-	--dark-body: #111;
-	--dark-text: #fff;
+	/* Trying out using relative colours here, but not sure if these incur a performance penalty */
+
+	--light-colour: white;
+
+	--light-html: hsl(from var(--light-colour) h s 90 / alpha);
+	--light-body: hsl(from var(--light-colour) h s 100 / 0.9);
+	--light-text: hsl(from var(--light-colour) h s 0 / alpha);
+
+	--dark-colour: black;
+
+	--dark-html: hsl(from var(--dark-colour) h s 0 / alpha);
+	--dark-body: hsl(from var(--dark-colour) h s 10 / 0.9);
+	--dark-text: hsl(from var(--dark-colour) h s 100 / alpha);
 }
 
 
