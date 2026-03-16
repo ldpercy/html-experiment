@@ -28,10 +28,20 @@ Thinking mainly of docs like html & svg, and composites of.
 
 Just went and looked, don't have the old code, only have vague memories of how it worked.
 Not sure if a server round-trip was required or it was all in-browser.
+
 I seem to recall it involved a data url, but unsure.
+Aha:
+
+* https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a#download
+* https://developer.mozilla.org/en-US/docs/Web/API/HTMLAnchorElement/download
 
 
-https://developer.mozilla.org/en-US/docs/Web/API/HTMLAnchorElement/download
+```html
+	<a download="filename.txt" href="data:text/plain;utf8,Fantastic content to download">
+		an 'a' element with a download attribute
+	</a>
+```
 
-
-
+Brilliant.
+Like this i hopefully should be able to save and load files.
+Dangers of course....
