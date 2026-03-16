@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>File</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="../[common]/html-experiment.svg">
+	<link rel="stylesheet" href="../[common]/common-style.css">
+	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
+</head>
+<body>
+	<header>
+		<h1><a href="">File</a></h1>
+		<nav>
+			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light" data-colourschemespecial="rainbow">🟓</a>
+			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark" data-colourschemespecial="disco">🟒</a>
+			<a title="To folder" href="./">🖿</a>
+			<a title="Parent folder" href="../">🡅</a>
+		</nav>
+	</header>
+
+	<main>
+
+
+		<style contenteditable="plaintext-only">
+			label { display:block; margin:1em; }
+			select { margin:1em; }
+		</style>
+
+		<form id="myForm">
+			<h2>Form</h2>
+
+
+			<input type="file" name="fileinput" id="myform-input-file">
+
+			<label>
+				<input type="checkbox">
+				checkbox
+			</label>
+
+			<select size="5">
+				<option>abcd</option>
+				<option>efgh</option>
+				<option>ijkl</option>
+				<option>mnop</option>
+			</select>
+		</form>
+
+
+		<script type="module">
+			import { HTMLApp } from "../[html-common]/module/HTMLApp.js";
+
+			class FileApp extends HTMLApp {
+				appName = "ExampleApp";
+				appInfo = [`%c
+					Example App 0.0.1 by ldpercy
+					`.replace(/\n\t\t/g,'\n'),
+					'color:light-dark(darkblue, lightblue);'
+				];
+
+				eventListeners = [
+					// {
+					// 	query: '#myForm',
+					// 	type: 'change',
+					// 	listener: this.formChangeListener
+					// },
+					{
+						query: '#myform-input-file',
+						type: 'change',
+						listener: this.fileChangeListener
+					},
+					{
+						query: '.colourScheme-selector',
+						type: 'click',
+						listener: this.colourSchemeListener
+					},
+					{
+						query: '.colourScheme-selector',
+						type: 'dblclick',
+						listener: this.colourSchemeSpecialListener
+					},
+				];
+
+
+				fileChangeListener(event) {
+					console.log('fileChangeListener event', event);
+					//console.log('fileChangeListener event.target', event.target);
+					console.log('fileChangeListener event.target.files', event.target.files);
+				}
+
+
+				formChangeListener(event) {
+					console.log('formChangeListener event', event);
+					console.log('formChangeListener event.target', event.target);
+				}
+
+				colourSchemeListener(event) {
+					//console.log('colourSchemeListener', event.target.dataset);
+					event.preventDefault();
+					this.setColourScheme(event.target.dataset.colourscheme);
+				}
+
+				colourSchemeSpecialListener(event) {
+					//console.log('colourSchemeListener', event.target.dataset);
+					event.preventDefault();
+					this.setColourScheme(event.target.dataset.colourschemespecial);
+
+				}
+
+			}/* ExampleApp */
+
+			var fileApp = new FileApp();
+		</script>
+
+
+
+	</main>
+
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+File
+====
+
+* https://developer.mozilla.org/en-US/docs/Web/API/File
+* https://developer.mozilla.org/en-US/docs/Web/API/File_API/Using_files_from_web_applications
+
+
+
+
+Input type=file
+---------------
+
+
+	value: "C:\\fakepath\\computer.svg"
+
+
+hahaha
+
+
+File/save download
+------------------
+
+I've done a leetle bit of this before, but several years ago, need to revisit.
+
+This is one the main things I want initially - the ability to construct a payload and prompt the for the user to save it.
+
+Thinking mainly of docs like html & svg, and composites of.
+
+Just went and looked, don't have the old code, only have vague memories of how it worked.
+Not sure if a server round-trip was required or it was all in-browser.
+I seem to recall it involved a data url, but unsure.
+
+
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLAnchorElement/download
+
+
+
