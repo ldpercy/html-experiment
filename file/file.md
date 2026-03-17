@@ -45,3 +45,14 @@ Aha:
 Brilliant.
 Like this i hopefully should be able to save and load files.
 Dangers of course....
+
+
+### Triggering with a button
+```html
+	<button type="button" onclick="document.getElementById('dummy-anchor').click()">
+		trigger file download
+	</button>
+	<a id="dummy-anchor" download="filename.txt" href="data:text/plain;utf8,download file content">
+		download anchor to be triggered
+	</a>
+```

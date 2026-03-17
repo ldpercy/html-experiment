@@ -32,9 +32,26 @@
 
 			<input type="file" name="fileinput" id="myform-input-file">
 
+
 			<label>
-				<a download="foo.text" href="data:text/plain;utf8,Some fantastic content to download" >this is an 'a' element with a download attribute</a>
+				<a download href="data:text/plain;utf8,Some fantastic content to download">an 'a' element with a bare download attribute</a>
 			</label>
+			<label>
+				<a download="" href="data:text/plain;utf8,Some fantastic content to download">an 'a' element with an empty download attribute</a>
+			</label>
+			<label>
+				<a download="foo.text" href="data:text/plain;utf8,Some fantastic content to download" >an 'a' element with a suggested filename download attribute</a>
+			</label>
+			<label>
+				<a download="~/foo.text" href="data:text/plain;utf8,Some fantastic content to download" >an 'a' element with a filepath download attribute</a>
+			</label>
+
+
+			<label>
+				<button type="button" onclick="document.getElementById('dummy-anchor').click()"> trigger file download  </button>
+				<a id="dummy-anchor" download="~/foo.text" href="data:text/plain;utf8,Some fantastic content to download" >an anchor setup to be triggered </a>
+			</label>
+
 
 			<select size="5">
 				<option>abcd</option>
