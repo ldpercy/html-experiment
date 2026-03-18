@@ -12,6 +12,22 @@ class PolygonApp extends HTMLApp {
 	appName	= "polygon";
 	appInfo = ["Polygon by ldpercy"];
 
+	/** @type {object}
+	 * Note to self: like this typechecking on elements is totally sidestepped - need to find typesafe ways of doing this
+	 */
+	elementMap = {
+		radius			: 'input-radius',
+		sides			: 'input-sides',
+		pointStep		: 'input-pointStep',
+		startDivision	: 'input-startDivision',
+		copies			: 'input-copies',
+		divisionOffset	: 'input-divisionOffset',
+		separatePaths	: 'input-copyPaths',
+		coordinates		: 'input-coordinates',
+		decimalPlaces	: 'input-decimalPlaces',
+		saveLink		: 'link-save',
+	};
+
 
 
 	eventListeners = [
@@ -30,6 +46,13 @@ class PolygonApp extends HTMLApp {
 			type: 'click',
 			listener: this.colourSchemeListener
 		},
+		{
+			query: '#link-save',
+			type: 'click',
+			listener: this.saveListener
+		},
+
+
 	];
 
 
@@ -46,6 +69,23 @@ class PolygonApp extends HTMLApp {
 		this.setColourScheme(event.target.dataset.colourscheme);
 	}
 
+	saveListener(event) {
+
+		//this.element.saveLink.download = 'polygon.text';
+		//this.element.saveLink.href = "data:text/plain;utf8,This is polygon.text";
+
+		//	download="~/foo.text" href="data:text/plain;utf8,Some fantastic content to download"
+		//event.preventDefault();
+
+		// a very quick naive attempt that doesnb't quite work - needs some svg cleaning and rebuilding
+		this.element.saveLink.download = 'polygon_download.svg';
+		const polygonSvg = document.getElementById('output').innerHTML;
+		this.element.saveLink.href = `data:text/plain;utf8,${polygonSvg}`;
+
+	}
+
+
+
 	documentDOMContentLoaded() {
 		super.documentDOMContentLoaded();
 		this.redraw();
@@ -53,20 +93,7 @@ class PolygonApp extends HTMLApp {
 	}/* documentDOMContentLoaded */
 
 
-	/** @type {object}
-	 * Note to self: like this typechecking on elements is totally sidestepped - need to find typesafe ways of doing this
-	 */
-	elementMap = {
-		radius			: 'input-radius',
-		sides			: 'input-sides',
-		pointStep		: 'input-pointStep',
-		startDivision	: 'input-startDivision',
-		copies			: 'input-copies',
-		divisionOffset	: 'input-divisionOffset',
-		separatePaths	: 'input-copyPaths',
-		coordinates		: 'input-coordinates',
-		decimalPlaces	: 'input-decimalPlaces',
-	};
+
 
 
 	redraw() {
