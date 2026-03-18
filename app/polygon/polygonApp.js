@@ -3,8 +3,8 @@
 //
 
 import { HTMLApp } from "../../[html-common]/module/HTMLApp.js";
-import { Maths } from "../[library]/maths.module.js";
-import * as geometry from "../[library]/geometry.module.js";
+import { Maths } from "../../[common]/maths.module.js";
+import * as geometry from "../../[common]/geometry.module.js";
 
 
 class PolygonApp extends HTMLApp {
