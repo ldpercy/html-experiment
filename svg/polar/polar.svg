@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1200 -1200 2400 2400" preserveAspectRatio="xMidYMid meet" onload="run()">
 	<title>polar</title>
 
-	<script href="../[library]/maths.js"/>
-	<script href="../[library]/geometry.js"/>
-	<script href="../[library]/svg.js"/>
+	<script href="../../[common]/maths.js"></script>
+	<script href="../../[common]/geometry.js"></script>
+	<script href="../[library]/svg.js"></script>
 
 
 	<g class="graphPaper">

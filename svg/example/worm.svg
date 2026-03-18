@@ -3,7 +3,7 @@
 
 	<use href="../[library]/grid.svg#grid" x="0" y="0"/>
 
-	<script href="../[library]/maths.js"></script>
+	<script href="../../[common]/maths.js"></script>
 
 	<script>
 		<![CDATA[

@@ -6,7 +6,8 @@
 	</pattern>
 	<text x="-1200" y="-1000" class="title">base-n</text>
 
-	<script href="../[library]/maths.js"/>
+	<script href="../../[common]/maths.js"></script>
+
 	<script>
 		<![CDATA[
 
