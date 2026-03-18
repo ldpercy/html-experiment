@@ -56,3 +56,11 @@ Dangers of course....
 		download anchor to be triggered
 	</a>
 ```
+
+
+Href data
+---------
+
+Content gets truncated at hashes - will need url escaping of some sort.
+
+

@@ -31,7 +31,14 @@ Download / save
 
 Just trying this out as an experiment to see how the event works, and what about it can be controlled.
 
-
+Not working yet, current try:
+```js
+	const url = new URL(`data:text/plain;utf8,${polygonSvg}`);
+	this.element.saveLink.href = url.toString();
+```
+Trying this sort out url escaping, but still failing.
+I might be running into URL length limits or something - not sure yet.
+Time for some research.
 
 
 

@@ -80,8 +80,11 @@ class PolygonApp extends HTMLApp {
 		// a very quick naive attempt that doesnb't quite work - needs some svg cleaning and rebuilding
 		this.element.saveLink.download = 'polygon_download.svg';
 		const polygonSvg = document.getElementById('output').innerHTML;
-		this.element.saveLink.href = `data:text/plain;utf8,${polygonSvg}`;
 
+		const url = new URL(`data:text/plain;utf8,${polygonSvg}`);
+		this.element.saveLink.href = url.toString();
+
+		console.log(url.toString());
 	}
 
 
