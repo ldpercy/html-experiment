@@ -24,3 +24,16 @@ It would be handy if there was an easy way of figuring out things like angles an
 https://en.wikipedia.org/wiki/Internal_and_external_angles
 
 
+
+
+
+Ant-crawl animation
+-------------------
+
+Added this for fun.
+
+For some reason it's really cpu-expensive in firefox (on my desktop at least).
+Not too bad in Chromium though.
+
+Have added a switch to turn it off.
+

@@ -72,34 +72,40 @@
 		</form>
 
 		<form id="form-style">
+			<label for="input-startColour">
+				<input type="color" name="startColour" id="input-startColour" value="#ffa500">
+				colour
+			</label>
+			<label for="input-opacity">
+				<input type="range" name="opacity" id="input-opacity" value="0.5" min="0" max="1" step="0.1">
+				opacity
+			</label>
 			<label for="input-fillRule">fill rule</label>
 			<select id="input-fillRule" name="fillRule" size="2">
 				<option value="evenodd" selected>evenodd</option>
 				<option value="nonzero">nonzero</option>
 			</select>
 
+			<label for="input-antCrawl">
+				<input type="checkbox" name="antCrawl" id="input-antCrawl" checked>
+				ant-crawl
+			</label>
+
 			<label for="input-showGrid">
 				<input type="checkbox" name="showGrid" id="input-showGrid" checked>
-				show grid
+				grid
 			</label>
 			<label for="input-showMarkers">
 				<input type="checkbox" name="showMarkers" id="input-showMarkers">
-				show markers
+				markers
 			</label>
-			<label for="input-startColour">
-				<input type="color" name="startColour" id="input-startColour" value="orange">
-				start colour
-			</label>
-			<label for="input-opacity">
-				<input type="range" name="opacity" id="input-opacity" value="0.5" min="0" max="1" step="0.1">
-				opacity
-			</label>
+
 
 		</form>
 	</div>
 
 	<output id="output">
-		<svg class="star" viewBox="-1200 -1200 2400 2400" preserveAspectRatio="xMidYMid meet" >
+		<svg class="svg-polygon" viewBox="-1200 -1200 2400 2400" preserveAspectRatio="xMidYMid meet" >
 			<title>polygon</title>
 			<g class="graphPaper" id="group-grid">
 				<pattern id="pattern-graphPaper" width="100" height="100" patternUnits="userSpaceOnUse">
@@ -128,7 +134,7 @@
 
 			</defs>
 
-			<g id="star-group" class="evenodd ">
+			<g id="polygon-group" class="evenodd ant-crawl">
 				<path id="star" d=""/>
 			</g>
 		</svg>

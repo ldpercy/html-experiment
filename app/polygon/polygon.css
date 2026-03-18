@@ -11,10 +11,15 @@ body {
 
 
 
-/* Star styles
+/* Polygon styles
 */
 
-svg.star {
+#polygon-group {
+	--start-colour: orange;
+	--opacity: 0.5;
+}
+
+.svg-polygon {
 
 	width: 100vw;
 	height: 99vh;
@@ -52,21 +57,24 @@ svg.star {
 		marker-mid:url(#wedge);
 	}
 
-	path
+
+
+	path.star
 	{
 		stroke: lch(from var(--start-colour) l c calc(h + var(--degrees)) / 1) ;
 		fill: lch(from var(--start-colour) l c calc(h + var(--degrees)) / var(--opacity)) ;
-
 		&:hover {
 			stroke-width: 5px;
-			stroke-dasharray: 1em 1em;
-
-				animation-name: ant-crawl;
-				animation-duration: 1s;
-				animation-timing-function: linear;
-				animation-iteration-count: infinite;
-				animation-direction:normal;
+			stroke-dasharray: 50px 50px;
 		}
+	}
+
+	.ant-crawl path:hover {
+		animation-name: ant-crawl;
+		animation-duration: 1s;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+		animation-direction:normal;
 	}
 
 
@@ -85,23 +93,17 @@ svg.star {
 		.marker-mid    { fill:yellow ; stroke:orange }
 	}
 
-}/* svg.star */
-
-
-#star-group {
-	--start-colour: orange;
-	--opacity: 0.5;
-}
+}/* svg-polygon */
 
 
 
 
 @keyframes ant-crawl {
 	from {
-		stroke-dashoffset: 0em;
+		stroke-dashoffset: 0px;
 	}
 
 	to {
-		stroke-dashoffset: 2em;
+		stroke-dashoffset: 100px;
 	}
 }

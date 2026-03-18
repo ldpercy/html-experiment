@@ -72,7 +72,7 @@ class PolygonApp extends HTMLApp {
 	redraw() {
 		//console.debug('polygonApp.redraw', arguments);
 
-		const starGroup = this.getStarPath(
+		const polygonGroup = this.getPolygonPath(
 			this.element.radius.value,
 			this.element.sides.value,
 			this.element.pointStep.value,
@@ -84,7 +84,7 @@ class PolygonApp extends HTMLApp {
 		);
 
 		//console.log(starPath);
-		document.getElementById('star-group').innerHTML = starGroup;
+		document.getElementById('polygon-group').innerHTML = polygonGroup;
 	}/* redraw */
 
 
@@ -93,17 +93,25 @@ class PolygonApp extends HTMLApp {
 		//console.debug('polygonApp.updateStyle');
 
 		if (document.getElementById('input-fillRule').value === 'evenodd') {
-			document.getElementById('star-group').classList.add('evenodd');
+			document.getElementById('polygon-group').classList.add('evenodd');
 		}
 		else {
-			document.getElementById('star-group').classList.remove('evenodd');
+			document.getElementById('polygon-group').classList.remove('evenodd');
 		}
 
-		if (document.getElementById('input-showMarkers').checked) {
-			document.getElementById('star-group').classList.add('show-markers');
+		if (document.getElementById('input-antCrawl').checked) {
+			document.getElementById('polygon-group').classList.add('ant-crawl');
 		}
 		else {
-			document.getElementById('star-group').classList.remove('show-markers');
+			document.getElementById('polygon-group').classList.remove('ant-crawl');
+		}
+
+
+		if (document.getElementById('input-showMarkers').checked) {
+			document.getElementById('polygon-group').classList.add('show-markers');
+		}
+		else {
+			document.getElementById('polygon-group').classList.remove('show-markers');
 		}
 
 		if (document.getElementById('input-showGrid').checked) {
@@ -114,17 +122,17 @@ class PolygonApp extends HTMLApp {
 		}
 
 		const startColour = document.getElementById('input-startColour').value;
-		document.getElementById('star-group').style.setProperty('--start-colour',startColour);
+		document.getElementById('polygon-group').style.setProperty('--start-colour',startColour);
 
 		const opacity = document.getElementById('input-opacity').value;
-		document.getElementById('star-group').style.setProperty('--opacity', opacity);
+		document.getElementById('polygon-group').style.setProperty('--opacity', opacity);
 
 
 	}/* updateStyle */
 
 
 
-	/** getStarPath
+	/** getPolygonPath
 	 * TODO: this all needs to be converted over to planar space & angle objects
 	 *
 	 * @param {number} radius
@@ -136,7 +144,7 @@ class PolygonApp extends HTMLApp {
 	 * @param {string} copyPaths
 	 * @param {string} coordinates
 	 */
-	getStarPath(
+	getPolygonPath(
 			radius,				// radius of points
 			sides, 				// how many sides the polygon has
 			pointStep, 			// how many divisions to the next vertex
@@ -201,7 +209,7 @@ class PolygonApp extends HTMLApp {
 		}
 
 		return result;
-	}/* getStarPath */
+	}/* getPolygonPath */
 
 	/** round
 	 * @param {number} number
