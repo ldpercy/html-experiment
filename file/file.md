@@ -63,4 +63,8 @@ Href data
 
 Content gets truncated at hashes - will need url escaping of some sort.
 
+Encoding hashes with `%23` works.
+
+Need a proper refresher on URL escaping to get this right for all the reserved chars that might appear.
+
 

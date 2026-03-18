@@ -79,9 +79,19 @@ class PolygonApp extends HTMLApp {
 
 		// a very quick naive attempt that doesnb't quite work - needs some svg cleaning and rebuilding
 		this.element.saveLink.download = 'polygon_download.svg';
-		const polygonSvg = document.getElementById('output').innerHTML;
 
-		const url = new URL(`data:text/plain;utf8,${polygonSvg}`);
+		const polygonGroup = document.getElementById('polygon-group').innerHTML;
+
+		const svg= `
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1200 -1200 2400 2400" preserveAspectRatio="xMidYMid meet" >
+				<title>polygon</title>
+				<g id="polygon-group" style="stroke:black;fill:grey;fill-opacity:50%;">
+					${polygonGroup}
+				</g>
+			</svg>
+		`;
+
+		const url = new URL(`data:text/plain;utf8,${svg}`);
 		this.element.saveLink.href = url.toString();
 
 		console.log(url.toString());

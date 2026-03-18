@@ -40,7 +40,12 @@ Trying this sort out url escaping, but still failing.
 I might be running into URL length limits or something - not sure yet.
 Time for some research.
 
+I have a version working now with simpler re-built svg output.
+The download href does *not* like hashes - see if they can be escaped.
 
+* Encoding hashes with `%23` will work
+
+Need a proper refresher on URL escaping to get this right for all the reserved chars that might appear.
 
 
 Ant-crawl animation
