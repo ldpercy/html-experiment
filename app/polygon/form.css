@@ -1,8 +1,7 @@
-.form-group {
+.control-group {
 
 	font-family:sans-serif;
-	position:absolute;
-	left:0ex;
+
 
 	form  {
 		display: grid;
@@ -23,7 +22,7 @@
 
 	label:has(h2) { margin-top:2ex; }
 
-
+	input[type=color] { width:100%; padding:1px; }
 
 
 	/* label:after { content:':'; } */
@@ -35,13 +34,27 @@
 
 
 nav {
-	position:absolute;
-	right:0ex;
 	border:1px solid silver;
 	background-color:#ddd5;
-	border-radius: 1ex;
-	padding:1ex;
-	margin: 1ex;
+	border-radius: 1rex;
+	padding:1rex;
+	margin: 1rex;
 	font-size: 2em;
 	line-height: 1em;
 }
+
+
+
+.control-group {
+
+	&.control-left {
+		position:absolute;
+		left:0ex;
+	}
+
+	&.control-right {
+		position:absolute;
+		right:0ex;
+	}
+}
+

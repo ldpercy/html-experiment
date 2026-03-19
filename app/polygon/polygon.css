@@ -75,6 +75,12 @@ body {
 		fill-rule: evenodd; /* fill-rule: nonzero  */
 	}
 
+
+	&.ant-crawl path {
+		transition: none;
+	}
+
+
 	&.ant-crawl:hover {
 		stroke-width: 5px;
 		stroke-dasharray: 50px 50px;

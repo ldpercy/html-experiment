@@ -14,17 +14,10 @@
 	<script type="module" src="./polygonApp.js"></script>
 </head>
 <body>
-	<nav>
-		<a id="link-save" href="#save" title="Save">🖫</a>  <!-- download="foo.text" -->
-		|
-		<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
-		<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
-		<a title="To folder" href="./">🖿</a>
-		<a title="Parent folder" href="../">🡅</a>
-	</nav>
 
 
-	<div class="form-group">
+
+	<div class="control-group control-left">
 
 
 		<form id="form-polygon">
@@ -72,16 +65,28 @@
 			<label for="input-decimalPlaces">decimal places</label>
 			<input id="input-decimalPlaces" type="number" name="decimalPlaces" title="sides" min="0" value="0" max="9"/>
 		</form>
+	</div>
+
+	<div class="control-group control-right">
+		<nav>
+			<a id="link-save" href="#save" title="Save">🖫</a>  <!-- download="foo.text" -->
+			&nbsp;
+			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
+			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
+			<a title="To folder" href="./">🖿</a>
+			<a title="Parent folder" href="../">🡅</a>
+		</nav>
 
 		<form id="form-style">
-			<label for="input-startColour">
-				<input type="color" name="startColour" id="input-startColour" value="#ffa500">
-				colour
-			</label>
+			<label for="input-startColour">colour</label>
+			<input type="color" name="startColour" id="input-startColour" value="#ffa500">
+
+
 			<label for="input-opacity">
-				<input type="range" name="opacity" id="input-opacity" value="0.5" min="0" max="1" step="0.1">
+
 				opacity
 			</label>
+			<input type="range" name="opacity" id="input-opacity" value="0.5" min="0" max="1" step="0.1">
 			<label for="input-fillRule">fill rule</label>
 			<select id="input-fillRule" name="fillRule" size="2">
 				<option value="evenodd" selected>evenodd</option>
