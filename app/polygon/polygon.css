@@ -2,6 +2,13 @@
 	transition: all 0.5s;
 }
 
+
+:root {
+	--stroke-dasharray: 50px 50px;
+	--to-stroke-dashoffset: 100px;
+	--stroke-width: 5px;
+}
+
 body {
 	margin: 0;
 	font-family: sans-serif;
@@ -44,7 +51,7 @@ body {
 	/* grid & markers */
 	.origin { fill:transparent ; stroke:black }
 	marker {
-		stroke-width: 5;
+		stroke-width: 5px;
 
 		.marker-start  { fill:lightgreen ; stroke:green }
 		.marker-end    { fill:pink ; stroke:red }
@@ -60,13 +67,18 @@ body {
 	--opacity: 0.5;
 
 
+
+	stroke-width: var(--stroke-width);
+	/* stroke-linecap: round;
+	stroke-linejoin: round; */
+
 	path
 	{
 		stroke: lch(from var(--start-colour) l c calc(h + var(--degrees)) / 1) ;
-		fill: lch(from var(--start-colour) l c calc(h + var(--degrees)) / var(--opacity)) ;
+		fill: lch(from var(--start-colour) l c calc(h + var(--degrees)) / var(--fill-opacity)) ;
 		&:hover {
-			stroke-width: 5px;
-			stroke-dasharray: 50px 50px;
+			/* stroke-dasharray: var(--stroke-dasharray); */
+			stroke-width: calc(2 * var(--stroke-width));
 		}
 	}
 
@@ -82,8 +94,8 @@ body {
 
 
 	&.ant-crawl:hover {
-		stroke-width: 5px;
-		stroke-dasharray: 50px 50px;
+		path { stroke-width: var(--stroke-width); }
+		stroke-dasharray: var(--stroke-dasharray);
 		animation-name: ant-crawl;
 		animation-duration: 1s;
 		animation-timing-function: linear;
@@ -96,15 +108,15 @@ body {
 
 
 
-
-
-
 @keyframes ant-crawl {
 	from {
 		stroke-dashoffset: 0px;
 	}
 
 	to {
-		stroke-dashoffset: 100px;
+		stroke-dashoffset: var(--to-stroke-dashoffset);
 	}
 }
+
+
+

@@ -51,7 +51,11 @@ class PolygonApp extends HTMLApp {
 			type: 'click',
 			listener: this.saveListener
 		},
-
+		{
+			query: '#input-stroke-dasharray',
+			type: 'change',
+			listener: this.setStrokeDasharray,
+		},
 
 	];
 
@@ -97,6 +101,18 @@ class PolygonApp extends HTMLApp {
 		console.log(url.toString());
 	}
 
+
+	setStrokeDasharray(event) {
+		const dasharray = event.target.value;
+		//document.getElementById('polygon-group').style.setProperty('--stroke-dasharray', dasharray);
+		document.body.style.setProperty('--stroke-dasharray', dasharray);
+
+		const dasharaySum = dasharray.trim().split(' ').join(' + ');
+		console.debug(dasharaySum);
+
+		document.body.style.setProperty('--to-stroke-dashoffset',`calc(${dasharaySum})`);
+		//toStrokeDashoffset =
+	}
 
 
 	documentDOMContentLoaded() {
@@ -164,11 +180,14 @@ class PolygonApp extends HTMLApp {
 		const startColour = document.getElementById('input-startColour').value;
 		document.getElementById('polygon-group').style.setProperty('--start-colour',startColour);
 
-		const opacity = document.getElementById('input-opacity').value;
-		document.getElementById('polygon-group').style.setProperty('--opacity', opacity);
+		const opacity = document.getElementById('input-fill-opacity').value;
+		document.getElementById('polygon-group').style.setProperty('--fill-opacity', opacity);
 
 
 	}/* updateStyle */
+
+
+
 
 
 

@@ -49,6 +49,7 @@
 
 			<label for="input-copies"><h2>copies</h2></label>
 			<input id="input-copies" type="number" name="copies" title="copies" min="0" value="2" >
+
 			<label for="input-divisionOffset">division offset</label>
 			<input id="input-divisionOffset" type="number" name="divisionOffset" title="divisionOffset" value="2">
 
@@ -82,16 +83,25 @@
 			<input type="color" name="startColour" id="input-startColour" value="#ffa500">
 
 
-			<label for="input-opacity">
-
-				opacity
+			<label for="input-fill-opacity">
+				fill-opacity
 			</label>
-			<input type="range" name="opacity" id="input-opacity" value="0.5" min="0" max="1" step="0.1">
+			<input type="range" name="fill-opacity" id="input-fill-opacity" value="0.5" min="0" max="1" step="0.1">
+
 			<label for="input-fillRule">fill rule</label>
 			<select id="input-fillRule" name="fillRule" size="2">
 				<option value="evenodd" selected>evenodd</option>
 				<option value="nonzero">nonzero</option>
 			</select>
+
+			<label for="input-stroke-dasharray">stroke-dasharray</label>
+			<input
+				id="input-stroke-dasharray"
+				type="string"
+				name="stroke-dasharray"
+				title="stroke-dasharray"
+				value="50px 50px"
+			>
 
 			<label for="input-antCrawl">
 				<input type="checkbox" name="antCrawl" id="input-antCrawl" checked>
@@ -106,7 +116,6 @@
 				<input type="checkbox" name="showMarkers" id="input-showMarkers">
 				markers
 			</label>
-
 
 		</form>
 	</div>
