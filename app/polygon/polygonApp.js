@@ -29,6 +29,15 @@ class PolygonApp extends HTMLApp {
 	};
 
 
+	documentDOMContentLoaded() {
+		super.documentDOMContentLoaded();
+		this.redraw();
+		this.updateStyle();
+	}/* documentDOMContentLoaded */
+
+
+
+
 
 	eventListeners = [
 		{
@@ -56,6 +65,11 @@ class PolygonApp extends HTMLApp {
 			type: 'change',
 			listener: this.setStrokeDasharray,
 		},
+		{
+			query: '#input-stroke-width',
+			type: 'change',
+			listener: this.setStrokeWidth,
+		},
 
 	];
 
@@ -72,6 +86,26 @@ class PolygonApp extends HTMLApp {
 		event.preventDefault();
 		this.setColourScheme(event.target.dataset.colourscheme);
 	}
+
+
+
+	setStrokeWidth(event) {
+		const strokeWidth = event.target.value;
+		document.body.style.setProperty('--stroke-width', strokeWidth);
+	}
+
+	setStrokeDasharray(event) {
+		const dasharray = event.target.value;
+		//document.getElementById('polygon-group').style.setProperty('--stroke-dasharray', dasharray);
+		document.body.style.setProperty('--stroke-dasharray', dasharray);
+
+		const dasharaySum = dasharray.trim().split(' ').join(' + ');
+		console.debug(dasharaySum);
+
+		document.body.style.setProperty('--to-stroke-dashoffset',`calc(${dasharaySum})`);
+		//toStrokeDashoffset =
+	}
+
 
 	saveListener(event) {
 
@@ -101,25 +135,6 @@ class PolygonApp extends HTMLApp {
 		console.log(url.toString());
 	}
 
-
-	setStrokeDasharray(event) {
-		const dasharray = event.target.value;
-		//document.getElementById('polygon-group').style.setProperty('--stroke-dasharray', dasharray);
-		document.body.style.setProperty('--stroke-dasharray', dasharray);
-
-		const dasharaySum = dasharray.trim().split(' ').join(' + ');
-		console.debug(dasharaySum);
-
-		document.body.style.setProperty('--to-stroke-dashoffset',`calc(${dasharaySum})`);
-		//toStrokeDashoffset =
-	}
-
-
-	documentDOMContentLoaded() {
-		super.documentDOMContentLoaded();
-		this.redraw();
-		this.updateStyle();
-	}/* documentDOMContentLoaded */
 
 
 
