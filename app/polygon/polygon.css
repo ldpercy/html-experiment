@@ -14,10 +14,7 @@ body {
 /* Polygon styles
 */
 
-#polygon-group {
-	--start-colour: orange;
-	--opacity: 0.5;
-}
+
 
 .svg-polygon {
 
@@ -38,50 +35,11 @@ body {
 		stroke-width: 1px;
 	}
 
-	path {
-
-		stroke: #ff0;
-		fill: #ff04;
-		stroke-width: 1;
-
-		/* mix-blend-mode:color; */
-
-		/* stroke-dasharray: 2 7;  */
-		/* stroke-linecap: round; */
-		/* stroke-linejoin: bevel; */
-	}
-
 	g.show-markers path {
 		marker-start:url(#markerStart);
 		marker-end:url(#markerEnd);
 		marker-mid:url(#wedge);
 	}
-
-
-
-	path.star
-	{
-		stroke: lch(from var(--start-colour) l c calc(h + var(--degrees)) / 1) ;
-		fill: lch(from var(--start-colour) l c calc(h + var(--degrees)) / var(--opacity)) ;
-		&:hover {
-			stroke-width: 5px;
-			stroke-dasharray: 50px 50px;
-		}
-	}
-
-	.ant-crawl path:hover {
-		animation-name: ant-crawl;
-		animation-duration: 1s;
-		animation-timing-function: linear;
-		animation-iteration-count: infinite;
-		animation-direction:normal;
-	}
-
-
-	.evenodd path {
-		fill-rule: evenodd; /* fill-rule: nonzero  */
-	}
-
 
 	/* grid & markers */
 	.origin { fill:transparent ; stroke:black }
@@ -94,6 +52,43 @@ body {
 	}
 
 }/* svg-polygon */
+
+
+
+#polygon-group {
+	--start-colour: orange;
+	--opacity: 0.5;
+
+
+	path
+	{
+		stroke: lch(from var(--start-colour) l c calc(h + var(--degrees)) / 1) ;
+		fill: lch(from var(--start-colour) l c calc(h + var(--degrees)) / var(--opacity)) ;
+		&:hover {
+			stroke-width: 5px;
+			stroke-dasharray: 50px 50px;
+		}
+	}
+
+
+	&.evenodd path {
+		fill-rule: evenodd; /* fill-rule: nonzero  */
+	}
+
+	&.ant-crawl:hover {
+		stroke-width: 5px;
+		stroke-dasharray: 50px 50px;
+		animation-name: ant-crawl;
+		animation-duration: 1s;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+		animation-direction:normal;
+	}
+
+
+}
+
+
 
 
 

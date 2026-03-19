@@ -235,7 +235,7 @@ class PolygonApp extends HTMLApp {
 			}// for i
 
 			if (copyPaths === 'separate') {
-				result += `<path class="star" d="${path} z" style="--degrees:${degrees}"/>`;
+				result += `<path d="${path} z" style="--degrees:${degrees}"/>`;
 				lastPoint = new geometry.Point(0,0);
 				path = '';
 			}
@@ -245,7 +245,7 @@ class PolygonApp extends HTMLApp {
 		}// for c
 
 		if (copyPaths === 'combined') {
-			result = `<path class="star" d="${path} z" style="--degrees:0"/>`;
+			result = `<path d="${path} z" style="--degrees:0"/>`;
 		}
 
 		return result;
