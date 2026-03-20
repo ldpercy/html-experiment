@@ -7,7 +7,20 @@ https://en.wikipedia.org/wiki/Winding_number#Turning_number
 https://en.wikipedia.org/wiki/Schl%C3%A4fli_symbol
 
 
-* Starting to consider whether this should be split out into it's own repo...
+
+
+Todo
+----
+* Consider whether this should be split out into it's own repo
+* Add url parameters so specific polygons can be sent to friends
+* Add linejoin/linecap settings
+* Add setting/param to turn off the ui (inc grid)
+* Figure out what on earth is going on with the markers
+* Save/export with settings
+* Save settings in localStorage
+* Animation presets??
+
+
 
 
 Relative coordinates

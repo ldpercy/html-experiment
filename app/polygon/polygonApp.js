@@ -57,6 +57,11 @@ class PolygonApp extends HTMLApp {
 			listener: this.colourSchemeListener
 		},
 		{
+			query: '.colourScheme-selector',
+			type: 'dblclick',
+			listener: this.colourSchemeSpecialListener
+		},
+		{
 			query: '#link-save',
 			type: 'click',
 			listener: this.saveListener
@@ -88,6 +93,12 @@ class PolygonApp extends HTMLApp {
 		this.setColourScheme(event.target.dataset.colourscheme);
 	}
 
+	colourSchemeSpecialListener(event) {
+		//console.log('colourSchemeListener', event.target.dataset);
+		event.preventDefault();
+		this.setColourScheme(event.target.dataset.colourschemespecial);
+
+	}
 
 
 	setStrokeWidth() {
