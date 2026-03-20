@@ -7,6 +7,7 @@ https://en.wikipedia.org/wiki/Winding_number#Turning_number
 https://en.wikipedia.org/wiki/Schl%C3%A4fli_symbol
 
 
+* Starting to consider whether this should be split out into it's own repo...
 
 
 Relative coordinates

@@ -66,11 +66,21 @@ body {
 	--start-colour: orange;
 	--opacity: 0.5;
 
-
-
 	stroke-width: var(--stroke-width);
+
+
 	/* stroke-linecap: round;
-	stroke-linejoin: round; */
+	stroke-linecap: square; */
+	stroke-linecap: butt;
+
+
+	/* stroke-linejoin: miter-clip;
+	stroke-linejoin: arcs;
+	stroke-linejoin: round;
+	stroke-linejoin: bevel; */
+	stroke-linejoin: miter;
+
+
 
 	path
 	{

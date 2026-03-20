@@ -31,6 +31,7 @@ class PolygonApp extends HTMLApp {
 
 	documentDOMContentLoaded() {
 		super.documentDOMContentLoaded();
+		this.setColourScheme(localStorage.polygon_colourScheme || 'light');
 		this.redraw();
 		this.updateStyle();
 	}/* documentDOMContentLoaded */
@@ -89,13 +90,13 @@ class PolygonApp extends HTMLApp {
 
 
 
-	setStrokeWidth(event) {
-		const strokeWidth = event.target.value;
+	setStrokeWidth() {
+		const strokeWidth = document.forms['form-style']['input-stroke-width'].value;
 		document.body.style.setProperty('--stroke-width', strokeWidth);
 	}
 
-	setStrokeDasharray(event) {
-		const dasharray = event.target.value;
+	setStrokeDasharray() {
+		const dasharray = document.forms['form-style']['input-stroke-dasharray'].value;
 		//document.getElementById('polygon-group').style.setProperty('--stroke-dasharray', dasharray);
 		document.body.style.setProperty('--stroke-dasharray', dasharray);
 
@@ -163,14 +164,15 @@ class PolygonApp extends HTMLApp {
 	updateStyle() {
 		//console.debug('polygonApp.updateStyle');
 
-		if (document.getElementById('input-fillRule').value === 'evenodd') {
+
+		if ( document.forms['form-style']['input-fillRule'].value === 'evenodd') {
 			document.getElementById('polygon-group').classList.add('evenodd');
 		}
 		else {
 			document.getElementById('polygon-group').classList.remove('evenodd');
 		}
 
-		if (document.getElementById('input-antCrawl').checked) {
+		if (document.forms['form-style']['input-antCrawl'].checked) {
 			document.getElementById('polygon-group').classList.add('ant-crawl');
 		}
 		else {
@@ -178,26 +180,29 @@ class PolygonApp extends HTMLApp {
 		}
 
 
-		if (document.getElementById('input-showMarkers').checked) {
+		if ( document.forms['form-style']['input-showMarkers'].checked) {
 			document.getElementById('polygon-group').classList.add('show-markers');
 		}
 		else {
 			document.getElementById('polygon-group').classList.remove('show-markers');
 		}
 
-		if (document.getElementById('input-showGrid').checked) {
+		if ( document.forms['form-style']['input-showGrid'].checked) {
 			document.getElementById('group-grid').style.display = '';
 		}
 		else {
 			document.getElementById('group-grid').style.display = 'none';
 		}
 
-		const startColour = document.getElementById('input-startColour').value;
+		const startColour =  document.forms['form-style']['input-startColour'].value;
 		document.getElementById('polygon-group').style.setProperty('--start-colour',startColour);
 
-		const opacity = document.getElementById('input-fill-opacity').value;
+		const opacity =  document.forms['form-style']['input-fill-opacity'].value;
 		document.getElementById('polygon-group').style.setProperty('--fill-opacity', opacity);
 
+
+		this.setStrokeDasharray();
+		this.setStrokeWidth();
 
 	}/* updateStyle */
 
