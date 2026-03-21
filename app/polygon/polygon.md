@@ -13,6 +13,7 @@ Todo
 ----
 * Consider whether this should be split out into it's own repo
 * Add url parameters so specific polygons can be sent to friends
+* Or some preset examples
 * Add linejoin/linecap settings
 * Add setting/param to turn off the ui (inc grid)
 * Figure out what on earth is going on with the markers
