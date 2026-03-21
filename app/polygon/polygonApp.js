@@ -191,12 +191,12 @@ class PolygonApp extends HTMLApp {
 		}
 
 
-		if ( document.forms['form-style']['input-showMarkers'].checked) {
-			document.getElementById('polygon-group').classList.add('show-markers');
-		}
-		else {
-			document.getElementById('polygon-group').classList.remove('show-markers');
-		}
+		// if ( document.forms['form-style']['input-showMarkers'].checked) {
+		// 	document.getElementById('polygon-group').classList.add('show-markers');
+		// }
+		// else {
+		// 	document.getElementById('polygon-group').classList.remove('show-markers');
+		// }
 
 		if ( document.forms['form-style']['input-showGrid'].checked) {
 			document.getElementById('group-grid').style.display = '';
@@ -244,7 +244,7 @@ class PolygonApp extends HTMLApp {
 			copyPaths,			// combined or separate svg paths
 			coordinates,		// absolute or relative
 		) {
-		console.debug(arguments);
+		//console.debug(arguments);
 		let result = '';
 		let path = '';
 		let x = 0, y = 0;
