@@ -3,7 +3,7 @@
 
 
 
-const triHeptadecagram = {
+export const triHeptadecagram = {
 
 	polygon : {
 		sides: 17,

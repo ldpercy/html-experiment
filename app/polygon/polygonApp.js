@@ -5,6 +5,7 @@
 import { HTMLApp } from "../../[html-common]/module/HTMLApp.js";
 import { Maths } from "../../[common]/maths.module.js";
 import * as geometry from "../../[common]/geometry.module.js";
+import { ui } from "./user-interface.js";
 
 
 class PolygonApp extends HTMLApp {
@@ -112,7 +113,7 @@ class PolygonApp extends HTMLApp {
 		document.body.style.setProperty('--stroke-dasharray', dasharray);
 
 		const dasharaySum = dasharray.trim().split(' ').join(' + ');
-		console.debug(dasharaySum);
+		//console.debug(dasharaySum);
 
 		document.body.style.setProperty('--to-stroke-dashoffset',`calc(${dasharaySum})`);
 		//toStrokeDashoffset =
@@ -317,5 +318,5 @@ class PolygonApp extends HTMLApp {
 
 
 
-const polygonApp = new PolygonApp();
+export const polygonApp = new PolygonApp();
 
