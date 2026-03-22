@@ -22,6 +22,24 @@ Todo
 * Animation presets??
 
 
+Setting order of precedence
+---------------------------
+
+This problem exists in one form or another for all of the apps.
+The answer might be a little different per-app as well, depending on how things are wanted to work.
+
+Some early notes on this topic in [year-clock](<../../../year-clock/task/2.🐁Δ - small updates.md>).
+
+* URL parameters
+* localStorage settings
+* session storage settings
+* current form settings
+
+Firefox helpfully restores current form settings on page reload, whereas chrome does not.
+To allow for different tabs with different settings, current form settings should probably be stored in sessionStorage.
+
+
+
 
 
 Relative coordinates
