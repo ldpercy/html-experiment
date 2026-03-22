@@ -20,7 +20,10 @@ class PolygonApp extends HTMLApp {
 		super.documentDOMContentLoaded();
 		this.setColourScheme(localStorage.polygon_colourScheme || 'light');
 
-		ui.setUrlParameters();
+		if (this.getUrlParameter('preset')) {
+			ui.loadPreset(this.getUrlParameter('preset'));
+		}
+
 		ui.updateStyle();
 		ui.redraw();
 

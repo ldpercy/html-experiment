@@ -31,6 +31,9 @@ class UserInterface {
 		strokeWidth		: 'input-strokeWidth',
 		strokeDasharray	: 'input-strokeDasharray',
 
+		strokeLinejoin	: 'input-strokeLinejoin',
+		strokeLinecap	: 'input-strokeLinecap',
+
 	};
 
 
@@ -73,14 +76,27 @@ class UserInterface {
 			listener: this.saveListener
 		},
 		{
-			query: '#input-stroke-dasharray',
+			query: '#input-strokeDasharray',
 			type: 'change',
-			listener: this.setStrokeDasharray,
+			//listener: this.setStrokeDasharray,
+			listener: (event)=> { this.strokeDasharray = event.target.value }
 		},
 		{
-			query: '#input-stroke-width',
+			query: '#input-strokeWidth',
 			type: 'change',
-			listener: this.setStrokeWidth,
+			//listener: this.setStrokeWidth,
+			listener: (event)=> { this.strokeWidth = event.target.value }
+		},
+		{
+			query: '#input-strokeLinejoin',
+			type: 'change',
+			//listener: this.setStrokeLinejoin,
+			listener: (event)=> { this.strokeLinejoin = event.target.value }
+		},
+		{
+			query: '#input-strokeLinecap',
+			type: 'change',
+			listener: (event)=> { this.strokeLinecap = event.target.value }
 		},
 		{
 			element: document,
@@ -187,23 +203,6 @@ class UserInterface {
 	}
 
 
-	setStrokeWidth() {
-		const strokeWidth = document.forms['form-style']['input-strokeWidth'].value;
-		document.body.style.setProperty('--stroke-width', strokeWidth);
-	}
-
-	setStrokeDasharray() {
-		const dasharray = document.forms['form-style']['input-strokeDasharray'].value;
-		//document.getElementById('polygon-group').style.setProperty('--stroke-dasharray', dasharray);
-		document.body.style.setProperty('--stroke-dasharray', dasharray);
-
-		const dasharaySum = dasharray.trim().split(' ').join(' + ');
-		//console.debug(dasharaySum);
-
-		document.body.style.setProperty('--to-stroke-dashoffset',`calc(${dasharaySum})`);
-		//toStrokeDashoffset =
-	}
-
 
 	saveListener(event) {
 
@@ -298,8 +297,8 @@ class UserInterface {
 		document.getElementById('polygon-group').style.setProperty('--fill-opacity', opacity);
 
 
-		this.setStrokeDasharray();
-		this.setStrokeWidth();
+		// this.setStrokeDasharray();
+		// this.setStrokeWidth();
 
 	}/* updateStyle */
 
@@ -443,6 +442,7 @@ class UserInterface {
 
 	/** @param {string} strokeWidth	*/
 	set strokeWidth(strokeWidth) {
+		document.body.style.setProperty('--stroke-width', strokeWidth);
 		this.element.strokeWidth.value = strokeWidth;
 	}
 
@@ -453,7 +453,40 @@ class UserInterface {
 
 	/** @param {string} strokeDasharray	*/
 	set strokeDasharray(strokeDasharray) {
+		document.body.style.setProperty('--stroke-dasharray', strokeDasharray);
+
+		const dasharaySum = strokeDasharray.trim().split(' ').join(' + ');
+		//console.debug(dasharaySum);
+
+		document.body.style.setProperty('--to-stroke-dashoffset',`calc(${dasharaySum})`);
 		this.element.strokeDasharray.value = strokeDasharray;
+	}
+
+
+
+
+
+	/** @returns {string}	*/
+	get strokeLinejoin() {
+		return this.element.strokeLinejoin.value;
+	}
+
+	/** @param {string} strokeLinejoin	*/
+	set strokeLinejoin(strokeLinejoin) {
+		document.body.style.setProperty('--stroke-linejoin', strokeLinejoin);
+		this.element.strokeLinejoin.value = strokeLinejoin;
+	}
+
+
+	/** @returns {string}	*/
+	get strokeLinecap() {
+		return this.element.strokeLinecap.value;
+	}
+
+	/** @param {string} strokeLinecap	*/
+	set strokeLinecap(strokeLinecap) {
+		document.body.style.setProperty('--stroke-linecap', strokeLinecap);
+		this.element.strokeLinecap.value = strokeLinecap;
 	}
 
 

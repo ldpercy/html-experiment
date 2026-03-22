@@ -47,11 +47,16 @@ export const triHeptadecagram = {
 		decimalPlaces	: 0,
 	},
 	style : {
+		colourScheme	: 'dark',
 		startColour		: 'forestgreen',
 		fillOpacity		: '0.2',
 		fullRule		: 'evenodd',
-		strokeWidth		: '2em',
-		strokeDasharray	: '2em 2em',
+		strokeWidth		: '7ex',
+		strokeDasharray	: '4px 4em',
+
+		strokeLinejoin	: 'round',
+		strokeLinecap	: 'butt',
+
 		antCrawl		: true,
 		grid			: false,
 		//markers: false,
