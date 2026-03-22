@@ -1,6 +1,6 @@
 import { HTMLApp } from "../../[html-common]/module/HTMLApp.js";
 import { polygonApp } from "./polygonApp.js";
-import * as preset from "./preset.js";
+import * as polygonPreset from "./polygon-preset.js";
 
 
 
@@ -24,6 +24,13 @@ class UserInterface {
 		coordinates		: 'input-coordinates',
 		decimalPlaces	: 'input-decimalPlaces',
 		saveLink		: 'link-save',
+
+		startColour		: 'input-startColour',
+		fillOpacity		: 'input-fillOpacity',
+
+		strokeWidth		: 'input-strokeWidth',
+		strokeDasharray	: 'input-strokeDasharray',
+
 	};
 
 
@@ -106,9 +113,9 @@ class UserInterface {
 
 		const presetName = polygonApp.getUrlParameter('preset');
 
-		if (preset[presetName]) {
+		if (polygonPreset[presetName]) {
 
-			this.loadPreset(preset[presetName]);
+			this.loadPreset(polygonPreset[presetName]);
 		}
 
 
@@ -117,21 +124,18 @@ class UserInterface {
 
 	loadPreset(presetName) {
 
-		const setting  = preset[presetName];
+		const preset  = polygonPreset[presetName];
 
-		console.log('loadPreset', presetName, setting );
+		console.log('loadPreset', presetName, preset );
 
-		if (setting) {
+		if (preset) {
+			for (let key in preset.polygon) {
+				this[key] = preset.polygon[key];
+			}
 
-			this.sides			= setting.polygon.sides;
-			this.pointStep		= setting.polygon.pointStep;
-			this.startDivision	= setting.polygon.startDivision;
-			this.radius			= setting.polygon.radius;
-			this.copies			= setting.polygon.copies;
-			this.copyOffset		= setting.polygon.copyOffset;
-			this.copyPaths		= setting.polygon.copyPaths;
-			this.coordinates	= setting.polygon.coordinates;
-			this.decimalPlaces	= setting.polygon.decimalPlaces;
+			for (let key in preset.style) {
+				this[key] = preset.style[key];
+			}
 		}
 
 		this.updateStyle();
@@ -184,12 +188,12 @@ class UserInterface {
 
 
 	setStrokeWidth() {
-		const strokeWidth = document.forms['form-style']['input-stroke-width'].value;
+		const strokeWidth = document.forms['form-style']['input-strokeWidth'].value;
 		document.body.style.setProperty('--stroke-width', strokeWidth);
 	}
 
 	setStrokeDasharray() {
-		const dasharray = document.forms['form-style']['input-stroke-dasharray'].value;
+		const dasharray = document.forms['form-style']['input-strokeDasharray'].value;
 		//document.getElementById('polygon-group').style.setProperty('--stroke-dasharray', dasharray);
 		document.body.style.setProperty('--stroke-dasharray', dasharray);
 
@@ -290,7 +294,7 @@ class UserInterface {
 		const startColour =  document.forms['form-style']['input-startColour'].value;
 		document.getElementById('polygon-group').style.setProperty('--start-colour',startColour);
 
-		const opacity =  document.forms['form-style']['input-fill-opacity'].value;
+		const opacity =  document.forms['form-style']['input-fillOpacity'].value;
 		document.getElementById('polygon-group').style.setProperty('--fill-opacity', opacity);
 
 
@@ -303,7 +307,7 @@ class UserInterface {
 
 
 	//
-	//	Accessors
+	//	Polygon setting accessors
 	//
 
 
@@ -395,24 +399,65 @@ class UserInterface {
 	}
 
 
-
-	/**
-	 * @returns {number}
-	 */
+	/** @returns {number}	*/
 	get decimalPlaces() {
 		return parseInt(this.element.decimalPlaces.value);
 	}
 
-	/**
-	 * @param {number} decimalPlaces
-	 */
+	/** @param {number} decimalPlaces	*/
 	set decimalPlaces(decimalPlaces) {
 		this.element.decimalPlaces.value = Math.round(decimalPlaces);
 	}
 
 
+	//
+	//	Style setting accessors
+	//
 
-}/* Controller */
+	/** @returns {string}	*/
+	get startColour() {
+		return this.element.startColour.value;
+	}
+
+	/** @param {string} startColour	*/
+	set startColour(startColour) {
+		this.element.startColour.value = startColour;
+	}
+
+
+	/** @returns {number}	*/
+	get fillOpacity() {
+		return this.element.fillOpacity.value;
+	}
+
+	/** @param {number} fillOpacity	*/
+	set fillOpacity(fillOpacity) {
+		this.element.fillOpacity.value = fillOpacity;
+	}
+
+
+	/** @returns {string}	*/
+	get strokeWidth() {
+		return this.element.strokeWidth.value;
+	}
+
+	/** @param {string} strokeWidth	*/
+	set strokeWidth(strokeWidth) {
+		this.element.strokeWidth.value = strokeWidth;
+	}
+
+	/** @returns {string}	*/
+	get strokeDasharray() {
+		return this.element.strokeDasharray.value;
+	}
+
+	/** @param {string} strokeDasharray	*/
+	set strokeDasharray(strokeDasharray) {
+		this.element.strokeDasharray.value = strokeDasharray;
+	}
+
+
+}/* UserInterface */
 
 export const ui = new UserInterface();
 
