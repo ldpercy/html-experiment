@@ -34,6 +34,8 @@ class UserInterface {
 		strokeLinejoin	: 'input-strokeLinejoin',
 		strokeLinecap	: 'input-strokeLinecap',
 
+		antCrawl		: 'input-antCrawl',
+
 	};
 
 
@@ -97,6 +99,11 @@ class UserInterface {
 			query: '#input-strokeLinecap',
 			type: 'change',
 			listener: (event)=> { this.strokeLinecap = event.target.value }
+		},
+		{
+			query: '#input-antCrawl',
+			type: 'change',
+			listener: (event)=> { this.antCrawl = event.target.checked }
 		},
 		{
 			element: document,
@@ -268,12 +275,6 @@ class UserInterface {
 			document.getElementById('polygon-group').classList.remove('evenodd');
 		}
 
-		if (document.forms['form-style']['input-antCrawl'].checked) {
-			document.getElementById('polygon-group').classList.add('ant-crawl');
-		}
-		else {
-			document.getElementById('polygon-group').classList.remove('ant-crawl');
-		}
 
 
 		// if ( document.forms['form-style']['input-showMarkers'].checked) {
@@ -413,6 +414,18 @@ class UserInterface {
 	//	Style setting accessors
 	//
 
+	// /** @returns {string}	*/
+	// get colourScheme() {
+	// 	return this.element.startColour.value;
+	// }
+
+	/** @param {string} colourScheme	*/
+	set colourScheme(colourScheme) {
+		polygonApp.setColourScheme(colourScheme);
+	}
+
+
+
 	/** @returns {string}	*/
 	get startColour() {
 		return this.element.startColour.value;
@@ -488,6 +501,25 @@ class UserInterface {
 		document.body.style.setProperty('--stroke-linecap', strokeLinecap);
 		this.element.strokeLinecap.value = strokeLinecap;
 	}
+
+
+
+	/** @param {boolean} antCrawl	*/
+	set antCrawl(antCrawl) {
+
+		if (antCrawl) {
+			document.getElementById('polygon-group').classList.add('ant-crawl');
+			this.element.antCrawl.checked = true;
+		}
+		else {
+			document.getElementById('polygon-group').classList.remove('ant-crawl');
+			this.element.checked = false;
+		}
+
+	}
+
+
+
 
 
 }/* UserInterface */

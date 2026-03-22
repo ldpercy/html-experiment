@@ -18,6 +18,7 @@ export const diHeptagram = {
 		decimalPlaces	: 0,
 	},
 	style : {
+		colourScheme	: 'light',
 		startColour		: 'hotpink',
 		fillOpacity		: '0.5',
 		fullRule		: 'evenodd',
@@ -47,7 +48,7 @@ export const triHeptadecagram = {
 		decimalPlaces	: 0,
 	},
 	style : {
-		colourScheme	: 'dark',
+		colourScheme	: 'disco',
 		startColour		: 'forestgreen',
 		fillOpacity		: '0.2',
 		fullRule		: 'evenodd',
