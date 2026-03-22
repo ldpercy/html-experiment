@@ -2,6 +2,34 @@
 
 
 
+export const diHeptagram = {
+
+	polygon : {
+		sides: 7,
+		pointStep: 3,
+		startDivision: 1,
+		radius: 1000,
+		copies: 2,
+		copyOffset: 2,
+		copyPaths: 'separate',
+		coordinates: 'absolute',
+		decimalPlaces: 0,
+	},
+	style : {
+		startColour		: 'orange',
+		fillOpacity		: '0.5',
+		fullRule		: 'evenodd',
+		strokeWidth		: '7px',
+		strokeDasharray	: '27px 27px',
+		antCrawl		: false,
+		grid			: true,
+		//markers: false,
+	},
+
+};
+
+
+
 
 export const triHeptadecagram = {
 
@@ -22,7 +50,7 @@ export const triHeptadecagram = {
 		fullRule: 'evenodd',
 		antCrawl: true,
 		grid: false,
-		markers: false,
+		//markers: false,
 	},
 
 };

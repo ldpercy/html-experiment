@@ -33,26 +33,26 @@ class PolygonApp extends HTMLApp {
 	/** getPolygonPath
 	 * TODO: this all needs to be converted over to planar space & angle objects
 	 *
-	 * @param {number} radius
 	 * @param {number} sides
 	 * @param {number} pointStep
 	 * @param {number} startDivision
+	 * @param {number} radius
 	 * @param {number} copies
-	 * @param {number} divisionOffset
+	 * @param {number} copyOffset
 	 * @param {string} copyPaths
 	 * @param {string} coordinates
 	 */
 	getPolygonPath(
-			radius,				// radius of points
 			sides, 				// how many sides the polygon has
 			pointStep, 			// how many divisions to the next vertex
 			startDivision,		// integer divisions of the base angle to the start of the polygon
+			radius,				// radius of points
 			copies, 			// number of copies of the polygon to draw
-			divisionOffset,		// integer divisions of the base angle between the copies
+			copyOffset,			// integer divisions of the base angle between the copies
 			copyPaths,			// combined or separate svg paths
 			coordinates,		// absolute or relative
 		) {
-		//console.debug(arguments);
+		console.debug(arguments);
 		let result = '';
 		let path = '';
 		let x = 0, y = 0;
@@ -65,7 +65,7 @@ class PolygonApp extends HTMLApp {
 		let lastPoint = new geometry.Point(0,0);
 		for (let c=0; c < copies; c++) {
 
-			pointRadians += mainAngle/divisionOffset;
+			pointRadians += mainAngle/copyOffset;
 
 			let degrees = c * (360/copies);
 
@@ -114,7 +114,7 @@ class PolygonApp extends HTMLApp {
 	 * @param {number} decimalPlaces
 	 * @return {string}
 	 */
-	round(number, decimalPlaces = this.element.decimalPlaces.value) {
+	round(number, decimalPlaces = ui.decimalPlaces) {
 		return number.toFixed(decimalPlaces);
 	}
 

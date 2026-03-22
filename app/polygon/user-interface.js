@@ -19,8 +19,8 @@ class UserInterface {
 		pointStep		: 'input-pointStep',
 		startDivision	: 'input-startDivision',
 		copies			: 'input-copies',
-		divisionOffset	: 'input-divisionOffset',
-		separatePaths	: 'input-copyPaths',
+		copyOffset		: 'input-copyOffset',
+		copyPaths		: 'input-copyPaths',
 		coordinates		: 'input-coordinates',
 		decimalPlaces	: 'input-decimalPlaces',
 		saveLink		: 'link-save',
@@ -38,6 +38,13 @@ class UserInterface {
 			type: 'change',
 			listener: this.polygonChangeListener
 		},
+
+		{
+			query: '#input-preset',
+			type: 'change',
+			listener: (event)=> { this.loadPreset(event.target.value) }
+		},
+
 		{
 			query: '#form-style',
 			type: 'change',
@@ -78,7 +85,6 @@ class UserInterface {
 			type: 'keydown',
 			listener: (event)=>event.stopPropagation()
 		},
-
 		{
 			query: '#button-showAppInfo',
 			type: 'click',
@@ -109,9 +115,27 @@ class UserInterface {
 	}
 
 
-	loadPreset(preset) {
+	loadPreset(presetName) {
 
-		//this.foo = preset.bar;
+		const setting  = preset[presetName];
+
+		console.log('loadPreset', presetName, setting );
+
+		if (setting) {
+
+			this.sides			= setting.polygon.sides;
+			this.pointStep		= setting.polygon.pointStep;
+			this.startDivision	= setting.polygon.startDivision;
+			this.radius			= setting.polygon.radius;
+			this.copies			= setting.polygon.copies;
+			this.copyOffset		= setting.polygon.copyOffset;
+			this.copyPaths		= setting.polygon.copyPaths;
+			this.coordinates	= setting.polygon.coordinates;
+			this.decimalPlaces	= setting.polygon.decimalPlaces;
+		}
+
+		this.updateStyle();
+		this.redraw();
 
 	}
 
@@ -208,23 +232,25 @@ class UserInterface {
 
 
 	redraw() {
-		console.debug('polygonApp.redraw', this.element);
-
+		//console.debug('polygonApp.redraw', this.element);
 
 		const polygonGroup = polygonApp.getPolygonPath(
-			this.element.radius.value,
-			this.element.sides.value,
-			this.element.pointStep.value,
-			this.element.startDivision.value,
-			this.element.copies.value,
-			this.element.divisionOffset.value,
-			this.element.separatePaths.value,
-			this.element.coordinates.value,
+			this.sides,
+			this.pointStep,
+			this.startDivision,
+			this.radius,
+			this.copies,
+			this.copyOffset,
+			this.copyPaths,
+			this.coordinates,
 		);
 
 		//console.log(starPath);
 		document.getElementById('polygon-group').innerHTML = polygonGroup;
 	}/* redraw */
+
+
+
 
 
 
@@ -274,6 +300,115 @@ class UserInterface {
 	}/* updateStyle */
 
 
+
+
+	//
+	//	Accessors
+	//
+
+
+	/**	@returns {number}	*/
+	get sides() {
+		return parseInt(this.element.sides.value);
+	}
+
+	/**	@param {number} sides	*/
+	set sides(sides) {
+		this.element.sides.value = Math.round(sides);
+	}
+
+
+	/**	@returns {number}	*/
+	get pointStep() {
+		return parseInt(this.element.pointStep.value);
+	}
+
+	/**	@param {number} pointStep	*/
+	set pointStep(pointStep) {
+		this.element.pointStep.value = Math.round(pointStep);
+	}
+
+
+	/**	@returns {number}	*/
+	get startDivision() {
+		return parseInt(this.element.startDivision.value);
+	}
+
+	/**	@param {number} startDivision	*/
+	set startDivision(startDivision) {
+		this.element.startDivision.value = Math.round(startDivision);
+	}
+
+
+	/**	@returns {number}	*/
+	get radius() {
+		return parseInt(this.element.radius.value);
+	}
+
+	/**	@param {number} radius	*/
+	set radius(radius) {
+		this.element.radius.value = Math.round(radius);
+	}
+
+
+	/**	@returns {number}	*/
+	get copies() {
+		return parseInt(this.element.copies.value);
+	}
+
+	/**	@param {number} copies	*/
+	set copies(copies) {
+		this.element.copies.value = Math.round(copies);
+	}
+
+
+	/**	@returns {number}	*/
+	get copyOffset() {
+		return parseInt(this.element.copyOffset.value);
+	}
+
+	/**	@param {number} copyOffset	*/
+	set copyOffset(copyOffset) {
+		this.element.copyOffset.value = Math.round(copyOffset);
+	}
+
+
+	/**	@returns {string}	*/
+	get copyPaths() {
+		return this.element.copyPaths.value;
+	}
+
+	/**	@param {string} copyPaths	*/
+	set copyPaths(copyPaths) {
+		this.element.copyPaths.value = copyPaths;
+	}
+
+
+	/**	@returns {string}	*/
+	get coordinates() {
+		return this.element.coordinates.value;
+	}
+
+	/**	@param {string} coordinates	*/
+	set coordinates(coordinates) {
+		this.element.coordinates.value = coordinates;
+	}
+
+
+
+	/**
+	 * @returns {number}
+	 */
+	get decimalPlaces() {
+		return parseInt(this.element.decimalPlaces.value);
+	}
+
+	/**
+	 * @param {number} decimalPlaces
+	 */
+	set decimalPlaces(decimalPlaces) {
+		this.element.decimalPlaces.value = Math.round(decimalPlaces);
+	}
 
 
 

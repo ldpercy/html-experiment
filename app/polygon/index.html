@@ -52,8 +52,8 @@
 			<label for="input-copies"><h2>copies</h2></label>
 			<input id="input-copies" type="number" name="copies" title="copies" min="0" value="2" >
 
-			<label for="input-divisionOffset">division offset</label>
-			<input id="input-divisionOffset" type="number" name="divisionOffset" title="divisionOffset" value="2">
+			<label for="input-copyOffset">copy offset</label>
+			<input id="input-copyOffset" type="number" name="copyOffset" title="copyOffset" value="2">
 
 			<label for="input-copyPaths">copy paths</label>
 			<select id="input-copyPaths" name="copyPaths" size="2">
@@ -80,14 +80,16 @@
 			<a title="Parent folder" href="../">🡅</a>
 		</nav>
 
-		<form id="form-style" name="form-style">
-
+		<form id="form-preset" name="form-preset">
 			<label for="input-preset">preset</label>
-			<select name="preset">
+			<select name="preset" id="input-preset">
 				<option>-</option>
-				<option>tri-heptadecagram</option>
+				<option value="diHeptagram">di-heptagram</option>
+				<option value="triHeptadecagram">tri-heptadecagram</option>
 			</select>
+		</form>
 
+		<form id="form-style" name="form-style">
 
 			<label for="input-startColour">colour</label>
 			<input type="color" name="startColour" id="input-startColour" value="#ffa500">
@@ -115,7 +117,7 @@
 
 			<label for="input-stroke-linejoin">stroke-linejoin</label>
 			<select id="input-stroke-linejoin" name="stroke-linejoin">
-				<option>miter</option>
+				<option selected>miter</option>
 				<option>bevel</option>
 				<option>round</option>
 			</select>
