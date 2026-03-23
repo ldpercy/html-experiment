@@ -67,11 +67,13 @@ body {
 #polygon-group {
 	--start-colour: orange;
 	--opacity: 0.5;
-	stroke-linejoin: miter;
+
 
 	stroke-width: var(--stroke-width);
 	stroke-linejoin: var(--stroke-linejoin);
 	stroke-linecap: var(--stroke-linecap);
+
+	stroke-miterlimit: 20;
 
 
 	/* stroke-linecap: round;
