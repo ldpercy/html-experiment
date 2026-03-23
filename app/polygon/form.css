@@ -10,6 +10,10 @@
 		border-radius: 1ex;
 		padding:1ex;
 		margin: 1ex;
+
+
+		:nth-child(1) { margin-top:0em; }
+
 	}
 	label { margin-top: 1ex; }
 
@@ -18,7 +22,9 @@
 	h1 { font-size:3ex; }
 	h2 { font-size:2ex; margin-top:2ex; margin-bottom:1ex; }
 
-	h1:nth-child(1), h2:nth-child(1) { margin-top:0em; }
+
+
+
 
 	label:has(h2) { margin-top:2ex; }
 

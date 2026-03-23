@@ -81,15 +81,27 @@
 		</nav>
 
 		<form id="form-preset" name="form-preset">
-			<label for="input-preset">preset</label>
+			<label for="input-preset"><h2>preset</h2></label>
 			<select name="preset" id="input-preset">
-				<option>-</option>
-				<option value="diHeptagram">di-heptagram</option>
-				<option value="triHeptadecagram">tri-heptadecagram</option>
+				<!-- <option>-</option> -->
+
+				<optgroup label="Polygon">
+					<option value="nonagon">nonagon</option>
+					<option value="diPentagram" selected>di-pentagram</option>
+					<option value="diHeptagram">di-heptagram</option>
+					<option value="triHeptadecagram">tri-heptadecagram</option>
+				</optgroup>
+				<optgroup label="Style">
+					<option value="defaultStyle">default style</option>
+					<option>disco</option>
+				</optgroup>
 			</select>
 		</form>
 
+
 		<form id="form-style" name="form-style">
+
+			<label><h2>fill</h2></label>
 
 			<label for="input-startColour">colour</label>
 			<input type="color" name="startColour" id="input-startColour" value="#ffa500">
@@ -106,6 +118,9 @@
 				<option value="nonzero">nonzero</option>
 			</select>
 
+
+			<label><h2>stroke</h2></label>
+
 			<label for="input-strokeWidth">stroke-width</label>
 			<input
 				id="input-strokeWidth"
@@ -115,8 +130,22 @@
 				value="5px"
 			>
 
+			<label for="input-strokeLinejoin">stroke-linejoin</label>
+			<select id="input-strokeLinejoin" name="strokeLinejoin">
+				<option value="miter" selected>miter</option>
+				<option value="round">round</option>
+				<option value="bevel">bevel</option>
+				<option value="arcs">arcs (unsupported)</option>
+				<option value="miter-clip">miter-clip (unsupported)</option>
+			</select>
 
 
+			<label><h2>stroke-dash</h2></label>
+
+			<label for="input-antCrawl">
+				<input type="checkbox" name="antCrawl" id="input-antCrawl">
+				dash & animate
+			</label>
 
 			<label for="input-strokeDasharray">stroke-dasharray</label>
 			<input
@@ -127,15 +156,6 @@
 				value="50px 50px"
 			>
 
-
-			<label for="input-strokeLinejoin">stroke-linejoin</label>
-			<select id="input-strokeLinejoin" name="strokeLinejoin">
-				<option selected>miter</option>
-				<option>round</option>
-				<option>bevel</option>
-			</select>
-
-
 			<label for="input-strokeLinecap">stroke-linecap</label>
 			<select id="input-strokeLinecap" name="strokeLinecap">
 				<option selected>butt</option>
@@ -144,10 +164,7 @@
 			</select>
 
 
-			<label for="input-antCrawl">
-				<input type="checkbox" name="antCrawl" id="input-antCrawl">
-				ant-crawl
-			</label>
+			<label><h2>page</h2></label>
 
 			<label for="input-showGrid">
 				<input type="checkbox" name="showGrid" id="input-showGrid" checked>
