@@ -15,6 +15,7 @@ When html-common gets into release cadence some tasks will be moved over to ther
 
 Todo
 ----
+* Dig a limit more into `stroke-miterlimit`
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import/with
 * CSS: dig into animations a bit
 * File API: save prompt & data - have done stuff like this yonks ago, have another look at

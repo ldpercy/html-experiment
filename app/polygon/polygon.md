@@ -7,6 +7,8 @@ https://en.wikipedia.org/wiki/Winding_number#Turning_number
 https://en.wikipedia.org/wiki/Schl%C3%A4fli_symbol
 
 
+https://css-tricks.com/mastering-svgs-stroke-miterlimit-attribute/
+
 
 
 Todo
