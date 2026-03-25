@@ -1,0 +1,18 @@
+
+
+/*
+not working properly yet
+*/
+
+[id]::before {
+	display:inline-block;
+	position:sticky;
+	top:0em;
+	left:0em;
+	font-family:monospace;
+	font-size:1em;
+	background-color: var(--element-colour);
+	padding:1ex;
+	border-radius: 1ex;
+	content: 'id='attr(id);
+}

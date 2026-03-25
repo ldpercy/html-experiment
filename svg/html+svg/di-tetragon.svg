@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 -100 200 200" preserveAspectRatio="xMidYMid meet">
+	<title>di-tetragon</title>
+	<g>
+		<rect x="-100" y="-100" width="200" height="200" fill="orange"/>
+		<g id="polygon-group" style="stroke:black;fill:grey;fill-opacity:50%;">
+			<path d="M-40,-97 L-97,40 L40,97 L97,-40 L-40,-97  z" style="--degrees:0"></path>
+			<path d="M-97,-40 L-40,97 L97,40 L40,-97 L-97,-40  z" style="--degrees:180"></path>
+		</g>
+	</g>
+</svg>
