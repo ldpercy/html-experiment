@@ -13,8 +13,10 @@
 
 body {
 	margin: 0;
+	padding:0em;
 	font-family: sans-serif;
 	/* background-color: white; */
+	output>svg { display:block; }
 }
 
 
@@ -28,7 +30,7 @@ body {
 .svg-polygon {
 
 	width: 100vw;
-	height: 99vh;
+	height: 100vh;
 
 	.viewBox {
 		x: -100%;

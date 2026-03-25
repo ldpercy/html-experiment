@@ -57,6 +57,7 @@ Found some references to this and some open vscode issues that look related:
 
 Done (for now)
 --------------
+* The ~5 extra vertical pixels that SVG in html gets displayed with are related to its default `display:inline;`. Still investigating, but change to block for a quick soln.
 * SVG foreignObject - https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/foreignObject
 * Keyboard: filter out browser/os `crtl` key combos
 * CSS list counters, zero-based: can be done (though a little quirky); better to use array keys themselves when that's what's needed
