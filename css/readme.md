@@ -30,6 +30,25 @@ https://www.youtube.com/watch?v=nhbYveaV0pk
 * https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/interpolate-size
 * https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/transition-behavior
 * have a play with asymmetric transition in/out
-* sibling-index()
+* sibling-index() & sibling-count()
 * animation-fill-mode
 * select, ::picker(select) { appearance: base-select; }
+
+
+...
+
+https://www.youtube.com/watch?v=Vcv01Czsq2Y
+
+position-anchor
+position-area
+position-tryfallback
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations
+
+
+scroll-button()
+scroll-marker-group
+
+css-masonry
+
+interest-invoker
