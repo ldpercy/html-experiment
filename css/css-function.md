@@ -1,8 +1,9 @@
 CSS Functions
 =============
 
-https://css-tricks.com/complete-guide-to-css-functions/
-https://www.w3schools.com/CSSref/css_functions.php
+* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions
+* https://css-tricks.com/complete-guide-to-css-functions/
+* https://www.w3schools.com/CSSref/css_functions.php
 
 
 
