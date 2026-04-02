@@ -15,11 +15,11 @@ When html-common gets into release cadence some tasks will be moved over to ther
 
 Todo
 ----
+* TS/JSDoc: correct type for a dynamically imported module
 * Dig a limit more into `stroke-miterlimit`
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import/with
 * CSS: dig into animations a bit
 * File API: save prompt & data - have done stuff like this yonks ago, have another look at
-* Check github pages apps to see if their localStorage is shared - I expect it probably is
 * Return to web-components and Temporal
 * Refresher: document.querySelector vs getElementById - they return different types/interfaces i think & the former is easier to cast
 * JS modules: a way to export "*" ?
@@ -58,6 +58,7 @@ Found some references to this and some open vscode issues that look related:
 Done (for now)
 --------------
 * The ~5 extra vertical pixels that SVG in html gets displayed with are related to its default `display:inline;`. Still investigating, but change to block for a quick soln.
+* Github pages localStorage is shared based upon common origin
 * SVG foreignObject - https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/foreignObject
 * Keyboard: filter out browser/os `crtl` key combos
 * CSS list counters, zero-based: can be done (though a little quirky); better to use array keys themselves when that's what's needed
