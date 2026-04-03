@@ -24,6 +24,7 @@ class UserInterface {
 		coordinates		: 'input-coordinates',
 		decimalPlaces	: 'input-decimalPlaces',
 		saveLink		: 'link-save',
+		downloadAnchor	: 'download-anchor',
 
 		startColour		: 'input-startColour',
 		fillOpacity		: 'input-fillOpacity',
@@ -211,7 +212,7 @@ class UserInterface {
 
 
 
-	saveListener(event) {
+	saveListener() {
 
 		//this.element.saveLink.download = 'polygon.text';
 		//this.element.saveLink.href = "data:text/plain;utf8,This is polygon.text";
@@ -220,11 +221,12 @@ class UserInterface {
 		//event.preventDefault();
 
 		// a very quick naive attempt that doesnb't quite work - needs some svg cleaning and rebuilding
-		this.element.saveLink.download = 'polygon_download.svg';
+		//this.element.saveLink.download = 'polygon_download.svg';
+
 
 		const polygonGroup = document.getElementById('polygon-group').innerHTML;
 
-		const svg= `
+		const svgDoc= `
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1200 -1200 2400 2400" preserveAspectRatio="xMidYMid meet" >
 				<title>polygon</title>
 				<g id="polygon-group" style="stroke:black;fill:grey;fill-opacity:50%;">
@@ -233,10 +235,12 @@ class UserInterface {
 			</svg>
 		`;
 
-		const url = new URL(`data:text/plain;utf8,${svg}`);
-		this.element.saveLink.href = url.toString();
+		const url = new URL(`data:text/plain;utf8,${encodeURIComponent(svgDoc)}`);
+		this.element.downloadAnchor.href = url.toString();
+		this.element.downloadAnchor.click();
+		this.element.downloadAnchor.href = '';
 
-		console.log(url.toString());
+		//console.log(url.toString());
 	}
 
 

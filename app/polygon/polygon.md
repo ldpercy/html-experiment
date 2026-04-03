@@ -83,6 +83,11 @@ The download href does *not* like hashes - see if they can be escaped.
 Need a proper refresher on URL escaping to get this right for all the reserved chars that might appear.
 
 
+Here ya go:
+*	https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
+
+
+
 Ant-crawl animation
 -------------------
 

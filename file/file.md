@@ -68,3 +68,5 @@ Encoding hashes with `%23` works.
 Need a proper refresher on URL escaping to get this right for all the reserved chars that might appear.
 
 
+Here ya go:
+*	https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
