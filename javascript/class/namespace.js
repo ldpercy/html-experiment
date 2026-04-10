@@ -1,25 +1,67 @@
-/* class Foo doesn't appear in any obvious namespace like window
- */
+/* namespace.js
+*/
+import { HTMLApp } from "../../[html-common]/module/HTMLApp.js";
 
-class Foo {
-	constructor() { console.log("I'm a Class constructor") }
-	log() { console.log("I'm a Class method") }
-}
-
-const obj1 = new Foo(); // I'm a Class constructor
-obj1.log(); // I'm a Class method
+//import "../../ldpercy.js";
+class ldpercy {}
 
 
+ldpercy.namespace = class namespace {}
 
-classMap = {};
+ldpercy.namespace.App = class extends HTMLApp {
+	name = "namespaceApp";
+	info = "namespaceApp by ldpercy";
 
-classMap.Foo1 = class {
-	constructor() { console.log("Foo1 Class constructor") }
-	log() { console.log("Foo1 Class method") }
-}
+	eventListeners = [
+		{
+			query: '.colourScheme-selector',
+			type: 'click',
+			listener: this.colourSchemeListener
+		},
+		/* {
+			query: '#myForm',
+			type: 'change',
+			listener: this.formChangeListener
+		}, */
+	];
 
-classMap.Foo2 = class {
-	constructor() { console.log("Foo2 Class constructor") }
-	log() { console.log("Foo2 Class method") }
-}
+
+
+
+	colourSchemeListener(event) {
+		//console.log('colourSchemeListener', event.target.dataset);
+		event.preventDefault();
+		this.setColourScheme(event.target.dataset.colourscheme);
+	}
+
+
+
+
+
+	documentDOMContentLoaded() {
+		super.documentDOMContentLoaded();
+		this.setColourScheme(localStorage.colourScheme);
+
+	}
+
+
+}/* NamespaceApp */
+
+
+
+ldpercy.namespace.app = new ldpercy.namespace.App();
+
+
+
+// VSCode syntax highlights these two slightly differently:
+
+class foo1 {}
+foo1.name = "foo1";
+foo1.bar = class {}
+// class foo1.asdf {}		// doesn't work?
+// class foo1['asdf'] {}	// doesn't work either
+
+const foo2 = class {}
+foo2.name = "foo2";
+foo2.bar = class {}
 
