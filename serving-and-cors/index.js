@@ -1,6 +1,9 @@
 /* index.js
 */
+import { HTMLApp } from "../[html-common]/module/HTMLApp.js";
 
+
+console.log('IndexApp');
 
 class IndexApp extends HTMLApp {
 	name = "IndexApp";
