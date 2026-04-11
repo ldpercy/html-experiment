@@ -7,6 +7,18 @@ Popover & dialog
 
 
 
+Keyboard events & modals
+------------------------
+
+Keyboard events still fire while modals are open which may be undesirable depending on circumstances.
+
+It might be necessary to suppress some custom keyboard events until the dialog is dismissed.
+
+
+
+
+
+
 
 backdrop-filter & background-image
 ----------------------------------
