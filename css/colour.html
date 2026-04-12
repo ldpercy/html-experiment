@@ -11,7 +11,7 @@
 	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
 
 </head>
-\<body>
+<body>
 	<header>
 		<h1><a href="">Colour</a></h1>
 		<nav>
@@ -26,29 +26,29 @@
 
 	<main>
 
-		<form id="form-colour" onchange="inputChange();" class="fullwidth">
+		<form id="form-colour"  class="fullwidth"> <!-- onchange="inputChange();" -->
 			<h3>Source Colour</h3>
 
 			<label>Colour chooser</label>
-			<input type="color" id="input-colourChooser" onchange="document.getElementById('input-colourText').value=this.value">
+			<input type="color" id="input-colourChooser"> <!--  onchange="document.getElementById('input-colourText').value=this.value" -->
 
 			<label>Colour text</label>
 			<input type="text" id="input-colourText" onchange="document.getElementById('input-colourChooser').value=this.value">
 
 
 			<label>Random colours</label>
-			<div>
+			<div class="random-colours">
 				<button type="button" id="button-randomColour">🎲 random colour</button>
 				<button type="button" id="button-randomColourAlpha">🎲 random colour + alpha</button>
 			</div>
 		<!-- </form>
 		<form onchange="inputChange();"> -->
 			<label>Channels</label>
-			<fieldset>
-				<input name="input-rgb-r" type="range" min="0" max="255" orient="vertical">
-				<input name="input-rgb-g" type="range" min="0" max="255" orient="vertical">
-				<input name="input-rgb-b" type="range" min="0" max="255" orient="vertical">
-				<input name="input-rgb-a" type="range" min="0" max="255" orient="vertical">
+			<fieldset id="fieldset-channels">
+				r <input id="input-rgba-r" name="rgba-r" type="range" min="0" max="255" >
+				g <input id="input-rgba-g" name="rgba-g" type="range" min="0" max="255" >
+				b <input id="input-rgba-b" name="rgba-b" type="range" min="0" max="255" >
+				a <input id="input-rgba-a" name="rgba-a" type="range" min="0" max="255" >
 			</fieldset>
 
 			<h3>Output</h3>
@@ -103,7 +103,15 @@
 					grid-column-end: 3;
 				}
 			}
-			fieldset { display:inline-block; border-radius:1ex;}
+			input { text-align: center; }
+			input[type=color] { width:100%; }
+
+			.random-colours {
+				text-align: center;
+				button { width:49%; }
+			}
+
+			fieldset { display:inline-block; border-radius:1ex; text-align: center;}
 			summary h2 {
 				display:inline-block;
 				margin:0em;
@@ -124,12 +132,18 @@
 				}
 				/* .channelTitle { width: 15em; } */
 			}
+			input[type="range"] {
+				writing-mode: vertical-lr;
+				direction: rtl;
+			}
 		</style>
 
 
-		<script type="module "class="limit-height">
+		<script type="module" class="limit-height">
 			import { HTMLApp } from "../[html-common]/module/HTMLApp.js";
 			import * as colour from "../[html-common]/module/colour.js";
+
+
 
 
 			class ColourApp extends HTMLApp {
@@ -142,6 +156,16 @@
 						query: '#form-colour',
 						type: 'change',
 						listener: inputChange,
+					},
+					{
+						query: '#input-colourChooser',
+						type: 'change',
+						listener: (event) => { setColour(event.target.value); },
+					},
+					{
+						query: '#input-colourText',
+						type: 'change',
+						listener: (event) => { setColour(event.target.value); },
 					},
 					{
 						query: '#button-randomColour',
@@ -183,10 +207,27 @@
 
 
 
-			/** @param {string} colour */
-			function setColour(colour) {
-				document.getElementById('input-colourText').value = colour;
-				document.getElementById('input-colourChooser').value = colour;
+			/** @param {string} colourString */
+			function setColour(colourString) {
+				const colourObj = new colour.colourRGBA();
+				colourObj.fromHexString(colourString);
+
+				document.getElementById('input-colourText').value = colourString;
+
+				if (colourObj.isValid()) {
+					document.getElementById('input-colourChooser').value = colourObj.toHex();
+					document.getElementById('fieldset-channels').disabled = false;
+					document.getElementById('input-rgba-r').value = colourObj.r;
+					document.getElementById('input-rgba-g').value = colourObj.g;
+					document.getElementById('input-rgba-b').value = colourObj.b;
+					document.getElementById('input-rgba-a').value = colourObj.a;
+				}
+				else {
+					document.getElementById('fieldset-channels').disabled = true;
+				}
+
+				//console.log(colourObj);
+
 				generateSwatches();
 			}
 
