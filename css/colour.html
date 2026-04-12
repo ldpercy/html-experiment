@@ -11,7 +11,7 @@
 	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
 
 </head>
-<body onload="loadColour();">
+\<body>
 	<header>
 		<h1><a href="">Colour</a></h1>
 		<nav>
@@ -22,11 +22,11 @@
 		</nav>
 	</header>
 
-	<script defer src="../[common]/colour.js"></script>
+	<!-- <script defer src="../[common]/colour.js"></script> -->
 
 	<main>
 
-		<form onchange="inputChange();">
+		<form id="form-colour" onchange="inputChange();" class="fullwidth">
 			<h3>Source Colour</h3>
 
 			<label>Colour chooser</label>
@@ -38,16 +38,17 @@
 
 			<label>Random colours</label>
 			<div>
-				<button type="button" onclick="setColour(randomColourHex());">🎲 random colour</button>
-				<button type="button" onclick="setColour(randomColourHexWithAlpha());">🎲 random colour + alpha</button>
+				<button type="button" id="button-randomColour">🎲 random colour</button>
+				<button type="button" id="button-randomColourAlpha">🎲 random colour + alpha</button>
 			</div>
-		</form>
-		<form onchange="inputChange();">
+		<!-- </form>
+		<form onchange="inputChange();"> -->
 			<label>Channels</label>
 			<fieldset>
-			<input name="input-rgb-r" type="range" min="0" max="255" orient="vertical">
-			<input name="input-rgb-g" type="range" min="0" max="255" orient="vertical">
-			<input name="input-rgb-b" type="range" min="0" max="255" orient="vertical">
+				<input name="input-rgb-r" type="range" min="0" max="255" orient="vertical">
+				<input name="input-rgb-g" type="range" min="0" max="255" orient="vertical">
+				<input name="input-rgb-b" type="range" min="0" max="255" orient="vertical">
+				<input name="input-rgb-a" type="range" min="0" max="255" orient="vertical">
 			</fieldset>
 
 			<h3>Output</h3>
@@ -126,15 +127,63 @@
 		</style>
 
 
-		<script class="limit-height">
+		<script type="module "class="limit-height">
+			import { HTMLApp } from "../[html-common]/module/HTMLApp.js";
+			import * as colour from "../[html-common]/module/colour.js";
+
+
+			class ColourApp extends HTMLApp {
+				appName = "colour";
+				appInfo = [`colour app`];
+
+
+				eventListeners = [
+					{
+						query: '#form-colour',
+						type: 'change',
+						listener: inputChange,
+					},
+					{
+						query: '#button-randomColour',
+						type: 'click',
+						listener: () => { setColour(colour.randomColourHex()); },
+					},
+					{
+						query: '#button-randomColourAlpha',
+						type: 'click',
+						listener: () => { setColour(colour.randomColourHexWithAlpha()); },
+					},
+				];
+
+				documentDOMContentLoaded() {
+					super.documentDOMContentLoaded();
+					HTMLApp.addEventListeners(this.eventListeners, this);
+					//this.setColourScheme(localStorage.screensaver_colourScheme || 'dark');
+					//this.init();
+					loadColour();
+
+				}/* documentDOMContentLoaded */
+
+
+
+			}/* ColourApp */
+
+			const colourApp = new ColourApp();
+
+
+			//document.addEventListener('DOMContentLoaded', loadColour());
+
 			function loadColour() {
-				let colour = getUrlParameter('colour');
-				if (!colour) {
-					colour = randomColourHex();
+				let initColour = getUrlParameter('colour');
+				if (!initColour) {
+					initColour = colour.randomColourHex();
 				}
-				setColour(colour);
+				setColour(initColour);
 			}
 
+
+
+			/** @param {string} colour */
 			function setColour(colour) {
 				document.getElementById('input-colourText').value = colour;
 				document.getElementById('input-colourChooser').value = colour;
