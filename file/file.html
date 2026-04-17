@@ -20,18 +20,28 @@
 
 	<main>
 
-
 		<style contenteditable="plaintext-only">
 			label { display:block; margin:1em; }
 			select { margin:1em; }
 		</style>
 
-		<form id="myForm">
-			<h2>Form</h2>
+
+		<form name="fileinput">
+			<h2>input</h2>
 
 
-			<input type="file" name="fileinput" id="myform-input-file">
+			<input type="file" name="fileinput" id="input-fileinput">
 
+
+			<textarea name="fileinput-textarea">
+				file content goes here
+			</textarea>
+
+		</form>
+
+
+		<form name="download">
+			<h2>download</h2>
 
 			<label>
 				<a download href="data:text/plain;utf8,Some fantastic content to download">an 'a' element with a bare download attribute</a>
@@ -65,13 +75,6 @@
 				<a id="dummy-anchor" download="~/foo.text" href="data:text/plain;utf8,Some fantastic content to download" >an anchor setup to be triggered </a>
 			</label>
 
-
-			<select size="5">
-				<option>abcd</option>
-				<option>efgh</option>
-				<option>ijkl</option>
-				<option>mnop</option>
-			</select>
 		</form>
 
 
@@ -79,9 +82,9 @@
 			import { HTMLApp } from "../[html-common]/module/HTMLApp.js";
 
 			class FileApp extends HTMLApp {
-				appName = "ExampleApp";
+				appName = "FileApp";
 				appInfo = [`%c
-					Example App 0.0.1 by ldpercy
+					File App 0.0.1 by ldpercy
 					`.replace(/\n\t\t/g,'\n'),
 					'color:light-dark(darkblue, lightblue);'
 				];
@@ -93,9 +96,9 @@
 					// 	listener: this.formChangeListener
 					// },
 					{
-						query: '#myform-input-file',
+						query: '#input-fileinput',
 						type: 'change',
-						listener: this.fileChangeListener
+						listener: this.fileInputChangeListener
 					},
 					{
 						query: '.colourScheme-selector',
@@ -110,11 +113,36 @@
 				];
 
 
-				fileChangeListener(event) {
-					console.log('fileChangeListener event', event);
+				fileInputChangeListener(event) {
+					//console.log('fileChangeListener event', event);
 					//console.log('fileChangeListener event.target', event.target);
-					console.log('fileChangeListener event.target.files', event.target.files);
-				}
+					//console.log('fileInputChangeListener event.target.files', event.target.files);
+
+					const fileObj = event.target.files[0];
+
+					console.log('event.target.files[0].file()', fileObj);
+
+					//document.forms['fileinput']['fileinput-textarea'].value = fileObj.text();
+					//console.log(fileObj.text());		// ugh promise
+
+
+					const reader = new FileReader();
+
+					reader.addEventListener(
+						"load",
+						() => {
+							// this will then display a text file
+							//content.innerText = reader.result;
+							document.forms['fileinput']['fileinput-textarea'].value = reader.result;
+						},
+						false,
+					);
+
+					if (fileObj) {
+						reader.readAsText(fileObj);
+					}
+
+				}/* fileInputChangeListener */
 
 
 				formChangeListener(event) {
