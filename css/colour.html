@@ -26,7 +26,7 @@
 
 	<main>
 
-		<form id="form-colour"  class="fullwidth"> <!-- onchange="inputChange();" -->
+		<form id="form-colour" name="colour" class="fullwidth"> <!-- onchange="inputChange();" -->
 			<h3>Source Colour</h3>
 
 			<label>Colour chooser</label>
@@ -44,7 +44,7 @@
 		<!-- </form>
 		<form onchange="inputChange();"> -->
 			<label>Channels</label>
-			<fieldset id="fieldset-channels">
+			<fieldset id="fieldset-channels" name="channel">
 				r <input id="input-rgba-r" name="rgba-r" type="range" min="0" max="255" >
 				g <input id="input-rgba-g" name="rgba-g" type="range" min="0" max="255" >
 				b <input id="input-rgba-b" name="rgba-b" type="range" min="0" max="255" >
@@ -177,6 +177,13 @@
 						type: 'click',
 						listener: () => { setColour(colour.randomColourHexWithAlpha()); },
 					},
+					{
+						query: '#fieldset-channels',
+						type: 'change',
+						listener: () => { channelChange(); },
+					},
+
+
 				];
 
 				documentDOMContentLoaded() {
@@ -184,7 +191,7 @@
 					HTMLApp.addEventListeners(this.eventListeners, this);
 					//this.setColourScheme(localStorage.screensaver_colourScheme || 'dark');
 					//this.init();
-					loadColour();
+					onloadColour();
 
 				}/* documentDOMContentLoaded */
 
@@ -195,14 +202,10 @@
 			const colourApp = new ColourApp();
 
 
-			//document.addEventListener('DOMContentLoaded', loadColour());
-
-			function loadColour() {
-				let initColour = getUrlParameter('colour');
-				if (!initColour) {
-					initColour = colour.randomColourHex();
-				}
-				setColour(initColour);
+			function onloadColour() {
+				let urlColour = getUrlParameter('colour');
+				let initialColour = (urlColour) ? urlColour : colour.randomColourHex();
+				setColour(initialColour);
 			}
 
 
@@ -212,19 +215,10 @@
 				const colourObj = new colour.colourRGBA();
 				colourObj.fromHexString(colourString);
 
+				document.getElementById('input-colourChooser').value = colourObj.toHex();
 				document.getElementById('input-colourText').value = colourString;
 
-				if (colourObj.isValid()) {
-					document.getElementById('input-colourChooser').value = colourObj.toHex();
-					document.getElementById('fieldset-channels').disabled = false;
-					document.getElementById('input-rgba-r').value = colourObj.r;
-					document.getElementById('input-rgba-g').value = colourObj.g;
-					document.getElementById('input-rgba-b').value = colourObj.b;
-					document.getElementById('input-rgba-a').value = colourObj.a;
-				}
-				else {
-					document.getElementById('fieldset-channels').disabled = true;
-				}
+				updateChannelSliders(colourObj);
 
 				//console.log(colourObj);
 
@@ -233,9 +227,44 @@
 
 
 			function inputChange() {
-
 				generateSwatches();
 			}
+
+			function channelChange() {
+				console.log('change fieldset-channels');
+				const r = document.forms['colour']['rgba-r'].value;
+				const g = document.forms['colour']['rgba-g'].value;
+				const b = document.forms['colour']['rgba-b'].value;
+				const a = document.forms['colour']['rgba-a'].value;
+				const colourObj = new colour.colourRGBA(r,g,b,a);
+				setColour(colourObj.toHexA());
+			}
+
+
+			function updateChannelSliders(colourObj) {
+				if (colourObj.isValid()) {
+
+					document.getElementById('fieldset-channels').disabled = false;
+					document.forms['colour']['rgba-r'].value = colourObj.r;
+					document.forms['colour']['rgba-g'].value = colourObj.g;
+					document.forms['colour']['rgba-b'].value = colourObj.b;
+					document.forms['colour']['rgba-a'].value = colourObj.a;
+				}
+				else {
+					document.getElementById('fieldset-channels').disabled = true;
+					document.forms['colour']['rgba-r'].value = 0;
+					document.forms['colour']['rgba-g'].value = 0;
+					document.forms['colour']['rgba-b'].value = 0;
+					document.forms['colour']['rgba-a'].value = 0;
+				}
+
+				for (let element of document.forms['colour']['channel'].children){
+					//console.log(element);
+					element.title = element.value;
+				}
+
+			}
+
 
 
 			function generateSwatches() {
