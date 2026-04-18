@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-120 -120 240 240" preserveAspectRatio="xMidYMid meet">
+	<title>path - bezier quadratic smooth</title>
+
+	<style>
+		line {	stroke:teal; }
+
+		.group {
+			--fill-colour: orange;
+			--stroke-colour: blue;
+
+			--sibling-count:5;
+
+			fill-opacity:55%;
+
+			path {
+				--index: sibling-index();
+				--count: sibling-count();
+				--deg : calc(360 * var(--index,--sibling-index)  / var(--count,--sibling-count));
+				/* --deg : calc(360 * sibling-index()  / sibling-count()); */
+				fill:	lch(from var(--fill-colour)		l c calc(h + var(--deg)) );
+				stroke:	lch(from var(--stroke-colour)	l c calc(h + var(--deg)) );
+			}
+
+		}
+	</style>
+
+	<line x1="-120" y1="0" x2="120" y2="0"/>
+	<line x1="0" y1="-120" x2="0" y2="120"/>
+
+	<g class="group">
+
+		<path style="--sibling-index:1;" d="M -99,-11  T 11,11 22,55 T -11,-55 22,11 ">
+			<!--		-->
+		</path>
+
+		<path style="--sibling-index:2;" d="M -88,-22  T 22,22 22,55 T -22,-55 33,11 ">
+			<!--		-->
+		</path>
+
+		<path style="--sibling-index:3;" d="M -77,-33  T 33,33 22,55 T -33,-55 44,11 ">
+			<!--		-->
+		</path>
+
+	</g>
+
+</svg>
