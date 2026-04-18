@@ -15,34 +15,33 @@ When html-common gets into release cadence some tasks will be moved over to ther
 
 Todo
 ----
-* TS/JSDoc: correct type for a dynamically imported module
+* `css` @supports condition for newer functions like sibling-index()
+* `ts/jsdoc` correct type for a dynamically imported module
 * Dig a limit more into `stroke-miterlimit`
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import/with
-* CSS: dig into animations a bit
-* File API: save prompt & data - have done stuff like this yonks ago, have another look at
 * Return to web-components and Temporal
 * Refresher: document.querySelector vs getElementById - they return different types/interfaces i think & the former is easier to cast
-* JS modules: a way to export "*" ?
-* JS identifiers: unicode categories ID_Start & ID_Continue
+* `js` modules: a way to export "*" ?
+* `js` identifiers: unicode categories ID_Start & ID_Continue
 * Correct typing for HTMLFormElement.elements / HTMLFormControlsCollection items
 * Revisit test grouping/nesting
-* CSS generated content: can any items be made conditional? Also see if there are any implementations for the "six yet-to-be implemented CSS functions including content(), string(), and leader(), and the three `target` functions"
-* "Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content."
-* "This expression is not constructable. Type '....' has no construct signatures.ts(2351)"
+* `css` generated content: can any items be made conditional? Also see if there are any implementations for the "six yet-to-be implemented CSS functions including content(), string(), and leader(), and the three `target` functions"
+* `css` "Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content."
+* `js` "This expression is not constructable. Type '....' has no construct signatures.ts(2351)"
 * Derived subclass as function parameter?
-* JSDoc partial typing - see if there are ways to declare generic types that only specify certain items of a type signature, eg *just* the return type of a function - and be able to mix these partials together a bit like interfaces
+* `JSDoc` partial typing - see if there are ways to declare generic types that only specify certain items of a type signature, eg *just* the return type of a function - and be able to mix these partials together a bit like interfaces
 	* See if there's a way to type the whole of a function's arguments object, not just individual parameters
 	* See if @interface typing can be applied to non-class objects
 	* Look for other duck/mixin typing options
 	* Find out where the root/base context of jsconfig+checkJs typechecking is
-* CSS: colour model/api etc
+* `css` colour model/api etc
 * dynamic/automatic/contextual colours for text
-* CSS: Parent selector - 'has'
+* `css` Parent selector - 'has'
 * See if there's a way to collapse the single extra spaces that sometimes get added just from formatting, eg `<h1>	<a ...`
-* CSS grid: is there a simple way to make grid items go full-width without knowing the column count?
-* CSS grid: dynamic grids in general - eg based on custom vars
-* DOM: 3d transform experiments
-* HTML: details/summary move the marker to the right
+* `css grid` is there a simple way to make grid items go full-width without knowing the column count?
+* `css grid` dynamic grids in general - eg based on custom vars
+* `dom` 3d transform experiments
+* `html` details/summary move the marker to the right
 
 
 
@@ -55,8 +54,11 @@ Found some references to this and some open vscode issues that look related:
 * https://github.com/microsoft/vscode/issues/114115
 
 
+
 Done (for now)
 --------------
+* `file` have v.basic downloads going now; some examples in turtle, screensaver, thoughtcloud
+* `css` animation experiments mostly being done in screensaver for now
 * The ~5 extra vertical pixels that SVG in html gets displayed with are related to its default `display:inline;`. Still investigating, but change to block for a quick soln.
 * Github pages localStorage is shared based upon common origin
 * SVG foreignObject - https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/foreignObject
