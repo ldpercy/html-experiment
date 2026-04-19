@@ -37,19 +37,19 @@
 
 	<g class="bezier">
 		<!--
-		<path style="--sibling-index:1;" d="M -30,-10  T 7,-1 5,1 T -5,5 -10,30 ">
-		</path>
+		<path style="--sibling-index:1;" d="M -30,-10  T 7,-1 5,1 T -5,5 -10,30 "/>
+		<path style="--sibling-index:2;" d="M -20,-20  T 7,-1 5,1 T -2,5 -20,20 "/>
+		<path style="--sibling-index:3;" d="M -10,-30  T 7,-1 5,1 T -3,5 -30,10 "/>
+		-->
 
-		<path style="--sibling-index:2;" d="M -20,-20  T 7,-1 5,1 T -2,5 -20,20 ">
+		<!--	M 0,25  Q 8,-4 -8,-4 T 0,25 	-->
 
-		</path>
 
-		<path style="--sibling-index:3;" d="M -10,-30  T 7,-1 5,1 T -3,5 -30,10 ">
-		</path> -->
+		<path style="--sibling-index:3;" d="M 0,0  Q -11,-11 0,-10  T 22,-22 11,11 "/>
 
-		<path style="--sibling-index:3;" d="M 0,0  Q -11,-11 0,-10  T 22,-22 11,11 ">
-			<!--	M 0,25  Q 8,-4 -8,-4 T 0,25 	-->
-		</path>
+
+		<path style="--sibling-index:4;" d="M 0,0  Q  -11,-22 0,0 "/>
+
 
 	</g>
 
