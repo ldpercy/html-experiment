@@ -15,11 +15,12 @@ When html-common gets into release cadence some tasks will be moved over to ther
 
 Todo
 ----
+* `css` select>option[selected] that dynamically updates??? seems to only follow the initial attribute
 * `css` @supports condition for newer functions like sibling-index()
 * `ts/jsdoc` correct type for a dynamically imported module
 * Dig a limit more into `stroke-miterlimit`
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import/with
-* Return to web-components and Temporal
+* `api` Return to web-components and Temporal
 * Refresher: document.querySelector vs getElementById - they return different types/interfaces i think & the former is easier to cast
 * `js` modules: a way to export "*" ?
 * `js` identifiers: unicode categories ID_Start & ID_Continue
@@ -35,9 +36,9 @@ Todo
 	* Look for other duck/mixin typing options
 	* Find out where the root/base context of jsconfig+checkJs typechecking is
 * `css` colour model/api etc
-* dynamic/automatic/contextual colours for text
+* `css` dynamic/automatic/contextual colours for text
 * `css` Parent selector - 'has'
-* See if there's a way to collapse the single extra spaces that sometimes get added just from formatting, eg `<h1>	<a ...`
+* `css` See if there's a way to collapse the single extra spaces that sometimes get added just from formatting, eg `<h1>	<a ...`
 * `css grid` is there a simple way to make grid items go full-width without knowing the column count?
 * `css grid` dynamic grids in general - eg based on custom vars
 * `dom` 3d transform experiments

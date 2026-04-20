@@ -28,9 +28,10 @@
 				--index: sibling-index();
 				--count: sibling-count();
 				--deg : calc(360 * var(--index,--sibling-index)  / var(--count,--sibling-count));
+				--frc : calc(sibling-index() / sibling-count());
 				/* --deg : calc(360 * sibling-index()  / sibling-count()); */
-				fill:	lch(from var(--fill-colour)		l c calc(h + var(--deg)) );
-				stroke:	lch(from var(--stroke-colour)	l c calc(h + var(--deg)) );
+				fill:	lch(from var(--fill-colour)		l c calc(h + var(--deg)) / var(--frc));
+				stroke:	lch(from var(--stroke-colour)	l c calc(h + var(--deg)) / var(--frc));
 			}
 		}
 	</style>
@@ -45,11 +46,13 @@
 		<!--	M 0,25  Q 8,-4 -8,-4 T 0,25 	-->
 
 
-		<path style="--sibling-index:3;" d="M 0,0  Q -11,-11 0,-10  T 22,-22 11,11 "/>
+		<path style="--sibling-index:1;" d="M 0,0  Q -11,-11 0,-10  T 22,-22 11,11 "/>
 
+		<path style="--sibling-index:2;" d="M 0,0  Q  -11,-22 0,0 "/>
 
-		<path style="--sibling-index:4;" d="M 0,0  Q  -11,-22 0,0 "/>
-
+		<path style="--sibling-index:5;" d="M 0,0  Q -5,5 -13,-3 Q -11,-22 0,0"/>
+		<path style="--sibling-index:5;" d="M 0,0  Q -5,5 -13,-3 T  0,0 z"/>
+		<!-- T -11,-22 0,0  -->
 
 	</g>
 
