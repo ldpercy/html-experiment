@@ -15,8 +15,7 @@ When html-common gets into release cadence some tasks will be moved over to ther
 
 Todo
 ----
-* `css` select>option[selected] that dynamically updates??? seems to only follow the initial attribute
-* `css` @supports condition for newer functions like sibling-index()
+* `css` @supports condition for newer functions like sibling-index() -- try some of the ideas here: https://stackoverflow.com/questions/77441227/how-to-detect-css-functions-support like `CSS.supports()`
 * `ts/jsdoc` correct type for a dynamically imported module
 * Dig a limit more into `stroke-miterlimit`
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import/with
@@ -58,6 +57,7 @@ Found some references to this and some open vscode issues that look related:
 
 Done (for now)
 --------------
+* `css` style selected `option` elements with ':checked' pseudo class, not selected attr. Obviously.
 * `file` have v.basic downloads going now; some examples in turtle, screensaver, thoughtcloud
 * `css` animation experiments mostly being done in screensaver for now
 * The ~5 extra vertical pixels that SVG in html gets displayed with are related to its default `display:inline;`. Still investigating, but change to block for a quick soln.
