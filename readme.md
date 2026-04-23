@@ -23,7 +23,7 @@ Experiments might be:
 Slightly interesting things
 ---------------------------
 
-* [app/polygon](./app/polygon/)
+* [demo/polygon](./demo/polygon/)
 * [css/colour](./css/colour.html)
 * [css/colour-calc](./css/colour-calc.html)
 * [css/perspective](./css/perspective.html)
