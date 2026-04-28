@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>focus</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="../favicon.svg">
+	<link rel="stylesheet" href="../[common]/common-style.css">
+	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
+</head>
+<body>
+	<header>
+		<h1><a href="">Focus</a></h1>
+		<nav>
+			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
+			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
+			<a title="To folder" href="./">🖿</a>
+			<a title="Parent folder" href="../">🡅</a>
+		</nav>
+	</header>
+
+
+	<main>
+
+
+		<style>
+
+			form {
+				&:focus-within {
+					transition-duration: 0s;
+					outline: 2px solid var(--accent-colour);
+				}
+
+				*:focus-visible {
+					transition-duration: 0s;
+					outline: 2px solid var(--accent-colour);
+				}
+			}
+
+
+		</style>
+
+
+
+		<form>
+			<h2>Form</h2>
+			<textarea title="this is a title attribute">textarea</textarea>
+			<br/>
+			<button>button</button>
+			<label>
+				<input type="radio" name="radio" value="radio1">
+				radio1
+			</label>
+			<label>
+				<input type="radio" name="radio" value="radio2" checked>
+				radio2
+			</label>
+			<input type="checkbox" checked>
+			<input type="range" min="1" max="10" value="5">
+			<input type="number" min="1" max="10" value="5">
+			<select>
+				<option>option 1</option>
+				<option>option 2</option>
+			</select>
+			<input type="color">
+			<details>
+				<summary>summary</summary>
+				details
+			</details>
+		</form>
+
+
+	</main>
+
+</body>
+</html>
