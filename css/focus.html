@@ -22,26 +22,28 @@
 	<main>
 
 
-		<style>
+		<style contenteditable="plaintext-only">
 
 			form {
 				&:focus-within {
-					transition-duration: 0s;
-					outline: 2px solid var(--accent-colour);
+					outline: 2px solid fuchsia;
 				}
 
 				*:focus-visible {
-					transition-duration: 0s;
 					outline: 2px solid var(--accent-colour);
 				}
 			}
 
 
+			div:focus-within {
+				outline: 2px solid dodgerblue;
+			}
+
 		</style>
 
 
 
-		<form>
+		<form tabindex="0">
 			<h2>Form</h2>
 			<textarea title="this is a title attribute">textarea</textarea>
 			<br/>
@@ -67,6 +69,10 @@
 				details
 			</details>
 		</form>
+
+		<div contenteditable="plaintext-only">
+			sadfsafdsf
+		</div>
 
 
 	</main>
