@@ -15,21 +15,23 @@ When html-common gets into release cadence some tasks will be moved over to ther
 
 Todo
 ----
+* `svg` a way to get the box coordinates of the visible svg render area, not just the viewbox
+* `html,css` review viewport terminology for visible, hidden areas et al
 * `css` @supports condition for newer functions like sibling-index() -- try some of the ideas here: https://stackoverflow.com/questions/77441227/how-to-detect-css-functions-support like `CSS.supports()`
-* `ts/jsdoc` correct type for a dynamically imported module
-* Dig a limit more into `stroke-miterlimit`
+* `svg` Dig a limit more into `stroke-miterlimit`
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import/with
 * `api` Return to web-components and Temporal
-* Refresher: document.querySelector vs getElementById - they return different types/interfaces i think & the former is easier to cast
-* `js` modules: a way to export "*" ?
+* `dom` Refresher: document.querySelector vs getElementById - they return different types/interfaces i think & the former is easier to cast
+* `js` modules: a way to export "*" ? (I don't think this can be done)
 * `js` identifiers: unicode categories ID_Start & ID_Continue
-* Correct typing for HTMLFormElement.elements / HTMLFormControlsCollection items
 * Revisit test grouping/nesting
 * `css` generated content: can any items be made conditional? Also see if there are any implementations for the "six yet-to-be implemented CSS functions including content(), string(), and leader(), and the three `target` functions"
 * `css` "Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content."
 * `js` "This expression is not constructable. Type '....' has no construct signatures.ts(2351)"
-* Derived subclass as function parameter?
-* `JSDoc` partial typing - see if there are ways to declare generic types that only specify certain items of a type signature, eg *just* the return type of a function - and be able to mix these partials together a bit like interfaces
+* `js` Derived subclass as function parameter?
+* `jsdoc,ts` Correct typing for HTMLFormElement.elements / HTMLFormControlsCollection items
+* `jsdoc,ts` correct type for a dynamically imported module
+* `jsdoc,ts` partial typing - see if there are ways to declare generic types that only specify certain items of a type signature, eg *just* the return type of a function - and be able to mix these partials together a bit like interfaces
 	* See if there's a way to type the whole of a function's arguments object, not just individual parameters
 	* See if @interface typing can be applied to non-class objects
 	* Look for other duck/mixin typing options
@@ -45,7 +47,7 @@ Todo
 
 
 
-#### !important - Turn on jsdoc typechecking for inline `<script></script>` tags within html
+### !important - Turn on jsdoc typechecking for inline `<script></script>` tags within html
 
 Found some references to this and some open vscode issues that look related:
 
@@ -57,17 +59,17 @@ Found some references to this and some open vscode issues that look related:
 
 Done (for now)
 --------------
-* `css` style selected `option` elements with ':checked' pseudo class, not selected attr. Obviously.
+* `css` style selected *option* elements with ***:checked*** pseudo class, not selected attr. Obviously.
 * `file` have v.basic downloads going now; some examples in turtle, screensaver, thoughtcloud
 * `css` animation experiments mostly being done in screensaver for now
-* The ~5 extra vertical pixels that SVG in html gets displayed with are related to its default `display:inline;`. Still investigating, but change to block for a quick soln.
-* Github pages localStorage is shared based upon common origin
-* SVG foreignObject - https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/foreignObject
-* Keyboard: filter out browser/os `crtl` key combos
-* CSS list counters, zero-based: can be done (though a little quirky); better to use array keys themselves when that's what's needed
-* Testing - simple code testing eg equality, exceptions, typeof testing that code excepts - moved to `html-common`
-* Function arguments can be omitted to accept defaults with `undefined`
-* CSS `grey` is darker than `darkgrey` for historical reasons - websearch for the whole story
+* `svg` The ~5 extra vertical pixels that SVG in html gets displayed with are related to its default ***display:inline***. Still investigating, but change to ***display:block*** for a quick soln.
+* `storage` Github pages localStorage is shared based upon common origin
+* `svg` SVG foreignObject - https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/foreignObject
+* `kbd` filter out browser/os crtl key combos
+* `css` list counters, zero-based: can be done (though a little quirky); better to use array keys themselves when that's what's needed
+* `testing` simple code testing eg equality, exceptions, typeof testing that code excepts - moved to html-common
+* `js` Function arguments can be omitted to accept defaults with ***undefined***
+* `css` *grey* is darker than *darkgrey* for historical reasons - websearch for the whole story
 
 
 
