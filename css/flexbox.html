@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>flexbox</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="../favicon.svg">
+	<link rel="stylesheet" href="../[common]/common-style.css">
+	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
+</head>
+<body>
+	<header>
+		<h1><a href="">flexbox</a></h1>
+		<nav>
+			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
+			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
+			<a title="To folder" href="./">🖿</a>
+			<a title="Parent folder" href="../">🡅</a>
+		</nav>
+	</header>
+
+	<main>
+
+	<style contenteditable="plaintext-only" spellcheck="false">
+		.container {
+			border: 2px solid green;
+			margin:1ex;	padding:1ex; border-radius:1ex;
+			display: flex;
+		}
+
+		.flex1 {
+			align-content: stretch;
+			justify-content: space-around;
+		}
+
+		#box3 {
+			div {
+				flex:1;
+				margin:1em;
+			}
+		}
+
+		#box4 {
+			* { flex:1; }
+		}
+
+		#box5 {
+			justify-content: space-between;
+			* { flex:1; }
+		}
+
+
+	</style>
+
+
+	<div class="container pretty flex1" id="box1">
+		<div>abcd</div>
+		<div>efgh</div>
+		<p>ijkl</p>
+
+		<section>mnop</section>
+		<aside>qrst</aside>
+		<div>uvwx</div>
+		<div>yz</div>
+	</div>
+
+
+	<div class="container pretty " id="box2">
+		<div>abcd</div>
+		<div>efgh</div>
+		<p>ijkl</p>
+
+		<section>mnop</section>
+		<aside>qrst</aside>
+		<div>uvwx</div>
+		<div>yz</div>
+	</div>
+
+
+	<div class="container pretty " id="box3">
+		<div>abcd</div>
+		<div>efgh</div>
+	</div>
+
+
+	<div class="container pretty " id="box4">
+		<div>abcd</div>
+		<div>efgh</div>
+		<p>ijkl</p>
+
+		<section>mnop</section>
+		<aside>qrst</aside>
+		<div>uvwx</div>
+		<div>yz</div>
+	</div>
+
+
+	<div class="container pretty flex1" id="box5">
+		<div>abcd</div>
+		<div>efgh</div>
+	</div>
+
+
+	<form class="flex1">
+		<label for="input-abcd">abcd</label>
+		<input id="input-abcd" type="text" name="text"/>
+		<label for="input-efgh">efgh</label>
+		<input id="input-efgh" type="date" name="date"/>
+		<label for="input-ijkl">ijkl</label>
+		<select id="input-ijkl" name="date">
+			<option>123</option>
+			<option>456</option>
+			<option>789</option>
+		</select>
+		<label for="input-tyui">abcd</label>
+		<input id="input-tyui" type="text" name="text"/>
+	</form>
+
+	</main>
+
+</body>
+</html>
