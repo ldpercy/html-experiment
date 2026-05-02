@@ -1,0 +1,28 @@
+
+body script {
+	display: block;
+	border-radius: 1ex;
+	padding: 0ex;
+	font-family: monospace;
+	white-space-collapse: preserve;
+	tab-size: 4;
+
+	&::before {
+		display:inline-block;
+		position:sticky;
+		top:0em;
+		background-color: var(--element-colour);
+		border-radius: 1ex 0ex;
+		margin-bottom: 1ex;
+		padding:1ex;
+		content: 'script type=' attr(type) ' src=' attr(src) ' ⋯ ' attr(title);
+	}
+}
+
+
+body script[src] { display: inline-block; }
+
+[data-colourscheme=dark] body script {
+	&::before { color: black; }
+}
+

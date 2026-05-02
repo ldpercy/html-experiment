@@ -4,15 +4,17 @@
 not working properly yet
 */
 
-[id]::before {
+body [id]::before {
 	display:inline-block;
-	position:sticky;
-	top:0em;
-	left:0em;
+	position:relative;
+	top:-3ex;
+	left:0ex;
 	font-family:monospace;
 	font-size:1em;
 	background-color: var(--element-colour);
+	color: 	oklab( from var(--element-colour)    calc(sign(l - 70) * -100) 0 0 / 1);
 	padding:1ex;
 	border-radius: 1ex;
+
 	content: 'id='attr(id);
 }

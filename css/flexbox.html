@@ -18,102 +18,122 @@
 		</nav>
 	</header>
 
+	<link rel="stylesheet" href="../[common]/visible-attributes.css">
+
 	<main>
 
+
 	<style contenteditable="plaintext-only" spellcheck="false">
-		.container {
-			border: 2px solid green;
-			margin:1ex;	padding:1ex; border-radius:1ex;
-			display: flex;
+
+		section {
+			--element-colour: steelblue;
+			border: 2px solid var(--element-colour);
 		}
 
-		.flex1 {
+		section > div {
+			display: flex;
+			--element-colour:floralwhite;
+			background-color: var(--element-colour);
+		}
+
+
+		#box1 div {
 			align-content: stretch;
 			justify-content: space-around;
+			flex-direction: column;
 		}
 
-		#box3 {
-			div {
-				flex:1;
-				margin:1em;
-			}
+		#box2 div {
+			gap: 1em;
 		}
 
-		#box4 {
+		#box3 div  {
+			flex:1;
+			margin:1em;
+		}
+
+		#box4 div {
 			* { flex:1; }
 		}
 
-		#box5 {
+		#box5 div {
 			justify-content: space-between;
-			* { flex:1; }
+			flex: 1;
+			gap: 1em;
 		}
 
 
 	</style>
 
+	<section id="box1">
+		<div class="pretty" >
+			<div>abcd</div>
+			<div>efgh</div>
+			<p>ijkl</p>
 
-	<div class="container pretty flex1" id="box1">
-		<div>abcd</div>
-		<div>efgh</div>
-		<p>ijkl</p>
+			<section>mnop</section>
+			<aside>qrst</aside>
+			<div>uvwx</div>
+			<div>yz</div>
+		</div>
+	</section>
 
-		<section>mnop</section>
-		<aside>qrst</aside>
-		<div>uvwx</div>
-		<div>yz</div>
-	</div>
+	<section id="box2">
+		<div class=" pretty " >
+			<div>abcd</div>
+			<div>efgh</div>
+			<p>ijkl</p>
 
+			<section>mnop</section>
+			<aside>qrst</aside>
+			<div>uvwx</div>
+			<div>yz</div>
+		</div>
+	</section>
 
-	<div class="container pretty " id="box2">
-		<div>abcd</div>
-		<div>efgh</div>
-		<p>ijkl</p>
+	<section id="box3">
+		<div class=" pretty " >
+			<div>abcd</div>
+			<div>efgh</div>
+		</div>
+	</section>
 
-		<section>mnop</section>
-		<aside>qrst</aside>
-		<div>uvwx</div>
-		<div>yz</div>
-	</div>
+	<section id="box4">
+		<div class=" pretty ">
+			<div>abcd</div>
+			<div>efgh</div>
+			<p>ijkl</p>
 
+			<section>mnop</section>
+			<aside>qrst</aside>
+			<div>uvwx</div>
+			<div>yz</div>
+		</div>
+	</section>
 
-	<div class="container pretty " id="box3">
-		<div>abcd</div>
-		<div>efgh</div>
-	</div>
+	<section id="box5">
+		<div class=" pretty flex1" >
+			<div>abcd</div>
+			<div>efgh</div>
+		</div>
+	</section>
 
-
-	<div class="container pretty " id="box4">
-		<div>abcd</div>
-		<div>efgh</div>
-		<p>ijkl</p>
-
-		<section>mnop</section>
-		<aside>qrst</aside>
-		<div>uvwx</div>
-		<div>yz</div>
-	</div>
-
-
-	<div class="container pretty flex1" id="box5">
-		<div>abcd</div>
-		<div>efgh</div>
-	</div>
-
-
-	<form class="flex1">
-		<label for="input-abcd">abcd</label>
-		<input id="input-abcd" type="text" name="text"/>
-		<label for="input-efgh">efgh</label>
-		<input id="input-efgh" type="date" name="date"/>
-		<label for="input-ijkl">ijkl</label>
-		<select id="input-ijkl" name="date">
-			<option>123</option>
-			<option>456</option>
-			<option>789</option>
-		</select>
-		<label for="input-tyui">abcd</label>
-		<input id="input-tyui" type="text" name="text"/>
-	</form>
+	<section>
+		<form>
+			<label for="input-abcd">abcd</label>
+			<input id="input-abcd" type="text" name="text"/>
+			<label for="input-efgh">efgh</label>
+			<input id="input-efgh" type="date" name="date"/>
+			<label for="input-ijkl">ijkl</label>
+			<select id="input-ijkl" name="date">
+				<option>123</option>
+				<option>456</option>
+				<option>789</option>
+			</select>
+			<label for="input-tyui">abcd</label>
+			<input id="input-tyui" type="text" name="text"/>
+		</form>
+	</section>
 
 	</main>
 
