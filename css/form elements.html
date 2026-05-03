@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>form elements</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="../favicon.svg">
+	<link rel="stylesheet" href="../[common]/common-style.css">
+	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
+</head>
+<body>
+	<header>
+		<h1><a href="">form elements</a></h1>
+		<nav>
+			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
+			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
+			<a title="To folder" href="./">🖿</a>
+			<a title="Parent folder" href="../">🡅</a>
+		</nav>
+	</header>
+
+	<!-- <link rel="stylesheet" href="../[common]/visible-attributes.css"> -->
+
+	<main>
+
+
+		<style contenteditable="plaintext-only" spellcheck="false">
+			:root {
+				--gap:1ex;
+			}
+
+
+			section {
+				--element-colour: steelblue;
+				--border-colour: var(--element-colour);
+				border: 2px solid var(--border-colour);
+			}
+
+			section > form {
+				display: grid;
+				gap: var(--gap);
+				--element-colour:floralwhite;
+				background-color: var(--element-colour);
+			}
+
+			label {
+			/* label:has([type=radio], [type=checkbox]) { */
+
+				border-radius: var(--gap);
+				/*vertical-align: middle ;
+				input { vertical-align: middle; } */
+				&:hover {
+					outline: 1px dotted var(--border-colour);
+				}
+			}
+
+
+
+
+
+		</style>
+
+
+		<section>
+			<h2>alignment</h2>
+
+			<form>
+				<label>
+					<input type="radio" name="radio" value="radio1">
+					radio1
+				</label>
+				<label>
+					<input type="radio" name="radio" value="radio2" checked>
+					radio2
+				</label>
+
+				<label>
+					<input type="checkbox">
+					label text
+				</label>
+				<label>
+					<input type="checkbox" checked>
+					label text
+				</label>
+
+				<section>
+					<form>
+						<textarea id="input-command" class="tab-body" type="string" name="command" title="Current command set" spellcheck="false">right 60,500</textarea>
+						<div id="command-tabs" class="tabbar bottom">
+							<a href="#commandSet-1" id="tab-commandSet-1" data-commandSet="1" class="tab" title="Command set 1">set 1</a>
+							<a href="#commandSet-2" id="tab-commandSet-2" data-commandSet="2" class="tab" title="Command set 2">set 2</a>
+							<a href="#commandSet-3" id="tab-commandSet-3" data-commandSet="3" class="tab" title="Command set 3">set 3</a>
+						</div>
+					</form>
+				</section>
+
+
+			</form>
+		</section>
+
+
+
+		<section>
+			<form class="light">
+				<h2>color-scheme: light</h2>
+				<textarea title="this is a title attribute">textarea</textarea>
+				<br/>
+				<button>button</button>
+				<label>
+					<input type="radio" name="radio" value="radio1">
+					radio1
+				</label>
+				<label>
+					<input type="radio" name="radio" value="radio2" checked>
+					radio2
+				</label>
+				<label>
+					<input type="checkbox" checked>
+					label text
+				</label>
+				<input type="range" min="1" max="10" value="5">
+				<input type="number" min="1" max="10" value="5">
+				<select>
+					<option>option 1</option>
+					<option>option 2</option>
+				</select>
+				<input type="color">
+				<details>
+					<summary>summary</summary>
+					details
+				</details>
+			</form>
+		</section>
+
+		<section>
+			<form class="dark">
+				<h2>color-scheme: dark</h2>
+				<textarea title="this is a title attribute">textarea</textarea>
+				<br/>
+				<button>button</button>
+				<label>
+					<input type="radio" name="radio" value="radio1">
+					radio1
+				</label>
+				<label>
+					<input type="radio" name="radio" value="radio2" checked>
+					radio2
+				</label>
+				<label>
+					<input type="checkbox" checked>
+					label text
+				</label>
+				<input type="range" min="1" max="10" value="5">
+				<input type="number" min="1" max="10" value="5">
+				<select>
+					<option>option 1</option>
+					<option>option 2</option>
+				</select>
+				<input type="color">
+				<details>
+					<summary>summary</summary>
+					details
+				</details>
+			</form>
+		</section>
+
+
+	</main>
+
+</body>
+</html>
