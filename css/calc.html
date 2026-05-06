@@ -19,7 +19,7 @@
 
 	<main>
 
-	<style>
+	<style contenteditable="plaintext-only" spellcheck="false">
 		.value-1 { --value: 1; }
 		.value-2 { --value: 2; }
 		.value-3 { --value: 3; }
@@ -38,10 +38,22 @@
 				/* margin-left: calc(var(--value) *10ex); */
 
 				--margin-left: calc(var(--value) *10ex);
-
 				--margin-boundary: 50ex;
-
 				margin-left: max(var(--margin-boundary), var(--margin-left));
+			}
+		}
+
+		:root {
+			/* which may or may not be defined*/
+			--global-colour : gainsboro;
+			--bg-colour: pink;
+		}
+
+		section {
+
+			p {
+				--bg-colour: var(--bg-colour, fuchsia);	/* does not work, yields undefined */
+				background-color: var(--bg-colour);
 			}
 		}
 	</style>
@@ -57,6 +69,25 @@
 		<div class="value-8" data-value="8">8</div>
 		<div class="value-9" data-value="9">9</div>
 	</output>
+
+
+	<pre>
+		Q: Can you define a var self-referentially?
+		Answer: No, not like i've done above at least.
+		Could prob use `if()`, but not available in ff yet.
+	</pre>
+
+	<section>
+		<p>
+			some text
+		</p>
+		<p>
+			some more text
+		</p>
+	</section>
+
+
+
 
 	</main>
 
