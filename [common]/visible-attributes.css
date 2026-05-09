@@ -5,8 +5,8 @@ not working properly yet
 */
 
 body [id]::before {
-	display:inline-block;
-	position:relative;
+	display: inline-block;
+	position: relative;
 	top:-3ex;
 	left:0ex;
 	font-family:monospace;
