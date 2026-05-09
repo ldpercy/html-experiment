@@ -29,6 +29,22 @@
 			svg {
 				background-color: silver;
 				display:block;
+
+				rect.viewport {
+					fill:transparent;
+					stroke-width: 1px ;
+					stroke: #0f0a;
+					x: -10vw;
+					y: -10vh;
+					width: 90vw;
+					height: 90vh;
+				}
+			}
+
+			#section0 {
+				grid-column-start: span 4;
+				height: 20em;
+				svg { width:100%; height: 85%; }
 			}
 
 			#section1 svg {	font-family: sans-serif;	}
@@ -45,6 +61,7 @@
 			const svgText = `
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 -32 64 64">
 					<rect x="-32" y="-32" width="64" height="64" fill="#ffb13b"/>
+					<rect class="viewport"/>
 					<g style="fill:none; stroke:#333; stroke-width:8;">
 						<polyline points="-15,-20 -27,0 -15,20"/>
 						<polyline points="-7,29 7,-29" />
@@ -54,6 +71,7 @@
 			`;
 		</script>
 
+		<section id="section0" class="svgTarget"></section>
 
 		<section id="section1" class="svgTarget"></section>
 		<section id="section2" class="svgTarget"></section>
