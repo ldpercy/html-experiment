@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>viewport</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="../favicon.svg">
+	<link rel="stylesheet" href="../[common]/common-style.css">
+</head>
+<body>
+	<header>
+		<h1><a href="">viewport</a></h1>
+		<nav>
+			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
+			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
+			<a title="To folder" href="./">🖿</a>
+			<a title="Parent folder" href="../">🡅</a>
+		</nav>
+	</header>
+	<link rel="stylesheet" href="../[common]/visible-attributes.css">
+
+	<main>
+
+		<style contenteditable="plaintext-only" spellcheck="false">
+			section {
+				--element-colour: steelblue;
+				grid-column-start: span 1;
+			}
+
+			svg {
+				background-color: silver;
+				display:block;
+			}
+
+			#section1 svg {	font-family: sans-serif;	}
+			#section2 svg {	width:100%; height: 50%;	}
+			#section3 svg {	width: 50%;	height: 85%;	}
+			#section4 svg {	transform: rotate(30deg);	}
+			#section5 svg {	transform: scaleX(0.5);		}
+			#section6 svg {	transform: scaleY(0.5);		}
+			#section7 svg { transform: skew(30deg, 20deg);	}
+			#section8 svg {	transform: perspective(17px);	}
+		</style>
+
+		<script class="limit-height">
+			const svgText = `
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 -32 64 64">
+					<rect x="-32" y="-32" width="64" height="64" fill="#ffb13b"/>
+					<g style="fill:none; stroke:#333; stroke-width:8;">
+						<polyline points="-15,-20 -27,0 -15,20"/>
+						<polyline points="-7,29 7,-29" />
+						<polyline points="15,-20 27,0 15,20"/>
+					</g>
+				</svg>
+			`;
+		</script>
+
+
+		<section id="section1" class="svgTarget"></section>
+		<section id="section2" class="svgTarget"></section>
+		<section id="section3" class="svgTarget"></section>
+		<section id="section4" class="svgTarget"></section>
+		<section id="section5" class="svgTarget"></section>
+		<section id="section6" class="svgTarget"></section>
+		<section id="section7" class="svgTarget"></section>
+		<section id="section8" class="svgTarget"></section>
+
+		<script>
+
+			document.querySelectorAll('.svgTarget').forEach(
+				(element) => {
+					element.innerHTML = svgText;
+				}
+			);
+
+
+			document.querySelectorAll('svg').forEach(
+				(element) => {
+					element.addEventListener(
+						'click',
+						svgClickListener //.bind(thisObj)
+					);
+				}
+			);
+
+
+			function svgClickListener(event) {
+				//console.debug('svgClickListener', event);
+				const domPoint = new DOMPoint(event.clientX, event.clientY);
+				console.debug('domPoint:',domPoint);
+
+				//const pageGroup = event.target.getElementById('group-page');
+
+				// Get point in page SVG space
+				const svgPoint = domPoint.matrixTransform(event.target.getScreenCTM().inverse());
+				console.debug('svgPoint', svgPoint);
+
+			}/* svgClickListener */
+
+
+		</script>
+
+
+		<pre>
+
+		</pre>
+
+
+	</main>
+
+</body>
+</html>
+
