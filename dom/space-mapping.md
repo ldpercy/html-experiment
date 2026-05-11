@@ -1,6 +1,11 @@
 Space mapping
 =============
 
+> [!NOTE]
+> Work on this task has been moved to [html-common - 🪓⮁ - axis inversion](<../../html-common/[task]/🪓⮁ - axis inversion.md>)
+
+
+
 
 This problem has been lurking in the code in various places for ages.
 Anywhere I've gone from regular cartesian to SVG coords I've usually just put a negative in front of the Y val and vowed to sort it out later.

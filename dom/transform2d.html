@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<link rel="icon" href="../[common]/html-experiment.svg">
 	<link rel="stylesheet" href="../[common]/style.css">
-	<link rel="stylesheet" href="../[common]/style/form.css">
+	<link rel="stylesheet" href="../[html-common]/style/fullpage/ui-panel.css">
 	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
 </head>
 <body>
@@ -25,7 +25,7 @@
 	<main>
 
 		<style contenteditable="plaintext-only" spellcheck="false" class="limit-height">
-			* { transition: all ease-in 0.5s; }
+			svg, svg * { transition: all ease-in 0.5s; }
 			svg { margin:1ex; border-radius:1ex; outline:2px dashed var(--svg-orange); }
 			form { z-index:5; }
 
@@ -61,7 +61,7 @@
 				</g>
 			</svg>
 		</output>
-		<form name="matrix" onchange="formOnchange()">
+		<form name="matrix" onchange="formOnchange()" class="ui-panel" tabindex="0">
 			<h2>initial matrix values</h2>
 			<div class="matrixValues">
 			<label>
