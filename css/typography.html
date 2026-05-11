@@ -5,8 +5,7 @@
 	<meta charset="utf-8">
 	<link rel="icon" href="../favicon.svg">
 	<link rel="stylesheet" href="../[common]/style.css">
-	<link rel="stylesheet" href="../[common]/style/transition.css">
-	<scriem type="module" src="../[html-common]/scriem/colourScheme-selector.js"></scriem>
+	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
 </head>
 <body>
 	<header>
@@ -24,38 +23,51 @@
 
 
 		<style contenteditable="plaintext-only">
+			section {
+				--element-colour: steelblue;
+				grid-column-start: span 4;
+				div {
+					background-color: white;
+				}
+			}
+
 			output {
+				display:block;
+				resize: both;
+				overflow: auto;
+
+				transition: font-size 0.5s linear;
+
+				font-size: 24px;
+
 				min-height:5em;
 
-				&::before {
-					font-family: monospace;
-					display:inline-block;
-					background-color: dimgrey;
-					border-radius: 1ex 0ex;
-					margin-bottom: 2ex;
-					padding: 1ex;
-					color:white;
-					content: attr(class);
+				h1, h2, h3, h4, h5, p {
+					background-color:hsl(from lemonchiffon h s l / 0.6);
 				}
+
 			}
 
 		</style>
 
 
-		<style contenteditable="plaintext-only">
-			.crosshatch {
-				background:
+		<style contenteditable="plaintext-only" spellcheck="false">
+			.emgrid {
+				background-position-x: left;
+				background-position-y: 0px;
+
+				background-image:
 					repeating-linear-gradient(
-						0deg,
+						to bottom,
 						#999a 0.0em,
 						#999a 0.1em,
 						#fff0 0.1em,
 						#fff0 1.0em
 					),
 					repeating-linear-gradient(
-						90deg,
-						#999a 0.0em,
-						#999a 0.1em,
+						to right,
+						#9991 0.0em,
+						#9991 0.1em,
 						#fff0 0.1em,
 						#fff0 1.0em
 					);
@@ -63,17 +75,20 @@
 
 		</style>
 
-		<section>
-			<output class="crosshatch">
+		<section >
+			<div class=wrapper>
+				<output class="emgrid">
 
-				<h1>h1</h1>
-				<h2>h2</h2>
-				<h3>h3</h3>
-				<h4>h4</h4>
-				<h5>h5</h5>
-				<p>paragraph</p>
+					<h1>h1</h1>
+					<h2>h2</h2>
+					<h3>h3</h3>
+					<h4>h4</h4>
+					<h5>h5</h5>
+					asdfg
+					<p>paragraph</p>
 
-			</output>
+				</output>
+			</div>
 		</section>
 
 	</main>
