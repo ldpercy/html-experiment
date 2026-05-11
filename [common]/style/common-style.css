@@ -1,20 +1,6 @@
-@import "../[html-common]/style/html-common.css";
-@import "./color-scheme.css";
-@import "./heading.css";
-@import "./link.css";
-
-
-:root {
-	--project-colour: orangered;
-}
-
-
-
 /*
 **	main grid layout
 */
-
-
 
 main {
 	display:grid;

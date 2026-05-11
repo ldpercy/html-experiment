@@ -1,0 +1,9 @@
+@import "../[html-common]/style/html-common.css";
+@import "./style/common-style.css";
+@import "./style/color-scheme.css";
+@import "./style/heading.css";
+@import "./style/link.css";
+
+:root {
+	--project-colour: orangered;
+}
