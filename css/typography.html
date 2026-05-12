@@ -32,7 +32,7 @@
 				--element-colour: steelblue;
 				grid-column-start: span 4;
 				div {
-					background-color: white;
+					background-color: var(--scheme-colour);
 				}
 			}
 
@@ -48,28 +48,30 @@
 				min-height:5em;
 
 				h1, h2, h3, h4, h5, h6, p {
-					background-color:hsl(from lemonchiffon h s l / 0.6);
+					background-color:hsl(from lemonchiffon h s l / 0.5);
 				}
 			}
 
 			.emgrid {
 				background-position-x: left;
 				background-position-y: 0px;
+				--line-colour: hsl(from var(--text-colour) h s l / 0.2);
+				--back-colour: #f000;
 
 				background-image:
 					repeating-linear-gradient(
 						to bottom,
-						#999a calc(0.0 * var(--base-unit)),
-						#999a calc(0.1 * var(--base-unit)),
-						#fff0 calc(0.1 * var(--base-unit)),
-						#fff0 calc(1.0 * var(--base-unit))
+						var(--line-colour) calc(0.0 * var(--base-unit)),
+						var(--line-colour) calc(0.1 * var(--base-unit)),
+						var(--back-colour) calc(0.1 * var(--base-unit)),
+						var(--back-colour) calc(1.0 * var(--base-unit))
 					),
 					repeating-linear-gradient(
 						to right,
-						#9991 calc(0.0 * var(--base-unit)),
-						#9991 calc(0.1 * var(--base-unit)),
-						#fff0 calc(0.1 * var(--base-unit)),
-						#fff0 calc(1.0 * var(--base-unit))
+						var(--line-colour) calc(0.0 * var(--base-unit)),
+						var(--line-colour) calc(0.1 * var(--base-unit)),
+						var(--back-colour) calc(0.1 * var(--base-unit)),
+						var(--back-colour) calc(1.0 * var(--base-unit))
 					);
 			}
 		</style>
