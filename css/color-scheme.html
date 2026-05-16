@@ -20,13 +20,7 @@
 	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
 	<main>
 
-	<script>
 
-		function setAccentColour(accentColour) {
-			document.body.style.setProperty('--accent-colour', accentColour);
-		}
-
-	</script>
 
 	<style>
 
@@ -52,9 +46,29 @@
 			color-scheme: dark;
 			accent-color: var(--accent-light);
 		}
+
+		samp {
+			color: dimgrey;  background-color: whitesmoke;
+		}
+		@media (prefers-color-scheme: light)	{
+			samp { color: black; background-color: white; }
+		}
+		@media (prefers-color-scheme: dark)		{
+			samp { color: white; background-color: black; }
+		}
+
 	</style>
 
-	<section class="fullwidth">
+	<section>
+
+		<h2>@media prefers-color-scheme</h2>
+		<p>
+			<samp>@media prefers-color-scheme</samp>
+		</p>
+		<p>
+			<img src="./color-scheme.svg" style="height:10em;">
+		</p>
+
 		<h2>Accent-color</h2>
 
 		<input type="color" onchange="setAccentColour(this.value);">
@@ -62,6 +76,10 @@
 		<span style="background-color: var(--accent-light);">accent colour - light</span>
 		<span style="background-color: var(--accent-colour);">accent colour</span>
 		<span style="background-color: var(--accent-dark);">accent colour - dark</span>
+
+
+
+
 	</section>
 
 
@@ -121,6 +139,15 @@
 			details
 		</details>
 	</form>
+
+
+	<script>
+
+		function setAccentColour(accentColour) {
+			document.body.style.setProperty('--accent-colour', accentColour);
+		}
+
+	</script>
 
 
 	</main>

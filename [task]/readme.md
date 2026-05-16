@@ -47,7 +47,7 @@ Todo
 * `css grid` is there a simple way to make grid items go full-width without knowing the column count?
 * `css grid` dynamic grids in general - eg based on custom vars
 * `dom`	3d transform experiments
-* `html`	details/summary move the marker to the right
+* `html`	details/summary move the marker to the right, styling in general
 * `svg/css`	Look into: https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute/d#using_d_as_a_css_property
 * `svg`		Look into stroke gradients
 
