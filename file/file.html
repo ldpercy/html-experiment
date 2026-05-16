@@ -26,14 +26,14 @@
 		</style>
 
 
-		<form name="fileinput">
+		<form name="form-fileinput">
 			<h2>input</h2>
 
 
 			<input type="file" name="fileinput" id="input-fileinput">
 
 
-			<textarea name="fileinput-textarea">
+			<textarea name="input-textarea">
 				file content goes here
 			</textarea>
 
@@ -41,6 +41,14 @@
 
 
 		<form name="download">
+			<h2>Window: showSaveFilePicker() method</h2>
+			<button type="button" onclick="window.showSaveFilePicker()">window.showSaveFilePicker()</button>
+
+			<button type="button" onclick="saveFile()">saveFile()</button>
+
+
+
+
 			<h2>download</h2>
 
 			<label>
@@ -76,6 +84,45 @@
 			</label>
 
 		</form>
+
+
+		<script>
+			async function getSaveFileHandle() {
+				const opts = {
+					types: [
+						{
+							description: "Text file",
+							accept: { "text/plain": [".txt"] },
+						},
+					],
+				};
+				return await window.showSaveFilePicker(opts);
+			}
+
+
+			async function saveFile() {
+				const fileHandle = await getSaveFileHandle();
+
+				console.log(fileHandle);
+
+				const writableStream = await fileHandle.createWritable();
+
+				console.log(writableStream);
+
+
+				const filecontent = document.forms['form-fileinput']['input-textarea'].value;
+
+				// write our file
+				await writableStream.write(filecontent);
+
+				// close the file and write the contents to disk.
+				await writableStream.close();
+
+			}
+
+
+
+		</script>
 
 
 		<script type="module">
@@ -122,7 +169,7 @@
 
 					console.log('event.target.files[0].file()', fileObj);
 
-					//document.forms['fileinput']['fileinput-textarea'].value = fileObj.text();
+					//document.forms['form-fileinput']['input-textarea'].value = fileObj.text();
 					//console.log(fileObj.text());		// ugh promise
 
 
@@ -133,7 +180,7 @@
 						() => {
 							// this will then display a text file
 							//content.innerText = reader.result;
-							document.forms['fileinput']['fileinput-textarea'].value = reader.result;
+							document.forms['form-fileinput']['input-textarea'].value = reader.result;
 						},
 						false,
 					);
