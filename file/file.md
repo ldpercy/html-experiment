@@ -6,6 +6,36 @@ File
 
 
 
+showSaveFilePicker
+------------------
+
+https://developer.mozilla.org/en-US/docs/Web/API/Window/showSaveFilePicker
+
+Chrome only at the moment.
+
+In ff should be able to get the savefile handle in other ways.
+
+
+writableStream
+--------------
+
+https://developer.mozilla.org/en-US/docs/Web/API/FileSystemWritableFileStream
+
+```js
+	const writableStream = await fileHandle.createWritable();
+
+	console.log(writableStream);
+	const filecontent = document.forms['myForm']['myInput'].value;
+
+	// write the file
+	await writableStream.write(filecontent);
+
+	// close the file and write the contents to disk.
+	await writableStream.close();
+```
+
+
+
 
 Input type=file
 ---------------
