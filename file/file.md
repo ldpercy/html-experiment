@@ -6,6 +6,23 @@ File
 
 
 
+File upload and file download/save
+----------------------------------
+
+As far as I can tell right now the two processes are separated off from each other in terms of the api (though I can't see a really explicit statement to this effect yet).
+
+Files that get selected/uploaded via things like file pickers can be manipulated/read etc, but don't seem to generate a persistent handle to carry through from upload through to save/download.
+
+I'll have to think a bit more about this.
+Once a file is saved I can probably maintain a handle?
+
+
+
+
+
+
+
+
 showSaveFilePicker
 ------------------
 
