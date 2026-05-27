@@ -15,6 +15,7 @@ When html-common gets into release cadence some tasks will be moved over to ther
 
 Todo
 ----
+* `general` have a bit of a look into PWAs: https://en.wikipedia.org/wiki/Progressive_web_app
 * `css`	can you make an svg favicon light/dark adpaptive?
 * `css` dig more into viewport and container lengths, also how they work in svg
 * `svg` a way to get the box coordinates of the visible svg render area, not just the viewbox
