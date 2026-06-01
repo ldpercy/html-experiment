@@ -10,6 +10,8 @@
 	<script defer src="../[common]/common-script.js"></script>
 	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
 
+	<meta id="meta-themeColor" name="theme-color" content="" />
+
 </head>
 <body>
 	<header>
@@ -217,6 +219,8 @@
 
 				document.getElementById('input-colourChooser').value = colourObj.toHex();
 				document.getElementById('input-colourText').value = colourString;
+
+				document.getElementById('meta-themeColor').content = colourString;
 
 				updateChannelSliders(colourObj);
 
