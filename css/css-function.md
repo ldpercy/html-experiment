@@ -11,6 +11,9 @@ CSS Functions
 attr()
 ------
 
+> Starting with Firefox 152, Nightly builds allow the attr() function to be used in any CSS property. It now also allows to specify how the attribute value is parsed into a CSS value.
+
+
 Not very well supported yet, but potentially extremely useful for `calc`s from metadata.
 
 Currently we need intermediate classes like this:

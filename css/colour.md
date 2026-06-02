@@ -2,6 +2,10 @@ Colour
 ======
 
 
+https://stackoverflow.com/questions/79034015/how-can-i-get-final-hex-color-in-javascript-from-a-relative-css-color-string
+
+
+
 meta theme-color
 ----------------
 
@@ -19,6 +23,7 @@ A few quick tests to see what does work:
 * oklab(1 .2 .2)
 * lch(77 75 90)
 * oklch(0.8 0.2 222)
+* color(srgb 0.4 0.1 0.2)
 
 
 ### No
