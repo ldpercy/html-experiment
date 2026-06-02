@@ -2,6 +2,34 @@ Colour
 ======
 
 
+meta theme-color
+----------------
+
+	<meta name="theme-color" content="dodgerblue" />
+
+This does *not* accept all available css colour expressions.
+A few quick tests to see what does work:
+
+### Yes
+* rgb(222,111,000)
+* rgb(111 222 000)
+* hsl (0 50 50)
+* hwb(90 50 11)
+* lab(90 50 11)
+* oklab(1 .2 .2)
+* lch(77 75 90)
+* oklch(0.8 0.2 222)
+
+
+### No
+* hsl (0, 50, 50)  			// invalid
+* hsl(from red 120 s l) 	// valid colour (lime), but does *not* work in meta content
+
+For now looks like absolute colours only.
+
+
+
+
 
 Colour model conversion & channel value extraction
 --------------------------------------------------
