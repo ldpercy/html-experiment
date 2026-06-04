@@ -46,11 +46,18 @@
 		<!-- </form>
 		<form onchange="inputChange();"> -->
 			<label>Channels</label>
-			<fieldset id="fieldset-channels" name="channel">
+			<fieldset id="fieldset-channels" name="channel" >
+				<div>
 				r <input id="input-rgba-r" name="rgba-r" type="range" min="0" max="255" >
 				g <input id="input-rgba-g" name="rgba-g" type="range" min="0" max="255" >
 				b <input id="input-rgba-b" name="rgba-b" type="range" min="0" max="255" >
 				a <input id="input-rgba-a" name="rgba-a" type="range" min="0" max="255" >
+				</div>
+
+				<div>
+					<p>Computed:</p>
+					<output id="computedColour"></output>
+				</div>
 			</fieldset>
 
 			<h3>Output</h3>
@@ -113,7 +120,14 @@
 				button { width:49%; }
 			}
 
-			fieldset { display:inline-block; border-radius:1ex; text-align: center;}
+			fieldset {
+				display:inline-block;
+				border-radius:1ex;
+				text-align: center;
+				transition: none;
+				display: flex;
+				justify-content: space-evenly;
+			}
 			summary h2 {
 				display:inline-block;
 				margin:0em;
@@ -214,6 +228,12 @@
 
 			/** @param {string} colourString */
 			function setColour(colourString) {
+
+				let channelFieldset = document.getElementById('fieldset-channels');
+				channelFieldset.style.backgroundColor = colourString;
+				computedColour = window.getComputedStyle(channelFieldset).backgroundColor;
+				document.getElementById('computedColour').innerHTML = computedColour;
+
 				const colourObj = new colour.colourRGBA();
 				colourObj.fromHexString(colourString);
 
@@ -222,7 +242,6 @@
 
 				document.getElementById('meta-themeColor').content = colourString;
 
-				document.getElementById('fieldset-channels').style.backgroundColor = colourString;
 
 				updateChannelSliders(colourObj);
 
