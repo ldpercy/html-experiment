@@ -39,10 +39,9 @@
 
 
 			<label>Random colours</label>
-			<div class="random-colours">
-				<button type="button" id="button-randomColour">🎲 random colour</button>
-				<button type="button" id="button-randomColourAlpha">🎲 random colour + alpha</button>
-			</div>
+			<button type="button" id="button-randomColour">🎲 random colour</button>
+			<button type="button" id="button-randomColourAlpha">🎲 random colour + alpha</button>
+
 		<!-- </form>
 		<form onchange="inputChange();"> -->
 			<label>Channels</label>
@@ -103,31 +102,46 @@
 
 
 		<style contenteditable="plaintext-only"  class="limit-height">
-			form {
+			form[name=colour] {
 				display: grid;
-				grid-template-columns: 1fr 1fr ;
+				gap:0.2em;
+				grid-template-columns: 1fr 1fr 1fr;
 
 				h3 {
 					grid-column-start: 1;
-					grid-column-end: 3;
+					grid-column-end: 4;
 				}
+
+				input { text-align: center; }
+
+				input[type=color],
+				input[type=text] {
+					width:100%;
+					box-sizing: border-box;
+					grid-column-start: span 2;
+				}
+
+				fieldset {
+					margin:0em;
+					width:100%;
+					box-sizing: border-box;
+					border-radius:1ex;
+					text-align: center;
+					transition: none;
+					grid-column-start: span 2;
+					display: grid;
+					grid-template-columns: 1fr 1fr ;
+				}
+
 			}
-			input { text-align: center; }
-			input[type=color] { width:100%; }
+
 
 			.random-colours {
 				text-align: center;
 				button { width:49%; }
 			}
 
-			fieldset {
-				display:inline-block;
-				border-radius:1ex;
-				text-align: center;
-				transition: none;
-				display: flex;
-				justify-content: space-evenly;
-			}
+
 			summary h2 {
 				display:inline-block;
 				margin:0em;
@@ -231,7 +245,7 @@
 
 				let channelFieldset = document.getElementById('fieldset-channels');
 				channelFieldset.style.backgroundColor = colourString;
-				computedColour = window.getComputedStyle(channelFieldset).backgroundColor;
+				let computedColour = window.getComputedStyle(channelFieldset).backgroundColor;
 				document.getElementById('computedColour').innerHTML = computedColour;
 
 				const colourObj = new colour.colourRGBA();
