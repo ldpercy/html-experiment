@@ -46,3 +46,13 @@ form {
 	}
 
 }/* form */
+
+
+textarea {
+	display:block;
+	box-sizing: border-box;			/*  this looks to be what i usually want  */
+	width: 100%;
+
+	height: fit-content;
+	min-height:7rlh;
+}

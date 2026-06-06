@@ -66,14 +66,7 @@ pre {		/* treat these like markdown */
 
 
 
-textarea {
 
-	width:95% ;
-	width:stretch;		/* not working in firefox??? */
-	display:block;
-	height: fit-content;
-	min-height:7rlh;
-}
 
 output#pageLog {
 	display: block;

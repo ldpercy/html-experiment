@@ -53,11 +53,45 @@
 				}
 			}
 
+			section.textarea {
+				div { outline:1px dotted deeppink; }
 
+				#div1 textarea {
+					display:inline-block;
+				}
+				#div2 textarea {
+					display:block;
+				}
+				#div3 textarea {
+					width: 100%;
+					box-sizing: border-box;			/*  this looks to be what i usually want  */
+				}
 
+			}
 
 
 		</style>
+
+
+		<section class="textarea">
+			<h2>textarea</h2>
+
+			<div id="div1">
+				this is div1
+				<textarea id="textarea1" name="textarea1" title="textarea1" spellcheck="false">this is textarea1</textarea>
+			</div>
+
+			<div id="div2">
+				this is div2
+				<textarea id="textarea2" name="textarea2" title="textarea2" spellcheck="false">this is textarea2</textarea>
+			</div>
+
+			<div id="div3">
+				this is div3
+				<textarea id="textarea3" name="textarea3" title="textarea3" spellcheck="false">this is textarea3</textarea>
+			</div>
+
+		</section>
 
 
 		<section>
