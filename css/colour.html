@@ -45,17 +45,16 @@
 		<!-- </form>
 		<form onchange="inputChange();"> -->
 			<label>Channels</label>
-			<fieldset id="fieldset-channels" name="channel" >
+			<section id="section-computedColour" class="selectedColour-background">
+				<p>Computed:</p>
+				<output id="computedColour"></output>
+			</section>
+			<fieldset id="fieldset-channels" name="channel" class="selectedColour-background">
 				<div>
 				r <input id="input-rgba-r" name="rgba-r" type="range" min="0" max="255" >
 				g <input id="input-rgba-g" name="rgba-g" type="range" min="0" max="255" >
 				b <input id="input-rgba-b" name="rgba-b" type="range" min="0" max="255" >
 				a <input id="input-rgba-a" name="rgba-a" type="range" min="0" max="255" >
-				</div>
-
-				<div>
-					<p>Computed:</p>
-					<output id="computedColour"></output>
 				</div>
 			</fieldset>
 
@@ -121,18 +120,32 @@
 					grid-column-start: span 2;
 				}
 
-				fieldset {
-					margin:0em;
-					width:100%;
-					box-sizing: border-box;
-					border-radius:1ex;
-					text-align: center;
-					transition: none;
+				.channels
+				{
+					/* background-image: url(../[common]/crosshatch.svg); */
+
+
+
 					grid-column-start: span 2;
 					display: grid;
 					grid-template-columns: 1fr 1fr ;
+					gap: 1ex;
+
 				}
 
+			}
+
+			.selectedColour-background {
+				text-align: center;
+				transition: none;
+				background-color: var(--colourString);
+				border-radius:1ex;
+				margin:0em;
+				width:100%;
+				box-sizing: border-box;
+				border:1px solid grey;
+
+				color: lab( from var(--colourString) calc(sign(l - 70) * -100) 0 0 / 1);
 			}
 
 
@@ -149,6 +162,7 @@
 				width:calc(100% - 2em);
 			}
 			.swatches {
+				background-image: url(../[common]/crosshatch.svg);
 				font-family:monospace;
 				div {
 					display: flex;
@@ -243,9 +257,11 @@
 			/** @param {string} colourString */
 			function setColour(colourString) {
 
-				let channelFieldset = document.getElementById('fieldset-channels');
-				channelFieldset.style.backgroundColor = colourString;
-				let computedColour = window.getComputedStyle(channelFieldset).backgroundColor;
+				document.body.style.setProperty('--colourString', colourString);
+
+				let sectionComputedColour = document.getElementById('section-computedColour');
+				//channelSection.style.backgroundColor = colourString;
+				let computedColour = window.getComputedStyle(sectionComputedColour).backgroundColor;
 				document.getElementById('computedColour').innerHTML = computedColour;
 
 				const colourObj = new colour.colourRGBA();
