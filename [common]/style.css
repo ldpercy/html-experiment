@@ -11,10 +11,14 @@
 	--project-colour: orangered;
 	--default-panel-colour: silver;
 
-	--base-length: 8px;
 
 
 
+}
 
 
+@property --project-base-length {
+	syntax: "<length>";
+	inherits: true;
+	initial-value: 8px;
 }
