@@ -1,5 +1,6 @@
 @import "../[html-common]/style/html-common.css";
-@import "./style/common-style.css";
+@import "./style/main-grid.css";
+@import "./style/elements.css";
 @import "./style/color-scheme.css";
 @import "./style/form.css";
 @import "./style/header.css";
@@ -9,4 +10,11 @@
 :root {
 	--project-colour: orangered;
 	--default-panel-colour: silver;
+
+	--base-length: 8px;
+
+
+
+
+
 }
