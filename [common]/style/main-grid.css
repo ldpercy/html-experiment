@@ -15,7 +15,9 @@ main {
 		grid-column-start: span 2;
 	}
 
-
+	.full-width {
+		grid-column-start: span 4;
+	}
 
 	.limit-height {
 		max-height:30em;

@@ -23,7 +23,14 @@
 		.grid-container {
 			display: grid;
 			border: 2px solid green;
-			margin:1ex;	padding:1ex; border-radius:1ex;
+			border-radius:1ex;
+
+			margin: var(--base-length);
+			border-radius: var(--base-length);
+			padding:1ex;
+
+
+
 			&>* { margin:inherit; padding:inherit; border-radius:inherit;	}
 
 			section {

@@ -4,6 +4,25 @@ Typography
 
 
 
+vertical alignment
+------------------
+
+```
+	vertical-align: baseline;
+		alignment-baseline: baseline;
+		baseline-shift: 0px;
+		baseline-source: auto;
+```
+
+### alignment-baseline
+https://developer.mozilla.org/en-US/docs/Web/CSS/alignment-baseline
+
+Supported in some browsers, and thought i saw it coming soon in ff (verify), but can't get it to work yet.
+Something wrong I must be doing.
+
+
+
+
 Font sizes
 ----------
 
