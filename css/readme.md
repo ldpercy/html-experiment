@@ -5,6 +5,14 @@ CSS
 
 
 
+
+Notes
+-----
+
+* `contenteditable` Firefox and chrome disagree about the rendering of this - chrome sets `white-space-collapse:preserve` and can't seem to switch off
+
+
+
 Performance
 -----------
 
@@ -15,8 +23,6 @@ I remember hearing little bits about this ages ago, but perormance is so multiva
 Occasionally I do see little slowdowns with certain kinds of effects and layering, transparencies etc.
 
 If there are any really broadly applicable guidelines out there though would be interested.
-
-
 
 
 

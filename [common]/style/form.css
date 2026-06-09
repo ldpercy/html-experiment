@@ -45,14 +45,17 @@ form {
 		outline: 2px solid var(--accent);
 	}
 
+
+	textarea {
+		display:block;
+		box-sizing: border-box;			/*  this looks to be what i usually want  */
+		width: 100%;
+
+		height: fit-content;
+		min-height:7rlh;
+	}
+
+
 }/* form */
 
 
-textarea {
-	display:block;
-	box-sizing: border-box;			/*  this looks to be what i usually want  */
-	width: 100%;
-
-	height: fit-content;
-	min-height:7rlh;
-}
