@@ -19,91 +19,129 @@
 		</nav>
 	</header>
 
-	<form>
+
+	<main>
+
+		<style>
+			input:valid { background-color: #0f05; }
+			input:invalid { background-color: #f005; }
+
+		</style>
+
+		<form name="myform">
+			<label>min and max only:</label>
+			<input type="number" min="1" max="9" value="5"/>
+			<label>step only:</label>
+			<input type="number" step="1" value="5"/>
+			<label>required only:</label>
+			<input type="number" required value="5"/>
 
 
-		<textarea title="this is a title attribute">
-			textarea
+			<textarea title="this is a title attribute">
+				textarea
 
-			<a href="#foo">a link in a textarea</a>
+				<a href="#foo">a link in a textarea</a>
 
-		</textarea>
-
-
-		<input type="range" min="0" max="10" list="datalist-foo"/>
-
-		<datalist id="datalist-foo">
-			<option value="0" label="0">0</option>
-			<option value="1" label="+1">+1</option>
-			<option value="2" label="+2">+2</option>
-			<option></option>
-			<option></option>
-			<option></option>
-			<option></option>
-			<option value="7" title="7" ></option>
-			<option>8</option>
-			<option value="9">9</option>
-			<option>10</option>
-		</datalist>
+			</textarea>
 
 
-	</form>
+			<input type="range" min="0" max="10" list="datalist-foo"/>
+
+			<datalist id="datalist-foo">
+				<option value="0" label="0">0</option>
+				<option value="1" label="+1">+1</option>
+				<option value="2" label="+2">+2</option>
+				<option></option>
+				<option></option>
+				<option></option>
+				<option></option>
+				<option value="7" title="7" ></option>
+				<option>8</option>
+				<option value="9">9</option>
+				<option>10</option>
+			</datalist>
 
 
-	<h2>Colour scheme - light</h2>
-	<form class="light">
-		<textarea title="this is a title attribute">textarea</textarea>
-		<br/>
-		<button>button</button>
-		<label>
-			<input type="radio" name="radio" value="radio1">
-			radio1
-		</label>
-		<label>
-			<input type="radio" name="radio" value="radio2">
-			radio2
-		</label>
-		<input type="checkbox">
-		<input type="range" min="1" max="10" value="5">
-		<input type="number" min="1" max="10" value="5">
-		<select>
-			<option>option 1</option>
-			<option>option 2</option>
-		</select>
-		<input type="color">
-		<details>
-			<summary>summary</summary>
-			details
-		</details>
-	</form>
-
-	<h2>Colour scheme - dark</h2>
-	<form class="dark">
-		<textarea title="this is a title attribute">textarea</textarea>
-		<br/>
-		<button>button</button>
-		<label>
-			<input type="radio" name="radio" value="radio1">
-			radio1
-		</label>
-		<label>
-			<input type="radio" name="radio" value="radio2">
-			radio2
-		</label>
-		<input type="checkbox">
-		<input type="range" min="1" max="10" value="5">
-		<input type="number" min="1" max="10" value="5">
-		<select>
-			<option>option 1</option>
-			<option>option 2</option>
-		</select>
-		<input type="color">
-		<details>
-			<summary>summary</summary>
-			details
-		</details>
-	</form>
+		</form>
 
 
+
+		<form name="light" class="light">
+			<h2>Colour scheme - light</h2>
+			<textarea title="this is a title attribute">textarea</textarea>
+			<br/>
+			<button>button</button>
+			<label>
+				<input type="radio" name="radio" value="radio1">
+				radio1
+			</label>
+			<label>
+				<input type="radio" name="radio" value="radio2">
+				radio2
+			</label>
+			<input type="checkbox">
+			<input type="range" min="1" max="10" value="5">
+			<input type="number" min="1" max="10" value="5">
+			<select>
+				<option>option 1</option>
+				<option>option 2</option>
+			</select>
+			<input type="color">
+			<details>
+				<summary>summary</summary>
+				details
+			</details>
+		</form>
+
+
+		<form name="dark" class="dark">
+			<h2>Colour scheme - dark</h2>
+			<textarea title="this is a title attribute">textarea</textarea>
+			<br/>
+			<button>button</button>
+			<label>
+				<input type="radio" name="radio" value="radio1">
+				radio1
+			</label>
+			<label>
+				<input type="radio" name="radio" value="radio2">
+				radio2
+			</label>
+			<input type="checkbox">
+			<input type="range" min="1" max="10" value="5">
+			<input type="number" min="1" max="10" value="5">
+			<select>
+				<option>option 1</option>
+				<option>option 2</option>
+			</select>
+			<input type="color">
+			<details>
+				<summary>summary</summary>
+				details
+			</details>
+		</form>
+
+
+		<script>
+			document.querySelectorAll('form').forEach(
+				(element) => {
+					element.addEventListener('change',formOnchange);
+				}
+			);
+
+
+
+			function formOnchange(event) {
+				console.log(event);
+				const form = event.currentTarget;
+				console.log(form.name);
+				console.log(form.checkValidity());
+				console.log(form.reportValidity());
+			}
+
+		</script>
+
+
+	</main>
 </body>
 </html>
