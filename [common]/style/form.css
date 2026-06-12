@@ -5,6 +5,8 @@ TODO: split the typography out of here, leave this as structural only
 
 form {
 	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1ex;
 	border-radius: 1ex;
 	padding:1ex;
 	margin: 1ex;
@@ -18,12 +20,26 @@ form {
 
 	h1 + h2 { margin-top: 0ex; }
 
+	h1, h2, h3, h4, h5, h6 {
+		grid-column-start: span 2;
+	}
+
+	fieldset {
+		grid-column-start: span 2;
+	}
+
 	details { margin-top:1ex; margin-bottom: 0ex; }
 	details > label { display: block; }
 
 
 	hr { width:100%; }
 
+	label {
+		vertical-align: middle;
+		display:inline-block;
+	}
+
+	input { text-align:center; }
 
 	textarea { font-size: 1.6ex; }
 

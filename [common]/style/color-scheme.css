@@ -41,3 +41,13 @@ html[data-colourscheme=disco] {
 	75%		{	background-color: hsl(270 50 50);	}
 	100%	{	background-color: hsl(360 50 50);	}
 }
+
+
+.light {
+	color-scheme: light;
+}
+
+.dark {
+	color-scheme: dark;
+}
+
