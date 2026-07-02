@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-colourscheme="light">
 <head>
 	<title>colour</title>
 	<meta charset="utf-8">
@@ -45,18 +45,24 @@
 		<!-- </form>
 		<form onchange="inputChange();"> -->
 			<label>Channels</label>
-			<section id="section-computedColour" class="selectedColour-background">
-				<p>Computed:</p>
-				<output id="computedColour"></output>
-			</section>
-			<fieldset id="fieldset-channels" name="channel" class="selectedColour-background">
-				<div>
-				r <input id="input-rgba-r" name="rgba-r" type="range" min="0" max="255" >
-				g <input id="input-rgba-g" name="rgba-g" type="range" min="0" max="255" >
-				b <input id="input-rgba-b" name="rgba-b" type="range" min="0" max="255" >
-				a <input id="input-rgba-a" name="rgba-a" type="range" min="0" max="255" >
+			<section class="background-crosshatch">
+				<div class="selectedColour-background" id="section-computedColour">
+
+						<p>Computed:</p>
+						<p id="computedColour"></p>
+
 				</div>
-			</fieldset>
+			</section>
+			<section class="background-crosshatch">
+				<div class="selectedColour-background">
+					<fieldset id="fieldset-channels" name="channel" >
+						r <input id="input-rgba-r" name="rgba-r" type="range" min="0" max="255" >
+						g <input id="input-rgba-g" name="rgba-g" type="range" min="0" max="255" >
+						b <input id="input-rgba-b" name="rgba-b" type="range" min="0" max="255" >
+						a <input id="input-rgba-a" name="rgba-a" type="range" min="0" max="255" >
+					</fieldset>
+				</div>
+			</section>
 
 			<h3>Output</h3>
 
@@ -127,53 +133,37 @@
 				.channels
 				{
 					/* background-image: url(../[common]/crosshatch.svg); */
-
-
-
 					grid-column-start: span 2;
 					display: grid;
 					grid-template-columns: 1fr 1fr ;
 					gap: 1ex;
-
 				}
 
 			}
 
+
+
+
+
 			.selectedColour-background {
-				position:relative;
-
-				background-image: url(../[common]/crosshatch.svg);
-				&::before {
-					z-index:1;
-					position: absolute;
-					top:0em;
-					left:0em;
-					width:100%;
-					height:100%;
-					background-color: var(--colourString);
-					content: ' ';
-				}
-
-				&>* {
-					z-index:5;
-					position:relative;
-				}
+				background-color: var(--colourString);
 
 				text-align: center;
+				vertical-align: middle;
 				transition: none;
-
-
 
 				border-radius:1ex;
 				margin:0em;
+				padding:1ex;
 				width:100%;
+				height:100%;
 				box-sizing: border-box;
-				border:1px solid grey;
 
 				color: lab( from var(--colourString) calc(sign(l - 70) * -100) 0 0 / 1);
-
-
-
+				fieldset {
+					border: none;
+					accent-color: hsl(from var(--colourString) calc(h + 180) s calc(100 - l) / 1);
+				}
 			}
 
 
@@ -190,7 +180,6 @@
 				width:calc(100% - 2em);
 			}
 			.swatches {
-				background-image: url(../[common]/crosshatch.svg);
 				font-family:monospace;
 				div {
 					display: flex;
@@ -214,8 +203,6 @@
 		<script type="module" class="limit-height">
 			import { HTMLApp } from "../[html-common]/module/HTMLApp.js";
 			import * as colour from "../[html-common]/module/colour.js";
-
-
 
 
 			class ColourApp extends HTMLApp {

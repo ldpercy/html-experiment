@@ -1,21 +1,27 @@
+html[data-colourscheme=light] {
+	--crosshatch-background: white;
+}
+html[data-colourscheme=dark] {
+	--crosshatch-background: black;
+}
+
 .background-crosshatch {
 	background:
 		repeating-linear-gradient(
 			45deg,
-			#999a 0px,
-			#999a 1px,
-			#fff0 1px,
-			#fff0 100px
+			grey 0px,
+			grey 1px,
+			#0000 1px,
+			#0000 100px
 		),
 		repeating-linear-gradient(
 			135deg,
-			#999a 0px,
-			#999a 1px,
-			#fff0 1px,
-			#fff0 100px
+			grey 0px,
+			grey 1px,
+			var(--crosshatch-background) 1px,
+			var(--crosshatch-background) 100px
 		);
 }
-
 
 .background-checkerboard{
 	background:

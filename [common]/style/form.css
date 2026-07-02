@@ -74,6 +74,14 @@ form {
 	}
 
 
+	&:invalid {
+		border-color: #f00;
+		box-shadow: 0 0 1ex #f00;
+	}
+
+	input:invalid { background-color: #f005; }
+
+
 }/* form */
 
 
