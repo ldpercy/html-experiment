@@ -26,10 +26,10 @@
 			<input type="number" min="1" max="128" value="16" onchange="document.documentElement.style.setProperty('--base-unit',`${this.value}px`)">
 
 			<label>--font-size</label>
-			<input type="number" min="1" max="9" value="4" onchange="document.documentElement.style.setProperty('--font-size',`${this.value}`)">
+			<input type="number" min="0.5" max="9" value="4.0" step="0.5" onchange="document.documentElement.style.setProperty('--font-size',`${this.value}`)">
 
 			<label>--line-height</label>
-			<input type="number" min="1" max="9" value="4" onchange="document.documentElement.style.setProperty('--line-height',`${this.value}`)">
+			<input type="number" min="0.5" max="9" value="4.0" step="0.5" onchange="document.documentElement.style.setProperty('--line-height',`${this.value}`)">
 
 
 			<!-- <label>vertical align</label>
@@ -78,6 +78,7 @@
 					<!-- chrome overrides white-space-collapse when contenteditable is on -->
 					<p contenteditable="plaintext-only" spellcheck="false" style="font-family:serif;">abcdefghijklm nopqrstuvwxyz</p>
 					<p contenteditable="plaintext-only" spellcheck="false" style="font-family:sans-serif;">abcdefghijklm nopqrstuvwxyz</p>
+					<p contenteditable="plaintext-only" spellcheck="false" style="font-family:monospace;">abcdefghijklm nopqrstuvwxyz</p>
 				</output>
 			</div>
 		</section>
@@ -88,8 +89,6 @@
 			output {
 
 				display:block;
-				resize: both;
-				overflow: auto;
 
 				transition: font-size 0.5s linear;
 
@@ -101,6 +100,7 @@
 			}
 
 			.emgrid {
+
 				background-position-x: left;
 				background-position-y: 0px;
 				--line-colour: hsl(from var(--text-colour) h s l / 0.2);
@@ -126,19 +126,28 @@
 			section {
 				--element-colour: steelblue;
 				/* grid-column-start: span 4; */
-				div {
+				div.wrapper {
 					background-color: var(--scheme-colour);
+					resize: both;
+					overflow: auto;
 				}
 			}
 
-			form {
-				display:grid;
-				select, input {
-					text-align: center;
-				}
-
-			}
 		</style>
+
+		<pre>
+			You can get fairly good grid-baseline alignment at certain font-size/line-height ratios:
+
+			* 4:3
+			* 4:5
+			* 4:7
+
+			Almost certainly actual font dependendant, so test thoroughly.
+			Eg my monospace font sits slightly above the baseline (~2px) at these ratios.
+			Still investigating.
+
+		</pre>
+
 
 	</main>
 
