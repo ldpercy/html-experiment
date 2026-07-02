@@ -9,7 +9,7 @@
 
 :root {
 	--project-colour: orangered;
-	--project-accent: dodgerblue;
+	--project-accent: hsl(from var(--project-colour) calc(h + 180.00) s l / alpha);
 	--project-scheme-light: white;
 	--project-scheme-dark:  black;
 	--project-panel-colour: silver;

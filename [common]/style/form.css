@@ -28,6 +28,8 @@ form {
 		grid-column-start: span 2;
 	}
 
+	.span2 { grid-column-start: span 2; }
+
 	details { margin-top:1ex; margin-bottom: 0ex; }
 	details > label { display: block; }
 

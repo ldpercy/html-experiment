@@ -1,11 +1,18 @@
-header h1 {
+header {
 
-	&::before {
+	a {
+		color: color-mix(in srgb, var(--project-colour) 75%, var(--text-colour));
+		&:hover {
+			color: var(--accent-colour);
+		}
+	}
+
+	h1::before {
 		display: inline-block;
 		content: url("../../favicon.svg") / "HTML experiment icon";
 		height:1.2ex;
 		width:1.2ex;
 		margin-right:1rex;
 	}
-}
 
+}

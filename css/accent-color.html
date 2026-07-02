@@ -18,6 +18,7 @@
 		</nav>
 	</header>
 
+	<script type="module" src="../[html-common]/component/colour-widget.js"></script>
 
 	<main>
 
@@ -53,11 +54,12 @@
 
 		<h2>Accent-color</h2>
 
-		<fieldset class="colourInput">
+		<!-- <fieldset class="colourInput">
 			<input type="color" onchange="updateColourInput(this.value)">
 			<input type="text" onchange="updateColourInput(this.value);" placeholder="colour string">
-		</fieldset>
+		</fieldset> -->
 
+		<colour-widget id="colour-widget-2" colour="blue" class="span2" onchange="updateColourInput(this.attributes['colour'].value)"></colour-widget>
 
 		<span style="background-color: var(--accent-colour);">accent colour</span>
 		<span style="background-color: var(--accent-light);">accent colour - light</span>
