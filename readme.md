@@ -48,6 +48,9 @@ I'm using `jsconfig.json` to turn on typechecking, currently with the following 
 > [!IMPORTANT]
 > Make sure `compilerOptions` in jsconfig are set to something modern or you can get really confusing and outdated errors
 
+*Some* information about library levels here:
+https://www.typescriptlang.org/tsconfig#high-level-libraries
+
 
 Tasks
 -----

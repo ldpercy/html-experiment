@@ -24,6 +24,7 @@ This is the main situation I'm interested in right now, as most of my one page a
 Don't think i can prevent invalid input states in lots of cases as intermediate invalid states might be needed before reaching a valid one - url or email address for eg.
 
 For some fairly simple cases it might be doable though - eg strictly positive integers.
+(I've seen some websites do things like this for numeric inputs like phone nos.)
 
 * For live inputs where the values could get read at any time you could store the 'last known good' value in a data attribute and read that during invalid states
 
@@ -40,3 +41,27 @@ There might be a few different use cases here:
 The first, simplest, version is simply to rewrite all the accessors such that they return the last good valid input when they're in an invalid state.
 That's easy enough.
 Wonder if there's a neater way to do it though.
+
+
+Possibly: [proxy and reflect](<../javascript/proxy and reflect.md>)
+
+
+### Input restriction levels
+
+* Allow invalid - this is the 'default' as html validation doesn't usually prevent invalid state, only submission
+* Prevent invalid - active scripting to prevent invalid chars/values/state entirely
+
+NB Browsers disagree a bit about the their implementations of input types and restrictions.
+
+
+
+### Base HTMLForm class
+
+Doing this manually at the moment, but thinking about making a base class for HTMLCommon that can assist with some of these tasks.
+
+* app form classes extends base form
+* initlialise with the form element
+* it can add required validation features depending on needs, like valid live read
+* Could possibly auto create some getters/setters with proxies? Though might lose jsdoc typechecking/typesafety?
+*
+
