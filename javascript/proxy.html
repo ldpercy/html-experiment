@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<title>form</title>
+	<title>proxy</title>
 	<meta charset="utf-8">
 	<link rel="icon" href="../favicon.svg">
 	<link rel="stylesheet" href="../[common]/style.css">
@@ -10,7 +10,7 @@
 </head>
 <body>
 	<header>
-		<h1><a href="">form</a></h1>
+		<h1><a href="">proxy</a></h1>
 		<nav>
 			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
 			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
@@ -20,10 +20,46 @@
 	</header>
 
 
-	<script src="./HTMLForm.js"></script>
-
-
 	<main>
+
+		<script>
+
+
+			class Cat {
+				#name;
+				#age;
+				constructor(name,age) {
+					this.#name = name;
+					this.#age = age;
+				}
+
+				get name()	{ return this.#name; }
+				get age()	{ return this.#age; }
+				get says()	{ return "meow"; }
+			}
+
+
+			let tommy = new Cat('Tommy',13);
+
+
+
+
+			let catProxyHandler = {
+				get(target, property, receiver) {
+					if (property === "says") {
+						return "hey baby";
+					}
+					return Reflect.get(...arguments);
+				},
+			};
+
+			const tommyProxy = new Proxy(tommy, catProxyHandler);
+
+			console.log(tommy.says);
+			console.log(tommyProxy.says);
+
+		</script>
+
 		<form name="myform" method="get">
 			<h2>
 				myform
@@ -132,17 +168,10 @@
 
 
 		<output id="myOutput">
-			<div>
-				<h3>getFormEntries(formElement)</h3>
-				<code class="block" id="code-formEntries">
-				</code>
-			</div>
 
-			<div>
-				<h3>getFormData(formElement)</h3>
-				<code class="block" id="code-formData">
-				</code>
-			</div>
+			<h3>getFormEntries(formElement)</h3>
+			<code class="block" id="code-formEntries">
+			</code>
 		</output>
 
 
@@ -155,6 +184,7 @@
 			);
 
 
+
 			function formOnchange(event) {
 				const form = event.currentTarget;
 				console.log(form.name, event);
@@ -164,23 +194,17 @@
 
 
 
-			// function getFormEntries(formElement) {
-			// 	const formData = new FormData(formElement);
-			// 	console.log('FormData(formElement)', formData);
-			// 	const formEntries = Object.fromEntries(formData);
-			// 	console.log('Object.fromEntries(formData)', formEntries);
-			// 	return formEntries;
-			// }
+			function getFormEntries(formElement) {
+				const formData = new FormData(formElement);
+				console.log('FormData(formElement)', formData);
+				const formEntries = Object.fromEntries(formData);
+				console.log('Object.fromEntries(formData)', formEntries);
+				return formEntries;
+			}
 
-
-			let mfc = new HTMLForm(document.forms.myform);
-			console.log(mfc);
 
 			function outputFormInfo(formElement) {
-				document.getElementById('code-formEntries').innerHTML	= JSON.stringify(mfc.formEntries, null, '\t');
-				document.getElementById('code-formData').innerHTML		= JSON.stringify(mfc.formData, null, '\t');		// raw formData has no toString method
-
-				console.log(mfc.formSettings);
+				document.getElementById('code-formEntries').innerHTML	= JSON.stringify(getFormEntries(formElement),null,'\t');
 			}
 
 		</script>
@@ -189,45 +213,7 @@
 
 
 
-		<script>
-			// this is a *nearly* verbatim copy from HTMLApp.js
 
-			/**
-			 * @returns {object}
-			 */
-			function getFormData(formElement) {		// @param {HTMLFormElement} formElement		-- can't get this to work yet - figure out
-				//console.debug('getFormData arguments', arguments);
-				//console.debug('getFormData formElement.elements', formElement.elements);
-				const result = {}
-
-				let input;
-
-				for (let i=0 ; i < formElement.elements.length; i++) {
-
-
-					input = formElement.elements[i];
-
-					if (input.name) { // need to ignore unnamed form elements like buttons
-
-						if (input.type === 'radio') {
-							//console.debug('radio', input);
-							result[input.name] = formElement[input.name].value;
-						}
-						else if (input.type === 'checkbox')
-						{
-							result[input.name] = input.checked;
-						}
-						else
-						{
-							result[input.name] = input.value;
-						}
-					}
-				}
-
-				//console.debug('getFormData result' , result);
-				return result;
-			}
-		</script>
 
 		<style>
 			body { accent-color: dodgerblue; }
@@ -246,10 +232,10 @@
 			input:valid { background-color: #0f05; }
 			input:invalid { background-color: #f005; }
 
-			#myOutput {
+			/* #myOutput {
 				display:grid;
 				grid-template-columns: 1fr 1fr;
-			}
+			} */
 
 		</style>
 
