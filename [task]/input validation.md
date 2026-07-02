@@ -14,4 +14,5 @@ Around about here is where regular folks would lean on a library/ui-framework.
 Live setting inputs
 -------------------
 
-* validation attributes don't prevent you from having invalid
+* Validation attributes don't always prevent you from having invalid *state* in the input, it just gets flagged
+*
