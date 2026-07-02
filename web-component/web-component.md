@@ -54,7 +54,12 @@ Eg:
 Slots
 -----
 
-Slot order matters...?
+The way that slots work seems a bit funky.
+
+In the component instance in html you can put the slotted items in any order, and appear that way in the inspector for the non-shadow html.
+But they always get rendered according to the sequence specified in the component definition.
+
+Not sure yet if this will have any unusual effects for things like css sibling or nth selectors, will have to try.
 
 
 
