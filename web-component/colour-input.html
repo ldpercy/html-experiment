@@ -48,22 +48,24 @@
 				}
 			}
 		</style>
-		<h3>Template 0</h3>
-		<slot name="my-text">My default text</slot>
+
 		<fieldset class="colourInput">
-			<input type="color" onchange="updateColourInput(this.value)">
-			<input type="text" onchange="updateColourInput(this.value);" placeholder="colour string">
+			<slot name="title">Colour input</slot>
+			<slot name="description">default description text</slot>
+
+			<input type="color" id="input-color" onchange="console.log(this);">
+			<input type="text" id="input-text" placeholder="colour string">
 		</fieldset>
 	</template>
 
-	<colour-input>
-		asdfsadf
+	<colour-input id="colour-input-1" colour="red">
+		<h3 slot="title"> Title 1</h3>
+		<strong slot="description">colour input 1</strong>
 	</colour-input>
 
-	<colour-input>
-		<span slot="my-text">Let's have some different text!</span>
-		asdfsadf
-
+	<colour-input id="colour-input-2" colour="blue">
+		<h3 slot="title"> Title 2</h3>
+		<em slot="description">colour input 2</em>
 	</colour-input>
 
 
@@ -72,43 +74,70 @@
 
 		// Create a class for the element
 		class ColourInput extends HTMLElement {
-			static observedAttributes = ["color", "size"];
+			static observedAttributes = ["colour"];
+
+
+			/** @type {HTMLInputElement} */ colorInput;
+			/** @type {HTMLInputElement} */ textInput;
+
 
 			constructor() {
-				super();			// Always call super first in constructor
-				console.log('constructor');
+				super();				// Always call super first in constructor
+				//self = super();
 
 
 				/** @type { HTMLTemplateElement } */
 				let template = document.querySelector("#template-colourInput");
-				console.log(template);
+				//console.log(template);
 				let templateContent = template.content;
 
-				const shadowRoot = this.attachShadow({ mode: "open" });
-				shadowRoot.appendChild(templateContent.cloneNode(true));
+				// this.shadowRoot =
+				this.attachShadow({ mode: "open" });
+				this.shadowRoot.appendChild(templateContent.cloneNode(true));
 
-			}
+				console.log('this', this);
+				//console.log('document', document);
+				//console.log('self', self);
+				console.log('shadowRoot', this.shadowRoot);
+
+				this.colorInput
+
+			}/* constructor */
+
 
 			connectedCallback() {
-				console.log("Custom element added to page.");
+				//console.log("Custom element added to page.");
 			}
 
 			disconnectedCallback() {
-				console.log("Custom element removed from page.");
+				//console.log("Custom element removed from page.");
 			}
 
 			connectedMoveCallback() {
-				console.log("Custom element moved with moveBefore()");
+				//console.log("Custom element moved with moveBefore()");
 			}
 
 			adoptedCallback() {
-				console.log("Custom element moved to new page.");
+				//console.log("Custom element moved to new page.");
 			}
 
+
 			attributeChangedCallback(name, oldValue, newValue) {
-				console.log(`Attribute ${name} has changed.`);
+				console.log(
+					`Attribute ${name} has changed from ${oldValue} to ${newValue}.`,
+				);
+				if (name === 'colour') { this.updateColour(newValue); }
 			}
-		}
+
+
+			updateColour(colourString) {
+				this.shadowRoot.getElementById('input-color').value = colourString;
+				this.shadowRoot.getElementById('input-text').value = colourString;
+			}
+
+
+		}/* class ColourInput */
+
 
 		customElements.define("colour-input", ColourInput);
 

@@ -5,7 +5,7 @@ import { HTMLApp } from "../[html-common]/module/HTMLApp.js";
 
 
 class IndexApp extends HTMLApp {
-	name = "Experiment: Web Component";
+	appName = "experiment-web-component";
 	appInfo = ["Experiment: Web Component"];
 
 	eventListeners = [
@@ -21,6 +21,11 @@ class IndexApp extends HTMLApp {
 		}, */
 	];
 
+	documentDOMContentLoaded() {
+		super.documentDOMContentLoaded();
+		this.setColourScheme(localStorage[`${this.appName}_colourScheme`]);
+	}
+
 
 	colourSchemeListener(event) {
 		event.preventDefault();
@@ -28,10 +33,7 @@ class IndexApp extends HTMLApp {
 	}
 
 
-	documentDOMContentLoaded() {
-		super.documentDOMContentLoaded();
-		this.setColourScheme(localStorage.colourScheme);
-	}
+
 
 
 }/* IndexApp */
