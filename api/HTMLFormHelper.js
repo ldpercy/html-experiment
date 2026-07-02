@@ -1,7 +1,7 @@
-/* HTMLForm
+/* HTMLFormHelper
 */
-//export
-class HTMLForm {
+
+export class HTMLFormHelper {
 
 	/** @type {HTMLFormElement}	*/
 	#formElement;
@@ -39,6 +39,12 @@ class HTMLForm {
 
 
 
+	get controlsCollection() {
+		const result = this.element.elements;
+		console.log('controlsCollection', result);
+		return result;
+	}
+
 
 	/** get formSettings
 	 * Close dupe of HTMLApp.getFormData
@@ -48,19 +54,19 @@ class HTMLForm {
 		const result = {}
 		let input;
 
-		let elements = this.element.elements;
+		/** @type {HTMLFormControlsCollection} */
+		let formControls = this.element.elements;
 
-		/*
-		HTMLFormControlsCollection seems kind of fundamentally broken/not very practical as an interface.
-		There's no way I can see to get a type-correct input element out of it.
-		*/
+		console.log('formControls',formControls);
 
+		// HTMLFormControlsCollection seems kind of fundamentally broken/not very practical as an interface.
+		// There's no way I can see to get a type-correct input element out of it.
 
-		for (let item in elements) {
-			console.log(item);
-			input = elements[item];		// this returns Element rather than something useful like HTMLInputElement
-			input.name;					// Property 'name' does not exist on type 'Element'.ts(2339)
-		}
+		// for (let item in formControls) {
+		// 	console.log(item);
+		// 	input = formControls[item];		// this returns Element rather than something useful like HTMLInputElement
+		// 	input.name;					// Property 'name' does not exist on type 'Element'.ts(2339)
+		// }
 
 
 
@@ -93,4 +99,4 @@ class HTMLForm {
 
 
 
-}/* HTMLForm */
+}/* HTMLFormHelper */
