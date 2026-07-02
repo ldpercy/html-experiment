@@ -120,3 +120,21 @@ body[onload]::before {
 		);
 }
 
+
+
+fieldset.colourInput {
+	border: 1px dotted silver;
+	border-radius: var(--gap);
+	padding: var(--gap);
+	display: grid;
+	gap: var(--gap);
+	grid-template-columns: 1fr 1fr ;
+	text-align: center;
+
+	input[type=color] {
+		height:100%;
+		width:100%;
+	}
+
+
+}

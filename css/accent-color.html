@@ -53,8 +53,12 @@
 
 		<h2>Accent-color</h2>
 
-		<input type="text" onchange="setAccentColour(this.value);">
-		<input type="color" onchange="setAccentColour(this.value);">
+		<fieldset class="colourInput">
+			<input type="color" onchange="updateColourInput(this.value)">
+			<input type="text" onchange="updateColourInput(this.value);" placeholder="colour string">
+		</fieldset>
+
+
 		<span style="background-color: var(--accent-colour);">accent colour</span>
 		<span style="background-color: var(--accent-light);">accent colour - light</span>
 		<span style="background-color: var(--accent-colour);">accent colour</span>
@@ -159,6 +163,12 @@
 
 		function setAccentColour(accentColour) {
 			document.body.style.setProperty('--accent-colour', accentColour);
+		}
+
+
+		function updateColourInput(colourString) {
+			setAccentColour(colourString);
+
 		}
 
 	</script>

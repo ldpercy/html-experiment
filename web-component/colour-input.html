@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Colour input</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="../[common]/html-experiment.svg">
+	<link rel="stylesheet" href="../[common]/style.css">
+
+</head>
+<body>
+	<header>
+		<h1><a href="">Colour input</a></h1>
+		<nav>
+			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
+			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
+			<a title="To folder" href="./">🖿</a>
+			<a title="Parent folder" href="../">🡅</a>
+		</nav>
+	</header>
+
+	<script type="module" src="index.js"></script>
+
+	<main>
+
+
+	<style>
+
+
+	</style>
+
+	<h3>This is an h3</h3>
+
+
+	<template id="template-colourInput"><!-- shadowrootmode="open" open closed -->
+		<style>
+			fieldset.colourInput {
+				border: 1px dotted silver;
+				border-radius: var(--gap);
+				padding: var(--gap);
+				display: grid;
+				gap: var(--gap);
+				grid-template-columns: 1fr 1fr ;
+				text-align: center;
+
+				input[type=color] {
+					height:100%;
+					width:100%;
+				}
+			}
+		</style>
+		<h3>Template 0</h3>
+		<slot name="my-text">My default text</slot>
+		<fieldset class="colourInput">
+			<input type="color" onchange="updateColourInput(this.value)">
+			<input type="text" onchange="updateColourInput(this.value);" placeholder="colour string">
+		</fieldset>
+	</template>
+
+	<colour-input>
+		asdfsadf
+	</colour-input>
+
+	<colour-input>
+		<span slot="my-text">Let's have some different text!</span>
+		asdfsadf
+
+	</colour-input>
+
+
+
+	<script>
+
+		// Create a class for the element
+		class ColourInput extends HTMLElement {
+			static observedAttributes = ["color", "size"];
+
+			constructor() {
+				super();			// Always call super first in constructor
+				console.log('constructor');
+
+
+				/** @type { HTMLTemplateElement } */
+				let template = document.querySelector("#template-colourInput");
+				console.log(template);
+				let templateContent = template.content;
+
+				const shadowRoot = this.attachShadow({ mode: "open" });
+				shadowRoot.appendChild(templateContent.cloneNode(true));
+
+			}
+
+			connectedCallback() {
+				console.log("Custom element added to page.");
+			}
+
+			disconnectedCallback() {
+				console.log("Custom element removed from page.");
+			}
+
+			connectedMoveCallback() {
+				console.log("Custom element moved with moveBefore()");
+			}
+
+			adoptedCallback() {
+				console.log("Custom element moved to new page.");
+			}
+
+			attributeChangedCallback(name, oldValue, newValue) {
+				console.log(`Attribute ${name} has changed.`);
+			}
+		}
+
+		customElements.define("colour-input", ColourInput);
+
+
+	</script>
+
+
+
+	</main>
+</body>
+</html>

@@ -13,6 +13,8 @@
 	--project-scheme-light: white;
 	--project-scheme-dark:  black;
 	--project-panel-colour: silver;
+
+	--gap: var(--project-base-length);
 }
 
 
