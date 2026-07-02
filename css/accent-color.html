@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<link rel="icon" href="../favicon.svg">
 	<link rel="stylesheet" href="../[common]/style.css">
+	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
 </head>
 <body>
 	<header>
@@ -17,12 +18,11 @@
 		</nav>
 	</header>
 
-	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
+
 	<main>
 
 
-
-	<style>
+	<style contenteditable="plaintext-only">
 
 		body {
 			color-scheme: var(--colourScheme);
@@ -37,25 +37,23 @@
 
 		span {display:inline-block; padding:1em; }
 
-		.light {
+		.colourscheme-light {
 			color-scheme: light;
 			accent-color: var(--accent-dark);
 		}
 
-		.dark {
+		.colourscheme-dark {
 			color-scheme: dark;
 			accent-color: var(--accent-light);
 		}
 
-
 	</style>
 
-	<section>
-
-
+	<form>
 
 		<h2>Accent-color</h2>
 
+		<input type="text" onchange="setAccentColour(this.value);">
 		<input type="color" onchange="setAccentColour(this.value);">
 		<span style="background-color: var(--accent-colour);">accent colour</span>
 		<span style="background-color: var(--accent-light);">accent colour - light</span>
@@ -63,14 +61,12 @@
 		<span style="background-color: var(--accent-dark);">accent colour - dark</span>
 
 
-
-
-	</section>
+	</form>
 
 
 
 
-	<form class="light">
+	<form class="colourscheme-light">
 		<h2>color-scheme: light</h2>
 
 		<label>
@@ -95,7 +91,7 @@
 	</form>
 
 
-	<form class="dark">
+	<form class="colourscheme-dark">
 		<h2>color-scheme: dark</h2>
 		<label>
 			<input type="radio" name="radio" value="radio1">
@@ -117,6 +113,46 @@
 		<input type="range">
 		<progress max="100" value="70">70%</progress>
 	</form>
+
+
+
+
+
+
+	<style contenteditable="plaintext-only">
+		.user-agent-crossover {
+			fieldset {
+				margin:0em;
+				border:1px dotted grey;
+				b {
+					display:inline-block;
+					width:3em;
+				}
+				/* --percent: attr(data-number); */
+				/* --percent: attr(data-number <number>); */
+				/* --percent: attr(data-number type(<number>)); */
+
+				accent-color: hsl(from var(--accent-colour) h s var(--percent) );
+
+			}
+
+		}
+	</style>
+
+	<output class="user-agent-crossover">
+		<h2>user agent crossover</h2>
+		<fieldset style="--percent:0;">		<b>0</b>	<input type="checkbox" checked>	<input type="radio" checked>	<input type="range">	</fieldset>
+		<fieldset style="--percent:10;">	<b>10</b>	<input type="checkbox" checked>	<input type="radio" checked>	<input type="range">	</fieldset>
+		<fieldset style="--percent:20;">	<b>20</b>	<input type="checkbox" checked>	<input type="radio" checked>	<input type="range">	</fieldset>
+		<fieldset style="--percent:30;">	<b>30</b>	<input type="checkbox" checked>	<input type="radio" checked>	<input type="range">	</fieldset>
+		<fieldset style="--percent:40;">	<b>40</b>	<input type="checkbox" checked>	<input type="radio" checked>	<input type="range">	</fieldset>
+		<fieldset style="--percent:50;">	<b>50</b>	<input type="checkbox" checked>	<input type="radio" checked>	<input type="range">	</fieldset>
+		<fieldset style="--percent:60;">	<b>60</b>	<input type="checkbox" checked>	<input type="radio" checked>	<input type="range">	</fieldset>
+		<fieldset style="--percent:70;">	<b>70</b>	<input type="checkbox" checked>	<input type="radio" checked>	<input type="range">	</fieldset>
+		<fieldset style="--percent:80;">	<b>80</b>	<input type="checkbox" checked>	<input type="radio" checked>	<input type="range">	</fieldset>
+		<fieldset style="--percent:90;">	<b>90</b>	<input type="checkbox" checked>	<input type="radio" checked>	<input type="range">	</fieldset>
+		<fieldset style="--percent:100;">	<b>100</b>	<input type="checkbox" checked>	<input type="radio" checked>	<input type="range">	</fieldset>
+	</output>
 
 
 	<script>

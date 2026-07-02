@@ -45,16 +45,16 @@ I want something like this:
 So I've just tried it and you can't define a css var self-referentially (or I'm not doing it correctly).
 So I can't do something like this:
 ```css
-	--panel-colour: var(--panel-colour, --default-panel-colour);	/* use a predefined panel colour preferentially */
+	--panel-colour: var(--panel-colour, --project-panel-colour);	/* use a predefined panel colour preferentially */
 ```
 When `if()` becomes baseline there will be another option for this, but for now I need something like:
 
 ```css
-	--default-panel-colour: foo		/* defined up at the app or scheme level */
+	--project-panel-colour: foo		/* defined up at the app or scheme level */
 	--custom-panel-colour: bar		/* defined as an override for particular panels */
 
 	.ui-panel {
-		--panel-colour: var(--custom-panel-colour, var(--default-panel-colour));
+		--panel-colour: var(--custom-panel-colour, var(--project-panel-colour));
 		...
 	}
 ```

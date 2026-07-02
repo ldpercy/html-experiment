@@ -1,5 +1,58 @@
+/*
+**	color-scheme
+*/
 
-body { accent-color: dodgerblue; }
+
+html {
+	--scheme-colour: white;
+	--html-background: hsl(from var(--scheme-colour)  h s 90 / 1);
+	--body-background: hsl(from var(--scheme-colour)  h s 99 / 1);
+	--accent-colour:   hsl(from var(--project-accent) h s 50 );
+	--text-colour:     lab( from var(--scheme-colour) calc(sign(l - 70) * -100) 0 0 / 1);
+
+	color-scheme: light;
+	accent-color: var(--accent-colour);
+	background-color: var(--html-background);
+	body {
+		background-color: var(--body-background);
+		color: var(--text-colour);
+	}
+}
+
+html[data-colourscheme=light] {
+	--scheme-colour: white;
+	--html-background: hsl(from var(--scheme-colour)  h s 90 / 1);
+	--body-background: hsl(from var(--scheme-colour)  h s 99 / 1);
+	--accent-colour:   hsl(from var(--project-accent) h s 50 );
+	color-scheme: light;
+}
+
+html[data-colourscheme=dark] {
+	--scheme-colour: black;
+	--html-background: hsl(from var(--scheme-colour)  h s 10 / 1);
+	--body-background: hsl(from var(--scheme-colour)  h s 01 / 1);
+	--accent-colour:   hsl(from var(--project-accent) h s 70 );
+	color-scheme: dark;
+}
+
+
+.colourscheme-light {
+	color-scheme: light;
+	--scheme-colour: var(--project-scheme-light);
+	background-color: hsl(from var(--scheme-colour)  h s 99 / 1);
+	--text-colour:     lab( from var(--scheme-colour) calc(sign(l - 70) * -100) 0 0 / 1);
+	color: var(--text-colour);
+}
+
+.colourscheme-dark {
+	color-scheme: dark;
+	--scheme-colour: var(--project-scheme-dark);
+	background-color: hsl(from var(--scheme-colour)  h s 01 / 1);
+	--text-colour:     lab( from var(--scheme-colour) calc(sign(l - 70) * -100) 0 0 / 1);
+	color: var(--text-colour);
+}
+
+
 
 
 html[data-colourscheme=rainbow] {
@@ -40,14 +93,5 @@ html[data-colourscheme=disco] {
 	50%		{	background-color: hsl(180 50 50);	}
 	75%		{	background-color: hsl(270 50 50);	}
 	100%	{	background-color: hsl(360 50 50);	}
-}
-
-
-.light {
-	color-scheme: light;
-}
-
-.dark {
-	color-scheme: dark;
 }
 

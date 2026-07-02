@@ -19,5 +19,8 @@
 
 :root {
 	--project-colour: orangered;
-	--default-panel-colour: silver;
+	--project-accent: dodgerblue;
+	--project-scheme-light: white;
+	--project-scheme-dark:  black;
+	--project-panel-colour: silver;
 }
