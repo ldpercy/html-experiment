@@ -8,6 +8,11 @@ https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_ele
 
 
 
+Open / closed mode
+-----------------
+
+Most examples use open, and seems to be the most straightforward so far, so will focus on this first.
+Closed looks a bit trickier, will come back to.
 
 
 
@@ -23,6 +28,26 @@ With web components the custom elements wouldn't have very much meaning in a non
 Something to look into.
 
 
+
+Template
+--------
+
+* https://developer.mozilla.org/en-US/docs/Web/API/HTMLTemplateElement
+
+
+### Content
+
+Specific to HTMLTemplateElement
+
+> *content* Read only
+> A read-only DocumentFragment which contains the DOM subtree representing the <template> element's template contents.
+
+Eg:
+```js
+	let template = document.getElementById("custom-paragraph");
+	let templateContent = template.content;
+	document.body.appendChild(templateContent);
+```
 
 
 

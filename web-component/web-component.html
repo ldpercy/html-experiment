@@ -6,11 +6,11 @@
 	<link rel="icon" href="../[common]/html-experiment.svg">
 	<link rel="stylesheet" href="../[common]/style.css">
 
-	<script type="module" src="../[common]/component/page-header.js"></script>
+	<!-- <script type="module" src="./page-header.js"></script> -->
 
 </head>
 <body>
-	<!-- <header>
+	<header>
 		<h1><a href="">Web Component</a></h1>
 		<nav>
 			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
@@ -18,21 +18,20 @@
 			<a title="To folder" href="./">🖿</a>
 			<a title="Parent folder" href="../">🡅</a>
 		</nav>
-	</header> -->
+	</header>
 
-	<page-header>
+	<!-- <page-header>
 		<span slot="page-title">Web Component</span>
-	</page-header>
+	</page-header> -->
 
 	<script type="module" src="index.js"></script>
+	<script type="module" src="./open.component.js"></script>
+	<!-- <script type="module" src="./closed.component.js"></script> -->
 
 	<main>
 
 
-
 	<style>
-		input[type=text] { width:40em; }
-
 
 		/* template {
 			display: block;
@@ -43,9 +42,63 @@
 
 		h3 { color:purple; }
 
+		test-component {
+			border: 1px dashed darkorange;
+
+			h3 {
+				font-style:italic;
+			}
+
+			pre {
+				display:block;
+				font-family:fantasy;
+			}
+
+			[slot=slot1] { color:red; }
+			[slot=slot2] { color:green; }
+			[slot=slot3] { color:blue; }
+
+		}
+
 	</style>
 
-	<h3>This is an h3</h3>
+	<open-component>
+		<h3 slot="heading">open component heading slot</h3>
+
+		<pre>
+			Some regular html in the component tag.
+			This doesn't appear...?
+			It shows up the inspector as part of the regular dom, but gets no css properties.
+			Don't seem to be able to force it to display either.
+			Not sure what if any status it formally has.
+			Pity, seems like it would be nice to be able to write regular html in here like this.
+		</pre>
+
+		<code slot="slot3">
+			some slot content
+		</code>
+
+	</open-component>
+
+
+
+	<!-- <closed-component>
+		<h3 slot="heading">closed component heading slot</h3>
+
+		<pre>
+			Some regular html in the component tag.
+			This doesn't appear...?
+			It shows up the inspector as part of the regular dom, but gets no css properties.
+			Don't seem to be able to force it to display either.
+			Not sure what if any status it formally has.
+			Pity, seems like it would be nice to be able to write regular html in here like this.
+		</pre>
+
+		<code slot="slot3">
+			some slot content
+		</code>
+
+	</closed-component> -->
 
 
 	<template id="template0" ><!-- shadowrootmode="open" open closed -->
