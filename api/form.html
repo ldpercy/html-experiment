@@ -29,6 +29,7 @@
 				myform
 			</h2>
 			<fieldset onchange="document.forms.myform.method=document.forms.myform.formMethod.value">
+				method:
 				<label>
 					<input type="radio" name="formMethod" value="get" checked >
 					get
@@ -85,14 +86,18 @@
 				myCheckbox-2
 			</label>
 
-			<label>
-				<input type="radio" name="radio" value="radio1">
-				radio1
-			</label>
-			<label>
-				<input type="radio" name="radio" value="radio2">
-				radio2
-			</label>
+
+			<fieldset>
+				myRadio:
+				<label>
+					<input type="radio" name="myRadio" value="radio1">
+					radio1
+				</label>
+				<label>
+					<input type="radio" name="myRadio" value="radio2">
+					radio2
+				</label>
+			</fieldset>
 
 
 
@@ -120,17 +125,17 @@
 
 
 		<output id="myOutput">
+			<div>
+				<h3>getFormEntries(formElement)</h3>
+				<code class="block" id="code-formEntries">
+				</code>
+			</div>
 
-			<h3>getFormEntries(formElement)</h3>
-			<code id="code-formEntries">
-
-			</code>
-
-			<h3>getFormData(formElement)</h3>
-			<code id="code-formData">
-
-			</code>
-
+			<div>
+				<h3>getFormData(formElement)</h3>
+				<code class="block" id="code-formData">
+				</code>
+			</div>
 		</output>
 
 
@@ -163,8 +168,8 @@
 
 
 			function outputFormInfo(formElement) {
-				document.getElementById('code-formEntries').innerHTML	= JSON.stringify(getFormEntries(formElement));
-				document.getElementById('code-formData').innerHTML		= JSON.stringify(getFormData(formElement));
+				document.getElementById('code-formEntries').innerHTML	= JSON.stringify(getFormEntries(formElement),null,'\t');
+				document.getElementById('code-formData').innerHTML		= JSON.stringify(getFormData(formElement),null,'\t');
 			}
 
 		</script>
@@ -229,6 +234,11 @@
 
 			input:valid { background-color: #0f05; }
 			input:invalid { background-color: #f005; }
+
+			#myOutput {
+				display:grid;
+				grid-template-columns: 1fr 1fr;
+			}
 
 		</style>
 

@@ -25,3 +25,5 @@ For some fairly simple cases it might be doable though - eg strictly positive in
 
 * For live inputs where the values could get read at any time you could store the 'last known good' value in a data attribute and read that during invalid states
 
+Doing that in a consistent or reusable way? Not sure yet...
+

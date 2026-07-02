@@ -27,7 +27,14 @@ pre {		/* treat these like markdown */
 }
 
 
-
+code.block {
+	display:block;
+	border: 2px dashed #777;
+	border-radius: 1em;
+	padding: 1em;
+	background-color: #7771;
+	white-space: pre;
+}
 
 
 
