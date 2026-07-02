@@ -30,3 +30,12 @@ Slots
 -----
 
 Slot order matters...?
+
+
+
+Styling
+-------
+
+
+* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shadow_parts
+* https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/exportparts
