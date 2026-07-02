@@ -31,9 +31,9 @@
 	<h3>This is an h3</h3>
 
 
-	<template id="template-colourInput"><!-- shadowrootmode="open" open closed -->
+	<template id="template-colourWidget"><!-- shadowrootmode="open" open closed -->
 		<style>
-			fieldset.colourInput {
+			fieldset {
 				border: 1px dotted silver;
 				border-radius: var(--gap);
 				padding: var(--gap);
@@ -49,7 +49,7 @@
 			}
 		</style>
 
-		<fieldset class="colourInput">
+		<fieldset>
 			<slot name="title">Colour input</slot>
 			<slot name="description">default description text</slot>
 
@@ -58,22 +58,22 @@
 		</fieldset>
 	</template>
 
-	<colour-input id="colour-input-1" colour="red">
+	<colour-widget id="colour-widget-1" colour="red">
 		<h3 slot="title"> Title 1</h3>
 		<strong slot="description">colour input 1</strong>
-	</colour-input>
+	</colour-widget>
 
-	<colour-input id="colour-input-2" colour="blue">
+	<colour-widget id="colour-widget-2" colour="blue">
 		<h3 slot="title"> Title 2</h3>
 		<em slot="description">colour input 2</em>
-	</colour-input>
+	</colour-widget>
 
 
 
 	<script>
 
-		// Create a class for the element
-		class ColourInput extends HTMLElement {
+
+		class ColourWidget extends HTMLElement {
 			static observedAttributes = ["colour"];
 
 
@@ -83,11 +83,9 @@
 
 			constructor() {
 				super();				// Always call super first in constructor
-				//self = super();
-
 
 				/** @type { HTMLTemplateElement } */
-				let template = document.querySelector("#template-colourInput");
+				let template = document.querySelector("#template-colourWidget");
 				//console.log(template);
 				let templateContent = template.content;
 
@@ -97,10 +95,17 @@
 
 				console.log('this', this);
 				//console.log('document', document);
-				//console.log('self', self);
 				console.log('shadowRoot', this.shadowRoot);
 
-				this.colorInput
+				this.colorInput = this.shadowRoot.getElementById('input-color');
+				this.textInput = this.shadowRoot.getElementById('input-text');
+
+
+				this.shadowRoot.querySelectorAll('input').forEach(
+					(element) => {
+						element.addEventListener('change', (event) => this.updateColour(event.target.value));
+					}
+				);
 
 			}/* constructor */
 
@@ -139,7 +144,7 @@
 		}/* class ColourInput */
 
 
-		customElements.define("colour-input", ColourInput);
+		customElements.define("colour-widget", ColourWidget);
 
 
 	</script>
