@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>validation</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="../favicon.svg">
+	<link rel="stylesheet" href="../[common]/style.css">
+	<!-- <link rel="stylesheet" href="form.css"> -->
+	<script defer src="../[common]/colourScheme-selector.js"></script>
+</head>
+<body>
+	<header>
+		<h1><a href="">validation</a></h1>
+		<nav>
+			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
+			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
+			<a title="To folder" href="./">🖿</a>
+			<a title="Parent folder" href="../">🡅</a>
+		</nav>
+	</header>
+
+
+	<main>
+
+		<style>
+			body { accent-color: dodgerblue; }
+			form { border-width: 3px; }
+			form:valid {
+				border-color: #0f0;
+				/* filter: drop-shadow(0 0 1ex lime); */
+				box-shadow: 0 0 1ex lime;
+			}
+			form:invalid {
+				border-color: #f00;
+				/* filter: drop-shadow(0 0 1ex red); */
+				box-shadow: 0 0 1ex red;
+			}
+
+			input:valid { background-color: #0f05; }
+			input:invalid { background-color: #f005; }
+
+		</style>
+
+		<form name="myform">
+			<label>min and max only:</label>
+			<input type="number" min="1" max="9" value="5"/>
+			<label>step only:</label>
+			<input type="number" step="1" value="5"/>
+			<label>required only:</label>
+			<input type="number" required value="5"/>
+
+
+			<textarea title="this is a title attribute">
+				textarea
+
+				<a href="#foo">a link in a textarea</a>
+
+			</textarea>
+
+
+			<input type="range" min="0" max="10" list="datalist-foo"/>
+
+			<datalist id="datalist-foo">
+				<option value="0" label="0">0</option>
+				<option value="1" label="+1">+1</option>
+				<option value="2" label="+2">+2</option>
+				<option></option>
+				<option></option>
+				<option></option>
+				<option></option>
+				<option value="7" title="7" ></option>
+				<option>8</option>
+				<option value="9">9</option>
+				<option>10</option>
+			</datalist>
+
+
+		</form>
+
+
+
+		<form name="light" class="light">
+			<h2>Colour scheme - light</h2>
+			<textarea title="this is a title attribute">textarea</textarea>
+			<button>button</button>
+			<label>
+				<input type="radio" name="radio" value="radio1">
+				radio1
+			</label>
+			<label>
+				<input type="radio" name="radio" value="radio2">
+				radio2
+			</label>
+			<input type="checkbox">
+			<input type="range" min="1" max="10" value="5">
+			<input type="number" min="1" max="10" value="5">
+			<select>
+				<option>option 1</option>
+				<option>option 2</option>
+			</select>
+			<input type="color">
+			<details>
+				<summary>summary</summary>
+				details
+			</details>
+		</form>
+
+
+		<form name="dark" class="dark">
+			<h2>Colour scheme - dark</h2>
+			<textarea title="this is a title attribute">textarea</textarea>
+			<button>button</button>
+			<label>
+				<input type="radio" name="radio" value="radio1">
+				radio1
+			</label>
+			<label>
+				<input type="radio" name="radio" value="radio2">
+				radio2
+			</label>
+			<input type="checkbox">
+			<input type="range" min="1" max="10" value="5">
+			<input type="number" min="1" max="10" value="5">
+			<select>
+				<option>option 1</option>
+				<option>option 2</option>
+			</select>
+			<input type="color">
+			<details>
+				<summary>summary</summary>
+				details
+			</details>
+		</form>
+
+
+		<script>
+			document.querySelectorAll('form').forEach(
+				(element) => {
+					element.addEventListener('change',formOnchange);
+				}
+			);
+
+
+
+			function formOnchange(event) {
+				console.log(event);
+				const form = event.currentTarget;
+				console.log(form.name);
+				console.log(form.checkValidity());
+				console.log(form.reportValidity());
+			}
+
+		</script>
+
+
+	</main>
+</body>
+</html>
