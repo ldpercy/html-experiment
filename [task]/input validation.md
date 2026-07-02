@@ -14,8 +14,10 @@ Around about here is where regular folks would lean on a library/ui-framework.
 Live setting inputs
 -------------------
 
-* Validation attributes don't always prevent you from having invalid *state* in the input, it just gets flagged
-*
+* Validation attributes don't always prevent you from having invalid *state* in the input, it just gets marked as such
+
+This is the main situation I'm interested in right now, as most of my one page apps are using inputs as 'live' controls.
+
 
 ### Ideas
 
@@ -27,3 +29,14 @@ For some fairly simple cases it might be doable though - eg strictly positive in
 
 Doing that in a consistent or reusable way? Not sure yet...
 
+
+There might be a few different use cases here:
+
+* An isolated input that must have a valid readable value, eg something not inside form. Not common, but possible.
+* A set of inputs grouped into a form that must have valid readable state,
+* A form backed by an object/class instance mediating its state - this is the most likely setup for my apps
+
+
+The first, simplest, version is simply to rewrite all the accessors such that they return the last good valid input when they're in an invalid state.
+That's easy enough.
+Wonder if there's a neater way to do it though.
