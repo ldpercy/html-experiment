@@ -23,8 +23,6 @@
 	<main>
 
 		<script>
-
-
 			class Cat {
 				#name;
 				#age;
@@ -38,11 +36,7 @@
 				get says()	{ return "meow"; }
 			}
 
-
 			let tommy = new Cat('Tommy',13);
-
-
-
 
 			let catProxyHandler = {
 				get(target, property, receiver) {
@@ -57,30 +51,21 @@
 
 			console.log(tommy.says);
 			console.log(tommyProxy.says);
-
 		</script>
+
+		<output id="myOutput">
+
+			<h3>output</h3>
+			<code class="block" id="code-formEntries">
+			</code>
+		</output>
 
 		<form name="myform" method="get">
 			<h2>
 				myform
 			</h2>
-			<fieldset onchange="document.forms.myform.method=document.forms.myform.formMethod.value">
-				method:
-				<label>
-					<input type="radio" name="formMethod" value="get" checked >
-					get
-				</label>
-				<label>
-					<input type="radio" name="formMethod" value="post">
-					post
-				</label>
-			</fieldset>
 
-			<label>min and max only:</label>
-			<input type="number" name="number-minmax" id="input-minmax" min="1" max="9" value="5"/>
-			<label>step only:</label>
-			<input type="number" name="number-step" id="input-step" step="1" value="5"/>
-			<label>required only:</label>
+			<label>required:</label>
 			<input type="number" name="number-required" id="input-required" required value="5"/>
 
 			<textarea name="mytextarea" title="this is a title attribute">
@@ -94,7 +79,6 @@
 				<option>mySelect option 3</option>
 			</select>
 
-			<input type="range" name="myrange" min="0" max="10" list="datalist-foo"/>
 
 			<datalist id="datalist-foo">
 				<option value="0" label="0">0</option>
@@ -110,73 +94,25 @@
 				<option>10</option>
 			</datalist>
 
-			<input type="color" name="myColour">
-
-			<label>
-				<input type="checkbox" name="myCheckbox-1">
-				myCheckbox-1
-			</label>
-
-			<label>
-				<input type="checkbox" name="myCheckbox-2">
-				myCheckbox-2
-			</label>
-
-
-			<fieldset>
-				myRadio:
-
-				<input type="hidden" name="myRadio" value="hidden value">
-
-				<label>
-					<input type="radio" name="myRadio" value="radio1">
-					radio1
-				</label>
-				<label>
-					<input type="radio" name="myRadio" value="radio2">
-					radio2
-				</label>
-				<label>
-					<input type="radio" name="myRadio" value="radio3">
-					radio3
-				</label>
-			</fieldset>
-
-
-
-			<h3>inputs with the same name </h3>
-			<input type="text" name="samename" value="samename 1">
-			<input type="text" name="samename" value="samename 2">
-
-			<label>
-				<input type="hidden" name="checkboxWithHidden" value="hidden value">
-				<input type="checkbox" name="checkboxWithHidden" value="checkbox value">
-				checkboxWithHidden
-			</label>
-
 
 			<h3>Buttons</h3>
 
 			<button type="button" name="myButton" value="myButton-value">myButton</button>
 
-			<button type="button" onclick="outputFormInfo(document.forms.myform);">
-				outputFormInfo(document.forms.myform);
+			<button type="button" onclick="">
+				button
 			</button>
 
 			<button type="submit">submit</button>
 		</form><!-- myform -->
 
 
-		<output id="myOutput">
-
-			<h3>getFormEntries(formElement)</h3>
-			<code class="block" id="code-formEntries">
-			</code>
-		</output>
 
 
 
-		<script>
+		<script type="module">
+			import {HTMLFormHelper,ProxiedHTMLForm} from "../api/HTMLFormHelper.js";
+
 			document.querySelectorAll('form').forEach(
 				(element) => {
 					element.addEventListener('change',formOnchange);
@@ -192,20 +128,11 @@
 				//console.log(form.reportValidity());
 			}
 
+			let mfh = new HTMLFormHelper(document.forms.myform);
+			console.log(mfh);
 
-
-			function getFormEntries(formElement) {
-				const formData = new FormData(formElement);
-				console.log('FormData(formElement)', formData);
-				const formEntries = Object.fromEntries(formData);
-				console.log('Object.fromEntries(formData)', formEntries);
-				return formEntries;
-			}
-
-
-			function outputFormInfo(formElement) {
-				document.getElementById('code-formEntries').innerHTML	= JSON.stringify(getFormEntries(formElement),null,'\t');
-			}
+			let mfp = new ProxiedHTMLForm(document.forms.myform);
+			console.log(mfp);
 
 		</script>
 
@@ -216,7 +143,7 @@
 
 
 		<style>
-			body { accent-color: dodgerblue; }
+
 			form { border-width: 3px; }
 			form:valid {
 				border-color: #0f0;

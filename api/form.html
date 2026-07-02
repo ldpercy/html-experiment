@@ -171,20 +171,6 @@
 				//console.log(form.reportValidity());
 			}
 
-
-
-			// function getFormEntries(formElement) {
-			// 	const formData = new FormData(formElement);
-			// 	console.log('FormData(formElement)', formData);
-			// 	const formEntries = Object.fromEntries(formData);
-			// 	console.log('Object.fromEntries(formData)', formEntries);
-			// 	return formEntries;
-			// }
-
-
-			let mfh = new HTMLFormHelper(document.forms.myform);
-			console.log(mfh);
-
 			function outputFormInfo(formElement) {
 				document.getElementById('code-formData').innerHTML			= JSON.stringify(mfh.formData, null, '\t');		// raw formData has no toString method
 				document.getElementById('code-formEntries').innerHTML		= JSON.stringify(mfh.formEntries, null, '\t');
@@ -194,11 +180,18 @@
 				//console.log(mfh.formSettings);
 			}
 
+
+
+
+			let mfh = new HTMLFormHelper(document.forms.myform);
+			console.log(mfh);
+
+
+
 		</script>
 
 
 		<style>
-			body { accent-color: dodgerblue; }
 			form { border-width: 3px; }
 			form:valid {
 				border-color: #0f0;

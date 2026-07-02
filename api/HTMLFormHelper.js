@@ -10,7 +10,11 @@ export class HTMLFormHelper {
 	/** @param {HTMLFormElement} formElement */
 	constructor(formElement) {
 		this.#formElement =  formElement;
-	}
+	}/* constructor */
+
+
+
+
 
 	/** @returns {HTMLFormElement}	*/
 	get element() {
@@ -100,3 +104,31 @@ export class HTMLFormHelper {
 
 
 }/* HTMLFormHelper */
+
+
+
+
+
+/* ProxiedHTMLForm
+*/
+export class ProxiedHTMLForm extends HTMLFormHelper{
+
+
+	/** @param {HTMLFormElement} formElement */
+	constructor(formElement) {
+		super(formElement);
+
+		const formProxy = new Proxy(this,
+			{
+				get(target, property, receiver) {
+					console.log(arguments);
+					//return `Proxy + ${this.property}`;
+					//return Reflect.get(); //...arguments
+				},
+			}
+		);
+		return formProxy;
+	}/* constructor */
+
+
+}/* ProxiedHTMLForm */

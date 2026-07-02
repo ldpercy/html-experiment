@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>accent-color</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="../favicon.svg">
+	<link rel="stylesheet" href="../[common]/style.css">
+</head>
+<body>
+	<header>
+		<h1><a href="">accent-color</a></h1>
+		<nav>
+			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
+			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
+			<a title="To folder" href="./">🖿</a>
+			<a title="Parent folder" href="../">🡅</a>
+		</nav>
+	</header>
+
+	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
+	<main>
+
+
+
+	<style>
+
+		body {
+			color-scheme: var(--colourScheme);
+			/* --accent-color: #3daee9; */ /* firefox's accent colour */
+
+			--accent-light: hsl(from var(--accent-colour) h s 70% );
+			--accent-dark: hsl(from var(--accent-colour) h s 40% );
+
+			accent-color: var(--accent-colour);
+
+		}
+
+		span {display:inline-block; padding:1em; }
+
+		.light {
+			color-scheme: light;
+			accent-color: var(--accent-dark);
+		}
+
+		.dark {
+			color-scheme: dark;
+			accent-color: var(--accent-light);
+		}
+
+
+	</style>
+
+	<section>
+
+
+
+		<h2>Accent-color</h2>
+
+		<input type="color" onchange="setAccentColour(this.value);">
+		<span style="background-color: var(--accent-colour);">accent colour</span>
+		<span style="background-color: var(--accent-light);">accent colour - light</span>
+		<span style="background-color: var(--accent-colour);">accent colour</span>
+		<span style="background-color: var(--accent-dark);">accent colour - dark</span>
+
+
+
+
+	</section>
+
+
+
+
+	<form class="light">
+		<h2>color-scheme: light</h2>
+
+		<label>
+			<input type="radio" name="radio" value="radio1">
+			radio1
+		</label>
+		<label>
+			<input type="radio" name="radio" value="radio2" checked>
+			radio2
+		</label>
+
+		<label>
+			<input type="checkbox" name="checkbox1" checked>
+			checkbox1
+		</label>
+		<label>
+			<input type="checkbox" name="checkbox2" checked>
+			checkbox2
+		</label>
+		<input type="range">
+		<progress max="100" value="70">70%</progress>
+	</form>
+
+
+	<form class="dark">
+		<h2>color-scheme: dark</h2>
+		<label>
+			<input type="radio" name="radio" value="radio1">
+			radio1
+		</label>
+		<label>
+			<input type="radio" name="radio" value="radio2" checked>
+			radio2
+		</label>
+
+		<label>
+			<input type="checkbox" name="checkbox1" checked>
+			checkbox1
+		</label>
+		<label>
+			<input type="checkbox" name="checkbox2" checked>
+			checkbox2
+		</label>
+		<input type="range">
+		<progress max="100" value="70">70%</progress>
+	</form>
+
+
+	<script>
+
+		function setAccentColour(accentColour) {
+			document.body.style.setProperty('--accent-colour', accentColour);
+		}
+
+	</script>
+
+
+	</main>
+
+</body>
+</html>
