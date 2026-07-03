@@ -1,9 +1,9 @@
 /*
-**	OpenComponent
+**	SimpleComponent
 */
 
 
-export class OpenComponent extends HTMLElement {
+export class SimpleComponent extends HTMLElement {
 	// static observedAttributes = ["colour"];
 
 	// /** @type {HTMLInputElement} */ colorInput;
@@ -14,19 +14,24 @@ export class OpenComponent extends HTMLElement {
 
 		this.attachShadow({ mode: "open" });
 		this.shadowRoot.innerHTML = `
-			<section>
-				<slot name="heading">Open default heading</slot>
+			<style>
+				div {
+					border:1px solid red;
+					border-radius:1em 0em;
+					background-color: lightpink;
+					padding: 1em;
+					margin:1em;
+				}
+			</style>
+			<div>
 				<p>
-					some generic non-slot content
+					This is the simple component
 				</p>
-
 				<!-- these, when filled, show up in the regular dom and can be easily styled from the outside -->
-				<slot name="slot1">default slot1 content</slot>
-				<slot name="slot2">default slot2 content</slot>
-				<slot name="slot3">default slot3 content</slot>
+				<slot name="slot1">simple-component default slot1</slot>
+				<slot name="slot2">simple-component default slot2</slot>
 				<!-- unfilled slots stay in the shadow dom -->
-
-			</section>
+			</div>
 		`;
 
 		//console.log('this', this);
@@ -72,12 +77,8 @@ export class OpenComponent extends HTMLElement {
 		// );
 	}
 
-	/** @param {string} schemeName */
-	setColourScheme(schemeName) {
-		document.documentElement.dataset.colourscheme = schemeName;
-	}
 
-}/* class OpenComponent */
+}/* class SimpleComponent */
 
 
-customElements.define("open-component", OpenComponent);
+customElements.define("simple-component", SimpleComponent);
