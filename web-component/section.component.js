@@ -14,17 +14,22 @@ export class SectionComponent extends HTMLElement {
 
 		this.attachShadow({ mode: "open" });
 		this.shadowRoot.innerHTML = `
+			<style>
+				div { display:grid; }
+			</style>
 			<section>
 				<slot name="heading">Section component default heading</slot>
 				<p>
 					non-slot content from the component template
 				</p>
 
-				<!-- these, when filled, show up in the regular dom and can be easily styled from the outside -->
-				<slot name="slot1">section-component default slot1</slot>
-				<slot name="slot2">section-component default slot2</slot>
-				<slot name="slot3">section-component default slot3</slot>
-				<!-- unfilled slots stay in the shadow dom -->
+				<div>
+					<!-- these, when filled, show up in the regular dom and can be easily styled from the outside -->
+					<slot name="slot1">section-component default slot1</slot>
+					<slot name="slot2">section-component default slot2</slot>
+					<slot name="slot3">section-component default slot3</slot>
+					<!-- unfilled slots stay in the shadow dom -->
+				</div>
 
 			</section>
 		`;

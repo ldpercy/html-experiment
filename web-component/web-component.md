@@ -28,6 +28,13 @@ With web components the custom elements wouldn't have very much meaning in a non
 Something to look into.
 
 
+### Just tried it
+The html returned by inner/outer HTML is only that which appears in the regular dom, and any html internal to the component is lost.
+
+There might be ways around this, but I imagine they're non-trivial, and probably not really in the spirit of things.
+
+
+
 
 Template
 --------
