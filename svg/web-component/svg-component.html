@@ -18,8 +18,11 @@
 
 	<h1><a href="">SVG Web Components</a></h1>
 
-	<script src="../../[common]/protocol-check.js"></script>
-	<script type="module" src="index.js"></script>
+	<!-- <script src="../../[common]/protocol-check.js"></script> -->
+	<script type="module" src="svg-component.js"></script>
+
+	<script type="module" src="widget.component.js"></script>
+
 
 	<!-- <h3>This is an h3</h3> -->
 
@@ -46,34 +49,31 @@
 
 	<output>
 
+		<!-- <my-custom-element>
+			asdfsadf
+		</my-custom-element>
+
+		<my-custom-element>
+			asdfsadf
+			<text slot="my-text" x="0" y="0">Let's have some different text!</text>
+		</my-custom-element> -->
+
+		<widget-component>
+			asdfsadf
+		</widget-component>
+
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1000 -1000 2000 2000" preserveAspectRatio="xMidYMid meet" width="80%" height="80%">
 			<title>svg web component</title>
 			<use href="../[library]/grid.svg#grid" x="0" y="0"/>
 
-
-
-
-
-
-			<my-custom-element>
+			<widget-component>
 				asdfsadf
-			</my-custom-element>
-
-			<my-custom-element>
-				asdfsadf
-				<text slot="my-text" x="0" y="0">Let's have some different text!</text>
-			</my-custom-element>
-
-
+			</widget-component>
 		</svg>
 
 	</output>
 
 
-	<br/>
 
-
-	<h2>Log:</h2>
-	<output id="pageLog"></output>
 </body>
 </html>
