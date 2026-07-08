@@ -66,9 +66,61 @@
 			<title>svg web component</title>
 			<use href="../[library]/grid.svg#grid" x="0" y="0"/>
 
+			<style>/* doc-wide stylesheet */
+				rect {
+					fill:salmon;
+					stroke:black;
+					stroke-width:5px;
+				}
+
+				#mySpecialElement {
+					rect {
+						fill:indigo;			/* this does *not* override the styles in the shadow dom */
+					}
+					--custom-fill: hotpink;
+				}
+
+
+			</style>
+			<defs>
+
+				<g id="def-widget" class="def-widget">
+					<!-- plain styles in here, even though they do get inserted into the shadow root of the use element, still take effect doc-wide -->
+					<!--
+					<style>
+						/*
+						rect { fill:royalblue; }
+						text { font-size: 100px; fill: tomato; }
+						*/
+
+						#def-widget {
+							rect { fill:darkgreen; } 		/* this however seems to to work  */
+						}
+
+					</style>
+					-->
+					<style> /* this also works, making this potentially quite interesting */
+						@import "widget.component.css"
+					</style>
+					<rect x="-100" y="-100" width="200" height="200"/>
+					<slot name="my-text">My default text</slot>
+				</g>
+			</defs>
+
+
+
+			<rect x="-500" y="-500" width="200" height="200"/>
+
 			<widget-component>
 				asdfsadf
 			</widget-component>
+
+			<use href="#def-widget" x="-300" y="300"/>
+
+			<use href="#def-widget" x="300" y="300"/>
+
+			<use href="#def-widget" x="700" y="-700" id="mySpecialElement" />
+
 		</svg>
 
 	</output>

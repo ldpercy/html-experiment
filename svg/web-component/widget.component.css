@@ -1,0 +1,6 @@
+.def-widget {
+	rect {
+		/* fill:darkorange; */
+		fill:var(--custom-fill, darkorange);
+	}
+}
