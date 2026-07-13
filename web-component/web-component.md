@@ -1,8 +1,7 @@
-Components
-==========
+Web Components
+==============
 
 https://developer.mozilla.org/en-US/docs/Web/API/Web_components
-
 
 https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements
 
