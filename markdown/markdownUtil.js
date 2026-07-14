@@ -7,8 +7,9 @@
  * from: codewolfy Build Your Own Markdown to HTML Converter Using JavaScript
  * @param {string} markdown
  */
-function markdownToHTML(markdown) {
+export function markdownToHTML(markdown) {
 	let result = markdown;
+
 
 	result = result.replace(/^###### (.*$)/gim, "<h6>$1</h6>");
 	result = result.replace(/^##### (.*$)/gim, "<h5>$1</h5>");
@@ -16,10 +17,16 @@ function markdownToHTML(markdown) {
 	result = result.replace(/^### (.*$)/gim, "<h3>$1</h3>");
 	result = result.replace(/^## (.*$)/gim, "<h2>$1</h2>");
 	result = result.replace(/^# (.*$)/gim, "<h1>$1</h1>");
+
+	result = result.replace(/^([^\n]+)\n=+/gim, "<h1>$1</h1>");
+	result = result.replace(/^([^\n]+)\n-+/gim, "<h2>$1</h2>");
+
 	result = result.replace(/\*\*(.*?)\*\*/gim, "<strong>$1</strong>");
 	result = result.replace(/\*(.*?)\*/gim, "<em>$1</em>");
 	result = result.replace(/`([^`]+)`/gim, "<code>$1</code>");
-	result = result.replace(/([^]+)([^)]+)/gim, "<a href='$2' target='_blank'>$1</a>");
+
+	result = result.replace(/\[([^\]]+)\]\(([^)]+)\)/gim, "<a href='$2' target='_blank'>$1</a>");
+
 	result = result.replace(/\n{2,}/g, "</p><p>");
 	result = "<p>" + result + "</p>";
 	result = result.replace(/<p><h([1-6])>/g, "<h$1>");
@@ -31,4 +38,10 @@ function markdownToHTML(markdown) {
 
 
 
+
+function stripIndent(text, indentString) {
+	let regex = new RegExp(`^${indentString}`, 'gim');
+	let result = text.replace(regex, '');
+	return result;
+}
 

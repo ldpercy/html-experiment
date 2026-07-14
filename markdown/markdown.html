@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<title>Web Component</title>
+	<title>markdown</title>
 	<meta charset="utf-8">
 	<link rel="icon" href="../[common]/html-experiment.svg">
 	<link rel="stylesheet" href="../[common]/style.css">
@@ -11,7 +11,7 @@
 </head>
 <body>
 	<header>
-		<h1><a href="">Web Component</a></h1>
+		<h1><a href="">markdown</a></h1>
 		<nav>
 			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
 			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
@@ -20,17 +20,7 @@
 		</nav>
 	</header>
 
-	<!-- <page-header>
-		<span slot="page-title">Web Component</span>
-	</page-header> -->
-
-	<script type="module" src="web-component.js"></script>
-	<script type="module" src="./section.component.js"></script>
-	<script type="module" src="./simple.component.js"></script>
-
 	<main>
-
-
 	<style>
 
 		/* template {
@@ -47,59 +37,50 @@
 		}
 
 
-		section-component {
-			border: 1px dashed darkorange;
-
-			h3 {
-				font-style:italic;
-			}
-
-			pre {
-				display:block;
-				font-family:fantasy;
-			}
-
-			[slot=slot1] { color:red; }
-			[slot=slot2] { color:green; }
-			[slot=slot3] { color:blue; }
-
-		}
-
-
-		foobar {
-			border: 1px dotted fuchsia;
-			background-color: floralwhite;
-		}
-
 	</style>
 
-	<section-component>
-		<h3 slot="heading">my first section component</h3>
+	<form>
+		<h2>markdown input</h2>
 
-		<pre>
-			Some regular html in the component tag.
-			When the component is registered this doesn't appear.
-			It shows up the inspector as part of the regular dom, but gets no css properties.
-			Don't seem to be able to force it to display either.
-			Not sure what if any status it formally has.
-			Pity, seems like it would be nice to be able to write regular html in here like this.
-		</pre>
+		<textarea id="textarea-markdownInput">
+			source markdown
+		</textarea>
 
-		<simple-component>
-			similarly, can't just wodge another component in here like this, it also gets ignored
-		</simple-component>
+		<!-- <button type="button" id="button-updateOutput">update output</button> -->
 
-		<code slot="slot3">
-			slot3 content
-		</code>
-		<!-- <code slot="slot2">
-			slot2 content
-		</code> -->
-		<code slot="slot1">
-			slot1 content
-		</code>
+	</form>
 
-	</section-component>
+
+	<script type="module">
+		import { markdownToHTML } from './markdownUtil.js';
+
+		document.getElementById('textarea-markdownInput').addEventListener('change', updateOutput);
+		//document.getElementById('textarea-markdownInput').addEventListener('click', updateOutput);
+
+		function updateOutput() {
+			let markdown = document.getElementById('textarea-markdownInput').value;
+			let html = markdownToHTML(markdown);
+			document.getElementById('output-htmlOutput').innerHTML = html;
+		}
+
+		updateOutput();
+
+	</script>
+
+
+	<output id="output-htmlOutput">
+
+	</output>
+
+
+	<pre>
+		<div>
+			<p>asdfdsf</p>
+		</div>
+
+	</pre>
+
+
 
 	</main>
 </body>
