@@ -14,16 +14,21 @@ Preferably stick one of them into html-common, maybe write a wrapper so that I c
 Adding as a git submodule would probably be good if I can.
 
 
-
-
+Node oriented, browser use via cdn:
 * https://github.com/markdown-it/markdown-it
 * https://github.com/showdownjs/showdown
-* https://github.com/adamvleggett/drawdown
 * https://github.com/markedjs/marked
-* https://github.com/SimonWaldherr/micromarkdown.js
-* https://github.com/Holixus/nano-markdown
+
+
+
+Small, possible candidates
+* https://github.com/adamvleggett/drawdown - written as a single class-style function
+* https://github.com/SimonWaldherr/micromarkdown.js - small, but the code style seems a bit older & twisty, lots of var/for/while/if/switch, other older style stuff
+* https://github.com/Holixus/nano-markdown - also a bit older style
 * https://github.com/p01/mmd.js
 * https://github.com/evilstreak/markdown-js
 * 
 
+
+None of these are an exct fit for me right now, will dig a little more and see if I can fork one of the smaller ones.
 
