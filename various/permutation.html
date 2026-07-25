@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>permutation</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="../[common]/html-experiment.svg">
+	<link rel="stylesheet" href="../[common]/style.css">
+	<script type="module" src="../[common]/component.js"></script>
+	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
+
+</head>
+<body onload="updateOutput()">
+	<!-- <header>
+		<h1><a href="">permutation</a></h1>
+		<nav>
+			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
+			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
+			<a title="To folder" href="./">🖿</a>
+			<a title="Parent folder" href="../">🡅</a>
+		</nav>
+
+	</header> -->
+
+
+	<page-header>
+		<span slot="h1">permutation</span>
+	</page-header>
+
+
+	<main>
+
+	<form id="output" onchange="updateOutput()">
+
+			<label>String:</label>
+			<input type="text" id="input-string" value="abcd">
+
+			<label>Width:</label>
+			<input type="number" id="input-width" value="5" min="1" required>
+	</form>
+
+	<output >
+		<h2>Result:</h2>
+		<div id="the-output"></div>
+
+	</output>
+
+	<section>
+
+		<h1><a href="">asdasd</a></h1>
+		<a href=""><h1>asdasd</h1></a>
+
+	</section>
+
+
+
+	<script>
+
+		function updateOutput() {
+
+			const alphabet = document.getElementById('input-alphabet').value.split('');
+			const width = parseInt(document.getElementById('input-width').value);
+
+			let result = '';
+			let index = 0;
+
+			for (let r = 0; r < Math.ceil(alphabet.length / width); r++)
+			{
+				result += '<div>';
+				for (let c = 0; c < width; c++)
+				{
+					index = c + r*width ;
+					result += `<span title="alphabet:${index+1} [${index}] (${r},${c})">${alphabet[index]||''}</span>`;
+				}
+				result += '</div>';
+			}
+
+			document.getElementById('the-output').innerHTML = result;
+		}
+
+
+	</script>
+	<style contenteditable="plaintext-only">
+		#the-output {
+			font-family:monospace;
+			font-size:2em;
+			line-height: 3ex;
+			span {
+				display:inline-block;
+				width:2em;
+				height:2em;
+				outline: 1px dotted silver;
+				text-align: center;
+				vertical-align: middle;
+			}
+
+		}
+		label {display:block;}
+	</style>
+
+
+	</main>
+
+</body>
+</html>

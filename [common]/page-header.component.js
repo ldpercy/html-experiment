@@ -1,7 +1,16 @@
 /*
 **	PageHeader
 **
-**	I'd like to get this working, but need to figure out how to inherit the styles
+
+I'd like to get this working, but need to figure out how to inherit the styles
+
+Doing a wholesale import was my first hacky thought, but it doesn't seem to work.
+	@import "./style.css";					// doesn't work,
+Looks like the import is relative to page the element is registered on, so hard to make generic.
+	@import "../[common]/style.css";		// works, but is fragile
+
+This works though:
+	@import "/html-experiment/[common]/style.css";
 */
 
 
@@ -16,8 +25,26 @@ export class PageHeader extends HTMLElement {
 
 		this.attachShadow({ mode: "open" });
 		this.shadowRoot.innerHTML = `
+			<style>
+				@import "/html-experiment/[common]/style.css";				/* this works */
+				a { color: color-mix(in srgb, var(--project-colour) 75%, var(--text-colour)); }
+				.project-icon {
+					display: inline-block;
+					height:1.2ex;
+					width:1.2ex;
+					margin-right:1rex;
+					img:hover {
+						filter: drop-shadow(0px 0px 5px var(--accent-colour));
+					}
+				}
+			</style>
 			<header>
-				<h1><a href=""><slot name="page-title">Default page title</slot></a></h1>
+				<h1>
+					<a href="/html-experiment" class="project-icon"><img src="/html-experiment/favicon.svg"></a>
+					<a href="">
+						<slot name="h1">Default page title</slot>
+					</a>
+				</h1>
 				<nav>
 					<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
 					<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>

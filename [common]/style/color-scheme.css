@@ -95,3 +95,14 @@ html[data-colourscheme=disco] {
 	100%	{	background-color: hsl(360 50 50);	}
 }
 
+
+
+
+a {
+	color: color-mix(in srgb, var(--project-colour) 50%, var(--text-colour));
+	text-decoration: underline 1px dotted;
+
+	&:hover {
+		color: var(--accent-colour);
+	}
+}

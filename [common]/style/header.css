@@ -1,7 +1,7 @@
 header {
 
 	a {
-		color: color-mix(in srgb, var(--project-colour) 75%, var(--text-colour));
+		text-decoration-line: none;
 		&:hover {
 			color: var(--accent-colour);
 		}
