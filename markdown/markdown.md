@@ -26,9 +26,14 @@ Small, possible candidates
 * https://github.com/SimonWaldherr/micromarkdown.js - small, but the code style seems a bit older & twisty, lots of var/for/while/if/switch, other older style stuff
 * https://github.com/Holixus/nano-markdown - also a bit older style
 * https://github.com/p01/mmd.js
-* https://github.com/evilstreak/markdown-js
+* https://github.com/evilstreak/markdown-js		- unmaintained
 * 
 
 
-None of these are an exct fit for me right now, will dig a little more and see if I can fork one of the smaller ones.
+None of these are an exact fit for me right now, will dig a little more and see if I can fork one of the smaller ones.
 
+
+These two look like the most straightforward, have forked and  start trying out:
+* drawdown
+* mmd
+ 
