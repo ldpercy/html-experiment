@@ -75,3 +75,24 @@ Styling
 
 * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shadow_parts
 * https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/exportparts
+
+
+
+
+
+Thoughts & concerns
+-------------------
+
+Components are more complicated than vanilla html, so wondering if there are trade offs in some cases.
+This will be pretty well-worn territory, so need to look around for some insights.
+Concerns:
+* load times - more round trips
+* unstyled/unrendered content at initial load?
+* accessibility of shadow dom - for screen readers etc
+* limitations on exporting/saving shadow dom content
+* weakened semantics for things like search engines - do they read shadow dom (i think so...?)
+* are plain elements like **header** or **h1** better than custom elements that might replace them?
+
+The last is something i'm a bit curious about - how you structure it prob depends on application.
+For a SPA might be less of a concern as the static items won't need to change.
+Here in experiment-land I'm mainly wanting to reduce code duplication, so using custom elements might be okay.
