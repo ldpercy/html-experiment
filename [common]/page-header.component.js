@@ -32,10 +32,12 @@ export class PageHeader extends HTMLElement {
 					display: inline-block;
 					height:1.2ex;
 					width:1.2ex;
-					margin-right:1rex;
 					img:hover {
 						filter: drop-shadow(0px 0px 5px var(--accent-colour));
 					}
+				}
+				header h1::before {
+					content: none;
 				}
 			</style>
 			<header>

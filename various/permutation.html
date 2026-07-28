@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<link rel="icon" href="../[common]/html-experiment.svg">
 	<link rel="stylesheet" href="../[common]/style.css">
-	<script type="module" src="../[common]/component.js"></script>
+	<script type="module" src="../[common]/module.js"></script>
 	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
 
 </head>
@@ -27,6 +27,8 @@
 	</page-header>
 
 
+	<script src="./permutations.js"></script>
+
 	<main>
 
 	<form id="output" onchange="updateOutput()">
@@ -44,12 +46,6 @@
 
 	</output>
 
-	<section>
-
-		<h1><a href="">asdasd</a></h1>
-		<a href=""><h1>asdasd</h1></a>
-
-	</section>
 
 
 
@@ -57,25 +53,39 @@
 
 		function updateOutput() {
 
-			const alphabet = document.getElementById('input-alphabet').value.split('');
-			const width = parseInt(document.getElementById('input-width').value);
+			const stringSet = new Set(document.getElementById('input-string').value.split(''));
 
-			let result = '';
-			let index = 0;
+			console.log('stringSet', stringSet);
 
-			for (let r = 0; r < Math.ceil(alphabet.length / width); r++)
-			{
-				result += '<div>';
-				for (let c = 0; c < width; c++)
-				{
-					index = c + r*width ;
-					result += `<span title="alphabet:${index+1} [${index}] (${r},${c})">${alphabet[index]||''}</span>`;
-				}
-				result += '</div>';
-			}
+			// I think technically sets are unordered, but in js they retain insertion order
 
-			document.getElementById('the-output').innerHTML = result;
-		}
+
+			let result = permutations(stringSet);
+
+			console.log('result', result);
+
+
+			// for (let it) {
+			// 	console.log(entry);
+			// 	// Expected output: Array [42, 42]
+			// 	// Expected output: Array ["forty two", "forty two"]
+			// }
+
+			//const width = parseInt(document.getElementById('input-width').value);
+
+
+			document.getElementById('the-output').innerHTML = Array.from(result);
+
+
+			// let output = '';
+
+			// for (const value of result.values()) {
+			// 	console.log(value);
+			// }
+
+
+		}/* updateOutput */
+
 
 
 	</script>
@@ -96,6 +106,14 @@
 		}
 		label {display:block;}
 	</style>
+
+	<section>
+
+		<h1><a href="">asdasd</a></h1>
+		<a href=""><h1>asdasd</h1></a>
+
+	</section>
+
 
 
 	</main>
