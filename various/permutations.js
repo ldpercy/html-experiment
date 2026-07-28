@@ -8,9 +8,26 @@
 
 	output is set (order unimportant i think) of ordered sequences of the elements
 
-	eg
-		permutations(new Set({a,b,c})) =
 
+	eg
+
+		permutations(new Set({})) ===
+		{
+		}
+
+
+		permutations(new Set({a})) ===
+		{
+			[a]
+		}
+
+		permutations(new Set({a,b})) ===
+		{
+			[a,b]
+			[b,a]
+		}
+
+		permutations(new Set({a,b,c})) ===
 		{
 			[a,b,c]
 			[a,c,b]
@@ -23,34 +40,53 @@
 */
 
 /** permutations
- * @param {Set} set
- * @returns {Set<array>}
+ * @param {Set<any>} set
+ * @returns {Set}
  */
 function permutations(set) {
-	let result = new Set();
+	console.log('arguments:',arguments)
+	let result = new Set();	// set of arrays
+
+	let valuePermutations = [];
+
+	if (set.size !== 0) {
+		for (const value of set.values()) {
+			//console.log(value);
+			//temp = new Array(value);
+			//console.log('temp',temp);
+
+			let valueSet = new Set(value);
+
+			let remainder = set.difference(valueSet)			// needs 'esnext'??
+			console.log('remainder', remainder);
+
+			valuePermutations.push(value);
+
+			let remainderPermutations = permutations(remainder);
 
 
+			for (const rv of remainder.values())
 
-	let temp = [];
-
-	for (const value of set.values()) {
-		console.log(value);
-
-		let valueSet = new Set(value);
-		temp = new Array(value);
-		let difference = set.difference(valueSet)			// needs 'esnext'??
-		console.log('difference', difference);
-
-		let subsetPermutations = permutations(difference);
+			);
 
 
+			// if (subset.size) {
+			// 	let subsetPermutations = permutations(subset);
+			// }
+			// let subsetPermutations = permutations(subset);
 
-		for (let permutation in subsetPermutations) {
-			temp.concat(permutation);
-			result.add(temp);
+			// console.log('subsetPermutations',subsetPermutations);
+
+			// for (let permutation in subsetPermutations) {
+
+			// 	temp.concat(permutation);
+			// 	console.log('temp',temp);
+			// 	result.add(temp);
+			// }
+			result.add(valuePermutations);
 		}
 
 	}
 
 	return result;
-}
+}/* permutations */
