@@ -41,14 +41,31 @@
 		<button type="button" onclick="updateOutput()">update</button>
 	</form>
 
-	<output >
+	<style contenteditable="plaintext-only">
+		#the-output {
+			font-family:monospace;
+			font-size:1.5em;
+			line-height: 3ex;
+			span {
+				display:inline-block;
+				padding:1ex;
+				/* width:2em;
+				height:2em; */
+				outline: 1px dotted silver;
+				text-align: center;
+				vertical-align: middle;
+			}
+
+		}
+		label {display:block;}
+	</style>
+
+
+	<output class="full-width">
 		<h2>Result:</h2>
 		<div id="the-output"></div>
 
 	</output>
-
-
-
 
 	<script>
 
@@ -61,52 +78,40 @@
 			// I think technically sets are unordered, but in js they retain insertion order
 
 
+			if (stringSet.size > 6)
+			{
+				alert(`you probably don't want to do this...`);
+				return;
+			}
 			let result = permutations(stringSet);
 
 			console.log('result', result);
 
 
-			// for (let it) {
-			// 	console.log(entry);
-			// 	// Expected output: Array [42, 42]
-			// 	// Expected output: Array ["forty two", "forty two"]
-			// }
-
 			//const width = parseInt(document.getElementById('input-width').value);
 
 
-			document.getElementById('the-output').innerHTML = Array.from(result);
+
+			let resultContent = Array.from(result).map(
+				(element) => { return `<span>${element.join('')}</span>`}
+			).join(' ');
 
 
-			// let output = '';
-
-			// for (const value of result.values()) {
-			// 	console.log(value);
-			// }
-
+			document.getElementById('the-output').innerHTML = resultContent;
 
 		}/* updateOutput */
 
 
 
 	</script>
-	<style contenteditable="plaintext-only">
-		#the-output {
-			font-family:monospace;
-			font-size:2em;
-			line-height: 3ex;
-			span {
-				display:inline-block;
-				width:2em;
-				height:2em;
-				outline: 1px dotted silver;
-				text-align: center;
-				vertical-align: middle;
-			}
 
-		}
-		label {display:block;}
-	</style>
+
+
+
+
+
+
+
 
 	<section>
 

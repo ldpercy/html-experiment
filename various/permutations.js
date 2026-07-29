@@ -37,6 +37,10 @@
 			[c,b,a]
 		}
 
+
+	This is kinda working now, but using sets means dupes get removed, so will need another version to allow for that.
+
+
 */
 
 /** permutations
@@ -44,7 +48,7 @@
  * @returns {Set}
  */
 function permutations(set) {
-	console.log(`permutations(${Array.from(set)})`);
+	//console.log(`permutations(${Array.from(set)})`);
 	let result = new Set();	// set of arrays
 
 	let thisPermutation = [];
@@ -62,37 +66,21 @@ function permutations(set) {
 			let valueArray = new Array(value);
 
 			let remainder = set.difference(valueSet)			// needs 'esnext'??
-			console.log('value:', value, 'remainder:', remainder);
+			//console.log('value:', value, 'remainder:', remainder);
 
-			//valuePermutations.push(value);
 
 			let remainderPermutations = permutations(remainder);
-
 
 			for (const rp of remainderPermutations) {
 				thisPermutation = valueArray.concat(rp);
 				result.add(thisPermutation);
 			}
 
-			// if (subset.size) {
-			// 	let subsetPermutations = permutations(subset);
-			// }
-			// let subsetPermutations = permutations(subset);
-
-			// console.log('subsetPermutations',subsetPermutations);
-
-			// for (let permutation in subsetPermutations) {
-
-			// 	temp.concat(permutation);
-			// 	console.log('temp',temp);
-			// 	result.add(temp);
-			// }
-			//result.add(valuePermutations);
 		}
 
 	}
 
-	console.log(`result(${Array.from(set)}) = `, result);
+	//console.log(`result(${Array.from(set)}) = `, result);
 
 	return result;
 }/* permutations */
