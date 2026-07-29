@@ -44,31 +44,35 @@
  * @returns {Set}
  */
 function permutations(set) {
-	console.log('arguments:',arguments)
+	console.log(`permutations(${Array.from(set)})`);
 	let result = new Set();	// set of arrays
 
-	let valuePermutations = [];
+	let thisPermutation = [];
 
-	if (set.size !== 0) {
+	if (set.size === 1) {
+		result.add(Array.from(set));
+	}
+	else if (set.size > 1) {
 		for (const value of set.values()) {
 			//console.log(value);
 			//temp = new Array(value);
 			//console.log('temp',temp);
 
 			let valueSet = new Set(value);
+			let valueArray = new Array(value);
 
 			let remainder = set.difference(valueSet)			// needs 'esnext'??
-			console.log('remainder', remainder);
+			console.log('value:', value, 'remainder:', remainder);
 
-			valuePermutations.push(value);
+			//valuePermutations.push(value);
 
 			let remainderPermutations = permutations(remainder);
 
 
-			for (const rv of remainder.values())
-
-			);
-
+			for (const rp of remainderPermutations) {
+				thisPermutation = valueArray.concat(rp);
+				result.add(thisPermutation);
+			}
 
 			// if (subset.size) {
 			// 	let subsetPermutations = permutations(subset);
@@ -83,10 +87,12 @@ function permutations(set) {
 			// 	console.log('temp',temp);
 			// 	result.add(temp);
 			// }
-			result.add(valuePermutations);
+			//result.add(valuePermutations);
 		}
 
 	}
+
+	console.log(`result(${Array.from(set)}) = `, result);
 
 	return result;
 }/* permutations */
