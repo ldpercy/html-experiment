@@ -75,12 +75,18 @@ function permutations(set) {
 				thisPermutation = valueArray.concat(rp);
 				result.add(thisPermutation);
 			}
-
 		}
-
 	}
 
 	//console.log(`result(${Array.from(set)}) = `, result);
 
 	return result;
 }/* permutations */
+
+
+
+/** @param {number} number */
+function factorial(number) {
+	const result = (number < 1) ? 1 : number * factorial(number-1);
+	return result;
+}

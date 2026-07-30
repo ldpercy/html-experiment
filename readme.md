@@ -40,7 +40,7 @@ I'm using `jsconfig.json` to turn on typechecking, currently with the following 
 ```js
 	"compilerOptions": {
 		"checkJs": true,
-		"target": "es2024",
+		"target": "esnext",
 		"module": "es2022"
 	}
 ```

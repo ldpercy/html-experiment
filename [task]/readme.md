@@ -15,24 +15,23 @@ When html-common gets into release cadence some tasks will be moved over to ther
 
 Todo
 ----
-* `chrome` "[Violation] Forced reflow while executing JavaScript took <N>ms" - seeing this in turtle
-* `general` have a bit of a look into PWAs: https://en.wikipedia.org/wiki/Progressive_web_app
-* `css`	can you make an svg favicon light/dark adpaptive?
-* `css` dig more into viewport and container lengths, also how they work in svg
-* `svg` a way to get the box coordinates of the visible svg render area, not just the viewbox
-* `html,css` review viewport terminology for visible, hidden areas et al
-* `css`	@supports condition for newer functions like sibling-index() -- try some of the ideas here: https://stackoverflow.com/questions/77441227/how-to-detect-css-functions-support like `CSS.supports()`
-* `svg`	Dig a limit more into 'stroke-miterlimit'
-* `api`	Return to web-components and Temporal
-* `dom`	Refresher: document.querySelector vs getElementById - they return different types/interfaces i think & the former is easier to cast
-* `js`	https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import/with - css, json & soon text
-* `js`	modules: a way to export "*" ? (I don't think this can be done)
-* `js`	identifiers: unicode categories ID_Start & ID_Continue
-* `testing`	Revisit test grouping/nesting
-* `css` generated content: can any items be made conditional? Also see if there are any implementations for the "six yet-to-be implemented CSS functions including content(), string(), and leader(), and the three `target` functions"
-* `css` "Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content."
-* `js`	"This expression is not constructable. Type '....' has no construct signatures.ts(2351)"
-* `js`	Derived subclass as function parameter?
+* `web components`	slots, "html web components", css etc
+* `PWA`				start experimenting https://en.wikipedia.org/wiki/Progressive_web_app
+* `chrome`			"[Violation] Forced reflow while executing JavaScript took <N>ms" - seeing this in turtle
+* `css`			dig more into viewport and container lengths, also how they work in svg
+* `svg`			a way to get the box coordinates of the visible svg render area, not just the viewbox
+* `html,css`	review viewport terminology for visible, hidden areas et al
+* `css`			@supports condition for newer functions like sibling-index() -- try some of the ideas here: https://stackoverflow.com/questions/77441227/how-to-detect-css-functions-support like `CSS.supports()`
+* `api`			Return to Temporal
+* `dom`			Refresher: document.querySelector vs getElementById - they return different types/interfaces i think & the former is easier to cast
+* `js`			import with: css, json & soon text https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import/with
+* `js`			modules: a way to export "*" ? (I don't think this can be done)
+* `js`			identifiers: unicode categories ID_Start & ID_Continue
+* `testing`		Revisit test grouping/nesting
+* `css` 		generated content: can any items be made conditional? Also see if there are any implementations for the "six yet-to-be implemented CSS functions including content(), string(), and leader(), and the three `target` functions"
+* `css`			"Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content."
+* `js`			"This expression is not constructable. Type '....' has no construct signatures.ts(2351)"
+* `js`			Derived subclass as function parameter?
 * `jsdoc,ts`	Correct typing for HTMLFormElement.elements / HTMLFormControlsCollection items
 * `jsdoc,ts`	correct type for a dynamically imported module
 * `jsdoc,ts`	partial typing - see if there are ways to declare generic types that only specify certain items of a type signature, eg *just* the return type of a function - and be able to mix these partials together a bit like interfaces
@@ -40,20 +39,22 @@ Todo
 	* See if @interface typing can be applied to non-class objects
 	* Look for other duck/mixin typing options
 	* Find out where the root/base context of jsconfig+checkJs typechecking is
-* `css`	colour model/api etc
-* `css`	dynamic/automatic/contextual colours for text
-* `css`	Parent selector - 'has'
-* `css`	Find out if select size can be controlled *nicely* with css
-* `css` See if there's a way to collapse the single extra spaces that sometimes get added just from formatting, eg `<h1>	<a ...`
-* `font`	find some web-safe ones or figure out serving
-* `css grid` is there a simple way to make grid items go full-width without knowing the column count?
-* `css grid` dynamic grids in general - eg based on custom vars
-* `dom`	3d transform experiments
-* `html`	details/summary move the marker to the right, styling in general
-* `svg/css`	Look into: https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute/d#using_d_as_a_css_property
-* `svg`		Look into stroke gradients
+* `css`			colour model/api etc
+* `css`			dynamic/automatic/contextual colours for text
+* `css`			Parent selector - 'has'
+* `css`			Find out if select size can be controlled *nicely* with css
+* `css`			See if there's a way to collapse the single extra spaces that sometimes get added just from formatting, eg `<h1>	<a ...`
+* `font`		find some web-safe ones or figure out serving
+* `css grid`	is there a simple way to make grid items go full-width without knowing the column count?
+* `css grid`	dynamic grids in general - eg based on custom vars
+* `dom`			3d transform experiments
+* `html`		details/summary move the marker to the right, styling in general
+* `svg/css`		Look into: https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute/d#using_d_as_a_css_property
+* `svg`			Look into stroke gradients
+* `svg`			Dig a limit more into 'stroke-miterlimit'
 
-### !important - Turn on jsdoc typechecking for inline `<script></script>` tags within html
+
+### !important - jsdoc typechecking for inline `<script></script>` tags within html
 
 Found some references to this and some open vscode issues that look related:
 
@@ -65,17 +66,18 @@ Found some references to this and some open vscode issues that look related:
 
 Done (for now)
 --------------
-* `css` style selected *option* elements with ***:checked*** pseudo class, not selected attr. Obviously.
-* `file` have v.basic downloads going now; some examples in turtle, screensaver, thoughtcloud
-* `css` animation experiments mostly being done in screensaver for now
-* `svg` The ~5 extra vertical pixels that SVG in html gets displayed with are related to its default ***display:inline***. Still investigating, but change to ***display:block*** for a quick soln.
-* `storage` Github pages localStorage is shared based upon common origin
-* `svg` SVG foreignObject - https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/foreignObject
-* `kbd` filter out browser/os crtl key combos
-* `css` list counters, zero-based: can be done (though a little quirky); better to use array keys themselves when that's what's needed
-* `testing` simple code testing eg equality, exceptions, typeof testing that code excepts - moved to html-common
-* `js` Function arguments can be omitted to accept defaults with ***undefined***
-* `css` *grey* is darker than *darkgrey* for historical reasons - websearch for the whole story
+* `css/svg`	svg favicons can be made light/dark adpaptive with @media prefers-color-scheme - see medit for example
+* `css`		style selected *option* elements with ***:checked*** pseudo class, not selected attr. Obviously.
+* `file`	have v.basic downloads going now; some examples in turtle, screensaver, thoughtcloud
+* `css`		animation experiments mostly being done in screensaver for now
+* `svg`		The ~5 extra vertical pixels that SVG in html gets displayed with are related to its default ***display:inline***. Still investigating, but change to ***display:block*** for a quick soln.
+* `storage`	Github pages localStorage is shared based upon common origin
+* `svg`		SVG foreignObject - https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/foreignObject
+* `kbd`		filter out browser/os crtl key combos
+* `css`		list counters, zero-based: can be done (though a little quirky); better to use array keys themselves when that's what's needed
+* `testing`	simple code testing eg equality, exceptions, typeof testing that code excepts - moved to html-common
+* `js`		Function arguments can be omitted to accept defaults with ***undefined***
+* `css`		*grey* is darker than *darkgrey* for historical reasons - websearch for the whole story
 
 
 
