@@ -15,8 +15,9 @@ When html-common gets into release cadence some tasks will be moved over to ther
 
 Todo
 ----
-* `web components`	slots, "html web components", css etc
-* `PWA`				start experimenting https://en.wikipedia.org/wiki/Progressive_web_app
+* `web components`	find out more about so-called "html web components", ie those *without* shadow dom
+* `web components`	are slotted items part of the regular dom, and can they be styled normally?
+* `PWA`				start experimenting with PWAs https://en.wikipedia.org/wiki/Progressive_web_app
 * `chrome`			"[Violation] Forced reflow while executing JavaScript took <N>ms" - seeing this in turtle
 * `css`			dig more into viewport and container lengths, also how they work in svg
 * `svg`			a way to get the box coordinates of the visible svg render area, not just the viewbox

@@ -43,11 +43,11 @@
 
 */
 
-/** permutations
+/** permutationsOfSet
  * @param {Set<any>} set
  * @returns {Set}
  */
-function permutations(set) {
+function permutationsOfSet(set) {
 	//console.log(`permutations(${Array.from(set)})`);
 	let result = new Set();	// set of arrays
 
@@ -69,7 +69,7 @@ function permutations(set) {
 			//console.log('value:', value, 'remainder:', remainder);
 
 
-			let remainderPermutations = permutations(remainder);
+			let remainderPermutations = permutationsOfSet(remainder);
 
 			for (const rp of remainderPermutations) {
 				thisPermutation = valueArray.concat(rp);
@@ -81,7 +81,7 @@ function permutations(set) {
 	//console.log(`result(${Array.from(set)}) = `, result);
 
 	return result;
-}/* permutations */
+}/* permutationsOfSet */
 
 
 
@@ -89,4 +89,13 @@ function permutations(set) {
 function factorial(number) {
 	const result = (number < 1) ? 1 : number * factorial(number-1);
 	return result;
+}
+
+
+
+function permutationsOfArray(array) {
+
+	// do this...
+
+
 }
