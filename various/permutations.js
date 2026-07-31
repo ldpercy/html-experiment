@@ -92,10 +92,21 @@ function factorial(number) {
 }
 
 
-
+/** permutationsOfArray
+ * @param {array} array
+ * @returns {Set}
+ */
 function permutationsOfArray(array) {
-
 	// do this...
+	let result = new Set();	// set of arrays
+
+	if (array.length === 1) {
+		result.add(array);
+	}
+	else if (array.length > 1) {
+		//
+	}
 
 
-}
+	return result;
+}/* permutationsOfArray */
