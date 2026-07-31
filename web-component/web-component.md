@@ -96,3 +96,13 @@ Concerns:
 The last is something i'm a bit curious about - how you structure it prob depends on application.
 For a SPA might be less of a concern as the static items won't need to change.
 Here in experiment-land I'm mainly wanting to reduce code duplication, so using custom elements might be okay.
+
+
+
+* https://alice.pages.igalia.com/blog/how-shadow-dom-and-accessibility-are-in-conflict/
+* https://nolanlawson.com/2022/11/28/shadow-dom-and-accessibility-the-trouble-with-aria/
+* https://nolanlawson.com/2021/02/13/managing-focus-in-the-shadow-dom/
+* https://meyerweb.com/eric/thoughts/2023/11/01/blinded-by-the-light-dom/
+* 'HTML Web Components': https://adactio.com/journal/20618
+* https://www.zachleat.com/web/?category=web-components
+* https://jakelazaroff.com/words/web-components-will-outlive-your-javascript-framework/
