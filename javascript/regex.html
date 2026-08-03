@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>regex</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="../favicon.svg">
+	<link rel="stylesheet" href="../[common]/style.css">
+	<script type="module" src="../[common]/module.js"></script>
+	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
+
+</head>
+<body>
+
+	<page-header>
+		<span slot="h1">regex</span>
+	</page-header>
+
+
+	<main>
+
+	<pre>
+		regex
+		=====
+	</pre>
+
+	<style contenteditable="plaintext-only">
+		#the-output {
+			font-family:monospace;
+			font-size:1.4em;
+			line-height: 3ex;
+			span {
+				display:inline-block;
+				padding-inline:0.4em;
+				outline: 1px dotted grey;
+				text-align: center;
+				vertical-align: middle;
+			}
+
+		}
+		label {display:block;}
+	</style>
+
+
+	<form name="regexForm" id="output">
+
+		<label>String:</label>
+		<input type="text" name="inputString" value="abc12345#$*%">
+		<label>regex</label>
+		<input type="text" id="inputRegex" value="(\D*)(\d*)(\W*)">
+
+		<label>info</label>
+		<output id="output-info"></output>
+
+		<!-- <label>Width:</label>
+		<input type="number" id="input-width" value="5" min="1" required> -->
+		<button type="button" onclick="update()">update</button>
+	</form>
+
+	<script>
+
+		//function replacer(match, p1, p2, p3, p4, p5, offset, string) {
+		function replacer() {
+			// p1 is non-digits, p2 digits, and p3 non-alphanumerics
+
+			console.log('replacer',arguments);
+
+			let result = '';
+
+			//result = [p1, p2, p3].join(" - ");
+			return result;
+		}
+
+		function update() {
+			let string = document.forms['regexForm'].inputString.value;
+			let regex = new RegExp(document.forms['regexForm'].inputRegex.value);
+
+			console.log(regex);
+
+			const newString = string.replace(regex, replacer);
+			console.log(newString); // abc - 12345 - #$*%
+		}
+
+		document.forms['regexForm'].addEventListener('change', update);
+		update();
+
+	</script>
+
+
+
+
+
+	<output class="full-width">
+		<h2>Result:</h2>
+		<div id="the-output"></div>
+
+	</output>
+
+
+
+	</main>
+
+</body>
+</html>
