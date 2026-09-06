@@ -69,22 +69,6 @@ There's probably a JSDoc way of doing this too - should be `@module` you'd think
 
 
 
-TypeChecking in HTML files
---------------------------
-
-Eg within `<script> </script>` tags.
-
-This is something I'd like, but mainly only for my experiment code where I normally use it.
-
-Can't find anything solid yet.
-
-Appears like you can configure file names, but I think only for generating documentation:
-https://jsdoc.app/about-configuring-jsdoc.html#specifying-input-files
-
-
-If it turns out it flat-out can't be done, I'll move anything important into script files for checking.
-This will probably be more critical in html-common.
-
 
 
 HTML Element Typing
@@ -148,3 +132,20 @@ If there's a way to type rest parameters then maybe...?
 
 
 
+TypeChecking in HTML files
+--------------------------
+
+Eg within `<script> </script>` tags.
+
+This is something I'd like, but mainly only for my experiment code where I normally use it.
+
+Can't find anything solid yet.
+
+Appears like you can configure file names, but I think only for generating documentation:
+https://jsdoc.app/about-configuring-jsdoc.html#specifying-input-files
+
+
+If it turns out it flat-out can't be done, I'll move anything important into script files for checking.
+This will probably be more critical in html-common.
+
+* See: [jsdoc typechecking for inline scripts](<../[task]/jsdoc typechecking for inline scripts.md>)

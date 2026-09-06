@@ -7,7 +7,8 @@ https://www.typescriptlang.org/docs/handbook/basic-types.html
 https://www.typescriptlang.org/docs/handbook/2/everyday-types.html
 
 
-
+### Todo:
+* Revisit class typing
 
 
 Dynamically instantiating classes

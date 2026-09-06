@@ -2,6 +2,10 @@ Tree
 ====
 
 
+* https://en.wikipedia.org/wiki/Tree_(graph_theory)#Rooted_tree
+
+
+
 Want to sketch a few tree ADTs so I can solve some problems a bit more generally.
 
 
