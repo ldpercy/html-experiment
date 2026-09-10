@@ -49,6 +49,7 @@ Todo
 * `svg/css`		Look into: https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute/d#using_d_as_a_css_property
 * `svg`			Look into stroke gradients
 * `svg`			Dig more into 'stroke-miterlimit'
+* `svg`			https://developer.mozilla.org/en-US/docs/Web/CSS/vector-effect
 
 
 

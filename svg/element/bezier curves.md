@@ -4,10 +4,6 @@ Bezier curves
 https://en.wikipedia.org/wiki/Bézier_curve
 
 
-
-
-
-
 Cubic
 -----
 
@@ -18,15 +14,13 @@ Cubic Bézier curves are smooth curve definitions using **four** points:
 * end point
 
 
-
-
 SVG path commands:
 
 
-	C	abs				(scp, ecp, xy)+
-	c	rel				(scp, ecp, xy)+
-	S	abs,smooth		(ecp, xy)+
-	s	rel,smooth		(ecp, xy)+
+	C	absolute			(scp, ecp, xy)+
+	c	relative			(scp, ecp, xy)+
+	S	smooth absolute		(ecp, xy)+
+	s	smooth relative		(ecp, xy)+
 
 
 Note: Control points are first followed by end points.
@@ -45,7 +39,7 @@ Quadratic Bézier curves are smooth curve definitions using **three** points:
 
 SVG path commands:
 
-	Q	abs					(cx,cy, x,y)+
-	q	rel
-	T	abs, smooth
-	t	rel, smooth
+	Q	absolute					(cx,cy, x,y)+
+	q	relative
+	T	smooth absolute
+	t	smooth relative
