@@ -1,6 +1,6 @@
 
 body {
-	font-size: calc(2 x var(--project-base-length));
+	font-size: calc(2 * var(--project-base-length));
 }
 
 
