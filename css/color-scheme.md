@@ -4,8 +4,9 @@ Color scheme
 
 
 
-https://medium.com/@cerutti.alexander/a-mostly-complete-guide-to-theme-switching-in-css-and-js-c4992d5fd357
-https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/
+* https://medium.com/@cerutti.alexander/a-mostly-complete-guide-to-theme-switching-in-css-and-js-c4992d5fd357
+* https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/
+* https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
 
 
 
