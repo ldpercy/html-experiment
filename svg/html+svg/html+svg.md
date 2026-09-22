@@ -5,6 +5,11 @@ html+svg
 Experiments with inline svg in html.
 
 
+SVG as html box borders
+-----------------------
+Not sure yet how this could be done, want to try some things.
+
+
 
 
 The 5 extra pixels

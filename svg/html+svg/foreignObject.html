@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>foreignObject</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="../../favicon.svg">
+	<link rel="stylesheet" href="../../[common]/style.css">
+	<script type="module" src="../../[html-common]/script/colourScheme-selector.js"></script>
+</head>
+<body>
+
+	<svg id="main-svg" xmlns="http://www.w3.org/2000/svg" viewBox="-2000 -1200 4000 2400" preserveAspectRatio="xMidYMid meet" >  <!-- class="fullwidth"  -->
+		<title>foreignObject</title>
+
+		<rect class="svg-box"></rect>
+
+		<!-- Common use case: embed HTML text into SVG -->
+		<foreignObject x="200" y="-600" width="900" height="1100"><!-- can't put the namespace here -->
+
+
+			<header>
+				<h1><a href="">foreignObject</a></h1>
+				<nav>
+					<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
+					<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
+					<a title="To folder" href="./">🖿</a>
+					<a title="Parent folder" href="../">🡅</a>
+				</nav>
+			</header>
+
+			<style contenteditable="plaintext-only">
+				#main-svg {
+					width:100%;
+				}
+
+				.svg-box {
+					x: -90%;
+					y: -90%;
+					width:100%;
+					height:100%;
+					stroke:red;
+					stroke-width:20;
+				}
+
+				style { grid-column-start: span 4; }
+
+
+				svg {
+					background-color: transparent;
+				}
+
+				circle {
+					stroke: cyan;
+					fill: cadetblue;
+				}
+				rect {
+					stroke: red;
+					fill: pink;
+				}
+				text {
+					fill: tan;
+					stroke: tomato;
+					font-size: 32em;
+					text-anchor: middle;
+				}
+
+				foreignObject {		/* doesn't work?? */
+					fill: tan;
+					stroke: tomato;
+					font-size: 3em;
+					overflow: visible;
+				}
+
+				div {				/* can do this though */
+					border: 1ex dotted dodgerblue;
+				}
+				hr { border:3px dashed red; }
+				p {
+					color: magenta;
+					font-weight: bold;
+					font-size:3em;
+				}
+			</style>
+
+			<!--
+				In the context of SVG embedded in an HTML document, the XHTML
+				namespace could be omitted, but it is mandatory in the
+				context of an SVG document
+			-->
+			<div><!-- namespace can be omitted here as the root doc is html -->
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis mollis
+				mi ut ultricies. Nullam magna ipsum, porta vel dui convallis, rutrum
+				imperdiet eros. Aliquam erat volutpat.
+
+				<hr>	<!-- don't seem to need to close this tag either -->
+				<p>asdf</p>
+
+			</div>
+		</foreignObject>
+
+
+	</svg>
+
+
+
+</body>
+</html>
+
