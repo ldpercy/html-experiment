@@ -1,4 +1,14 @@
 @import "../[html-common]/style/html-common.css";
+	/* @import "../[html-common]/style/page/html.css";
+	@import "../[html-common]/style/page/header.css";
+	@import "../[html-common]/style/page/main-grid.css";
+	@import "../[html-common]/style/page/miscellaneous.css";
+	@import "../[html-common]/style/typography/typography.css";
+	@import "../[html-common]/style/element/element-colour.css";
+	@import "../[html-common]/style/element/script-visible.css";
+	@import "../[html-common]/style/element/style-visible.css"; */
+
+
 @import "./style/main-grid.css";
 @import "./style/elements.css";
 @import "./style/color-scheme.css";
@@ -14,12 +24,20 @@
 	--project-scheme-dark:  black;
 	--project-panel-colour: silver;
 
+	--project-base-length: 8px;
+
 	--gap: var(--project-base-length);
+
+	/* font-size: calc(2 * var(--project-base-length)); */
 }
 
+
+
+/*	I'm not sure this is correct, doesn't seem to be working for me:
 
 @property --project-base-length {
 	syntax: "<length>";
 	inherits: true;
 	initial-value: 8px;
 }
+*/

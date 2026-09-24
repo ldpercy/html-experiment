@@ -1,6 +1,9 @@
 
-body {
-	font-size: calc(1.5 * var(--project-base-length));
+html {
+	/* font-size: calc(2 * var(--project-base-length)); */
+	/* this is causing problems... */
+
+	/* font-size: 16px; */
 }
 
 
