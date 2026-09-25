@@ -10,7 +10,7 @@ body [id]::before {
 	top:-3ex;
 	left:0ex;
 	font-family:monospace;
-	font-size:1em;
+	font-size:1rem;
 	background-color: var(--element-colour);
 	color: 	oklab( from var(--element-colour)    calc(sign(l - 70) * -100) 0 0 / 1);
 	padding:1ex;

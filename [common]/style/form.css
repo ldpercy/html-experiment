@@ -13,7 +13,7 @@ form {
 	border-radius: 1ex;
 	padding:1ex;
 	margin: 1ex;
-	font-size: 1em;
+
 
 	h1 { font-size:3ex; margin-bottom: 1ex; }
 	h2 { font-size:2ex; margin-top:2ex; margin-bottom:1ex; }
@@ -45,7 +45,7 @@ form {
 
 	input { text-align:center; }
 
-	textarea { font-size: 1.6ex; }
+	/* textarea { font-size: 1.6ex; } */
 
 	br { margin-top:1ex; }
 

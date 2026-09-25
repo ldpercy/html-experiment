@@ -7,18 +7,12 @@
 	<link rel="stylesheet" href="../[common]/style.css">
 	<link rel="stylesheet" href="../[common]/style/transition.css">
 	<link rel="stylesheet" href="../[common]/style/background.css">
-	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
+	<script type="module" src="../[common]/module.js"></script>
 </head>
 <body onload="generateSwatches();">
-	<header>
-		<h1><a href="">Colour calc</a></h1>
-		<nav>
-			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourScheme="light">🟓</a>
-			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourScheme="dark">🟒</a>
-			<a title="To folder" href="./">🖿</a>
-			<a title="Parent folder" href="../">🡅</a>
-		</nav>
-	</header>
+	<page-header>
+		<span slot="page-title">Colour calc</span>
+	</page-header>
 
 	<main>
 
