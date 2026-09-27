@@ -11,13 +11,13 @@
 		<span slot="page-title">font-size</span>
 	</page-header>
 
-	<link rel="stylesheet" href="../[common]/style.css">
+	<link rel="stylesheet" href="../[common]/style-minus-typography.css">
 
 	<main>
 
 		<form>
-			<label>--base-unit (px)</label>
-			<input type="number" min="1" max="128" value="16" onchange="document.documentElement.style.setProperty('--base-unit',`${this.value}px`)">
+			<label>--font-size</label>
+			<input type="text" value="16px" onchange="document.documentElement.style.setProperty('--font-size',`${this.value}`)">
 
 			<label>--multiplier</label>
 			<input type="number" min="0.5" max="9" value="1.0" step="0.5" onchange="document.documentElement.style.setProperty('--multiplier',`${this.value}`)">
@@ -25,17 +25,55 @@
 
 		</form>
 
+
+		<section class="examples">
+			<div style="width:10em; height:10em">
+				style="width:10em; height:10em"
+			</div>
+			<div style="width:20em; height:20em">
+				style="width:20em; height:20em"
+			</div>
+		</section>
+
+
+
+		<section class="full-width">
+			<div class="wrapper">
+				<output class="emgrid">
+					<!-- chrome overrides white-space-collapse when contenteditable is on -->
+					<p contenteditable="plaintext-only" spellcheck="false" class="serif">ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz</p>
+					<p contenteditable="plaintext-only" spellcheck="false" class="sans-serif">ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz</p>
+					<p contenteditable="plaintext-only" spellcheck="false" class="monospace">ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz</p>
+				</output>
+			</div>
+		</section>
+
+
 		<style contenteditable="plaintext-only" spellcheck="false">
 			:root	{
-				--base-unit:	16px;
+				--font-size:	16px;
 				--multiplier:	1;
+				--base-unit:	var(--font-size);
 			}
 
-			output p {
-				display: inline-block;
-				/* font-family:serif; */
+			/* html {
+				font-size:		calc(var(--font-size) * var(--multiplier));
+			} */
 
-				font-size:		calc(var(--base-unit) * var(--multiplier));
+			/* link { font-size:16px; } */
+
+			.examples {
+				div {
+					display: inline-block;
+					background-color: lightpink;
+					border:1px dashed deeppink;
+				}
+			}
+
+
+
+			output p {
+				display: block;
 
 				outline: 1px dashed hotpink;
 
@@ -50,18 +88,6 @@
 				white-space-collapse: collapse;			/* chrome overrides this */
 			}
 		</style>
-
-
-		<section class="full-width">
-			<div class="wrapper">
-				<output class="emgrid">
-					<!-- chrome overrides white-space-collapse when contenteditable is on -->
-					<p contenteditable="plaintext-only" spellcheck="false" style="font-family:serif;">abcdefghijklm nopqrstuvwxyz</p>
-					<p contenteditable="plaintext-only" spellcheck="false" style="font-family:sans-serif;">abcdefghijklm nopqrstuvwxyz</p>
-					<p contenteditable="plaintext-only" spellcheck="false" style="font-family:monospace;">abcdefghijklm nopqrstuvwxyz</p>
-				</output>
-			</div>
-		</section>
 
 
 		<style contenteditable="plaintext-only" spellcheck="false" class="maxHeight-small">

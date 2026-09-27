@@ -6,7 +6,7 @@ Task
 
 Todo
 ----
-* `CSS`				There's a font-size bug coming in from somewhere....
+* `CSS`				Font-size bug: browsers often set monospace font at a smaller default - investigate
 * `tree`			Get a few basic data structures in place w/ types & classes; some experimental code for things like metrics
 * `permutation`		Once tree ADTs in place see if permutations can be returned as trees
 * `async`			Revamp the async-await experiment, really need to dig in here, especially dependent sequences of awaits
