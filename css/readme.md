@@ -13,6 +13,18 @@ Notes
 
 
 
+Computed styles
+---------------
+
+eg
+```js
+	window.getComputedStyle(someElement).someProperty
+```
+
+NB reading properties like this is 'live' afaict, eg things affected by transitions can be read, sometimes inadvertently, part way through.
+Reading a non-transitioned property might be needed in some instances.
+
+
 Performance
 -----------
 

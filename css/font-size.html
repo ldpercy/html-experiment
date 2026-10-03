@@ -15,13 +15,18 @@
 
 	<main>
 
-		<form>
+		<form name="main">
 			<label>--font-size</label>
-			<input type="text" value="16px" onchange="document.documentElement.style.setProperty('--font-size',`${this.value}`)">
+			<input type="text" name="--font-size" value="16px">
 
 			<label>--multiplier</label>
-			<input type="number" min="0.5" max="9" value="1.0" step="0.5" onchange="document.documentElement.style.setProperty('--multiplier',`${this.value}`)">
+			<input type="number" name="--multiplier" min="0.5" max="9" value="1.0" step="0.25">
 
+			<label>text</label>
+			<input type="text" name="input-text" value="ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz">
+
+			<label for="input-applyFontSize">apply font size overrides</label>
+			<input type="checkbox" name="applyFontSize" id="input-applyFontSize">
 
 		</form>
 
@@ -30,37 +35,56 @@
 			<div style="width:10em; height:10em">
 				style="width:10em; height:10em"
 			</div>
-			<div style="width:20em; height:20em">
-				style="width:20em; height:20em"
+			<div style="width:5em; height:5em">
+				style="width:5em; height:5em"
 			</div>
 		</section>
 
 
 
 		<section class="full-width">
-			<div class="wrapper">
-				<output class="emgrid">
-					<!-- chrome overrides white-space-collapse when contenteditable is on -->
-					<p contenteditable="plaintext-only" spellcheck="false" class="serif">ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz</p>
-					<p contenteditable="plaintext-only" spellcheck="false" class="sans-serif">ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz</p>
-					<p contenteditable="plaintext-only" spellcheck="false" class="monospace">ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz</p>
+			<div class="wrapper emgrid">
+				<output>
+					<p class="sans-serif"	title="sans-serif">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+					<p class="monospace"	title="monospace">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+					<p class="serif"		title="serif">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+					<p class="cursive"		title="cursive">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+					<p class="fantasy"		title="fantasy">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+					<p class="emoji"		title="emoji">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+
 				</output>
 			</div>
 		</section>
 
 
-		<style contenteditable="plaintext-only" spellcheck="false">
+		<style id="style-applyFontSize" disabled>
+
+			html {
+				font-size:		calc(var(--font-size) * var(--multiplier));
+			}
+
+		</style>
+
+
+		<style contenteditable="plaintext-only" spellcheck="false" class="maxHeight-small">
+
 			:root	{
 				--font-size:	16px;
 				--multiplier:	1;
 				--base-unit:	var(--font-size);
 			}
-
-			/* html {
-				font-size:		calc(var(--font-size) * var(--multiplier));
-			} */
-
-			/* link { font-size:16px; } */
 
 			.examples {
 				div {
@@ -70,39 +94,33 @@
 				}
 			}
 
-
-
-			output p {
-				display: block;
-
-				outline: 1px dashed hotpink;
-
-				margin-block:  calc(2 * var(--base-unit));
-				margin-inline: calc(1 * var(--base-unit));
-
-				/* font-size-adjust:  ex-height 0.5; */
-				vertical-align: baseline;
-				alignment-baseline: baseline;			/* not working for me */
-				/* baseline | alphabetic | ideographic | middle | central | mathematical | text-before-edge | text-after-edge */
-
-				white-space-collapse: collapse;			/* chrome overrides this */
-			}
-		</style>
-
-
-		<style contenteditable="plaintext-only" spellcheck="false" class="maxHeight-small">
-
 			output {
 
 				display:block;
+				height:100%;
 
-				transition: font-size 0.5s linear;
+				/* transition: font-size 0.5s linear; */
 
-				min-height:5em;
+
+				display:grid;
+				grid-template-columns: 1fr 1fr 1fr;
+
 
 				h1, h2, h3, h4, h5, h6, p {
 					background-color:hsl(from lemonchiffon h s l / 0.5);
 				}
+
+				p {
+					display: block;
+
+					outline: 1px dashed hotpink;
+
+					margin-block:  calc(2 * var(--base-unit));
+					margin-inline: calc(1 * var(--base-unit));
+
+					white-space-collapse: collapse;			/* chrome overrides this */
+				}
+
 			}
 
 			.emgrid {
@@ -141,6 +159,38 @@
 
 		</style>
 
+
+		<script>
+
+
+			document.forms['main'].addEventListener('change',mainFormOnchange);
+
+			function mainFormOnchange() {
+				console.log('mainFormOnchange');
+				const form = document.forms['main'];
+
+
+				document.getElementById('style-applyFontSize').disabled = !form.applyFontSize.checked;
+
+
+				document.documentElement.style.setProperty('--font-size', form['--font-size'].value);
+				document.documentElement.style.setProperty('--multiplier', form['--multiplier'].value);
+
+				document.querySelectorAll('output p').forEach(
+					(element) => {
+						let fontSize = window.getComputedStyle(element)['font-size'];
+						element.innerHTML = `[${fontSize}] ${form['input-text'].value}`;
+					}
+				);
+
+
+
+
+			}
+
+			mainFormOnchange();
+
+		</script>
 
 
 	</main>
