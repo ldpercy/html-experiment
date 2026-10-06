@@ -69,13 +69,37 @@
 		</section>
 
 
-		<style id="style-applyFontSize" disabled>
+		<section class="full-width">
+			<div class="wrapper emgrid">
+				<output>
+					<p class="fs-xx-small"	title="xx-small">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+					<p class="fs-x-small"	title="x-small">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+					<p class="fs-small"		title="small">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+					<p class="fs-medium"	title="medium">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+					<p class="fs-large"		title="large">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+					<p class="fs-x-large"	title="x-large">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+					<p class="fs-xx-large"	title="xx-large">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+					<p class="fs-xxx-large"	title="xxx-large">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+				</output>
+			</div>
+		</section>
 
-			html {
-				font-size:		calc(var(--font-size) * var(--multiplier));
-			}
-
-		</style>
 
 
 		<style contenteditable="plaintext-only" spellcheck="false" class="maxHeight-small">
@@ -157,6 +181,22 @@
 				}
 			}
 
+
+			.fs-xx-small	{ font-size: xx-small; }
+			.fs-x-small		{ font-size: x-small; }
+			.fs-small		{ font-size: small; }
+			.fs-medium		{ font-size: medium; }
+			.fs-large		{ font-size: large; }
+			.fs-x-large		{ font-size: x-large; }
+			.fs-xx-large	{ font-size: xx-large; }
+			.fs-xxx-large	{ font-size: xxx-large; }
+
+		</style>
+
+		<style id="style-applyFontSize" disabled>
+			html {
+				font-size:		calc(var(--font-size) * var(--multiplier));
+			}
 		</style>
 
 
@@ -182,9 +222,6 @@
 						element.innerHTML = `[${fontSize}] ${form['input-text'].value}`;
 					}
 				);
-
-
-
 
 			}
 

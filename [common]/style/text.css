@@ -25,3 +25,14 @@ a {
 		text-decoration: underline;
 	}
 } */
+
+
+
+.fs-xx-small	{ font-size: xx-small; }
+.fs-x-small		{ font-size: x-small; }
+.fs-small		{ font-size: small; }
+.fs-medium		{ font-size: medium; }
+.fs-large		{ font-size: large; }
+.fs-x-large		{ font-size: x-large; }
+.fs-xx-large	{ font-size: xx-large; }
+.fs-xxx-large	{ font-size: xxx-large; }

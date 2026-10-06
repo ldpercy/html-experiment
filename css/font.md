@@ -51,8 +51,17 @@ Common browsers have had full-page zoom features for ages, as have OSs.
 
 
 
+### Absolute font sizes
+https://developer.mozilla.org/en-US/docs/Web/CSS/absolute-size
 
-### Solution...?
+> Each <absolute-size> keyword value is sized relative to the medium size and the individual device's characteristics, such as device resolution. User agents maintain a table of font sizes for each font, with the <absolute-size> keywords being the index.
+
+I think that means that these sizes are independent of any contextual font-sizes, and outside of the developers control.
+
+
+
+Monospace font-size solution...?
+--------------------------------
 
 I've found the problem now, how best to solve??
 
@@ -85,5 +94,9 @@ html {
 
 But otherwise, by default, monospace text will have the *same* font-size as regular text.
 
+The next question is how best to select and style the 'particular monospace things', eg
+* textarea
+* inline script and style
+* pre, code, kbd etc - other traditionally monospace things
 
-
+And what size should they get?
