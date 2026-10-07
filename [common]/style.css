@@ -16,6 +16,7 @@
 @import "./style/header.css";
 @import "./style/text.css";
 @import "./style/font-family.css";
+@import "./style/visible.css";
 
 
 :root {
@@ -25,7 +26,7 @@
 	--project-scheme-dark:  black;
 	--project-panel-colour: silver;
 
-	--project-base-length: 8px;
+	--project-base-length: calc(1rem / 2);
 
 	--gap: var(--project-base-length);
 

@@ -69,36 +69,6 @@
 		</section>
 
 
-		<section class="full-width">
-			<div class="wrapper emgrid">
-				<output>
-					<p class="fs-xx-small"	title="xx-small">
-						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
-					</p>
-					<p class="fs-x-small"	title="x-small">
-						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
-					</p>
-					<p class="fs-small"		title="small">
-						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
-					</p>
-					<p class="fs-medium"	title="medium">
-						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
-					</p>
-					<p class="fs-large"		title="large">
-						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
-					</p>
-					<p class="fs-x-large"	title="x-large">
-						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
-					</p>
-					<p class="fs-xx-large"	title="xx-large">
-						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
-					</p>
-					<p class="fs-xxx-large"	title="xxx-large">
-						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
-					</p>
-				</output>
-			</div>
-		</section>
 
 
 
@@ -139,8 +109,8 @@
 
 					outline: 1px dashed hotpink;
 
-					margin-block:  calc(2 * var(--base-unit));
-					margin-inline: calc(1 * var(--base-unit));
+					margin-block:  1em;
+					margin-inline: 1em;
 
 					white-space-collapse: collapse;			/* chrome overrides this */
 				}
@@ -225,10 +195,41 @@
 
 			}
 
-			mainFormOnchange();
+			document.addEventListener('DOMContentLoaded', mainFormOnchange);
 
 		</script>
 
+		<section class="full-width">
+			<h2>Absolute sizes</h2>
+			<div class="wrapper emgrid">
+				<output>
+					<p class="fs-xx-small"	title="xx-small">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+					<p class="fs-x-small"	title="x-small">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+					<p class="fs-small"		title="small">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+					<p class="fs-medium"	title="medium">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+					<p class="fs-large"		title="large">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+					<p class="fs-x-large"	title="x-large">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+					<p class="fs-xx-large"	title="xx-large">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+					<p class="fs-xxx-large"	title="xxx-large">
+						ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz
+					</p>
+				</output>
+			</div>
+		</section>
 
 	</main>
 
