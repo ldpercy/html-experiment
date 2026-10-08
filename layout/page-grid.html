@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" class="emgrid">
+<head>
+	<title>page-grid</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="../favicon.svg">
+	<link rel="stylesheet" href="../[common]/style.css">
+	<script type="module" src="../[common]/module.js"></script>
+</head>
+<body>
+	<page-header>
+		<span slot="page-title">page-grid</span>
+	</page-header>
+
+	<main>
+
+	<style contenteditable="plaintext-only" spellcheck="false">
+
+
+		:root	{
+			--base-unit:	1em;
+		}
+
+
+
+
+
+		.grid-container {
+			display: grid;
+			border: 2px solid green;
+			border-radius:1ex;
+
+			margin: var(--base-length);
+			border-radius: var(--base-length);
+			padding:1ex;
+			justify-content: space-between;
+			gap: 1ex;
+
+
+			&>* { margin:inherit; padding:inherit; border-radius:inherit;	}
+
+			section {
+				grid-column-start: 1;
+				grid-column-end: 3;
+			}
+			aside { grid-column-start: 2; }
+
+		}
+
+		@media (orientation: landscape) {
+			.grid-container { grid-template-columns: 1fr 1fr 1fr 1fr ; }
+		}
+
+		@media (orientation: portrait) {
+			.grid-container { grid-template-columns: 1fr 1fr ; }
+		}
+	</style>
+
+
+	<div class="grid-container pretty">
+		<div>abcd</div>
+		<div>efgh</div>
+		<p>ijkl</p>
+
+		<section>mnop</section>
+		<aside>qrst</aside>
+		<div>uvwx</div>
+		<div>yz</div>
+	</div>
+
+
+	<form class="grid-container pretty">
+		<label for="input-abcd">abcd</label>
+		<input id="input-abcd" type="text" name="text"/>
+		<label for="input-efgh">efgh</label>
+		<input id="input-efgh" type="date" name="date"/>
+		<label for="input-ijkl">ijkl</label>
+		<select id="input-ijkl" name="date">
+			<option>123</option>
+			<option>456</option>
+			<option>789</option>
+		</select>
+		<label for="input-tyui">abcd</label>
+		<input id="input-tyui" type="text" name="text"/>
+	</form>
+
+	</main>
+
+</body>
+</html>

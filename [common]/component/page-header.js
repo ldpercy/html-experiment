@@ -71,6 +71,14 @@ export class PageHeader extends HTMLElement {
 						this.setColourScheme(eventTarget.dataset.colourscheme);
 					}
 				);
+				element.addEventListener(
+					'dblclick',
+					(event) => {
+						event.preventDefault();
+						const eventTarget = /** @type {HTMLElement} */ (event.target);		// this cast is awkward - see if there is a 'proper' way
+						this.setColourScheme(`${eventTarget.dataset.colourscheme}-layout`);
+					}
+				);
 			}
 		);
 
