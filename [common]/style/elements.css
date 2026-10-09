@@ -4,7 +4,7 @@
 ** Elements & Colours
 */
 
-pre.md {		/* treat these like markdown */
+pre.md, pre.markdown {		/* treat these like markdown */
 	--element-colour: whitesmoke;
 	white-space: pre-line;
 	padding: 2em;

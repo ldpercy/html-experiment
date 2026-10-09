@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="emgrid">
+<html lang="en" class="emgrid-lr">
 <head>
 	<title>background</title>
 	<meta charset="utf-8">
@@ -16,7 +16,15 @@
 
 	<style contenteditable="plaintext-only" spellcheck="false">
 
+		html body {
+			background-color: hsl(from var(--body-background) h s l / 0.8);
+		}
 
+		main>div {
+			background-color: greenyellow;
+			background-image: url(../[common]/graphics/favicon-bw.svg);
+			background-size: 3em;
+		}
 
 
 		.grid-container {
@@ -51,6 +59,7 @@
 	</style>
 
 
+
 	<div class="grid-container pretty">
 		<div>abcd</div>
 		<div>efgh</div>
@@ -77,6 +86,80 @@
 		<label for="input-tyui">abcd</label>
 		<input id="input-tyui" type="text" name="text"/>
 	</form>
+
+
+	<style>
+		.emgrid-left {
+			--line-colour: blue;
+			background-image:
+				repeating-linear-gradient(
+					to bottom,
+					var(--line-colour) 0px,
+					var(--line-colour) 1px,
+					transparent 1px,
+					transparent 1em
+				),
+				repeating-linear-gradient(
+					to right,
+					var(--line-colour) 0px,
+					var(--line-colour) 1px,
+					transparent 1px,
+					transparent 1em
+				);
+			background-position: left;
+		}
+
+		.emgrid-right {
+			--line-colour: red;
+			background-image:
+				repeating-linear-gradient(
+					to bottom,
+					var(--line-colour) 0px,
+					var(--line-colour) 1px,
+					transparent 1px,
+					transparent 1em
+				),
+				repeating-linear-gradient(
+					to right,
+					var(--line-colour) 0px,
+					var(--line-colour) 1px,
+					transparent 1px,
+					transparent 1em
+				);
+			background-position: right;
+		}
+
+		.emgrid-lr {
+			--line-colour: red;
+			background:
+				repeating-linear-gradient(
+					to bottom,
+					#ff00ff44 0px,
+					#ff00ff44 1px,
+					transparent 1px,
+					transparent 1em
+				),
+				repeating-linear-gradient(
+					to right,
+					#0000ff44 0px,
+					#0000ff44 1px,
+					transparent 1px,
+					transparent 1em
+				),
+				repeating-linear-gradient(
+					to left,
+					#ff000044 0px,
+					#ff000044 1px,
+					transparent 1px,
+					transparent 1em
+				)
+			;
+		}
+
+
+
+	</style>
+
 
 	</main>
 
