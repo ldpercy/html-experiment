@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Component style</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="../favicon.svg">
+	<link rel="stylesheet" href="../[common]/style.css">
+	<script type="module" src="../[common]/module.js"></script>
+</head>
+<body>
+	<page-header>
+		<span slot="page-title">Component style</span>
+	</page-header>
+
+	<script type="module" src="web-component.js"></script>
+	<!-- <script type="module" src="./section.component.js"></script> -->
+	<!-- <script type="module" src="./simple.component.js"></script> -->
+
+	<main>
+
+
+	<style>
+
+		/* template {
+			display: block;
+			border: 1px dashed red;
+		}
+		*/
+
+
+		h3 { color:purple; }
+
+		section {
+			border: 1px dashed silver;
+		}
+
+
+		section {
+			border: 1px dashed darkorange;
+
+			h3 {
+				font-style:italic;
+			}
+
+			pre {
+				display:block;
+				font-family:fantasy;
+			}
+
+			[slot=slot1] { color:red; }
+			[slot=slot2] { color:green; }
+			[slot=slot3] { color:blue; }
+
+		}
+
+
+		foobar {
+			border: 1px dotted fuchsia;
+			background-color: floralwhite;
+		}
+
+	</style>
+
+	<section>
+		<h3 slot="heading">my first section component</h3>
+
+		<pre>
+			Some regular html in the component tag.
+			When the component is registered this doesn't appear.
+			It shows up the inspector as part of the regular dom, but gets no css properties.
+			Don't seem to be able to force it to display either.
+			Not sure what if any status it formally has.
+			Pity, seems like it would be nice to be able to write regular html in here like this.
+		</pre>
+
+		<test-component>
+			similarly, can't just wodge another component in here like this, it also gets ignored
+		</test-component>
+
+		<code slot="slot3">
+			slot3 content
+		</code>
+		<!-- <code slot="slot2">
+			slot2 content
+		</code> -->
+		<code slot="slot1">
+			slot1 content
+		</code>
+
+	</section>
+
+	<section>
+		<h3 slot="heading">another section component</h3>
+
+		<pre>
+			Some regular html in the component tag.
+		</pre>
+
+		<test-component slot="slot2">
+			<p slot="slot1">slotting a component works - this is slotted into section-component slot2</p>
+		</test-component>
+
+		<code slot="slot3">
+			slot3 content
+		</code>
+
+
+		<p slot="slot2">
+			more slot2 content
+		</p>
+		<pre slot="slot2">
+			Even more slot2 content.
+			Looks like you can go to town with the slots.
+		</pre>
+
+
+		<code slot="slot1">
+			slot1 content
+		</code>
+
+	</section>
+
+
+
+
+
+
+
+	<section>
+
+		<test-component>
+			asdf
+		</test-component>
+
+
+		<foobar>
+			This is a totally bogus 'foobar' element.
+			Looks like it gets treated as an inline element.
+		</foobar>
+
+
+	</section>
+
+
+
+
+	<template id="template0" ><!-- shadowrootmode="open" open closed -->
+		<style>
+			h3 { color:royalblue; }
+		</style>
+		<h3>Template 0</h3>
+		<slot name="my-text">My default text</slot>
+	</template>
+
+	<my-custom-element>
+		asdfsadf
+	</my-custom-element>
+
+	<my-custom-element>
+		asdfsadf
+		<span slot="my-text">Let's have some different text!</span>
+	</my-custom-element>
+
+
+
+
+
+	<!--
+	<input type="text" id="input-url" placeholder="url">
+	 -->
+	<!--
+	<table id="producttable">
+	<thead>
+		<tr>
+		<td>UPC_Code</td>
+		<td>Product_Name</td>
+		</tr>
+	</thead>
+	<tbody>
+		<! - - existing data could optionally be included here - - >
+	</tbody>
+	</table>
+
+	<template id="productrow">
+	<tr>
+		<td class="record"></td>
+		<td></td>
+	</tr>
+	</template>
+ 	-->
+
+	<!--
+	<template id="template1" shadowrootmode="open">
+		<h3>Template 1</h3>
+	</template>
+
+	<template id="template2" shadowrootmode="closed">
+		<h3>Template 2</h3>
+	</template>
+
+	<template id="template3" shadowrootmode="asdsda">
+		<h3>Template 3</h3>
+	</template>
+	-->
+
+
+	<script type="module">
+
+		export class TestComponent extends HTMLElement {
+
+			constructor() {
+				super();
+				console.log('TestComponent args:',arguments);	// no arguments are received by the constructor
+
+				this.attachShadow({ mode: "open" });
+				this.shadowRoot.innerHTML = `
+					<style>
+						div {
+							border:1px solid red;
+							border-radius:1em 0em;
+							background-color: lightpink;
+							padding: 1em;
+							margin:1em;
+						}
+					</style>
+					<div>
+						<p>
+							This is the simple component
+						</p>
+						<!-- these, when filled, show up in the regular dom and can be easily styled from the outside -->
+						<slot name="slot1">test-component default slot1</slot>
+						<slot name="slot2">test-component default slot2</slot>
+						<!-- unfilled slots stay in the shadow dom -->
+					</div>
+				`;
+
+				//console.log('this', this);
+				//console.log('document', document);
+				//console.log('shadowRoot', this.shadowRoot);
+			}/* constructor */
+
+
+			connectedCallback()			{	/* console.log('connectedCallback');		*/	}
+			disconnectedCallback()		{	/* console.log('disconnectedCallback');		*/	}
+			connectedMoveCallback()		{	/* console.log('connectedMoveCallback');	*/	}
+			adoptedCallback()			{	/* console.log('adoptedCallback');			*/	}
+			attributeChangedCallback(name, oldValue, newValue) {
+				// console.log(
+				// 	`Attribute ${name} has changed from ${oldValue} to ${newValue}.`,
+				// );
+			}
+
+		}/* class TestComponent */
+
+
+		customElements.define("test-component", TestComponent);
+
+	</script>
+
+
+	<!-- <closed-component>
+		<h3 slot="heading">closed component heading slot</h3>
+
+		<pre>
+			Some regular html in the component tag.
+			This doesn't appear...?
+			It shows up the inspector as part of the regular dom, but gets no css properties.
+			Don't seem to be able to force it to display either.
+			Not sure what if any status it formally has.
+			Pity, seems like it would be nice to be able to write regular html in here like this.
+		</pre>
+
+		<code slot="slot3">
+			some slot content
+		</code>
+
+	</closed-component> -->
+
+	</main>
+</body>
+</html>

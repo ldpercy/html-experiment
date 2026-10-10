@@ -38,18 +38,7 @@ export class SimpleComponent extends HTMLElement {
 		//console.log('document', document);
 		//console.log('shadowRoot', this.shadowRoot);
 
-		// this.shadowRoot.querySelectorAll('.colourScheme-selector').forEach(
-		// 	(element) => {
-		// 		element.addEventListener(
-		// 			'click',
-		// 			(event) => {
-		// 				event.preventDefault();
-		// 				const eventTarget = /** @type {HTMLElement} */ (event.target);		// this cast is awkward - see if there is a 'proper' way
-		// 				this.setColourScheme(eventTarget.dataset.colourscheme);
-		// 			}
-		// 		);
-		// 	}
-		// );
+
 
 	}/* constructor */
 
