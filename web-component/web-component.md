@@ -7,6 +7,13 @@ https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_ele
 
 
 
+Custom elements
+---------------
+
+### Name
+> This must start with a lowercase letter, contain a hyphen, and satisfy certain other rules listed in the specification's definition of a valid name.
+
+
 Open / closed mode
 -----------------
 
