@@ -1,0 +1,9 @@
+{
+	"name"			: "html-experiment",
+	"description"	: "Sandbox for HTML, CSS, SVG, JS etc",
+	"repository"	: "https://github.com/ldpercy/html-experiment/",
+	"version"		: "",
+	"commit"		: "",
+	"date"			: "2026-10-13",
+	"tag"			: ["html","css","svg","js"]
+}
