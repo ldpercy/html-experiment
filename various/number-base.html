@@ -5,31 +5,12 @@
 	<meta charset="utf-8">
 	<link rel="icon" href="../favicon.svg">
 	<link rel="stylesheet" href="../[common]/style.css">
-	<script>
-		console.clear();
-		console.log('experiment-template.html');
-		document.addEventListener('DOMContentLoaded', documentDOMContentLoaded);
-
-		function documentDOMContentLoaded() {
-			log = createPageLog(document.getElementById('pageLog'));
-			log('experiment-template.html: document.DOMContentLoaded');
-			run();
-		}
-	</script>
-	<script defer src="../[common]/common-script.js"></script>
-
+	<script type="module" src="../[common]/module.js"></script>
 </head>
 <body>
-	<header>
-		<h1><a href="">number base</a></h1>
-		<nav>
-			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
-			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
-			<a title="To folder" href="./">🖿</a>
-			<a title="Parent folder" href="../">🡅</a>
-		</nav>
-
-	</header>
+	<page-header>
+		<span slot="page-title">number base</span>
+	</page-header>
 
 	<main>
 	<script>
@@ -112,15 +93,17 @@
 			return result;
 		}
 
+		document.addEventListener('DOMContentLoaded', documentDOMContentLoaded);
 
+		function documentDOMContentLoaded() {
+			run();
+		}
 	</script>
+
 	<output id="output">
-
-
 	</output>
 
 	</main>
-	<h2>Log:</h2>
-	<output id="pageLog"></output>
+
 </body>
 </html>

@@ -5,22 +5,16 @@
 	<meta charset="utf-8">
 	<link rel="icon" href="../favicon.svg">
 	<link rel="stylesheet" href="../[common]/style.css">
-	<script src="../[common]/common-script.js"></script>
+	<script type="module" src="../[common]/module.js"></script>
 
 </head>
 <body>
-	<header>
-		<h1><a href="">Roman numerals</a></h1>
-		<nav>
-			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
-			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
-			<a title="To folder" href="./">🖿</a>
-			<a title="Parent folder" href="../">🡅</a>
-		</nav>
-	</header>
+	<page-header>
+		<span slot="page-title">Roman numerals</span>
+	</page-header>
 
+	<main>
 	<script>
-		console.clear();
 		console.log('experiment-template.html');
 		document.addEventListener('DOMContentLoaded', documentDOMContentLoaded);
 
@@ -64,8 +58,6 @@
 
 	</script>
 
-
-	<h2>Log:</h2>
-	<output id="pageLog"></output>
+	</main>
 </body>
 </html>

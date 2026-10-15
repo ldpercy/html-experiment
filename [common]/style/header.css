@@ -1,5 +1,8 @@
 header {
 
+
+	padding:1em;
+
 	a {
 		text-decoration-line: none;
 		&:hover {
@@ -7,12 +10,8 @@ header {
 		}
 	}
 
-	h1::before {
-		display: inline-block;
-		content: url("../../favicon.svg") / "HTML experiment icon";
-		height:1.2ex;
-		width:1.2ex;
-		margin-right:1rex;
+	h1 {
+		line-height: 1em;
 	}
 
 }

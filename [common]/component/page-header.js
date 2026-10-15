@@ -31,8 +31,8 @@ export class PageHeader extends HTMLElement {
 				a { color: color-mix(in srgb, var(--project-colour) 75%, var(--text-colour)); }
 				.project-icon {
 					display: inline-block;
-					height:1.2ex;
-					width:1.2ex;
+					height:1em;
+					width:1em;
 					img:hover {
 						filter: drop-shadow(0px 0px 5px var(--accent-colour));
 					}

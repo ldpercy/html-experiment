@@ -5,19 +5,13 @@
 	<meta charset="utf-8">
 	<link rel="icon" href="../favicon.svg">
 	<link rel="stylesheet" href="../[common]/style.css">
+	<script type="module" src="../[common]/module.js"></script>
 </head>
 <body>
-	<header>
-		<h1><a href="">prefers-color-scheme</a></h1>
-		<nav>
-			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
-			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
-			<a title="To folder" href="./">🖿</a>
-			<a title="Parent folder" href="../">🡅</a>
-		</nav>
-	</header>
+	<page-header>
+		<span slot="page-title">prefers-color-scheme</span>
+	</page-header>
 
-	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
 	<main>
 
 
@@ -35,7 +29,7 @@
 
 		}
 
-		span {display:inline-block; padding:1em; }
+		section span {display:inline-block; padding:1em; }
 
 		.light {
 			color-scheme: light;
