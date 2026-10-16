@@ -1,34 +1,15 @@
 
 /*
-**	Tree
-
-
-
-
+**	tree.js
 */
 
 
 
-
-//
-//	Children as array of tree nodes
-//
-
-/** ArrayTreeNode
- * @typedef		{Object}					ArrayTreeNode
- * @property	{Array<ArrayTreeNode>}		child
- */
+import * as st from '../[common]/module/simple-tree.js';
 
 
+let tn = new st.Node;
 
-
-//
-//	Children as named nodes
-//
-
-/** ObjectTreeNode
- * @typedef		{Object}						ObjectTreeNode
- * @property	{Object<string,ObjectTreeNode>}	child
- */
-
-
+console.log(tn);
+console.log(tn.child);
+console.log(tn.parent);

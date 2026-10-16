@@ -13,56 +13,25 @@
 		<span slot="page-title">tree</span>
 	</page-header>
 
+	<script type="module" src="./tree.js"></script>
+
 	<main>
 
 		<style contenteditable="plaintext-only">
 		</style>
 
 
-		<form name="silverdata-test">
-			<h2>silverdata-test</h2>
+		<form name="simpletree-test">
+			<h2>simple-tree test</h2>
 
-			<label>base path</label>
-			<input type="text" name="basePath" value="/silver-language/silverdata-js/test/">
 
 			<button type="button" name="load-silverdata-test">
 				load silverdata-test
 			</button>
-			<button type="button" name="load-and-flatten">
-				load & flatten
-			</button>
+
 		</form>
 
 
-		<script type="module">
-
-			import { loadTestDirectory, flattenSubdirectories, setBasePath } from './silverdata-test.js';
-
-			/* loadSilverdataTest */
-			async function loadSilverdataTest() {
-				setBasePath(document.forms['silverdata-test']['basePath'].value);
-				const result = await loadTestDirectory('/');
-				console.log(result);
-				document.getElementById('data-output').render(result);
-			}/* loadSilverdataTest */
-
-			/* loadSilverdataTest */
-			async function loadAndFlatten() {
-				setBasePath(document.forms['silverdata-test']['basePath'].value);
-				const result = await loadTestDirectory('/');
-				const flattened = flattenSubdirectories(result);
-				console.log(flattened);
-				document.getElementById('data-output').render(flattened);
-			}/* loadAndFlatten */
-
-
-			document.forms['silverdata-test']['load-silverdata-test'].addEventListener('click', loadSilverdataTest);
-			document.forms['silverdata-test']['load-and-flatten'].addEventListener('click', loadAndFlatten);
-
-
-			loadSilverdataTest();
-
-		</script>
 
 		<output >
 
@@ -70,6 +39,12 @@
 
 		</output>
 
+
+		<script>
+
+			console.log(Temporal.Now.instant().epochMilliseconds);
+
+		</script>
 
 
 
