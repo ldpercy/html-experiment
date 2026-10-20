@@ -8,8 +8,19 @@
 import * as st from '../[common]/module/simple-tree.js';
 
 
-let tn = new st.Node;
+let t1 = new st.ArrayNode;
 
-console.log(tn);
-console.log(tn.child);
-console.log(tn.parent);
+
+
+
+
+let c1 = new st.ArrayNode();
+
+t1.addChild(c1);
+
+
+console.log(t1);
+console.log(t1.child);
+console.log(t1.parent);
+
+

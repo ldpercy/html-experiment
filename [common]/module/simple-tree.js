@@ -3,27 +3,55 @@
 */
 
 
-
-/** @typedef {Node|null}	NodeOption	*/
-/** @typedef {Array<Node>}	NodeArray	*/
-
-
-//Temporal.Now.instant().epochMilliseconds;
-
-
-export class Node {
+/** @typedef {NodeInterface|undefined}	NodeOption	*/
+/** @typedef {Array<NodeInterface>}		NodeArray	*/
 
 
 
-	/** @type Array<Node> */	#child		= [];
-	/** @type NodeOption */		#parent		= null;
-	/** @type number */			#depth		= 0;
-	/** @type Node */			#root		= this;
-	/** @type number */			#counter	= 0;
-	/** @type number */			#id			= 0;
+/** NodeInterface
+ * @interface
+ */
+export class NodeInterface {
+
+	/** @type NodeOption	*/	#parent		= undefined;
+
+	constructor() { }
+
+	/**
+	 * @argument {NodeInterface} node
+	 * @returns {void}
+	 **/
+	addChild(node) {
+		node.#parent =
+	}
+
+	/**
+	 * @argument {any} id
+	 * @returns {NodeOption}
+	 **/
+	removeChild(id) { return null; }
+
+}/* NodeInterface */
+
+
+
+
+
+
+/**
+ * @implements {NodeInterface}
+ */
+export class ArrayNode {
+
+	/** @type NodeArray		*/	#child		= [];
+
+	/** @type number		*/	#depth		= 0;
+	/** @type NodeInterface	*/	#root		= this;
+	/** @type number		*/	#counter	= 0;
+	/** @type number		*/	#id			= 0;
 
 	constructor() {
-		this.#id = Date.now(); // Temporal.Now.instant().epochMilliseconds;
+		this.#id = Date.now();	// Temporal.Now.instant().epochMilliseconds;
 	}
 
 
@@ -39,10 +67,28 @@ export class Node {
 	/** @returns number */
 	get depth()		{	return this.#depth;	}
 
-	/** @returns Node */
+	/** @returns NodeInterface */
 	get root()		{	return this.#root;	}
 
-}/* Node */
+
+	/**
+	 * @argument {NodeInterface} node
+	 * @returns {void}
+	 **/
+	addChild(node) {
+		this.#child.push(node);
+	}
+
+	/**
+	 * @argument {number} id
+	 * @returns {NodeOption}
+	 */
+	removeChild(id) {
+		let result = this.#child.splice(id, 1)[0];
+		return result;
+	}
+
+}/* ArrayNode */
 
 
 
