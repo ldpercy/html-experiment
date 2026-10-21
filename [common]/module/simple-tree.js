@@ -13,19 +13,27 @@
  */
 export class NodeInterface {
 
-	/** @type NodeOption	*/	#parent		= undefined;
-
 	constructor() { }
 
-	/**
+	//
+	//	queries
+	//
+
+	/** @returns NodeOption */
+	get parent()	{	return undefined	}
+
+
+	//
+	//	mutators
+	//
+
+	/** appendChild
 	 * @argument {NodeInterface} node
 	 * @returns {void}
 	 **/
-	addChild(node) {
-		node.#parent =
-	}
+	appendChild(node) {	}
 
-	/**
+	/** removeChild
 	 * @argument {any} id
 	 * @returns {NodeOption}
 	 **/
@@ -44,7 +52,7 @@ export class NodeInterface {
 export class ArrayNode {
 
 	/** @type NodeArray		*/	#child		= [];
-
+	/** @type NodeOption	*/	#parent		= undefined;
 	/** @type number		*/	#depth		= 0;
 	/** @type NodeInterface	*/	#root		= this;
 	/** @type number		*/	#counter	= 0;
@@ -54,6 +62,9 @@ export class ArrayNode {
 		this.#id = Date.now();	// Temporal.Now.instant().epochMilliseconds;
 	}
 
+	//
+	//	queries
+	//
 
 	/** @returns number */
 	get id()		{	return this.#id		}
@@ -71,11 +82,16 @@ export class ArrayNode {
 	get root()		{	return this.#root;	}
 
 
+	//
+	//	mutators
+	//
+
+
 	/**
 	 * @argument {NodeInterface} node
 	 * @returns {void}
 	 **/
-	addChild(node) {
+	appendChild(node) {
 		this.#child.push(node);
 	}
 
@@ -87,6 +103,10 @@ export class ArrayNode {
 		let result = this.#child.splice(id, 1)[0];
 		return result;
 	}
+
+
+
+
 
 }/* ArrayNode */
 

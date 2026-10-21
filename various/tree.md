@@ -54,3 +54,36 @@ If the node loc query recursed up the tree (rather than reading a static propert
 
 
 
+Graft / appendChild
+-------------------
+
+Trying to figure out a good way to add nodes to a tree.
+For existing nodes, it'll probably have to be a graft, but trying to figure out how to safely handle the parent node.
+
+The parent property of a node should be mostly read-only I think.
+
+That is you should use 'proper' techniques for prune/graft so other things can be kept in order. [citation needed - should clarify what operations here]
+
+Problem is, graft/appendChild are usually done from the parent's perspective, and it doesn't have access to the child's parent property (I think).
+So how to 'correctly' solve?
+
+There are few different sort of 'maybe' avenues here:
+* See if the parent can bypass the child nodes privacy restrictions - feels wrong
+* Use a different kind of privacy for the parent property? eg https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#writable
+* Append from the child node's perspective?
+
+### Append as a mutator method of the child node?
+
+I'm leaning towards this initially, but it seems unusual - don't think i've seen it done like this before.
+
+You'd end up with a method that looked something like:
+
+	node.appendTo(parentNode) {
+		this.#parent = parentNode
+		parentNode.append ....
+
+Hang on that doesn't seem right either - you need to call a mutator on both nodes, so...
+Lemme think a bit more.
+Maybe I just need a separate parent Setter on the node?
+Feel like modifiers are going to go round in circles...
+
