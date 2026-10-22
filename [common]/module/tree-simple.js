@@ -2,61 +2,24 @@
 **	simple-tree
 */
 
+import * as tree from './tree-type.js';
 
-/** @typedef {NodeInterface|undefined}	NodeOption	*/
-/** @typedef {Array<NodeInterface>}		NodeArray	*/
-
-
-
-/** NodeInterface
- * @interface
- */
-export class NodeInterface {
-
-	constructor() { }
-
-	//
-	//	queries
-	//
-
-	/** @returns NodeOption */
-	get parent()	{	return undefined	}
-
-
-	//
-	//	mutators
-	//
-
-	/** appendChild
-	 * @argument {NodeInterface} node
-	 * @returns {void}
-	 **/
-	appendChild(node) {	}
-
-	/** removeChild
-	 * @argument {any} id
-	 * @returns {NodeOption}
-	 **/
-	removeChild(id) { return null; }
-
-}/* NodeInterface */
-
-
-
-
+/** @typedef {Array<ArrayNode>}		NodeArray	*/
 
 
 /**
- * @implements {NodeInterface}
+ * @implements {tree.ChildInterface}
+ * @implements {tree.ParentReference}
+ * @implements {tree.RootReference}
  */
 export class ArrayNode {
 
-	/** @type NodeArray		*/	#child		= [];
-	/** @type NodeOption	*/	#parent		= undefined;
-	/** @type number		*/	#depth		= 0;
-	/** @type NodeInterface	*/	#root		= this;
-	/** @type number		*/	#counter	= 0;
-	/** @type number		*/	#id			= 0;
+	/** @type NodeArray			*/	#child		= [];
+	/** @type tree.NodeOption	*/	#parent		= undefined;
+	/** @type number			*/	#depth		= 0;
+	/** @type ArrayNode	*/	#root		= this;
+	/** @type number			*/	#counter	= 0;
+	/** @type number			*/	#id			= 0;
 
 	constructor() {
 		this.#id = Date.now();	// Temporal.Now.instant().epochMilliseconds;
@@ -87,25 +50,27 @@ export class ArrayNode {
 	//
 
 
-	/**
-	 * @argument {NodeInterface} node
+	/** appendChild
+	 * @argument {ArrayNode} node
 	 * @returns {void}
 	 **/
 	appendChild(node) {
 		this.#child.push(node);
 	}
 
-	/**
-	 * @argument {number} id
-	 * @returns {NodeOption}
-	 */
-	removeChild(id) {
-		let result = this.#child.splice(id, 1)[0];
-		return result;
+	/** removeChild
+	 * @argument {ArrayNode} node
+	 * @returns {ArrayNode}
+	 **/
+	removeChild(node) {
+		//
+		//let result = this.#child.splice(id, 1)[0];
+
+		// in this case we'd need to know which item in the child array the node was,
+		// so the child node might need to keep a note of it's array index?
+
+		return node;
 	}
-
-
-
 
 
 }/* ArrayNode */

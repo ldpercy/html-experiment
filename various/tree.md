@@ -9,6 +9,37 @@ Tree
 Want to sketch a few tree ADTs so I can solve some problems a bit more generally.
 
 
+Tree/node types & properties
+----------------------------
+
+Probably the main thing is that it's an acyclic graph, with some notion of a root.
+Beyond that a lot of things could be up for grabs.
+
+* Datatype for node - object, map, class instance?
+* Datatype for child collection - object, map, set, array, direct properties of the node etc
+* Number of children? Eg binary tree, ternary tree, unlimited etc
+* Do nodes have a parent ref?
+* Do nodes have identifiers?
+* Do nodes know their position in the child collection/tree?
+* Do nodes have associated payloads/data (apart from children), and if so what type is the data?
+
+
+A lot of the above could be varied depending on requirements, language of implementation etc.
+It's probably also why you don't really see any sort of general 'Tree' data structures in standard libraries - too many options.
+
+
+### Mixed node types
+
+I was wondering if you could have a sort of really generic tree where the child nodes were comprised of different kinds of TreeNode implementations.
+Eg some ArrayNode, some binary nodes, some with/without parent refs?
+You maybe could, but you couldn't really rely on it for very much.
+Most actually useful trees are likely to be all of the same nodetype (i think).
+
+
+
+Array as underlying collection
+------------------------------
+
 To begin with I want children as either arrays or objects.
 Also want to try describing nodes initially using pure types, but then also with small classes.
 While I'm at it, do some exploring into typing of classes themselves.
@@ -64,6 +95,11 @@ The parent property of a node should be mostly read-only I think.
 
 That is you should use 'proper' techniques for prune/graft so other things can be kept in order. [citation needed - should clarify what operations here]
 
+	-> A counterexample would be if the child collection (eg array) was exposed and operations were done directly on it.
+	The client coder could add/remove things easily, but also easily break the tree by not updating children's parent references.
+	So we probably need to enforce api use to keep things in order & useful.
+	Something like that could be used as a v.simple tree variant though - it might have a use case somewhere.
+
 Problem is, graft/appendChild are usually done from the parent's perspective, and it doesn't have access to the child's parent property (I think).
 So how to 'correctly' solve?
 
@@ -80,10 +116,23 @@ You'd end up with a method that looked something like:
 
 	node.appendTo(parentNode) {
 		this.#parent = parentNode
-		parentNode.append ....
+		parentNode.append ....waita a second
 
 Hang on that doesn't seem right either - you need to call a mutator on both nodes, so...
 Lemme think a bit more.
 Maybe I just need a separate parent Setter on the node?
 Feel like modifiers are going to go round in circles...
+
+
+
+Prune/graft scenarios
+---------------------
+
+prune:
+* remove the node from the child array
+* set the node's parent to null
+
+graft:
+* add the node to the child array
+* update the node's parent
 
