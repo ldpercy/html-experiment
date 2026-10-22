@@ -1,5 +1,5 @@
 /*
-**	DataView
+**	ObjectView
 **
 
 Inheriting common styles
@@ -12,7 +12,7 @@ This works though:
 import { render } from '../js-to-html.js';
 
 
-export class DataView extends HTMLElement {
+export class ObjectView extends HTMLElement {
 	// static observedAttributes = ["colour"];
 
 	// /** @type {HTMLInputElement} */ colorInput;
@@ -117,4 +117,4 @@ export class DataView extends HTMLElement {
 }/* class PageHeader */
 
 
-customElements.define("data-view", DataView);
+customElements.define("object-view", ObjectView);
