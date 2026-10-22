@@ -1,27 +1,40 @@
 /*
-**	https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
+**	js-to-html
+
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
+
+
+### Plug ins
+Some sort of plug-in system would be handy here.
+Eg a way to specify extra modules that define object renderers for things of particular types.
+
+Might be able to use this in some instances:
+	thing.constructor.name
+
+
 */
 
 
 
 
 /**
- * @param {any} any
+ * @param {any} thing
  * @return {string}
  */
-export function render(any) {
+export function render(thing) {
 	let result = '';
 
-	switch (typeof any) {
+	switch (typeof thing) {
 		case 'undefined':	result = `<code>undefined</code>`;	break;
-		case 'boolean':		result = `<code>${any}</code>`;		break;
-		case 'string':		result = `<span>${any}</span>`;		break;
-		case 'number':		result = `<span>${any}</span>`;		break;
-		case 'bigint':		result = `<span>${any}</span>`;		break;
-		case 'symbol':		result = `<span>${String(any)}</span>`;		break;
-		case 'object':		result = renderObject(any); 		break;
-		case 'function':	result = renderFunction(any); 		break;
-		default:			result = `<strong>${any}</strong>`;	break;
+		case 'boolean':		result = `<code>${thing}</code>`;		break;
+		case 'string':		result = `<span>${thing}</span>`;		break;
+		case 'number':		result = `<span>${thing}</span>`;		break;
+		case 'bigint':		result = `<span>${thing}</span>`;		break;
+		case 'symbol':		result = `<span>${String(thing)}</span>`;		break;
+		case 'object':		result = renderObject(thing); 		break;
+		case 'function':	result = renderFunction(thing); 		break;
+		default:			result = `<strong>${thing}</strong>`;	break;
 	}
 
 	return result;

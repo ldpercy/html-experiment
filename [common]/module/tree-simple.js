@@ -11,13 +11,14 @@ import * as tree from './tree-type.js';
  * @implements {tree.ChildInterface}
  * @implements {tree.ParentReference}
  * @implements {tree.RootReference}
+ * @implements {tree.NodeId}
  */
 export class ArrayNode {
 
 	/** @type NodeArray			*/	#child		= [];
 	/** @type tree.NodeOption	*/	#parent		= undefined;
 	/** @type number			*/	#depth		= 0;
-	/** @type ArrayNode	*/	#root		= this;
+	/** @type ArrayNode			*/	#root		= this;
 	/** @type number			*/	#counter	= 0;
 	/** @type number			*/	#id			= 0;
 
@@ -25,7 +26,6 @@ export class ArrayNode {
 		this.#id = Date.now();	// Temporal.Now.instant().epochMilliseconds;
 	}
 
-	//
 	//	queries
 	//
 
@@ -45,7 +45,6 @@ export class ArrayNode {
 	get root()		{	return this.#root;	}
 
 
-	//
 	//	mutators
 	//
 
@@ -63,8 +62,9 @@ export class ArrayNode {
 	 * @returns {ArrayNode}
 	 **/
 	removeChild(node) {
-		//
-		//let result = this.#child.splice(id, 1)[0];
+		let childIndex = this.#child.indexOf(node);
+
+		let result = this.#child.splice(childIndex, 1)[0];
 
 		// in this case we'd need to know which item in the child array the node was,
 		// so the child node might need to keep a note of it's array index?

@@ -1,11 +1,11 @@
 /*
 **	Tree type
-Setting up some basic types and interfaces
+Setting up some basic types and interfaces.
+
 */
 
 
 /** @typedef {any}	TreeNode	*/
-
 /** @typedef {TreeNode|undefined}	NodeOption	*/
 
 
@@ -30,7 +30,7 @@ export class ChildInterface {
 	//
 
 	/** appendChild
-	 * @argument {TreeNode} node
+	 * @argument {ChildInterface} node
 	 * @returns {void}
 	 **/
 	appendChild(node) {
@@ -39,8 +39,8 @@ export class ChildInterface {
 	}
 
 	/** removeChild
-	 * @argument {TreeNode} node
-	 * @returns {TreeNode}
+	 * @argument {ChildInterface} node
+	 * @returns {ChildInterface}
 	 **/
 	removeChild(node) {
 		return node;
@@ -60,7 +60,7 @@ export class ParentReference {
 	//	queries
 	//
 
-	/** @returns NodeOption */
+	/** @returns {ParentReference|undefined} */
 	get parent()	{	return undefined	}
 
 
@@ -77,9 +77,25 @@ export class RootReference {
 	//	queries
 	//
 
-	/** @returns NodeOption */
+	/** @returns {RootReference|undefined} */
 	get root()	{	return undefined	}
 
 
 }/* RootReference */
+
+
+/** NodeId
+ * @interface
+ */
+export class NodeId {
+
+	constructor() { }
+
+	//	queries
+	//
+
+	/** @returns {number|string} */
+	get id()		{	return 0	}
+
+}/* NodeId */
 
