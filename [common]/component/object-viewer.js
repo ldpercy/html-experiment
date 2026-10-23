@@ -1,5 +1,5 @@
 /*
-**	ObjectView
+**	ObjectViewer
 **
 
 Inheriting common styles
@@ -24,47 +24,7 @@ export class ObjectView extends HTMLElement {
 		this.attachShadow({ mode: "open" });
 		this.shadowRoot.innerHTML = `
 			<style>
-				/* @import "/html-experiment/[common]/style.css";				this works */
-
-
-				#htmlOutput, #jsonOutput {
-					font-family:monospace;
-					font-size:13px;
-				}
-
-				#htmlOutput {
-
-					table { border-collapse:collapse; width:100%; }
-					th { vertical-align: middle; font-weight:normal; }
-					td,th { padding:0.2em 0.4em; border-width:1px; border-style:dotted;}
-					th { border-color: var(--body-background); }
-
-					table.array {
-						&>tbody>tr>th { background-color: #aaaaaa;}
-						&>tbody>tr>td { border-color: #aaaaaa; }
-					}
-
-					table.object {
-						border-color: orange;
-						&>tbody>tr>th { background-color: lightsalmon;}
-						&>tbody>tr>td { border-color: lightsalmon; }
-
-
-						&>tbody>tr:first-child { border-radius: 1ex;}
-						&>tbody>tr:first-child {
-							&>th { border-radius: 1ex 0ex 0ex 0ex; }
-							&>td { border-radius: 0ex 1ex 0ex 0ex; }
-						}
-						&>tbody>tr:last-child>th { border-radius: 0ex 0ex 0ex 1ex; }
-
-					}
-				}
-				#jsonOutput {
-					tab-size:4;
-					border:1px dashed grey;
-					padding:1ex;
-					border-radius:1ex;
-				}
+				@import "/html-experiment/[common]/component/object-viewer.css";				/* this works */
 			</style>
 
 			<h3>html:</h3>

@@ -95,3 +95,29 @@ use a proxy?
 
 
 */
+
+
+/**
+ * @param {any} thing
+ * @return {boolean}
+ */
+export function isArrayNode(thing) {
+	return (thing.constructor.name === 'ArrayNode');
+}
+
+
+/**
+ * @param {ArrayNode} arrayNode
+ * @param {function} mainRenderFn
+ * @return {string}
+ */
+export function renderArrayNode(arrayNode, mainRenderFn) {
+	console.log('renderArrayNode',arguments);
+	console.log('mainRenderFn',mainRenderFn);
+
+	let result = `
+		${arrayNode.id}
+		${mainRenderFn(arrayNode.child)}
+	`;
+	return result;
+}
