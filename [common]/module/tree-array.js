@@ -1,10 +1,14 @@
 /*
-**	simple-tree
+**	tree-array
+**
+**	Simple tree using arrays for children
 */
 
 import * as tree from './tree-type.js';
+import { ObjectRenderer }  from './object-render.js';
 
-/** @typedef {Array<ArrayNode>}		NodeArray	*/
+/** @typedef {Node|undefined}	NodeOption	*/
+/** @typedef {Array<Node>}		NodeArray	*/
 
 
 /**
@@ -13,17 +17,19 @@ import * as tree from './tree-type.js';
  * @implements {tree.RootReference}
  * @implements {tree.NodeId}
  */
-export class ArrayNode {
+export class Node {
 
-	/** @type NodeArray			*/	#child		= [];
-	/** @type tree.NodeOption	*/	#parent		= undefined;
-	/** @type number			*/	#depth		= 0;
-	/** @type ArrayNode			*/	#root		= this;
-	/** @type number			*/	#counter	= 0;
-	/** @type number			*/	#id			= 0;
+	/** @type NodeArray		*/	#child		= [];
+	/** @type NodeOption	*/	#parent		= undefined;
+	/** @type number		*/	#depth		= 0;
+	/** @type Node			*/	#root		= this;
+	/** @type number		*/	#counter	= 0;
+	/** @type string		*/	#id			= '0';
+
 
 	constructor() {
-		this.#id = Date.now();	// Temporal.Now.instant().epochMilliseconds;
+		//this.#id = Date.now();	// Temporal.Now.instant().epochMilliseconds;
+		this.#id = globalThis.crypto.randomUUID();
 	}
 
 	//	queries
@@ -50,7 +56,7 @@ export class ArrayNode {
 
 
 	/** appendChild
-	 * @argument {ArrayNode} node
+	 * @argument {Node} node
 	 * @returns {void}
 	 **/
 	appendChild(node) {
@@ -58,8 +64,8 @@ export class ArrayNode {
 	}
 
 	/** removeChild
-	 * @argument {ArrayNode} node
-	 * @returns {ArrayNode}
+	 * @argument {Node} node
+	 * @returns {Node}
 	 **/
 	removeChild(node) {
 		let childIndex = this.#child.indexOf(node);
@@ -102,22 +108,23 @@ use a proxy?
  * @return {boolean}
  */
 export function isArrayNode(thing) {
-	return (thing.constructor.name === 'ArrayNode');
+	console.log('isArrayNode', thing.constructor);
+	return (thing.constructor.name === 'Node');
 }
 
 
 /**
- * @param {ArrayNode} arrayNode
- * @param {function} mainRenderFn
+ * @param {Node} arrayNode
+ * @param {ObjectRenderer} renderer
  * @return {string}
  */
-export function renderArrayNode(arrayNode, mainRenderFn) {
+export function renderArrayNode(arrayNode, renderer) {
 	console.log('renderArrayNode',arguments);
-	console.log('mainRenderFn',mainRenderFn);
+	console.log('mainRenderFn', renderer);
 
 	let result = `
 		${arrayNode.id}
-		${mainRenderFn(arrayNode.child)}
+		${renderer.render(arrayNode.child)}
 	`;
 	return result;
 }

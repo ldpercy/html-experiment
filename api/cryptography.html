@@ -5,18 +5,12 @@
 	<meta charset="utf-8">
 	<link rel="icon" href="../favicon.svg">
 	<link rel="stylesheet" href="../[common]/style.css">
-	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
+	<script type="module" src="../[common]/module.js"></script>
 </head>
 <body>
-	<header>
-		<h1><a href="">cryptography</a></h1>
-		<nav>
-			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light" data-colourschemespecial="rainbow">🟓</a>
-			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark" data-colourschemespecial="disco">🟒</a>
-			<a title="To folder" href="./">🖿</a>
-			<a title="Parent folder" href="../">🡅</a>
-		</nav>
-	</header>
+	<page-header>
+		<span slot="page-title">cryptography</span>
+	</page-header>
 
 	<main>
 		<style contenteditable="plaintext-only">
@@ -24,20 +18,32 @@
 			select { margin:1em; }
 		</style>
 
-		<form id="myForm">
+		<form name="main">
 			<h2>Form</h2>
 
+			<button type="button" onclick="console.log(self.crypto.randomUUID())">
+				onclick self.crypto.randomUUID();
+			</button>
 
-			<input type="text" name="textinput" id="myform-input-file">
+			<button type="button" onclick="handler()">
+				handler self.crypto.randomUUID();
+			</button>
 
 
-			<select size="5">
-				<option>abcd</option>
-				<option>efgh</option>
-				<option>ijkl</option>
-				<option>mnop</option>
-			</select>
 		</form>
+
+
+		<script>
+
+			function handler() {
+				console.log(self);
+				console.log(self.crypto.randomUUID());
+			}
+
+
+
+
+		</script>
 
 
 		<script type="module">

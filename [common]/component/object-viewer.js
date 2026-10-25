@@ -9,7 +9,7 @@ This works though:
 	@import "/html-experiment/[common]/style.css";
 */
 
-import { render } from '../js-to-html.js';
+import { ObjectRenderer } from '../module/object-render.js';
 
 
 export class ObjectView extends HTMLElement {
@@ -17,6 +17,8 @@ export class ObjectView extends HTMLElement {
 
 	// /** @type {HTMLInputElement} */ colorInput;
 	// /** @type {HTMLInputElement} */ textInput;
+
+	or = new ObjectRenderer();
 
 	constructor() {
 		super();
@@ -69,7 +71,7 @@ export class ObjectView extends HTMLElement {
 	 * @param {any} data
 	 */
 	render(data) {
-		this.htmlOutput.innerHTML = render(data);
+		this.htmlOutput.innerHTML = this.or.render(data);
 		this.jsonOutput.innerHTML = JSON.stringify(data, undefined, '	');
 	}
 

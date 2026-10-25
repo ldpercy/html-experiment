@@ -18,3 +18,11 @@ A couple of mentions though:
 Might have to find an implementation, or write a really simple & bad one for trivial use.
 
 
+Self?
+-----
+
+Some parts of the crypto api docs use 'self' which appears to be the window in some cases, but not always?
+
+Try `globalThis` instead, eg:
+
+	globalThis.crypto.randomUUID();

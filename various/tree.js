@@ -5,20 +5,22 @@
 
 
 import { ObjectView } from '../[common]/component/object-viewer.js';
-import * as st from '../[common]/module/tree-simple.js';
+import * as tree from '../[common]/module/tree-array.js';
 
-import {render, customRenderer, debugCustomRenderer} from '../[common]/js-to-html.js';
+import { ObjectRenderer } from '../[common]/module/object-render.js';
 
 
-let t1 = new st.ArrayNode;
+let t1 = new tree.Node;
 //t1.foo = 'asdasd';
 console.log('Object.getPrototypeOf(t1)', Object.getPrototypeOf(t1));
 console.log('t1',t1.constructor.name, t1);
 
 
-let c1 = new st.ArrayNode();
+let c1 = new tree.Node();
 
 t1.appendChild(c1);
+t1.appendChild(new tree.Node());
+
 
 //console.log(t1.child);
 console.log('t1:',t1);
@@ -31,14 +33,19 @@ console.log('t1:',t1);
 
 let dho = /** @type {ObjectView} */ (document.getElementById('htmlOutput'));		// really like to find a better way to do this...
 
+
+
+let customRenderer = new Map();
 customRenderer.set(
-	st.isArrayNode,
-	st.renderArrayNode
+	tree.isArrayNode,
+	tree.renderArrayNode
 );
 
-debugCustomRenderer();
+let or = new ObjectRenderer(customRenderer);
 
-dho.innerHTML = render(t1);
+//debugCustomRenderer();
+
+dho.innerHTML = or.render(t1);
 
 
 

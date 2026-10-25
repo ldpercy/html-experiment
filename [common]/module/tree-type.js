@@ -5,8 +5,8 @@ Setting up some basic types and interfaces.
 */
 
 
-/** @typedef {any}	TreeNode	*/
-/** @typedef {TreeNode|undefined}	NodeOption	*/
+/** @typedef {any}	Node	*/
+/** @typedef {Node|undefined}	NodeOption	*/
 
 
 
