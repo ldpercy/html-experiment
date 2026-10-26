@@ -56,27 +56,53 @@ export class Node {
 
 
 	/** appendChild
-	 * @argument {Node} node
+	 * @argument {Node} childNode
 	 * @returns {void}
 	 **/
-	appendChild(node) {
-		this.#child.push(node);
-	}
+	appendChild(childNode) {
+
+		// trialling a safety check here - can only append the child if it's parent is already set to this, ie is called from 'appendToParent'
+		// if its parent is set to something else, it can't be appended
+		// there could be a dozen different ways to do this, this is a first try
+
+		if (childNode.parent === this) {
+			this.#child.push(childNode);
+		}
+
+	}/* appendChild */
 
 	/** removeChild
-	 * @argument {Node} node
+	 * @argument {Node} childNode
 	 * @returns {Node}
 	 **/
-	removeChild(node) {
-		let childIndex = this.#child.indexOf(node);
+	removeChild(childNode) {
+		let childIndex = this.#child.indexOf(childNode);
 
 		let result = this.#child.splice(childIndex, 1)[0];
 
 		// in this case we'd need to know which item in the child array the node was,
 		// so the child node might need to keep a note of it's array index?
 
-		return node;
+		return result;
 	}
+
+	/** appendToParent
+	 * @argument {Node} parentNode
+	 * @returns {void}
+	 **/
+	appendToParent(parentNode) {
+
+		if (this.#parent) {
+			this.#parent.removeChild(this);
+		}
+
+		this.#parent = parentNode;
+		parentNode.appendChild(this);
+		// trialling this as a 'safe' way to append the node that doesn't violate #parent privacy
+		// set the parent first, then use it as a safety check
+		// this works okay for new nodes, but it's going to get more complicated for things like node moves / graft & prune
+
+	}/* appendToParent */
 
 
 }/* ArrayNode */
@@ -123,8 +149,15 @@ export function renderArrayNode(arrayNode, renderer) {
 	console.log('mainRenderFn', renderer);
 
 	let result = `
-		${arrayNode.id}
-		${renderer.render(arrayNode.child)}
+		<div>
+			id: ${arrayNode.id}
+		</div>
+		<div>
+			parent id: ${arrayNode.parent?.id}
+		</div>
+		<div>
+			children: ${renderer.render(arrayNode.child)}
+		</div>
 	`;
 	return result;
 }

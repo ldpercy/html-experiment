@@ -9,17 +9,7 @@
 	<script type="module" src="../[html-common]/script/colourScheme-selector.js"></script>
 
 </head>
-<body onload="updateOutput()">
-	<!-- <header>
-		<h1><a href="">permutation</a></h1>
-		<nav>
-			<a class="colourScheme-selector" href="?colourScheme=light" title="Light colour scheme" data-colourscheme="light">🟓</a>
-			<a class="colourScheme-selector" href="?colourScheme=dark" title="Dark colour scheme" data-colourscheme="dark">🟒</a>
-			<a title="To folder" href="./">🖿</a>
-			<a title="Parent folder" href="../">🡅</a>
-		</nav>
-
-	</header> -->
+<body>
 
 
 	<page-header>
@@ -118,6 +108,7 @@
 			document.forms['main']['button-setPermutations'].addEventListener('click', updateOutput);
 			document.forms['main']['button-arrayPermutations'].addEventListener('click', updateOutput);
 
+			 updateOutput();
 		}/* documentDOMContentLoaded */
 
 		document.addEventListener('DOMContentLoaded', documentDOMContentLoaded);

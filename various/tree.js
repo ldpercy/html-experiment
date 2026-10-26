@@ -18,8 +18,8 @@ console.log('t1',t1.constructor.name, t1);
 
 let c1 = new tree.Node();
 
-t1.appendChild(c1);
-t1.appendChild(new tree.Node());
+c1.appendToParent(t1);
+(new tree.Node()).appendToParent(t1);
 
 
 //console.log(t1.child);
