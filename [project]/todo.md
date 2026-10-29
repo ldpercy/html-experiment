@@ -1,11 +1,6 @@
-Task
-====
+html-experiment todo
+====================
 
-
-
-
-Todo
-----
 * `CSS`				Font-size: gather more default font-size examples, esp on mobile platforms
 * `tree`			Get a few basic data structures in place w/ types & classes; some experimental code for things like metrics
 * `permutation`		Once tree ADTs in place see if permutations can be returned as trees

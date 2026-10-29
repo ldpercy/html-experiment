@@ -41,7 +41,7 @@ JavaScript typechecking is enabled in `./jsconfig.json` with the following setti
 		"module": "esnext"
 	}
 ```
-However this currently only works for `.js` files - see [jsdoc typechecking for inline scripts](<[task]/jsdoc typechecking for inline scripts.md>).
+However this currently only works for `.js` files - see [jsdoc typechecking for inline scripts](<[project]/jsdoc typechecking for inline scripts.md>).
 
 > [!IMPORTANT]
 > Make sure the `compilerOptions` are set to something modern or you can get really confusing and outdated errors
@@ -53,7 +53,7 @@ https://www.typescriptlang.org/tsconfig#high-level-libraries
 Tasks
 -----
 
-Details in [the task folder](./[task]/todo.md).
+Details in [the project folder](./[project]/todo.md).
 
 Currently working on:
 * A small testing library

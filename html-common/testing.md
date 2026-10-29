@@ -1,7 +1,8 @@
 Testing
 =======
 
-Most of original of this doc moved to: [Testing and type safety](<../[task]/Testing and type safety.md>)
+Most of original of this doc moved to: [Testing and type safety](<../[project]/done/2026-02-19 - Testing and type safety.md>)
+
 
 Summaries/findings can stay in here.
 

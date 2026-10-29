@@ -148,4 +148,4 @@ https://jsdoc.app/about-configuring-jsdoc.html#specifying-input-files
 If it turns out it flat-out can't be done, I'll move anything important into script files for checking.
 This will probably be more critical in html-common.
 
-* See: [jsdoc typechecking for inline scripts](<../[task]/jsdoc typechecking for inline scripts.md>)
+* See: [jsdoc typechecking for inline scripts](<../[project]/jsdoc typechecking for inline scripts.md>)
