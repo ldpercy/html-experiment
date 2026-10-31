@@ -5,5 +5,11 @@
 	"version"		: "",
 	"commit"		: "",
 	"date"			: "2026-10-13",
-	"tag"			: ["html","css","svg","js"]
+	"tag"			: ["html","css","svg","js"],
+	"screenshot"	: [
+		{
+			"path"	: "[project]/screenshot/css-colour.png",
+			"link"	: "css/colour.html"
+		}
+	]
 }
