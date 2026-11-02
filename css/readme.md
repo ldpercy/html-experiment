@@ -25,6 +25,16 @@ NB reading properties like this is 'live' afaict, eg things affected by transiti
 Reading a non-transitioned property might be needed in some instances.
 
 
+CSS API
+-------
+
+>CSSStyleSheet.cssRules Read only
+>	Returns a live CSSRuleList which maintains an up-to-date list of the CSSRule objects that comprise the stylesheet.
+
+Unfortunately `CSSRuleList` is not an array-like structure, so interacting with it is a bit hobbled.
+
+
+
 Performance
 -----------
 

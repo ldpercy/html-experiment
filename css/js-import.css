@@ -1,0 +1,14 @@
+
+@import './colour.css';
+
+
+:root {
+	--org-colour: limegreen;
+	--myVar : maroon;
+}
+
+meta {
+
+	color: palegoldenrod;
+
+}
