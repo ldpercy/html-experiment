@@ -68,8 +68,18 @@ There's probably a JSDoc way of doing this too - should be `@module` you'd think
 
 
 
+JSDoc for JSON?
+---------------
+Can I add jsodoc annotations in json files?
+Would that even work?
+JSON has strictly 6 types iirc - not sure if it could overload them or something?
 
+Nope, not directly in a `.json` file - you get:
+>Comments are not permitted in JSON.(521)
 
+So if I want stronger typechecking for data blobs I think I'd have to use `.js` instead.
+
+Okay, going with that for now.
 
 HTML Element Typing
 -------------------

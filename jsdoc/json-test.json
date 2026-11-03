@@ -1,0 +1,10 @@
+
+/**
+This doesn't work - no comments allowed in json
+@type {object}
+*/
+{
+	"myString" : "foo",
+	"myNumber" : 4
+
+}

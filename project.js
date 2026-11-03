@@ -1,11 +1,12 @@
-{
+/** @type ProjectData */
+export default {
 	"name"			: "html-experiment",
 	"description"	: "Laboratory for HTML, CSS, SVG, JS etc",
 	"repository"	: "https://github.com/ldpercy/html-experiment/",
 	"version"		: "",
-	"commit"		: "",
+	"status"		: "continuous trunk development, often half-broken",
 	"date"			: "2026-10-13",
-	"tag"			: ["html","css","svg","js"],
+	"tag"			: ["html","css","svg","js", "jsdoc"],
 	"screenshot"	: [
 		{
 			"path"	: "[project]/screenshot/css-colour.png",
