@@ -1,6 +1,7 @@
 
 //import stylesheet from "./js-import.css" with { type: 'css' };
-import stylesheet from "./js-import.css" with { type: 'css' };
+import stylesheet from "./api.css" with { type: 'css' };
+
 /*
 This is throwing up typecheck errors at the moment, but it *does* work
 
@@ -39,7 +40,7 @@ Can't get the value out?
 
 */
 
-const asdf = await import("./js-import.css", { with: { type: "css" }});
+const asdf = await import("./api.css", { with: { type: "css" }});
 
 //const asdf = await import("", { with: { type: "css" }});
 
