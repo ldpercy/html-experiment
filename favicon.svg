@@ -13,9 +13,19 @@
 		.html	{ stroke:#ee4422; fill:#ee4422; }
 	</style>
 
-	<polyline points="+30,-30 +30,+30 -30,+30" class="js" />
-	<polyline points="-30,+30 -30,-30 +30,-30" class="css"/>
-	<polyline points="+0,+30 -30,0 +0,-30" class="svg"/>
-	<polyline points="-0,-30 +30,0 -0,+30" class="html"/>
+	<polyline class="js" points="
+		+26,-26 +30,-22
+		+30,+22 +22,+30
+		-22,+30 -26,+26
+	"/>
+
+	<polyline class="css" points="
+		-26,+26 -30,+22
+		-30,-22 -22,-30
+		+22,-30 +26,-26
+	"/>
+
+	<polyline points="+0,+28 -28,0 +0,-28" class="svg"/>
+	<polyline points="-0,-28 +28,0 -0,+28" class="html"/>
 
 </svg>

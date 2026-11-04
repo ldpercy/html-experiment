@@ -1,7 +1,7 @@
 HTML Experiment
 ===============
 
-`HTML` `CSS` `SVG` `JavaScript` `🍦JS` `DOM` `JSDoc`
+`html` `css` `svg` `javascript` `🍦js` `dom` `jsdoc`
 
 <p align="center">
 	<img width="15%" src="./favicon.svg" alt="HTML Experiment" title="HTML Experiment"/>
