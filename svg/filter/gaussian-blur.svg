@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1200 -1200 2400 2400" preserveAspectRatio="xMidYMid meet">
+	<title>gaussian blur</title>
+	<use href="../[library]/grid.svg#grid" x="0" y="0"/>
+	<use href="../[library]/nav.svg#nav" x="0" y="-48%"/>
+
+	<style>
+		path {
+			stroke: blue;
+			stroke-width: 1;
+			fill: #00fa;  <!-- none; -->
+			fill-rule: evenodd; <!-- evenodd, nonzero -->
+			<!-- stroke-dasharray: 2 7; -->
+			stroke-linecap: round;
+			stroke-linejoin: bevel;
+			marker-start:url(#markerStart);
+			marker-end:url(#markerEnd);
+		}
+		.origin { fill:transparent ; stroke:black }
+		marker { stroke-width:.5; }
+		.marker-start  { fill:lightgreen ; stroke:green }
+		.marker-end    { fill:pink ; stroke:red }
+
+		circle {
+			stroke: cyan;
+			fill: cadetblue;
+			fill-opacity: 0.6;
+		}
+
+		rect {
+			stroke: red;
+			fill: pink;
+
+		}
+
+		text {
+			fill: tan;
+			stroke: none;
+			font-size: 32em;
+			text-anchor: middle;
+		}
+
+		.emboss {
+			filter: url(#emboss-top);
+		}
+
+		.shadow {
+			filter: drop-shadow(0px 40px 20px #444b);
+		}
+
+		.both {
+
+		}
+
+		.emboss-first {
+			filter:
+				url(#emboss-top)
+				drop-shadow(0px 40px 20px #444b);
+		}
+
+		.shadow-first { /* filter order matters - this one looks bad */
+			filter:
+				drop-shadow(0px 40px 20px #444b)
+				url(#emboss-top);
+		}
+
+		.blurMe {
+			filter: url(#blurMe);
+		}
+
+	</style>
+
+	<defs>
+		<filter id="emboss-top">
+			<feConvolveMatrix kernelMatrix="
+				0 1 0
+				0 1 0
+				0 -1 0
+			"/>
+		</filter>
+		<filter id="emboss-topleft">
+			<feConvolveMatrix kernelMatrix="
+				1 0 0
+				0 1 0
+				0 0 -1
+			"/>
+		</filter>
+		<filter id="blurMe">
+			<feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+		</filter>
+	</defs>
+
+	<g class="blurMe" >	<!-- emboss-first -->
+		<circle cx="-300" cy="0" r="600" />
+		<rect x="0" y="0" width="600" height="900" />
+		<text class="blurMe" x="50" y="50">
+			gaussian blur
+		</text>
+	</g>
+
+</svg>

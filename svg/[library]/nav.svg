@@ -2,13 +2,16 @@
 
 	<g id="nav">
 		<text style="fill:yellow; stroke: silver; stroke-width: 2px; font-size: 5em; dominant-baseline:middle;">
-			<a title="To folder" href="./">🖿</a>
-			<a title="Parent folder" href="../">🡅</a>
+			<a title="html-experiment dir" href="/html-experiment/">🖿 html-experiment</a>
+			<a title="svg dir" href="/html-experiment/svg/">🖿 svg</a>
 		</text>
 	</g>
 
 	<!--
-	This doesn't work as well I'd hoped, the paths stay relative to *this* document, not the the hosting doc.
+		<a title="To folder" href="./">🖿</a>
+		<a title="Parent folder" href="../">🡅</a>
+
+	These don't work as well I'd hoped, the paths stay relative to *this* document, not the the hosting doc.
 	-->
 
 </svg>
