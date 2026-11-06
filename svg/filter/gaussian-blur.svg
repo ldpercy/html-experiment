@@ -27,8 +27,9 @@
 		}
 
 		rect {
-			stroke: red;
-			fill: pink;
+			stroke: none;
+			fill: grey;
+			fill-opacity: 0.7;
 
 		}
 
@@ -91,7 +92,7 @@
 
 	<g class="blurMe" >	<!-- emboss-first -->
 		<circle cx="-300" cy="0" r="600" />
-		<rect x="0" y="0" width="600" height="900" />
+		<rect x="-75" y="-75" width="900" height="600" />
 		<text class="blurMe" x="50" y="50">
 			gaussian blur
 		</text>

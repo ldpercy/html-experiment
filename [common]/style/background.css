@@ -1,42 +1,43 @@
-html[data-colourscheme=light] {
-	--crosshatch-background: white;
-}
-html[data-colourscheme=dark] {
-	--crosshatch-background: black;
-}
+
 
 .background-crosshatch {
+	--crosshatch-width: 2rem;
+	--crosshatch-colour: grey;
+	--crosshatch-background: transparent;
+
 	background:
 		repeating-linear-gradient(
 			45deg,
-			grey 0px,
-			grey 1px,
-			#0000 1px,
-			#0000 100px
+			var(--crosshatch-colour) 0px,
+			var(--crosshatch-colour) 1px,
+			var(--crosshatch-background) 1px,
+			var(--crosshatch-background) var(--crosshatch-width)
 		),
 		repeating-linear-gradient(
 			135deg,
-			grey 0px,
-			grey 1px,
+			var(--crosshatch-colour) 0px,
+			var(--crosshatch-colour) 1px,
 			var(--crosshatch-background) 1px,
-			var(--crosshatch-background) 100px
+			var(--crosshatch-background) var(--crosshatch-width)
 		);
 }
 
-.background-checkerboard{
+.background-checkerboard {
+	--checkerboard-width: 2rem;
+	--crosshatch-background: transparent;
 	background:
 		repeating-linear-gradient(
 			45deg,
 			#999a 0px,
-			#999a 10px,
-			#fffa 10px,
-			#fffa 20px
+			#999a var(--checkerboard-width),
+			#fffa var(--checkerboard-width),
+			#fffa calc(2 * var(--checkerboard-width))
 		),
 		repeating-linear-gradient(
 			135deg,
-			#999a 0px,
-			#999a 10px,
-			#fffa 10px,
-			#fffa 20px
+			grey 0px,
+			grey var(--checkerboard-width),
+			var(--crosshatch-background) var(--checkerboard-width),
+			var(--crosshatch-background) calc(2 * var(--checkerboard-width))
 		);
 }

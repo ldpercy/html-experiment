@@ -2,8 +2,12 @@
 
 	<g id="nav">
 		<text style="fill:yellow; stroke: silver; stroke-width: 2px; font-size: 5em; dominant-baseline:middle;">
-			<a title="html-experiment dir" href="/html-experiment/">🖿 html-experiment</a>
-			<a title="svg dir" href="/html-experiment/svg/">🖿 svg</a>
+			<a title="html-experiment dir" href="/html-experiment/">
+				🖿 html-experiment
+			</a>
+			<a title="svg dir" href="/html-experiment/svg/">
+				🖿 svg
+			</a>
 		</text>
 	</g>
 
