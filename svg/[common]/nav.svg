@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1200 -1200 2400 2400" preserveAspectRatio="xMidYMid meet">
 
 	<g id="nav">
-		<text style="fill:yellow; stroke: silver; stroke-width: 2px; font-size: 5em; dominant-baseline:middle;">
+		<text style="fill:yellow; stroke: silver; stroke-width: 2px; font-size: 5em; dominant-baseline:middle; text-anchor: middle;">
 			<a title="html-experiment dir" href="/html-experiment/">
 				🖿 html-experiment
 			</a>

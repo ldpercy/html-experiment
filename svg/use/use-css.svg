@@ -5,7 +5,7 @@
 	<view id="double" viewBox="-500 -500 1000 1000"/>
 
 
-	<use href="../[library]/grid.svg#grid" x="0" y="0"/>
+	<use href="../[common]/grid.svg#grid" x="0" y="0"/>
 
 
 	<!-- <circle r="10"/> -->

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1200 -600 2400 1200">
 	<title>stroke gradient</title>
-	<use href="../[library]/grid.svg#grid" x="0" y="0"/>
+	<use href="../[common]/grid.svg#grid" x="0" y="0"/>
 
 	<style>
 		text {

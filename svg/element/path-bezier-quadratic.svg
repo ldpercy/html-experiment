@@ -1,13 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-120 -120 240 240" preserveAspectRatio="xMidYMid meet">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1200 -1200 2400 2400" preserveAspectRatio="xMidYMid meet">
 	<title>path - bezier quadratic smooth</title>
+	<use href="../[common]/grid.svg#grid" x="0" y="0"/>
+	<use href="../[common]/nav.svg#nav" x="0" y="-48%"/>
+
 
 	<style>
+		/*
 		line {
 			stroke:teal;
 			stroke-dasharray: 10px 10px;
+		} */
+
+		path {
+			stroke: #f00e;
+			stroke-width:10;
+			fill: #f007;
 		}
 
-		.group {
+		.group0 {
 			--fill-colour: orange;
 			--stroke-colour: blue;
 
@@ -27,23 +37,16 @@
 		}
 	</style>
 
-	<line x1="-120" y1="0" x2="120" y2="0"/>
-	<line x1="0" y1="-120" x2="0" y2="120"/>
 
-	<g class="group">
+	<g>
+		<path  d="M 0,0  Q 500,-1000 1000,0 "/>
+	</g>
 
-		<path style="--sibling-index:1;" d="M -99,-11  T 11,11 22,55 T -11,-55 22,11 ">
-			<!--		-->
-		</path>
 
-		<path style="--sibling-index:2;" d="M -88,-22  T 22,22 22,55 T -22,-55 33,11 ">
-			<!--		-->
-		</path>
-
-		<path style="--sibling-index:3;" d="M -77,-33  T 33,33 22,55 T -33,-55 44,11 ">
-			<!--		-->
-		</path>
-
+	<g class="group0" transform="translate(-800,200)">
+		<path style="--sibling-index:1;" d="M -990,-110  T 110,110 220,550 T -110,-550 220,110 "/>
+		<path style="--sibling-index:2;" d="M -880,-220  T 220,220 220,550 T -220,-550 330,110 "/>
+		<path style="--sibling-index:3;" d="M -770,-330  T 330,330 220,550 T -330,-550 440,110 "/>
 	</g>
 
 </svg>

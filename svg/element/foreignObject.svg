@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1200 -1200 2400 2400" preserveAspectRatio="xMidYMid meet">
 	<title>foreignObject</title>
-	<use href="../[library]/grid.svg#grid" x="0" y="0"/>
+	<use href="../[common]/grid.svg#grid" x="0" y="0"/>
 
 	<style>
 

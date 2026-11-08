@@ -58,7 +58,7 @@
 		}
 	</style>
 
-	<script href="../[library]/svg.js"/>
+	<script href="../[common]/svg.js"/>
 	<script>
 		<![CDATA[
 

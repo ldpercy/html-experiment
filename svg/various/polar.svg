@@ -3,7 +3,7 @@
 
 	<script href="../../[common]/maths.js"></script>
 	<script href="../../[common]/geometry.js"></script>
-	<script href="../[library]/svg.js"></script>
+	<script href="../[common]/svg.js"></script>
 
 
 	<g class="graphPaper">

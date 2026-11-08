@@ -30,7 +30,7 @@ File URIs
 ---------
 
 ```xml
-	<use href="../[library]/grid.svg#grid" x="0" y="0"/>
+	<use href="../[common]/grid.svg#grid" x="0" y="0"/>
 ```
 
 * Firefox still seems to need the #nodeId reference in the href
@@ -40,10 +40,10 @@ File URIs
 ### HTTP only
 
 Firefox:
-> Security Error: Content at file:///ldpercy/experiment-svg/use/use.svg may not load data from file:///ldpercy/experiment-svg/[library]/grid.svg.
+> Security Error: Content at file:///ldpercy/experiment-svg/use/use.svg may not load data from file:///ldpercy/experiment-svg/[common]/grid.svg.
 
 Chromium:
-> Unsafe attempt to load URL file:///ldpercy/experiment-svg/[library]/grid.svg#grid from frame with URL file:///ldpercy/experiment-svg/use/use.svg. 'file:' URLs are treated as unique security origins.
+> Unsafe attempt to load URL file:///ldpercy/experiment-svg/[common]/grid.svg#grid from frame with URL file:///ldpercy/experiment-svg/use/use.svg. 'file:' URLs are treated as unique security origins.
 
 
 

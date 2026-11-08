@@ -3,7 +3,7 @@ Polar coordinates
 
 
 
-[geometry](../[library]/geometry.js)
+[geometry](../[common]/geometry.js)
 
 
 

@@ -4,11 +4,11 @@
 	<view id="half" viewBox="-2000 -2000 4000 4000"/>
 	<view id="double" viewBox="-500 -500 1000 1000"/>
 
-	<script href="../[library]/nav.js"></script> <!-- type="module" -->
+	<script href="../[common]/nav.js"></script> <!-- type="module" -->
 
 
-	<use href="../[library]/grid.svg#grid" x="0" y="0"/>
-	<use href="../[library]/nav.svg#nav" x="0" y="-48%"/>
+	<use href="../[common]/grid.svg#grid" x="0" y="0"/>
+	<use href="../[common]/nav.svg#nav" x="0" y="-48%"/>
 
 
 	<!-- <circle r="10"/> -->
