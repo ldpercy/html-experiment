@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+	width="297mm"
+	height="210mm"
+	viewBox="-32 -32 1.1e+03 7.9e+02"
+	version="1.1"
+	id="svg1"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:svg="http://www.w3.org/2000/svg">
+	<defs
+		id="defs1">
+		<filter
+			style="color-interpolation-filters:sRGB;"
+			id="filter480"
+			x="-0.019"
+			y="-0.21"
+			width="1"
+			height="1.4">
+			<feGaussianBlur
+				result="result0"
+				in="SourceGraphic"
+				stdDeviation="0.5"
+				id="feGaussianBlur477" />
+			<feTurbulence
+				baseFrequency="0.042"
+				seed="488"
+				numOctaves="7"
+				result="result1"
+				id="feTurbulence477" />
+			<feDisplacementMap
+				result="result5"
+				xChannelSelector="R"
+				scale="0"
+				in2="result1"
+				in="result1"
+				yChannelSelector="G"
+				id="feDisplacementMap477" />
+			<feComposite
+				result="result2"
+				operator="in"
+				in2="result5"
+				in="result0"
+				id="feComposite477" />
+			<feSpecularLighting
+				lighting-color="rgb(255,230,136)"
+				surfaceScale="2"
+				result="result4"
+				specularConstant="2"
+				specularExponent="65"
+				in="result2"
+				id="feSpecularLighting477">
+				<feDistantLight
+					elevation="62"
+					azimuth="225"
+					id="feDistantLight477" />
+			</feSpecularLighting>
+			<feComposite
+				k1="2.5"
+				k3="1"
+				k2="-0.5"
+				in2="result2"
+				in="result4"
+				operator="arithmetic"
+				result="result91"
+				id="feComposite478" />
+			<feBlend
+				result="fbSourceGraphic"
+				mode="multiply"
+				in2="result91"
+				id="feBlend478" />
+			<feColorMatrix
+				values="1 0 0 -1 0 1 0 1 -1 0 1 0 0 -1 0 -2 -0.5 0 5 -2"
+				in="fbSourceGraphic"
+				result="fbSourceGraphicAlpha"
+				id="feColorMatrix478" />
+			<feGaussianBlur
+				stdDeviation="8"
+				in="fbSourceGraphicAlpha"
+				result="result0"
+				id="feGaussianBlur478" />
+			<feOffset
+				dx="2"
+				dy="2"
+				in="result0"
+				result="result3"
+				id="feOffset478" />
+			<feSpecularLighting
+				in="result0"
+				result="result1"
+				lighting-color="rgb(255,255,255)"
+				surfaceScale="4"
+				specularConstant="0.8"
+				specularExponent="15"
+				id="feSpecularLighting478">
+				<fePointLight
+					x="-5000"
+					y="-10000"
+					z="20000"
+					id="fePointLight478" />
+			</feSpecularLighting>
+			<feComposite
+				in2="fbSourceGraphicAlpha"
+				in="result1"
+				result="result2"
+				operator="in"
+				id="feComposite479" />
+			<feComposite
+				in="fbSourceGraphic"
+				result="result4"
+				operator="arithmetic"
+				k2="2"
+				k3="2"
+				in2="result2"
+				id="feComposite480" />
+			<feBlend
+				mode="darken"
+				in2="result4"
+				id="feBlend480" />
+		</filter>
+	</defs>
+	<g
+		id="layer1">
+		<text
+			xml:space="preserve"
+			style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:100px;line-height:1.25;font-family:Hack;-inkscape-font-specification:Hack;text-align:center;text-anchor:middle;filter:url(#filter480)"
+			x="520"
+			y="320"
+			id="text1"><tspan
+				id="tspan1"
+				x="520"
+				y="320"
+				style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:100px;font-family:Hack;-inkscape-font-specification:Hack"> <tspan
+	style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Hack;-inkscape-font-specification:'Hack Bold'"
+	id="tspan424">ldpercy.github.io</tspan></tspan></text>
+	</g>
+</svg>

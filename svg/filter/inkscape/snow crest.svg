@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+	width="297mm"
+	height="210mm"
+	viewBox="-32 -32 1.1e+03 7.9e+02"
+	version="1.1"
+	id="svg1"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:svg="http://www.w3.org/2000/svg">
+	<defs
+		id="defs1">
+		<filter
+			style="color-interpolation-filters:sRGB;"
+			id="filter477"
+			x="-0.0045"
+			y="-0.056"
+			width="1"
+			height="1.1">
+			<feConvolveMatrix
+				order="3 3"
+				kernelMatrix="1 1 1 0 0 0 -1 -1 -1"
+				preserveAlpha="false"
+				divisor="3"
+				id="feConvolveMatrix475" />
+			<feMorphology
+				operator="dilate"
+				radius="1 1.6"
+				id="feMorphology475" />
+			<feGaussianBlur
+				stdDeviation="1.6270889487870621"
+				result="result0"
+				id="feGaussianBlur475" />
+			<feColorMatrix
+				values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 10 0"
+				result="result1"
+				id="feColorMatrix475" />
+			<feOffset
+				dx="0"
+				dy="1"
+				result="result5"
+				id="feOffset475" />
+			<feDiffuseLighting
+				in="result0"
+				diffuseConstant="2.2613065326633168"
+				surfaceScale="1"
+				id="feDiffuseLighting475">
+			 <feDistantLight
+				 azimuth="225"
+				 elevation="32"
+				 id="feDistantLight475" />
+			</feDiffuseLighting>
+			<feComposite
+				in2="result1"
+				operator="in"
+				result="result2"
+				id="feComposite475" />
+			<feColorMatrix
+				values="0.4 0 0 0 0.6 0 0.4 0 0 0.6 0 0 0 0 1 0 0 0 1 0"
+				result="result4"
+				id="feColorMatrix476" />
+			<feComposite
+				in2="result5"
+				in="result4"
+				id="feComposite476" />
+			<feComposite
+				in2="SourceGraphic"
+				id="feComposite477" />
+		</filter>
+	</defs>
+	<g
+		id="layer1">
+		<text
+			xml:space="preserve"
+			style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:100px;line-height:1.25;font-family:Hack;-inkscape-font-specification:Hack;text-align:center;text-anchor:middle;filter:url(#filter477)"
+			x="520"
+			y="320"
+			id="text1"><tspan
+				id="tspan1"
+				x="520"
+				y="320"
+				style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:100px;font-family:Hack;-inkscape-font-specification:Hack"> <tspan
+	style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Hack;-inkscape-font-specification:'Hack Bold'"
+	id="tspan424">ldpercy.github.io</tspan></tspan></text>
+	</g>
+</svg>
