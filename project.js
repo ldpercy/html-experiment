@@ -9,7 +9,7 @@ export default {
 	"tag"			: ["html","css","svg","js", "🍦js", "jsdoc"],
 	"screenshot"	: [
 		{
-			"path"	: "[project]/screenshot/css-colour.png",
+			"path"	: "[project]/screenshot/css-colour.webp",
 			"link"	: "css/colour.html"
 		}
 	]
