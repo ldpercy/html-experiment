@@ -21,15 +21,10 @@
 			--fill-colour: orange;
 			--stroke-colour: blue;
 
-			--sibling-count:5;
-
 			fill-opacity:55%;
 
 			path {
-				--index: sibling-index();
-				--count: sibling-count();
-				--deg : calc(360 * var(--index,--sibling-index)  / var(--count,--sibling-count));
-				/* --deg : calc(360 * sibling-index()  / sibling-count()); */
+				--deg : calc(360 * sibling-index()  / sibling-count());
 				fill:	lch(from var(--fill-colour)		l c calc(h + var(--deg)) );
 				stroke:	lch(from var(--stroke-colour)	l c calc(h + var(--deg)) );
 			}
@@ -39,18 +34,15 @@
 
 
 	<g>
-
 		<path  d="M 0,0  Q 0,-1000 1000,-1000 "/>
 		<path  d="M 1000,0  Q 0,500 1000,1000 "/>
-
-
 	</g>
 
 
 	<g class="group0" transform="translate(-800,200)">
-		<path style="--sibling-index:1;" d="M -990,-110  T 110,110 220,550 T -110,-550 220,110 "/>
-		<path style="--sibling-index:2;" d="M -880,-220  T 220,220 220,550 T -220,-550 330,110 "/>
-		<path style="--sibling-index:3;" d="M -770,-330  T 330,330 220,550 T -330,-550 440,110 "/>
+		<path d="M -990,-110  T 110,110 220,550 T -110,-550 220,110 "/>
+		<path d="M -880,-220  T 220,220 220,550 T -220,-550 330,110 "/>
+		<path d="M -770,-330  T 330,330 220,550 T -330,-550 440,110 "/>
 	</g>
 
 </svg>

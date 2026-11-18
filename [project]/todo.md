@@ -13,7 +13,7 @@ html-experiment todo
 * `css`				dig more into viewport and container lengths, also how they work in svg
 * `svg`				a way to get the box coordinates of the visible svg render area, not just the viewbox
 * `html,css`		review viewport terminology for visible, hidden areas et al
-* `css`				@supports condition for newer functions like sibling-index() -- try some of the ideas here: https://stackoverflow.com/questions/77441227/how-to-detect-css-functions-support like `CSS.supports()`
+* `css`				@supports condition for newer functions -- try some of the ideas here: https://stackoverflow.com/questions/77441227/how-to-detect-css-functions-support like `CSS.supports()`
 * `api`				Return to Temporal
 * `dom`				Refresher: document.querySelector vs getElementById - they return different types/interfaces i think & the former is easier to cast
 * `js`				import with: css, json & soon text https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import/with
@@ -52,6 +52,7 @@ html-experiment todo
 
 Done (for now)
 --------------
+* `css`		sibling-index and sibling-count are baseline now
 * `css/svg`	svg favicons can be made light/dark adpaptive with @media prefers-color-scheme - see medit for example
 * `css`		style selected *option* elements with ***:checked*** pseudo class, not selected attr. Obviously.
 * `file`	have v.basic downloads going now; some examples in turtle, screensaver, thoughtcloud

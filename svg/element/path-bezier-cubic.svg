@@ -5,9 +5,9 @@
 	<line x1="0" y1="-32" x2="0" y2="32"/>
 
 	<style>
-		@supports (sibling-index()) {
+		/* @supports (sibling-index()) {
 			line { stroke:magenta; }
-		}
+		} */
 
 		line {
 			stroke:teal;
@@ -19,16 +19,12 @@
 			--fill-colour: orange;
 			--stroke-colour: blue;
 
-			--sibling-count:5;
 			stroke-width:0.5px;
 
 			fill-opacity:55%;
 
 			path {
-				--index: sibling-index();
-				--count: sibling-count();
-				--deg : calc(360 * var(--index,--sibling-index)  / var(--count,--sibling-count));
-				/* --deg : calc(360 * sibling-index()  / sibling-count()); */
+				--deg : calc(360 * sibling-index()  / sibling-count());
 				fill:	lch(from var(--fill-colour)		l c calc(h + var(--deg)) );
 				stroke:	lch(from var(--stroke-colour)	l c calc(h + var(--deg)) );
 			}
@@ -37,11 +33,11 @@
 
 	<g class="bezier">
 
-		<path style="--sibling-index:1;" d="M 0,0  C 33,33 33,-33  0,0 "/>
+		<path d="M 0,0  C 33,33 33,-33  0,0 "/>
 
-		<path style="--sibling-index:2;" d="M 0,0  C -33,-33 +33,-33  0,0 "/>
+		<path d="M 0,0  C -33,-33 +33,-33  0,0 "/>
 
-		<path style="--sibling-index:3;" d="M 0,0  C -32,-32 -25,10  -20,20  C -15,+30 +32,32  0,0"/>
+		<path d="M 0,0  C -32,-32 -25,10  -20,20  C -15,+30 +32,32  0,0"/>
 
 	</g>
 
