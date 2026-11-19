@@ -4,3 +4,25 @@ body {
 		font-size: 0.75em;
 	}
 }
+
+
+.display-class {
+
+	position: relative;
+
+	*::before {
+		display:inline-block;
+		position: absolute;
+		top:-1ex;
+		right:0px;
+
+		border-radius: 1ex;
+		padding: 0.2em;
+		font-family: monospace;
+		font-size: smaller;
+		background-color: rgba(from rebeccapurple r g b / 0.5);
+		color:white;
+		content: '🅲 ' attr(class);
+	}
+
+}

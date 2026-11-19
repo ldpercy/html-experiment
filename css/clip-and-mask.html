@@ -22,49 +22,55 @@
 			output {
 				min-height:5em;
 
-				&::before {
-					font-family: monospace;
-					display:inline-block;
-					background-color: dimgrey;
-					border-radius: 1ex 0ex;
-					margin-bottom: 2ex;
-					padding: 1ex;
-					color:white;
-					content: attr(class);
-				}
 
 				p {
 					margin:2em;
 					padding:2em;
-					backdrop-filter: blur(1em);
+					background-color: #888;
+					/* backdrop-filter: blur(1em); */
 
 				}
+			}
+		</style>
 
-				.mask-linear {
-					mask: linear-gradient(to top, transparent, black 35%);
-				}
-				.mask-radial {
-					mask: radial-gradient(
-						ellipse at center,
-						black 0%,
-						#8888 80%,
-						transparent 100%
-					)
-				}
 
+		<style contenteditable="plaintext-only">
+			.mask-multiple {
+				mask-image:
+					linear-gradient(to bottom, transparent 0%, black 1em, black calc(100% - 1em), transparent 100%),
+					linear-gradient(to right, transparent 0%, black 1em, black calc(100% - 1em), transparent 100%);
+				mask-composite: intersect;
 			}
 
-
-
-
 		</style>
+
+		<output class="display-class background-checkerboard">
+			<p class="mask-multiple">
+				Lorem ipsum dolor sit amet, ipsum voluptate nulla sed. Labore ad laborum officia non amet. Nisi duis do culpa.
+				Est in excepteur ea incididunt velit reprehenderit minim, sint est commodo aliquip ex velit officia, cillum nostrud non eu fugiat fugiat.
+			</p>
+		</output>
+
+
+
 		<style contenteditable="plaintext-only">
 			/* .background-checkerboard{
 				--checkerboard-width: 100px;
 			} */
+			.mask-radial {
+				mask: radial-gradient(
+					ellipse at center,
+					black 0%,
+					#8888 80%,
+					transparent 100%
+				)
+			}
 		</style>
 
-		<output class="background-checkerboard">
+
+
+
+		<output class="display-class background-checkerboard">
 			<p class="mask-radial">
 				Lorem ipsum dolor sit amet, ipsum voluptate nulla sed. Labore ad laborum officia non amet. Nisi duis do culpa.
 				Est in excepteur ea incididunt velit reprehenderit minim, sint est commodo aliquip ex velit officia, cillum nostrud non eu fugiat fugiat.
@@ -72,16 +78,21 @@
 		</output>
 
 		<style contenteditable="plaintext-only">
-
+			.mask-linear {
+				mask: linear-gradient(to top, transparent, black 35%);
+			}
 
 		</style>
 
-		<output class="background-crosshatch">
+		<output class="display-class background-crosshatch">
 			<p class="mask-linear">
 				Lorem ipsum dolor sit amet, ipsum voluptate nulla sed. Labore ad laborum officia non amet. Nisi duis do culpa.
 				Est in excepteur ea incididunt velit reprehenderit minim, sint est commodo aliquip ex velit officia, cillum nostrud non eu fugiat fugiat.
 			</p>
 		</output>
+
+
+
 
 	</main>
 
