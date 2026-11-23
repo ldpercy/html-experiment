@@ -52,7 +52,7 @@ export async function importJson(filePath) {
  * @param {string} filePath
  * @returns {Promise<string>}
  */
-async function fetchFile(filePath) {
+export async function fetchFile(filePath) {
 	let result = undefined;
 	//let result = ;
 
@@ -90,11 +90,11 @@ async function fetchFile(filePath) {
 
 
 /**
+ * @param {string} filePath
  * @param {string} method
+ * @returns {Promise<string>}
  */
-async function doFileRead(method = 'fetch') {
-
-	const filePath = document.forms['fileRead']['filePath'].value;
+export async function doFileRead(filePath, method = 'fetch') {
 	console.log('doFileRead:', method, filePath);
 
 	let fileContent;
@@ -104,9 +104,8 @@ async function doFileRead(method = 'fetch') {
 		fileContent = await fetchFile(filePath);		// fetch version
 	}
 
-
-	document.forms['fileRead']['fileContent'].value = fileContent;
-}
+	return fileContent;
+}/* doFileRead */
 
 
 

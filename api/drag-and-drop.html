@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>drag and drop</title>
+	<meta charset="utf-8">
+	<link rel="icon" href="../favicon.svg">
+	<link rel="stylesheet" href="../[common]/style.css">
+	<script type="module" src="../[common]/module.js"></script>
+</head>
+<body>
+	<page-header>
+		<span slot="page-title">drag and drop</span>
+	</page-header>
+
+	<main>
+
+		<style contenteditable="plaintext-only">
+
+			output {
+
+				div {
+					padding: 1ex;
+					border-radius:1ex;
+					margin:1em;
+				}
+
+				[draggable=true] {
+					outline: 2px dotted dodgerblue;
+				}
+
+				[draggable=false] {
+					outline: 2px dotted darkblue;
+				}
+			}
+
+		</style>
+
+
+		<form name="main">
+
+		</form>
+
+
+		<script type="module">
+
+
+		</script>
+
+		<output >
+
+			<div>
+				div no draggable attribute
+			</div>
+
+			<div draggable="false">
+				div draggable="false"
+			</div>
+
+			<div draggable="true">
+				div draggable="true"
+			</div>
+
+		</output>
+
+
+
+
+	</main>
+
+
+</body>
+</html>

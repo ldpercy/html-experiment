@@ -13,7 +13,7 @@
 		<span slot="page-title">File read</span>
 	</page-header>
 
-	<script type="module" src="../[common]/file.js"></script>
+
 
 	<main>
 
@@ -33,7 +33,7 @@
 		<form name="fileImport">
 			<h2>Import file</h2>
 
-			<input type="text" name="filePath" value="./file.md" class="full-width">
+			<input type="text" name="filePath" value="../readme.md" class="full-width">
 
 			<textarea name="fileContent" class="full-width"></textarea>
 
@@ -41,24 +41,43 @@
 		</form>
 
 
+		<script type="module">
+			import * as file from '../[common]/file.js';
 
+			console.log(file);
 
-		<script>
 			function documentDOMContentLoaded() {
 
 				//document.forms['fileRead']['filePath'].addEventListener('change', filePathChange);
-				document.forms['fileFetch']['button-readFetch'].addEventListener('click', ()=>doFileRead('fetch'));
-				document.forms['fileImport']['button-readImport'].addEventListener('click', ()=>doFileRead('import'));
-
+				document.forms['fileFetch']['button-readFetch'].addEventListener('click', ()=>doFileFetch());
+				document.forms['fileImport']['button-readImport'].addEventListener('click', ()=>doFileImport());
 
 			}/* documentDOMContentLoaded */
 
 			document.addEventListener('DOMContentLoaded', documentDOMContentLoaded);
 
 
+			async function doFileFetch() {
+				const filePath = document.forms['fileFetch']['filePath'].value;
+				console.log('doFileFetch:', filePath);
+
+				let fileContent = await file.fetchFile(filePath);		// fetch version
+
+				document.forms['fileFetch']['fileContent'].value = fileContent;
+			}
+
+
+			async function doFileImport() {
+
+				const filePath = document.forms['fileImport']['filePath'].value;
+				console.log('doFileImport:', filePath);
+
+				let fileContent = await file.importFile(filePath);		// import version
+
+				document.forms['fileImport']['fileContent'].value = fileContent;
+			}
 
 		</script>
-
 
 
 	</main>

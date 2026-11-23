@@ -16,6 +16,8 @@ Fetch has been around for ages, and works everywhere.
 Import is usually used for js modules, but the 'with' option allows for json and css (& more).
 In firefox at the moment you can also import with `type:'text'` for a general file reader.
 
+* `2026-11-23`	import w/ text seems working for me now in chrome, will verify
+
 Each uses different semantics for the requested resource, fetch represents a http request/response; import follows module resolution rules.
 
 Still working out the details, and whether either works out better for certain kinds of tasks.
@@ -24,7 +26,9 @@ I suspect for well-known local payloads like json import might work out better?
 Will experiment.
 
 
-### https://jakearchibald.com/2025/importing-vs-fetching-json/
+### Import memory leak
+
+* https://jakearchibald.com/2025/importing-vs-fetching-json/
 
 > When you import a module (be it JS, WASM, CSS, or JSON), it's cached for the lifetime of the environment (e.g. a page or worker), even if the result is a network or parsing failure.
 
@@ -64,6 +68,7 @@ Will experiment.
 	const fileContent = (await import(`./${fileName}`, { with: { type:'text' }})).default;
 ```
 
+2026-11-23
 
 
 
