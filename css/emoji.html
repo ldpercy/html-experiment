@@ -17,109 +17,71 @@
 		</nav>
 	</header>
 	<link rel="stylesheet" href="../[common]/style/visible-attributes.css">
-	<main>
+
+	<main class="display-style">
 
 	<style contenteditable="plaintext-only" spellcheck="false">
 		section {
 			--element-colour: steelblue;
-			grid-column-start: span 4;
+			/* grid-column-start: span 4; */
+			margin-block: 1em;
+			padding:1em;
+			white-space: preserve-breaks;
+			font-size: larger;
 		}
 
-		#section1 {	font-family: sans-serif;	}
-		#section2 {	font-family: monospace;		}
-		#section3 {	font-family: serif;			}
-		#section4 {	font-family: emoji;			}
-		#section5 {	font-family: system-ui;		}
-		#section6 {	font-family: cursive;		}
-		#section7 {	font-family: fantasy;		}
 	</style>
 
 
-	<script class="limit-height">
-
-		const emojiText = `
-			Point
-				⌖⊕⊗⊙◬⏧
-				📌📍🖈
-
-			Graph/chart
-				⏦🗠
-				📉📊📈💹
-				🗺
-
-			Code
-				ƒ
-
-			Loop
-				⅏➰➿
-
-			Settings
-				🎛🎚
-
-			Communication
-				📨📩📝📠📞🌐🗣️
-				🖧
-
-			Interface/joining
-				🙏🤝🫶🤼
-				⫘⨝⧉
-				🔗⛓️‍💥⛓️
-				🖇🧩
-				👯
-
-			Type
-				🅰️🅱️🆎🅾️
-
-			Play/pause  etc
-				▶️⏯⏸⏹⏺
-				⏏🔼🔽
-				⏩⏪⏫⏬
-				⏭⏮
-				🔀🔁🔂
-
-			Stop, go, warn
-				🛑
-				🚥🚦
-				🚏
-				⛔🚫🚧
-				⚠️🚸☢️☣️
-
-			Switches, on off
-				⏻⏼
-
-			Experiments
-				⚗️🧪🧫🫟
-		`;
-
-	</script>
 
 
-	<pre>
+
+	<pre class="md">
 		Emoji support varies a bit by browser, and also which fonts are being used.
 		Need to do more research.
 		Well looky here - there's an emoji font-family. Whodathunkit.
 	</pre>
 
-	<section id="section1" class="emojiTarget">
+	<section class="emojiTarget" style="font-family: sans-serif;">
 	</section>
 
-	<section id="section2" class="emojiTarget">
+	<section class="emojiTarget" style="font-family: monospace;">
 	</section>
 
-	<section id="section3" class="emojiTarget">
+	<section class="emojiTarget" style="font-family: serif;">
 	</section>
 
-	<section id="section4" class="emojiTarget">
+	<section class="emojiTarget" style="font-family: emoji;">
 	</section>
 
-	<section id="section5" class="emojiTarget">
+	<section class="emojiTarget" style="font-family: cursive;">
 	</section>
 
-	<section id="section6" class="emojiTarget">
+	<section class="emojiTarget" style="font-family: fantasy;">
 	</section>
 
-	<section id="section7" class="emojiTarget">
+	<section class="emojiTarget" style="font-family: system-ui;">
 	</section>
+
+	<script class="limit-height">
+
+		const emojiText = `
+			Point				⌖⊕⊗⊙◬⏧	📌📍🖈
+			Graph/chart			⏦🗠	📉📊📈💹	🗺
+			Code				ƒ
+			Loop				⅏➰➿
+			Settings			🎛🎚
+			Communication		📨📩📝📠📞🌐🗣️		🖧
+			Interface/joining	🙏🤝🫶🤼	⫘⨝⧉		🔗⛓️‍💥⛓️	🖇🧩	👯
+			Type				🅰️🅱️🆎🅾️
+			Play/pause etc		▶️⏯⏸⏹⏺	⏏🔼🔽	⏩⏪⏫⏬	⏭⏮	🔀🔁🔂
+			Stop, go, warn		🛑	🚥🚦	🚏	⛔🚫🚧	⚠️🚸☢️☣️
+			Switches, on off	⏻⏼
+			Experiments			⚗️🧪🧫🫟
+			Writing/editing		✍🖆🖎
+		`;
+
+	</script>
 
 	<script>
 
@@ -130,8 +92,6 @@
 		);
 
 	</script>
-
-
 
 	</main>
 
